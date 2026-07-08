@@ -1,0 +1,147 @@
+---
+title: "Frontend Design Architecture: A UI/UX Playbook for Modern Web Products"
+excerpt: "How to structure the visual layer of a web product so design stays consistent, development stays fast, and your brand survives a redesign."
+date: "2026-04-14"
+author: "Arslan Ali"
+authorRole: "Creative Director"
+category: "Design"
+tags: ["UI", "UX", "Design Systems", "Frontend", "Architecture"]
+image: "/blog/frontend-design.jpg"
+---
+
+# Frontend Design Architecture: A UI/UX Playbook for Modern Web Products
+
+Most "design systems" fail for the same reason: they're built as a Figma library instead of a product. Designers ship beautiful components, engineers copy the closest-looking HTML, and six months later the button on the pricing page is 2 pixels taller than the one on the homepage. Nobody can remember why.
+
+Frontend design architecture is the structure that keeps a product visually coherent as it grows. It's not a Figma file. It's not a component library. It's the set of decisions you make *once* so the next hundred decisions become obvious.
+
+This is how we architect the design layer at Krypton.
+
+## Start With Design Tokens, Not Components
+
+Before you draw a button, define the vocabulary the button will speak. Tokens are the atoms — named, versioned values for every visual decision a designer might care about:
+
+- **Color.** Primitive (`blue-500`) and semantic (`surface-default`, `text-muted`, `border-subtle`). Never hard-code a hex value after this step.
+- **Spacing.** A scale — `4, 8, 12, 16, 24, 32, 48, 64`. No one-off 10px gaps.
+- **Typography.** Font families, weights, sizes, line heights, tracking. Named by role: `heading-xl`, `body-md`, `caption`.
+- **Radius, shadow, motion.** Radii scale, shadow elevation scale, motion durations and easing curves.
+
+Tokens solve the rebrand problem. When a client decides magenta is the new primary colour, you change one variable and every screen updates. When there are no tokens, a rebrand is a month of find-and-replace.
+
+```css
+:root {
+  --color-surface-default: #ffffff;
+  --color-text-default: #281000;
+  --color-primary: #cb6be6;
+  --space-4: 1rem;
+  --radius-lg: 1.5rem;
+  --motion-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+The rule: if a value appears in more than one place, it becomes a token. No exceptions.
+
+## Three Layers, Strict Boundaries
+
+Once tokens exist, components fall into three layers. They must never cross.
+
+**Layer 1 — Primitives.** Buttons, inputs, cards, dialogs, tooltips. They know about tokens and nothing else. A primitive `Button` cannot import anything that knows the word "Subscription" or "Invoice." If it does, the architecture has already failed.
+
+**Layer 2 — Patterns.** Composed primitives that solve a recurring UI problem but are still domain-agnostic: `DataTable`, `FilterBar`, `ConfirmDialog`, `EmptyState`. These can be reused across features.
+
+**Layer 3 — Features.** Domain-specific components: `SubscriptionCard`, `InvoiceTimeline`, `CheckoutForm`. These talk to your data layer and assemble primitives and patterns into screens.
+
+The dependency graph only flows one way: features → patterns → primitives → tokens. Enforce it with ESLint import boundaries if you have to. The moment a primitive imports from a feature, the system starts to rot.
+
+## Design the States, Not Just the Happy Path
+
+Every screen has at least five states. Design them all before you ship any of them:
+
+1. **Empty.** First-time user, no data yet. This is the best onboarding tool you have — don't waste it on a shrug emoji.
+2. **Loading.** Skeleton, spinner, streamed content. Never a blank white screen.
+3. **Partial.** Some data loaded, more on the way. Common with streaming SSR.
+4. **Error.** What went wrong, what the user can do about it. A "try again" button is not a design — it's an apology.
+5. **Success / populated.** The state the design team actually mocked up.
+
+Designers who draw only the success state are handing engineers a maze. The five-state rule makes the handoff complete.
+
+## Accessibility Is a Design Decision, Not a QA Ticket
+
+Every Krypton product ships to WCAG 2.2 AA. That is not a checkbox at the end of the project — it shapes the design from the first wireframe:
+
+- Colour contrast ratios are locked into tokens. If a text-on-background combination fails contrast, it's not available.
+- Every interactive element has a visible focus state. The same focus ring, everywhere.
+- Touch targets are 44×44 pixels minimum. Not 40. Not 42. The Apple guideline.
+- Motion respects `prefers-reduced-motion`. Every animation has a reduced variant or a kill switch.
+- Every input has a label. Every icon-only button has an `aria-label`.
+
+The reason accessibility is a design problem, not an engineering problem, is that once the design is wrong, engineers will either ship an inaccessible interface or hack around it with overlays that feel worse. Design it right and the code falls into place.
+
+## Responsive Is a Grid, Not a Set of Breakpoints
+
+Most "responsive" sites are three designs stacked on top of each other — desktop, tablet, mobile — with media queries flipping between them. It works until someone opens a laptop at an unusual zoom level and everything breaks.
+
+The better model is a responsive grid with fluid constraints:
+
+- A container scale with `min()`, `max()`, `clamp()` for widths.
+- A type scale that also scales fluidly within bounds: `clamp(1rem, 0.9rem + 0.5vw, 1.25rem)`.
+- Components that wrap and reflow on their own using CSS Grid `auto-fit` and `minmax()`, not media queries on the component.
+
+You end up with roughly two breakpoints — "narrow" and "wide" — and the rest is fluid. It's less code and it holds together at every viewport.
+
+## Motion: Small, Consistent, Invisible
+
+The motion in a great product is something you notice only when it's missing. A few rules keep it from getting in the way:
+
+- **Durations.** Three values: `fast` (120–150ms), `base` (200–250ms), `slow` (400–500ms). Fast for state changes, base for enters/exits, slow for attention-grabbing moments.
+- **Easing.** One curve for entrances (`cubic-bezier(0.16, 1, 0.3, 1)`), one for exits (`cubic-bezier(0.4, 0, 1, 1)`). Don't invent new ones per screen.
+- **Purpose.** Every animation answers a question: *what changed, and where did it come from?* Animation without answer is decoration.
+
+> "If a user has to watch your animation play a second time before they can use your product, it's too long."
+
+## Design System ≠ Documentation Site
+
+Most teams spend a quarter building a Storybook instance nobody reads. The system that gets used is the system that's inline in the codebase:
+
+- Components live next to their stories and tests.
+- Tokens are real CSS variables, not a screenshot in a PDF.
+- Usage rules are ESLint rules where possible, code comments where not.
+
+A documentation site is a nice-to-have. A working `<Button>` that refuses to compile with an arbitrary colour is the actual system.
+
+## Handoff: Figma Is the Sketch, Not the Source
+
+A common failure mode: designers ship pixel-perfect Figma files, engineers try to reproduce them in CSS, and every small deviation sparks a week-long debate. The productive model inverts it:
+
+- Figma is a high-fidelity *sketch*. It explores intent, layout, and states.
+- The codebase is the source of truth. If Figma and production disagree, production is right — then the design team updates Figma.
+- Designers have read access to the running app and use it to verify their work, not a static screenshot.
+
+This shortens the feedback loop from days to minutes and ends the "but Figma says 14px" arguments forever.
+
+## When to Rebuild the Design System
+
+You'll know it's time when:
+
+- More than 20% of PRs touch design system code to work around its limits.
+- Designers routinely mark up screenshots of production because the Figma library is out of date.
+- A "simple" visual change requires changes in four separate components.
+
+The fix isn't a big-bang rewrite — it's a six-week refactor where you fold the variants back into canonical components, consolidate tokens, and delete the dead ones. Every team we've worked with has gone through this at least once. It's not a failure. It's what a healthy system looks like at year two.
+
+## What Great Design Architecture Gets You
+
+When it's working, the signs are quiet:
+
+- A new designer onboards by opening the token file. No reading required.
+- A rebrand is a pull request, not a project.
+- Engineers ship screens without asking "what colour should this be?"
+- A user can use a feature they've never seen before because everything behaves the way the rest of the product does.
+
+## Conclusion
+
+UI/UX architecture isn't about drawing prettier screens — it's about building a system where the next screen is almost trivial to draw. Tokens, layered components, state-complete designs, accessibility baked in, fluid layout, restrained motion, and a codebase that's the source of truth. Get those right and the design scales with the product instead of fighting it.
+
+> "The best design systems feel like gravity. You don't notice them until you try to work without one." — Arslan Ali
+
+If your product's UI has drifted into one-off screens and pixel-by-pixel debates, we help teams rebuild the design foundation without stopping the business. [Start a conversation](/contact).

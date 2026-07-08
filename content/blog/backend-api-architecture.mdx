@@ -1,0 +1,188 @@
+---
+title: "Backend API Architecture: Designing APIs That Outlive Their Frameworks"
+excerpt: "A practical guide to API design, versioning, error modelling, and the boring-on-purpose decisions that keep a backend shipping for years."
+date: "2026-04-15"
+author: "Arslan Ali"
+authorRole: "Creative Director"
+category: "Development"
+tags: ["Backend", "API", "Architecture", "REST", "GraphQL", "TypeScript"]
+image: "/blog/backend-api.jpg"
+---
+
+# Backend API Architecture: Designing APIs That Outlive Their Frameworks
+
+The framework you picked last Tuesday will be obsolete in four years. The API you designed will still be in production. Treat them accordingly.
+
+Most backend teams spend their first months obsessing over the stack — which database, which ORM, REST or GraphQL, monolith or microservices — and almost no time on the *shape* of the API itself. Then, a year in, the team discovers that rev-ing a single endpoint risks breaking six clients, error responses are inconsistent from route to route, and "we need a v2" has become the whispered consensus in every retro.
+
+The fix is boring, which is why almost nobody does it. This post is the playbook we use at Krypton.
+
+## Model Resources, Not Screens
+
+The first mistake is to design endpoints against the screens you're currently building. `GET /dashboard-data` is a guarantee that when the dashboard changes, the API breaks.
+
+Instead, start with the business resources: `Customer`, `Subscription`, `Invoice`, `Session`. These nouns outlive redesigns, product pivots, and mobile app rewrites. Your endpoints become thin, orthogonal operations on those resources — and your frontend composes them.
+
+A good test: if your API has an endpoint named after a page, it's already too coupled to today's UI.
+
+## Pick One API Style and Commit
+
+The REST vs GraphQL vs tRPC debate has a simple answer: pick one, document why, and stop rehashing it in every tech-spec review.
+
+**REST** is the right default when:
+- Your API will be consumed by clients you don't control (partners, third parties, mobile apps shipping at a different cadence).
+- You want aggressive CDN caching on GET routes.
+- You need OpenAPI tooling (codegen, Postman, auto-generated docs).
+
+**GraphQL** earns its complexity when:
+- Clients have wildly different data needs and you want to avoid either over-fetching or proliferating endpoints.
+- You have a strong schema-governance practice (without one, GraphQL becomes a liability faster than REST).
+
+**Typed RPC (tRPC, gRPC, ConnectRPC)** wins when:
+- You own both ends of the wire.
+- Your team is TypeScript end-to-end.
+- You value compile-time safety over framework-neutral contracts.
+
+The worst choice is "we'll use the right tool for each endpoint." That's how you end up with three half-documented systems and no one on the team who understands all of them.
+
+## Design the Error Model Before You Ship the Happy Path
+
+An API without a deliberate error model is a promise you'll pay for in production. Commit to a shape on day one and enforce it everywhere.
+
+```json
+{
+  "error": {
+    "code": "subscription.payment_declined",
+    "message": "Your card was declined by the issuer.",
+    "retriable": false,
+    "fields": { "card": "declined" },
+    "traceId": "01H9QK…"
+  }
+}
+```
+
+Five properties, each doing specific work:
+
+- **`code`** — a stable, machine-readable string. Clients switch on this, never on the message.
+- **`message`** — safe to show a user. If it isn't, it shouldn't be in the response.
+- **`retriable`** — lets the frontend decide between a "try again" affordance and a full-stop state.
+- **`fields`** — when the error is per-field (form validation), a map the UI can render inline.
+- **`traceId`** — the same ID that appears in your logs. Turns "I got an error" into a twenty-second lookup.
+
+A well-known catalogue of error codes — documented once, re-used everywhere — is worth more than a dozen engineers' intuitive retry logic.
+
+## Version With Intent, Not With Regret
+
+You will ship a breaking change. The question is whether you've decided how ahead of time.
+
+Three workable strategies:
+
+- **URL versioning** (`/v1/invoices` → `/v2/invoices`). Obvious, cache-friendly, gets ugly over time. The default for external APIs.
+- **Header versioning** (`Accept: application/vnd.krypton.v2+json`). Cleaner URLs, harder for third parties who reach for `curl`.
+- **Additive evolution.** Never remove fields; mark them deprecated and stop populating them. Works beautifully in GraphQL with `@deprecated`, and reasonably well in REST.
+
+Pick one, write it in the engineering handbook, and hold the line. Mixed versioning schemes are how you end up maintaining three parallel contracts by accident.
+
+## Pagination, Filtering, and Sorting: Boring Decisions, Made Once
+
+Every list endpoint will eventually need pagination. The time to design it is now, not when a table grows past 10,000 rows and melts the database.
+
+- **Cursor-based pagination** (`?cursor=…&limit=50`) is correct for most cases. Stable across inserts, efficient on indexed columns.
+- **Offset pagination** (`?page=3&limit=50`) is fine for admin tools and static datasets. Broken for anything that changes while you're paginating.
+- **Filtering** should be explicit: `?status=active&createdAfter=2026-01-01`. Never a free-form `q` parameter unless you actually want to build search.
+- **Sorting** uses a single query param with a signed field name: `?sort=-createdAt`. Minus means descending.
+
+Decide these once, apply them to every list endpoint, and new engineers will build correctly without asking.
+
+## Authentication and Authorization Are Different Problems
+
+Conflating them is how security bugs happen.
+
+**Authentication** proves who the caller is. A JWT, a session cookie, an API key. One mechanism for your web clients, one for your server-to-server integrations, and a deliberate boundary between them.
+
+**Authorization** decides what that caller is allowed to do. It belongs at the edge of every operation, not scattered through controllers. A single `can(actor, action, resource)` function, called from every handler, is worth more than any RBAC library.
+
+```ts
+if (!can(actor, "cancel", subscription)) {
+  throw new ForbiddenError("subscription.cancel_not_allowed");
+}
+```
+
+The shape of the call matters more than the implementation. Centralise it, log every denial, and you'll catch authz bugs in staging instead of in the wild.
+
+## Treat the Database as an Implementation Detail
+
+The ORM you love today is not the contract. Your API response shapes are.
+
+- Never return raw database rows over the wire. Map them.
+- Never expose database IDs as your only resource IDs if those IDs leak information (auto-incrementing integers tell the world how many customers you have).
+- Never rely on the database's column types — the API spec says `string`, so it's a string, even if the column is an enum or a bit flag.
+
+This separation is what lets you swap Postgres for a different store, shard a hot table, or add a read replica without rewriting every client.
+
+## Idempotency Is a Feature, Not an Afterthought
+
+Any mutation that costs real money — charging a card, sending an email, provisioning a resource — must be idempotent. The pattern is well-known and cheap to implement:
+
+- Client generates a UUID per operation.
+- Client sends it in an `Idempotency-Key` header.
+- Server stores the first result under that key and returns the same result on replay for a retention window (24h is plenty).
+
+This turns "the payment button double-submitted" from a support nightmare into a non-event. Skipping it is a decision you only make once; you never make it twice.
+
+## Observability: Log the Contract, Not the Stack Trace
+
+Your logs should read like API traffic, not like a heap dump. For every request, emit:
+
+- Route and method (`POST /subscriptions/:id/cancel`).
+- Authenticated principal (`user_01H…` or `api_key_01H…`).
+- Outcome: status code, error code if applicable, duration, bytes out.
+- A trace ID that flows through every downstream call — database, cache, queue, third-party API.
+
+A dashboard grouped by your error codes will tell you where customers are actually suffering. A dashboard grouped by HTTP 500s will tell you nothing.
+
+> "The most valuable metric on our dashboard isn't latency. It's the count of errors with the code `internal.unexpected` — because that number should be zero, and when it isn't, something in the contract is leaking."
+
+## Rate Limiting and Abuse Controls
+
+Every public endpoint needs a rate limit. It's not a nice-to-have — it's the single cheapest defence against both malicious traffic and a runaway client bug.
+
+- Limit per authenticated principal first, per IP second.
+- Return `429` with a `Retry-After` header. Never hide the limit; document it.
+- Burst-and-steady (token bucket) beats flat-rate for real traffic.
+
+A well-behaved bot honours `429`s and `Retry-After`s automatically. A misbehaving one announces itself in your logs. Both outcomes are good.
+
+## The Pragmatic Stack
+
+For most backend work in 2026 we reach for:
+
+- **Node or Go** — Node when the team is full-stack TypeScript, Go when throughput and binary deploys matter more than sharing types with the frontend.
+- **Postgres** as the default store. Reach for something exotic only when you can name the exact property of Postgres that's failing you.
+- **Drizzle or Prisma** on TypeScript; standard library + `sqlc` on Go.
+- **Redis** for sessions, rate limiting, idempotency keys, and short-lived caches.
+- **A real message queue** (SQS, Cloudflare Queues, Postgres-backed `graphile-worker`) for anything that can be done out-of-band. Email sending and webhook delivery should never block a request.
+- **OpenAPI or a typed-RPC schema** as the source of truth for the contract.
+- **Structured logging + OpenTelemetry traces** wired in from day one.
+
+None of this is exotic. That's the point. A stack a senior engineer can debug at 2 a.m. outruns a clever stack that only the original author understands.
+
+## What Good Looks Like
+
+You know the API is well-architected when:
+
+- A new frontend can be built against the API without backend changes.
+- Renaming or removing a field goes through a deliberate deprecation cycle, not a panicked hotfix.
+- Production errors land pre-grouped by error code.
+- A new engineer can ship a correct endpoint on their second day by copying a neighbouring one.
+- Nobody is whispering "we need a v2."
+
+## Conclusion
+
+Backend API architecture isn't about which framework you chose — it's about the contract you committed to and the discipline to keep it. Resources over screens. One API style, enforced. A deliberate error model. Versioning as a plan, not a reaction. Idempotency on every mutation that costs money. Observability in the vocabulary of the API, not the runtime.
+
+The frameworks will change. The contract, if you design it well, will still be serving traffic when the next three frameworks have come and gone.
+
+> "The best APIs are boring. Boring APIs are what let a product team spend its attention on the product, instead of on the plumbing." — Sadeed Uddin Salhyonka
+
+If your backend is drifting — inconsistent errors, creeping endpoint sprawl, every client integration requiring a meeting — we help teams reset the contract without stopping delivery. [Talk to us](/contact).
