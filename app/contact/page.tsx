@@ -116,13 +116,14 @@ export default function ContactPage() {
         </div>
         <Navbar />
 
-        <main id="main-content" ref={containerRef} className="pt-32 pb-32 px-6">
-          <div className="container mx-auto max-w-6xl">
-            <section className="relative mb-20 pt-12 pb-12">
-              <AuroraBackground />
+        <main id="main-content" ref={containerRef} className="pb-32">
+          {/* Hero Section — tall so the aurora background flows naturally */}
+          <section className="contact-hero relative pt-40 pb-20 px-6">
+            <AuroraBackground />
+            <div className="container mx-auto max-w-6xl relative z-10">
               <h1
                 ref={titleRef}
-                className="text-5xl md:text-7xl font-bold tracking-tighter mb-2 uppercase leading-[0.95] text-center relative z-10"
+                className="text-5xl md:text-7xl font-bold tracking-tighter mb-2 uppercase leading-[0.95] text-center"
               >
                 <span className="inline-block">LET&apos;S BUILD YOUR</span>
                 <br />
@@ -130,7 +131,10 @@ export default function ContactPage() {
                   GROWTH ENGINE
                 </span>
               </h1>
-            </section>
+            </div>
+          </section>
+
+          <div className="container mx-auto max-w-6xl px-6">
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               {/* Contact Info */}

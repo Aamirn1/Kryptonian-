@@ -95,12 +95,12 @@ export default function PricingPage() {
 
         <Navbar />
 
-        <main ref={containerRef} className="pt-32 pb-32 px-6">
-          <div className="container mx-auto max-w-7xl">
-            {/* Header */}
-            <section className="relative mb-16 pt-12 pb-12">
-              <AuroraBackground />
-              <div className="pricing-header text-center max-w-4xl mx-auto relative z-10">
+        <main ref={containerRef} className="pb-32">
+          {/* Hero Section — tall so the aurora background flows naturally */}
+          <section className="pricing-hero relative pt-40 pb-20 px-6">
+            <AuroraBackground />
+            <div className="container mx-auto max-w-7xl relative z-10">
+              <div className="pricing-header text-center max-w-4xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
@@ -158,9 +158,11 @@ export default function PricingPage() {
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
 
-            {/* Pricing Grid */}
+          {/* Pricing Grid */}
+          <section className="px-6">
             <div
               ref={gridRef}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32"
@@ -281,7 +283,7 @@ export default function PricingPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </main>
 
         <Footer />
