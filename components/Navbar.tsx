@@ -109,15 +109,16 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: "/about", label: "About" },
+    { href: "/", label: "Home" },
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/blog", label: "Blog" },
     { href: "/pricing", label: "Pricing" },
+    { href: "/blog", label: "Blog" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   return (
     <>
@@ -153,7 +154,7 @@ export default function Navbar() {
               href="/get-started"
               className="group relative overflow-hidden px-6 py-2 btn-gradient rounded-xl text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover"
             >
-              <span className="relative z-10">Initiate Scoping</span>
+              <span className="relative z-10">Order Now</span>
               <span className="shimmer-sweep" />
             </Link>
           </div>
@@ -226,7 +227,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="group relative overflow-hidden block w-full py-4 btn-gradient rounded-full text-white text-center font-bold transition-all hover:btn-gradient-hover"
                 >
-                  <span className="relative z-10">Initiate Scoping</span>
+                  <span className="relative z-10">Order Now</span>
                   <span className="shimmer-sweep" />
                 </Link>
               </div>
