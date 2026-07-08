@@ -1,7 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
 /**
  * WhatsApp icon (lucide doesn't ship one, so we inline the official path).
  */
@@ -37,17 +35,9 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="group fixed bottom-6 right-6 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_-6px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 hover:shadow-[0_12px_40px_-6px_rgba(37,211,102,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="group fixed bottom-6 right-6 z-[90] flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_-6px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 hover:shadow-[0_12px_40px_-6px_rgba(37,211,102,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
-      <WhatsAppIcon className="h-7 w-7" />
-      {/* Subtle pulsing ring to draw attention */}
-      <span
-        aria-hidden="true"
-        className={cn(
-          "absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping",
-        )}
-        style={{ animationDuration: "2.5s" }}
-      />
+      <WhatsAppIcon className="h-6 w-6" />
     </a>
   );
 }

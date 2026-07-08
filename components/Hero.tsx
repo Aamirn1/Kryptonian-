@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { MoveRight, TrendingUp, Target, BarChart3 } from "lucide-react";
+import { TrendingUp, Target, BarChart3 } from "lucide-react";
 
 import ThreeNexus from "./ThreeNexus";
 import AuroraBackground from "./AuroraBackground";
@@ -284,12 +284,11 @@ export default function Hero() {
             <div ref={ctaRef} className="flex flex-row gap-2.5 sm:gap-4">
               <Link
                 href="/pricing"
-                className="group relative overflow-hidden px-5 sm:px-10 py-3.5 sm:py-5 btn-gradient text-white font-semibold rounded-full transition-all hover:btn-gradient-hover active:scale-95 flex items-center justify-center gap-2 sm:gap-3 flex-1 sm:flex-none"
+                className="group relative overflow-hidden px-5 sm:px-10 py-3.5 sm:py-5 btn-gradient text-white font-semibold rounded-full transition-all hover:btn-gradient-hover active:scale-95 flex items-center justify-center flex-1 sm:flex-none"
               >
                 <span className="relative z-10 uppercase tracking-[0.1em] sm:tracking-[0.12em] text-[0.7rem] sm:text-sm whitespace-nowrap">
-                  Scale Project
+                  Order Now
                 </span>
-                <MoveRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-2 shrink-0" />
                 <span className="shimmer-sweep" />
               </Link>
               <Link

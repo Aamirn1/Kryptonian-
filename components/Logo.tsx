@@ -57,7 +57,7 @@ export default function Logo({
           )}
         >
           Krypton{" "}
-          <span className="bg-gradient-to-r from-electric to-violet bg-clip-text text-transparent">
+          <span className="relative inline-block bg-clip-text text-transparent animate-gradient-x bg-[linear-gradient(110deg,#3b82f6,#8b5cf6,#06b6d4,#3b82f6)] bg-[length:200%_auto]">
             Digital
           </span>
         </span>

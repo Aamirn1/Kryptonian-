@@ -256,14 +256,14 @@ export default function PortfolioPage() {
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
-                        <div className="relative h-full bg-linear-to-br from-electric/20 to-violet/20">
+                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full bg-linear-to-br from-electric/20 to-violet/20 overflow-hidden">
                           <Image
                             src={featured.image}
                             alt={featured.title}
                             fill
                             className="object-cover"
                           />
-                          <div className="absolute inset-0" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/20" />
                         </div>
 
                         {/* Content Side */}
@@ -285,13 +285,13 @@ export default function PortfolioPage() {
                           </p>
 
                           {/* Results */}
-                          <div className="grid grid-cols-3 gap-6 mb-10">
+                          <div className="grid grid-cols-3 gap-4 md:gap-6 mb-10">
                             {featured.results.map((result, idx) => (
-                              <div key={idx}>
-                                <div className="font-display text-3xl md:text-4xl font-bold text-white mb-1">
+                              <div key={idx} className="min-w-0">
+                                <div className="font-display text-2xl md:text-4xl font-bold text-white mb-2">
                                   {result.metric}
                                 </div>
-                                <div className="text-white/60 text-xs uppercase tracking-[0.18em]">
+                                <div className="text-white/60 text-[0.6rem] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.18em] leading-tight">
                                   {result.label}
                                 </div>
                               </div>
