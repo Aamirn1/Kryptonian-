@@ -11,29 +11,33 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-card pt-12 pb-6 border-t border-white/10 rounded-t-4xl">
+    <footer className="bg-card pt-12 pb-6 border-t border-white/10 rounded-t-[2rem]">
       <div className="h-px bg-gradient-to-r from-transparent via-electric/50 to-transparent" />
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
           <div className="flex flex-col">
-            <h2 className="text-3xl md:text-4xl lg:text-7xl font-black tracking-tighter mb-6 mr-8">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-7xl font-bold tracking-tighter mb-6 mr-8 leading-[1.05]">
               LET&apos;S TALK <span className="text-gradient italic">SHOP</span>.
             </h2>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-md mb-6">
+              Senior strategists, designers, and engineers — ready to scope your
+              next chapter of growth.
+            </p>
             <Link
               href="mailto:hello@kryptondigital.com"
-              className="text-lg md:text-xl font-medium hover:text-electric transition-colors flex items-center gap-3"
+              className="text-lg md:text-xl font-medium hover:text-electric transition-colors flex items-center gap-3 w-fit group"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
               contact@kryptondigital.co.uk
             </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h4 className="font-bold mb-3 uppercase tracking-widest text-sm">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
                 Navigation
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 <li>
                   <Link
                     href="/about"
@@ -69,10 +73,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-3 uppercase tracking-widest text-sm">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
                 Legal
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 <li>
                   <Link
                     href="/privacy"
@@ -92,10 +96,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-3 uppercase tracking-widest text-sm">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
                 Socials
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 <li>
                   <Link
                     href="https://www.instagram.com/kryptondigital"
@@ -128,19 +132,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-4 border-t border-white/10 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-4">
           <div className="scale-90">
             <Logo variant="footer" />
           </div>
           <div className="text-muted-foreground text-sm">
-            © 2026 Krypton Digital. All rights reserved. Built with passion &
-            motion.
+            © 2026 Krypton Digital. All rights reserved. Crafted with
+            precision & motion.
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-6 py-2 border border-white/10 rounded-full text-xs font-bold hover:cursor-pointer hover:bg-electric hover:text-white transition-all"
+            className="group px-6 py-2 border border-white/10 rounded-full text-xs font-semibold tracking-[0.12em] uppercase hover:cursor-pointer hover:bg-electric hover:text-white hover:border-electric transition-all"
           >
-            BACK TO TOP
+            Back to Top
           </button>
         </div>
       </div>

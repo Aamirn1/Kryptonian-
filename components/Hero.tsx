@@ -4,10 +4,11 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { MoveRight, Zap, TrendingUp, Target, BarChart3 } from "lucide-react";
+import { MoveRight, TrendingUp, Target, BarChart3 } from "lucide-react";
 
 import ThreeNexus from "./ThreeNexus";
 import AuroraBackground from "./AuroraBackground";
+import Typewriter from "./Typewriter";
 
 /**
  * Floating glass stat cards layered over the hero composition image.
@@ -224,9 +225,12 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Text Content */}
           <div className="flex flex-col text-left mx-8 lg:mx-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 mb-8 w-fit">
-              <Zap className="w-3 h-3 text-electric fill-electric" />
-              <p className="text-electric text-xs font-bold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-8 w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
+              </span>
+              <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
                 Strategic Growth Engine
               </p>
             </div>
@@ -234,38 +238,65 @@ export default function Hero() {
             <div className="overflow-hidden mb-1">
               <span
                 ref={titlePart1Ref}
-                className="block text-5xl md:text-7xl lg:text-8xl font-black text-foreground tracking-tighter leading-[0.9] uppercase"
+                className="block text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tighter leading-[0.9] uppercase"
               >
                 Exponential
               </span>
             </div>
-            <div className="overflow-hidden mb-8">
+            <div className="overflow-hidden mb-3">
               <span
                 ref={titlePart2Ref}
-                className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase text-gradient italic"
+                className="block text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] uppercase text-gradient italic"
               >
                 Growth
               </span>
             </div>
 
+            {/* Typewriter rotating specialization line */}
+            <div className="flex items-center gap-2 mb-7 h-7">
+              <span className="text-sm md:text-base font-medium text-white/40 tracking-tight">
+                Engineered for
+              </span>
+              <Typewriter
+                phrases={[
+                  "SEO dominance",
+                  "Conversion velocity",
+                  "Brand authority",
+                  "Market leadership",
+                  "Sustainable ROI",
+                ]}
+                className="text-sm md:text-base font-semibold tracking-tight text-gradient"
+                typeSpeed={65}
+                deleteSpeed={35}
+                pauseDuration={1500}
+              />
+            </div>
+
             <p
               ref={subtitleRef}
-              className="text-lg md:text-xl text-white/60 max-w-xl mb-12 leading-relaxed font-medium"
+              className="text-base md:text-lg text-white/60 max-w-xl mb-12 leading-relaxed"
             >
-              Mastering the digital landscape with bespoke SEO architectures
-              engineered for market-leading dominance and ROI.
+              We architect high-performance digital ecosystems — blending
+              precision SEO, elite web development, and brand strategy into a
+              compounding growth engine for market-leading companies.
             </p>
 
-            <div ref={ctaRef}>
+            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/pricing"
-                className="group relative overflow-hidden px-10 py-5 btn-gradient text-white font-bold rounded-full transition-all hover:btn-gradient-hover active:scale-95 flex items-center gap-3 w-full"
+                className="group relative overflow-hidden px-10 py-5 btn-gradient text-white font-semibold rounded-full transition-all hover:btn-gradient-hover active:scale-95 flex items-center justify-center gap-3 w-full sm:w-auto"
               >
-                <span className="relative z-10 uppercase tracking-widest text-medium">
+                <span className="relative z-10 uppercase tracking-[0.12em] text-sm">
                   Scale Project
                 </span>
-                <MoveRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-6" />
+                <MoveRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-2" />
                 <span className="shimmer-sweep" />
+              </Link>
+              <Link
+                href="/portfolio"
+                className="group px-8 py-5 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <span className="uppercase tracking-[0.12em] text-sm">View Work</span>
               </Link>
             </div>
           </div>

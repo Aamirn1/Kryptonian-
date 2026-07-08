@@ -48,20 +48,21 @@ export default function GetStartedPage() {
           <div className="container mx-auto max-w-6xl relative z-10">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-electric transition-colors mb-12 group"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-electric transition-colors mb-12 group text-xs font-semibold tracking-[0.18em] uppercase"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              BACK TO HOME
+              Back to Home
             </Link>
 
             <div className="intro-content mb-24 max-w-3xl">
-              <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 uppercase leading-[0.9]">
                 Ready to <br />
                 <span className="text-gradient italic">Engage?</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                You&apos;re one step away from transforming your digital presence.
-                Choose your path and let&apos;s build the future together.
+                You&apos;re one decision away from engineering your next phase
+                of growth. Choose how we partner — and let&apos;s build the
+                future, together.
               </p>
             </div>
 
@@ -70,72 +71,72 @@ export default function GetStartedPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {/* Option 1: Fast Track */}
-              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-4xl overflow-hidden hover:bg-white/5 hover:border-electric/50 transition-all shadow-xl shadow-black/40">
-                <div className="w-16 h-16 bg-electric/10 text-electric rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
+              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-3xl overflow-hidden hover:bg-white/5 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                <div className="w-16 h-16 bg-electric/10 border border-electric/20 text-electric rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8" />
                 </div>
-                <h3 className="text-3xl font-bold mb-6">Foundation & Launch (One-Time or Project-Based)</h3>
+                <h3 className="text-3xl font-bold mb-6 leading-[1.1]">Foundation &amp; Launch (One-Time or Project-Based)</h3>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   Best for businesses with a clear goal who want to start
                   immediate execution on specific digital needs.
                 </p>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-2 text-electric font-bold group-hover:gap-4 transition-all"
+                  className="inline-flex items-center gap-2 text-electric font-semibold group-hover:gap-4 transition-all"
                 >
-                  GO FAST <Rocket className="w-5 h-5" />
+                  <span className="uppercase tracking-[0.12em] text-sm">Go Fast</span> <Rocket className="w-5 h-5" />
                 </Link>
                 <div className="absolute top-0 right-0 p-8">
-                  <span className="text-white/10 font-black text-6xl">01</span>
+                  <span className="font-display text-white/10 font-bold text-6xl">01</span>
                 </div>
               </div>
 
               {/* Option 2: Strategy First */}
-              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-4xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 transition-all shadow-xl shadow-electric/10">
+              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-3xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)]">
                 <div className="w-16 h-16 bg-electric text-white rounded-2xl flex items-center justify-center mb-10 group-hover:rotate-12 transition-transform shadow-xl shadow-electric/30">
                   <Target className="w-8 h-8" />
                 </div>
-                <h3 className="text-3xl font-bold mb-6">Ongoing Growth & Management (Subscription Packages)</h3>
+                <h3 className="text-3xl font-bold mb-6 leading-[1.1]">Ongoing Growth &amp; Management (Subscription Packages)</h3>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   Comprehensive audit and roadmap creation. Perfect for
                   established brands looking for a serious overhaul.
                 </p>
                 <Link
                   href="/pricing"
-                  className="group relative overflow-hidden inline-flex py-4 px-8 btn-gradient text-white font-bold rounded-2xl group-hover:scale-105 transition-all shadow-lg shadow-electric/20"
+                  className="group relative overflow-hidden inline-flex items-center justify-center py-4 px-8 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-2xl group-hover:scale-105 transition-all shadow-lg shadow-electric/20"
                 >
                   <span className="shimmer-sweep" />
-                  START AUDIT
+                  <span className="uppercase tracking-[0.12em] text-sm relative z-10">Start Audit</span>
                 </Link>
                 <div className="absolute top-0 right-0 p-8">
-                  <span className="text-electric/15 font-black text-6xl">02</span>
+                  <span className="font-display text-electric/15 font-bold text-6xl">02</span>
                 </div>
               </div>
 
               {/* Option 3: Enterprise */}
-              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-4xl overflow-hidden hover:bg-white/5 hover:border-electric/50 transition-all shadow-xl shadow-black/40">
-                <div className="w-16 h-16 bg-violet/10 text-violet rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
+              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-3xl overflow-hidden hover:bg-white/5 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                <div className="w-16 h-16 bg-violet/10 border border-violet/20 text-violet rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-3xl font-bold mb-6">Full Package</h3>
+                <h3 className="text-3xl font-bold mb-6 leading-[1.1]">Full Package</h3>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   End-to-end digital management. We become your internal
                   marketing and tech department.
                 </p>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-2 text-electric font-bold group-hover:gap-4 transition-all"
+                  className="inline-flex items-center gap-2 text-electric font-semibold group-hover:gap-4 transition-all"
                 >
-                  LEARN MORE <ArrowLeft className="w-5 h-5 rotate-180" />
+                  <span className="uppercase tracking-[0.12em] text-sm">Learn More</span> <ArrowLeft className="w-5 h-5 rotate-180" />
                 </Link>
                 <div className="absolute top-0 right-0 p-8">
-                  <span className="text-white/10 font-black text-6xl">03</span>
+                  <span className="font-display text-white/10 font-bold text-6xl">03</span>
                 </div>
               </div>
             </div>
 
-            <div className="intro-content mt-32 text-center p-20 bg-card border border-white/10 rounded-[4rem] shadow-xl shadow-black/40">
-              <h2 className="text-4xl font-bold mb-6 tracking-tight">
+            <div className="intro-content mt-32 text-center p-20 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <h2 className="text-4xl font-bold mb-6 tracking-tight leading-[1.05]">
                 STILL UNSURE?
               </h2>
               <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
@@ -144,9 +145,10 @@ export default function GetStartedPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-10 py-4 border border-white/10 rounded-full font-bold hover:bg-electric hover:text-white hover:border-electric transition-all"
+                className="group relative overflow-hidden inline-flex items-center justify-center px-10 py-4 border border-white/15 rounded-full font-semibold text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all"
               >
-                BOOK A CALL
+                <span className="shimmer-sweep" />
+                <span className="uppercase tracking-[0.12em] text-sm relative z-10">Book a Call</span>
               </Link>
             </div>
           </div>

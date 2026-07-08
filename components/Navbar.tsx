@@ -65,6 +65,7 @@ const NavLink = ({
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -73,6 +74,17 @@ export default function Navbar() {
       { y: -100, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", delay: 0.5 }
     );
+  }, []);
+
+  // Scroll-aware navbar: transparent over the hero, glass background once the
+  // user scrolls past ~80px (the hero's first viewport). This is especially
+  // important on mobile where the hero is full-bleed and a fixed glass pill
+  // would float awkwardly over it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -119,9 +131,15 @@ export default function Navbar() {
 
       <header
         ref={navRef}
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center p-3 md:p-6"
       >
-        <nav className="flex items-center justify-between gap-4 md:gap-8 px-6 md:px-8 py-3 md:py-4 max-w-3xl w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl shadow-black/40">
+        <nav
+          className={`flex items-center justify-between gap-4 md:gap-8 px-5 md:px-8 py-2.5 md:py-4 max-w-3xl w-full rounded-2xl transition-all duration-500 ${
+            scrolled
+              ? "bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40"
+              : "bg-transparent border border-transparent shadow-none"
+          }`}
+        >
           <Logo />
 
           {/* Desktop Navigation */}
@@ -143,7 +161,9 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+            className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-electric ${
+              scrolled ? "hover:bg-white/5" : "hover:bg-white/10"
+            }`}
             aria-label="Open menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"

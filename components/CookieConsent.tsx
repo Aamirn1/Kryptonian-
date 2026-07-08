@@ -109,15 +109,15 @@ export default function CookieConsent() {
       {/* Main Cookie Banner */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6" role="dialog" aria-label="Cookie consent">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-card border border-white/10 rounded-4xl shadow-2xl shadow-black/40 p-6 md:p-8">
+          <div className="bg-card border border-white/10 rounded-3xl shadow-2xl shadow-black/40 p-6 md:p-8">
             <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
               {/* Icon & Text */}
               <div className="flex items-start gap-4 flex-1">
-                <div className="w-12 h-12 bg-electric/10 rounded-2xl flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center shrink-0">
                   <Cookie className="w-6 h-6 text-electric" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-1">
+                  <h3 className="font-display font-bold text-lg mb-1 text-foreground">
                     We value your privacy
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
@@ -138,20 +138,20 @@ export default function CookieConsent() {
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <button
                   onClick={() => setShowSettings(true)}
-                  className="px-6 py-3 border border-white/10 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 border border-white/10 rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
                 >
                   <Settings className="w-4 h-4" />
                   Preferences
                 </button>
                 <button
                   onClick={handleDecline}
-                  className="px-6 py-3 border border-white/10 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-white/5 transition-colors"
+                  className="px-6 py-3 border border-white/10 rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:bg-white/5 transition-colors"
                 >
                   Decline
                 </button>
                 <button
                   onClick={handleAcceptAll}
-                  className="group relative overflow-hidden px-6 py-3 btn-gradient text-white rounded-xl hover:cursor-pointer text-sm font-bold hover:btn-gradient-hover transition-colors flex items-center justify-center gap-2"
+                  className="group relative overflow-hidden px-6 py-3 btn-gradient text-white rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:btn-gradient-hover transition-colors flex items-center justify-center gap-2"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Check className="w-4 h-4" />
@@ -178,16 +178,16 @@ export default function CookieConsent() {
           {/* Modal Container */}
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <div
-              className="relative bg-card rounded-3xl shadow-2xl shadow-black/50 w-full max-w-lg max-h-[85vh] flex flex-col"
+              className="relative bg-card rounded-3xl shadow-2xl shadow-black/50 w-full max-w-lg max-h-[85vh] flex flex-col border border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
               <div className="bg-card border-b border-white/10 p-6 flex items-center justify-between shrink-0 rounded-t-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-electric/10 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-electric/10 border border-electric/20 rounded-xl flex items-center justify-center">
                     <Settings className="w-5 h-5 text-electric" />
                   </div>
-                  <h3 className="text-xl font-bold">Cookie Preferences</h3>
+                  <h3 className="font-display text-xl font-bold text-foreground">Cookie Preferences</h3>
                 </div>
                 <button
                   onClick={handleClose}
@@ -204,8 +204,8 @@ export default function CookieConsent() {
                 <div className="p-5 bg-white/5 rounded-2xl border border-white/10">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-bold text-lg">Essential Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-electric/20 text-electric mt-1">
+                      <h4 className="font-display font-bold text-lg text-foreground">Essential Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-electric/20 text-electric mt-1">
                         Always On
                       </span>
                     </div>
@@ -224,8 +224,8 @@ export default function CookieConsent() {
                 <div className="p-5 bg-white/5 border border-white/10 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-bold text-lg" id="analytics-label">Analytics Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/10 text-muted-foreground mt-1">
+                      <h4 className="font-display font-bold text-lg text-foreground" id="analytics-label">Analytics Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-muted-foreground mt-1">
                         Optional
                       </span>
                     </div>
@@ -251,8 +251,8 @@ export default function CookieConsent() {
                 <div className="p-5 bg-white/5 border border-white/10 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-bold text-lg" id="marketing-label">Marketing Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/10 text-muted-foreground mt-1">
+                      <h4 className="font-display font-bold text-lg text-foreground" id="marketing-label">Marketing Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-muted-foreground mt-1">
                         Optional
                       </span>
                     </div>
@@ -275,7 +275,7 @@ export default function CookieConsent() {
 
                 {/* Extra info */}
                 <div className="p-5 bg-white/5 rounded-2xl border border-white/10">
-                  <h4 className="font-bold text-lg mb-3">More Information</h4>
+                  <h4 className="font-display font-bold text-lg text-foreground mb-3">More Information</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
                     You can change your cookie preferences at any time by
                     clicking the Cookie Settings link in the footer of our
@@ -298,13 +298,13 @@ export default function CookieConsent() {
               <div className="bg-card border-t border-white/10 p-6 flex flex-col sm:flex-row gap-3 shrink-0 rounded-b-3xl">
                 <button
                   onClick={handleAcceptEssential}
-                  className="px-6 py-3 border border-white/10 rounded-xl text-sm font-bold hover:bg-white/5 transition-colors"
+                  className="px-6 py-3 border border-white/10 rounded-xl text-sm font-semibold tracking-tight hover:bg-white/5 transition-colors"
                 >
                   Essential Only
                 </button>
                 <button
                   onClick={handleSavePreferences}
-                  className="group relative overflow-hidden flex-1 px-6 py-3 btn-gradient text-white rounded-xl text-sm font-bold hover:btn-gradient-hover transition-colors"
+                  className="group relative overflow-hidden flex-1 px-6 py-3 btn-gradient text-white rounded-xl text-sm font-semibold tracking-tight hover:btn-gradient-hover transition-colors"
                 >
                   <span className="relative z-10">Save Preferences</span>
                   <span className="shimmer-sweep" />

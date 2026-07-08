@@ -108,17 +108,17 @@ export default function Testimonials() {
         <div className="testimonials-header text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 mb-6 border border-electric/20">
             <Quote className="w-4 h-4 text-electric" />
-            <p className="text-electric font-bold text-sm">
-              CLIENT SUCCESS STORIES
+            <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+              Client Success Stories
             </p>
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase mb-6 leading-[1.05]">
             Trusted By{" "}
-            <span className="text-gradient italic">Industry Leaders</span>
+            <span className="text-gradient italic font-display">Industry Leaders</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our clients
-            have to say about working with us.
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Results that speak for themselves. Here&apos;s what our clients say
+            about partnering with Krypton Digital.
           </p>
         </div>
 
@@ -127,10 +127,10 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card group p-8 bg-card border border-white/10 rounded-[2.5rem] shadow-lg shadow-black/40 hover:shadow-xl hover:shadow-black/50 hover:border-electric/30 transition-all"
+              className="testimonial-card group p-8 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300"
             >
               {/* Quote Icon */}
-              <div className="w-12 h-12 bg-electric/10 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6">
                 <Quote className="w-6 h-6 text-electric" />
               </div>
 
@@ -156,14 +156,14 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-14 h-14 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${testimonial.image})` }}
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">{testimonial.name}</h4>
+                  <h4 className="font-display font-bold text-lg text-foreground">{testimonial.name}</h4>
                   <p className="text-muted-foreground text-sm">{testimonial.role}</p>
                 </div>
               </div>
@@ -184,8 +184,8 @@ export default function Testimonials() {
                     key={testimonial.id}
                     className="w-full shrink-0 px-1"
                   >
-                    <div className="p-6 bg-card border border-white/10 rounded-4xl shadow-lg shadow-black/40">
-                      <div className="w-10 h-10 bg-electric/10 rounded-xl flex items-center justify-center mb-4">
+                    <div className="p-6 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                      <div className="w-10 h-10 bg-electric/10 border border-electric/20 rounded-xl flex items-center justify-center mb-4">
                         <Quote className="w-5 h-5 text-electric" />
                       </div>
 
@@ -208,7 +208,7 @@ export default function Testimonials() {
                       </p>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden">
+                        <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
                           <div
                             className="w-full h-full bg-cover bg-center"
                             style={{
@@ -217,7 +217,7 @@ export default function Testimonials() {
                           />
                         </div>
                         <div>
-                          <h4 className="font-bold">{testimonial.name}</h4>
+                          <h4 className="font-display font-bold text-foreground">{testimonial.name}</h4>
                           <p className="text-muted-foreground text-xs">
                             {testimonial.role}
                           </p>
@@ -270,7 +270,7 @@ export default function Testimonials() {
         <div className="mt-20 pt-16 border-t border-white/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">
+              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
                 4.9/5
               </div>
               <p className="text-muted-foreground text-sm font-medium">
@@ -278,7 +278,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">
+              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
                 50+
               </div>
               <p className="text-muted-foreground text-sm font-medium">
@@ -286,7 +286,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">
+              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
                 98%
               </div>
               <p className="text-muted-foreground text-sm font-medium">
@@ -294,7 +294,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">
+              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
                 3x
               </div>
               <p className="text-muted-foreground text-sm font-medium">

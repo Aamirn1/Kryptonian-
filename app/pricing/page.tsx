@@ -101,13 +101,13 @@ export default function PricingPage() {
             <section className="relative mb-16">
               <AuroraBackground />
               <div className="pricing-header text-center max-w-4xl mx-auto relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
                 </div>
                 <h1
                   ref={titleContainerRef}
-                  className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
+                  className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
                 >
                   <span ref={titleLine1Ref} className="inline-block">
                     ELEVATE YOUR
@@ -130,7 +130,7 @@ export default function PricingPage() {
                   <div className="bg-white/5 p-1.5 rounded-full border border-white/10 shadow-xl shadow-black/40 flex gap-1 relative">
                     <button
                       onClick={() => setBillingCycle("oneTime")}
-                      className={`px-8 py-3 rounded-full text-sm font-bold transition-all relative z-10 ${
+                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
                         billingCycle === "oneTime"
                           ? "text-white"
                           : "text-white/60 hover:text-white"
@@ -140,7 +140,7 @@ export default function PricingPage() {
                     </button>
                     <button
                       onClick={() => setBillingCycle("monthly")}
-                      className={`px-8 py-3 rounded-full text-sm font-bold transition-all relative z-10 ${
+                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
                         billingCycle === "monthly"
                           ? "text-white"
                           : "text-white/60 hover:text-white"
@@ -170,33 +170,35 @@ export default function PricingPage() {
                   key={`${billingCycle}-${index}`}
                   className={`pricing-card group relative p-10 bg-card border ${
                     plan.popular
-                      ? "border-electric/30 shadow-2xl shadow-electric/10"
-                      : "border-white/10 shadow-xl shadow-black/40"
-                  } rounded-[3rem] overflow-hidden flex flex-col transition-all duration-300 ease-out hover:scale-105 hover:border-electric/50`}
+                      ? "border-electric shadow-[0_20px_60px_-20px_rgba(59,130,246,0.4)]"
+                      : "border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+                  } rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric/50`}
                 >
                   {plan.popular && (
-                    <div className="absolute top-10 -right-10 rotate-45 bg-electric text-white text-[10px] font-black px-12 py-1 tracking-widest uppercase shadow-lg">
-                      RECOMMENDED
+                    <div className="absolute top-8 right-6 z-10">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-electric text-white text-[10px] font-semibold tracking-[0.18em] uppercase shadow-lg shadow-electric/30">
+                        Most Popular
+                      </span>
                     </div>
                   )}
 
                   <div
-                    className={`w-14 h-14 rounded-2xl mb-8 flex items-center justify-center ${
+                    className={`w-14 h-14 rounded-2xl mb-8 flex items-center justify-center border ${
                       plan.color === "primary"
-                        ? "bg-electric/10 text-electric"
+                        ? "bg-electric/10 border-electric/20 text-electric"
                         : plan.color === "blue"
-                          ? "bg-cyan/10 text-cyan"
-                          : "bg-violet/10 text-violet"
+                          ? "bg-cyan/10 border-cyan/20 text-cyan"
+                          : "bg-violet/10 border-violet/20 text-violet"
                     }`}
                   >
                     <plan.icon className="w-6 h-6" />
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-2xl font-black tracking-tight mb-1 uppercase">
+                    <h3 className="text-2xl font-bold tracking-tight mb-1 uppercase">
                       {plan.name}
                     </h3>
-                    <p className="text-xs font-bold text-electric tracking-widest uppercase mb-4 opacity-70">
+                    <p className="text-xs font-semibold text-electric tracking-[0.18em] uppercase mb-4 opacity-80">
                       {plan.sub}
                     </p>
                     <p className="text-white/60 text-sm leading-relaxed font-medium">
@@ -205,15 +207,15 @@ export default function PricingPage() {
                   </div>
 
                   <div className="flex items-baseline gap-1 mb-10">
-                    <span className="text-5xl font-black tracking-tighter text-foreground">
+                    <span className="font-display text-5xl font-bold tracking-tighter text-foreground">
                       {plan.price}
                     </span>
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-sm font-bold tracking-tight">
+                      <span className="text-white/50 text-sm font-semibold tracking-tight">
                         {plan.duration}
                       </span>
                       {plan.footer && (
-                        <span className="text-[10px] text-electric/60 font-black uppercase tracking-tighter -mt-1">
+                        <span className="text-[10px] text-electric/70 font-bold uppercase tracking-[0.18em] -mt-1">
                           {plan.footer}
                         </span>
                       )}
@@ -223,8 +225,8 @@ export default function PricingPage() {
                   <div className="space-y-4 mb-12 grow">
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-electric/10 flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3 text-electric stroke-4" />
+                        <div className="mt-1 w-5 h-5 rounded-full bg-electric/10 border border-electric/20 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 text-electric stroke-[3]" />
                         </div>
                         <span className="text-white/60 text-sm font-medium leading-snug">
                           {feature}
@@ -235,28 +237,29 @@ export default function PricingPage() {
 
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-black tracking-widest text-[10px] uppercase transition-all btn-gradient hover:btn-gradient-hover text-white"
+                    className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-all btn-gradient hover:btn-gradient-hover text-white"
                   >
                     <span className="shimmer-sweep" />
-                    {plan.cta} <MoveRight className="w-4 h-4" />
+                    <span className="relative z-10">{plan.cta}</span>
+                    <MoveRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               ))}
             </div>
 
             {/* Bottom Section */}
-            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-card border border-white/10 rounded-[4rem] relative overflow-hidden group">
+            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-card border border-white/10 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
               {/* Animated Background Gradients */}
               <div className="absolute top-0 right-0 w-2/3 h-full bg-electric/20 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
               <div className="absolute bottom-0 left-0 w-1/2 h-full bg-violet/10 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
 
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase leading-none">
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter uppercase leading-[0.95]">
                   NEED A <span className="text-gradient italic">CUSTOM</span>{" "}
                   <br />
                   STRATEGY?
                 </h2>
-                <p className="text-white/50 text-lg md:text-xl mb-12 leading-relaxed">
+                <p className="text-white/60 text-lg md:text-xl mb-12 leading-relaxed">
                   For high-growth scale-ups and established enterprises
                   requiring complex architecture and dedicated engineering
                   teams.
@@ -264,10 +267,10 @@ export default function PricingPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden px-12 py-5 btn-gradient hover:btn-gradient-hover text-white rounded-full font-black tracking-widest text-xs uppercase transition-all w-full sm:w-auto"
+                    className="group relative overflow-hidden px-12 py-5 btn-gradient hover:btn-gradient-hover text-white rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-all w-full sm:w-auto inline-flex items-center justify-center"
                   >
                     <span className="shimmer-sweep" />
-                    Speak with an Expert
+                    <span className="relative z-10">Speak with an Expert</span>
                   </Link>
                   {/* <Link
                     href="/partner-programme"

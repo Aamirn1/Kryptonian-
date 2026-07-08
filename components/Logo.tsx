@@ -49,7 +49,7 @@ export default function Logo({
       {showText && (
         <span
           className={cn(
-            "text-lg font-bold leading-none md:text-xl",
+            "font-display text-lg font-bold leading-none tracking-tight md:text-xl",
             variant === "footer"
               ? "text-white/90"
               : "text-foreground",

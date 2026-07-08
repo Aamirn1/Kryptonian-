@@ -146,7 +146,7 @@ export default function BlogPostClient({
 
                 {/* Category & Meta */}
                 <div className="flex flex-wrap items-center gap-4 mb-6">
-                  <span className="px-4 py-1.5 bg-electric/10 text-electric text-sm font-bold rounded-full">
+                  <span className="px-4 py-1.5 bg-electric/10 border border-electric/20 text-electric text-sm font-semibold rounded-full tracking-wide">
                     {post.category}
                   </span>
                   <span className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -164,7 +164,7 @@ export default function BlogPostClient({
                 </div>
 
                 {/* Title */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 leading-[1.05]">
                   {post.title}
                 </h1>
 
@@ -175,7 +175,7 @@ export default function BlogPostClient({
 
                 {/* Author */}
                 <div className="flex items-center gap-4 pb-8 border-b border-white/10">
-                  <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
                     <User className="w-7 h-7 text-muted-foreground" />
                   </div>
                   <div>
@@ -190,7 +190,7 @@ export default function BlogPostClient({
           {/* Featured Image */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-5xl">
-              <div className="relative aspect-video rounded-4xl overflow-hidden">
+              <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -274,11 +274,11 @@ export default function BlogPostClient({
                 <aside className="hidden lg:block">
                   <div className="sticky top-32 space-y-8">
                     {/* Newsletter */}
-                    <div className="p-6 bg-card border border-white/10 rounded-2xl">
+                    <div className="p-6 bg-card border border-white/10 rounded-3xl">
                       <h3 className="text-white font-bold text-lg mb-3">
                         Subscribe to Updates
                       </h3>
-                      <p className="text-white/50 text-sm mb-4">
+                      <p className="text-white/60 text-sm mb-4">
                         Get the latest insights delivered to your inbox.
                       </p>
                       <input
@@ -286,13 +286,13 @@ export default function BlogPostClient({
                         placeholder="Enter your email"
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-muted-foreground text-sm mb-3 focus:outline-none focus:border-electric"
                       />
-                      <button className="w-full py-3 bg-electric text-white font-bold rounded-full hover:bg-electric/80 transition-colors text-sm">
+                      <button className="w-full py-3 bg-electric text-white font-semibold rounded-full hover:bg-electric/80 transition-colors text-sm">
                         Subscribe
                       </button>
                     </div>
 
                     {/* Categories */}
-                    <div className="p-6 bg-card border border-white/10 rounded-2xl">
+                    <div className="p-6 bg-card border border-white/10 rounded-3xl">
                       <h3 className="font-bold text-lg mb-4">Categories</h3>
                       <div className="space-y-2">
                         {Array.from(
@@ -324,7 +324,7 @@ export default function BlogPostClient({
           {relatedPosts.length > 0 && (
             <section className="related-section py-20 px-6 bg-card border-y border-white/10">
               <div className="container mx-auto max-w-7xl">
-                <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 leading-[1.05]">
                   Related <span className="text-gradient italic">Articles</span>
                 </h2>
 
@@ -335,7 +335,7 @@ export default function BlogPostClient({
                       className="related-card group"
                     >
                       <Link href={`/blog/${relatedPost.slug}`}>
-                        <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
+                        <div className="relative h-48 rounded-3xl overflow-hidden mb-4 border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                           <Image
                             src={relatedPost.image}
                             alt={relatedPost.title}
@@ -343,10 +343,10 @@ export default function BlogPostClient({
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
-                        <span className="text-electric text-xs font-bold uppercase tracking-wider">
+                        <span className="text-electric text-xs font-semibold uppercase tracking-[0.18em]">
                           {relatedPost.category}
                         </span>
-                        <h3 className="text-lg font-bold mt-2 mb-2 group-hover:text-electric transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold mt-2 mb-2 group-hover:text-electric transition-colors line-clamp-2 leading-snug">
                           {relatedPost.title}
                         </h3>
                         <p className="text-muted-foreground text-sm line-clamp-2">
@@ -361,25 +361,26 @@ export default function BlogPostClient({
           )}
 
           {/* CTA */}
-          <section className="py-32 px-6">
+          <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card border border-white/10 rounded-[3rem] overflow-hidden text-center">
+              <div className="relative p-12 md:p-20 bg-card border border-white/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
                     Ready to Implement These{" "}
                     <span className="text-gradient italic">Strategies</span>?
                   </h2>
-                  <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                    Let&apos;s turn knowledge into results for your business.
+                  <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                    Let&apos;s engineer knowledge into compounding results for
+                    your business.
                   </p>
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-5 btn-gradient text-white font-bold rounded-full transition-all active:scale-95"
+                    className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
                   >
                     <span className="shimmer-sweep" />
-                    Start Your Project
+                    <span className="uppercase tracking-[0.12em] text-sm">Start Your Project</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

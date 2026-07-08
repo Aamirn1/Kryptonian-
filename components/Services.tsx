@@ -20,7 +20,7 @@ const services = [
   {
     title: "Digital Strategy",
     description:
-      "Tailored roadmaps designed to align your brand with modern digital trends and exponential growth vectors.",
+      "Bespoke roadmaps engineered to align your brand with modern digital trends and exponential growth vectors.",
     icon: Megaphone,
     image: "/services/strategy.png",
     color: "text-electric",
@@ -28,7 +28,7 @@ const services = [
   {
     title: "Web Development",
     description:
-      "High-performance websites built with cutting-edge architectures for seamless UX and conversion dominance.",
+      "High-performance platforms built on cutting-edge architecture — engineered for seamless UX and conversion dominance.",
     icon: Code2,
     image: "/services/web-dev.png",
     color: "text-violet",
@@ -36,7 +36,7 @@ const services = [
   {
     title: "SEO Optimization",
     description:
-      "Strategic search engine precision to drive organic visibility and market-leading domain authority.",
+      "Strategic search precision that compounds organic visibility and builds market-leading domain authority.",
     icon: BarChart3,
     image: "/services/seo.png",
     color: "text-cyan",
@@ -44,7 +44,7 @@ const services = [
   {
     title: "Brand Identity",
     description:
-      "Crafting unique visual personas that resonate with high-value audiences and establish trust.",
+      "Distinctive visual systems crafted to resonate with high-value audiences and establish enduring trust.",
     icon: Sparkles,
     image: "/services/brand.png",
     color: "text-gold",
@@ -52,7 +52,7 @@ const services = [
   {
     title: "Market Analysis",
     description:
-      "Data-driven competitive intelligence to stay ahead of market shifts and capitalize on opportunities.",
+      "Data-driven competitive intelligence that keeps you ahead of market shifts and surfaces untapped opportunities.",
     icon: Globe,
     image: "/services/market.png",
     color: "text-cyan",
@@ -60,7 +60,7 @@ const services = [
   {
     title: "Conversion Growth",
     description:
-      "Optimizing your digital ecosystem to turn every interaction into a measurable business outcome.",
+      "Continuous optimisation of your digital ecosystem — turning every interaction into a measurable business outcome.",
     icon: Zap,
     image: "/services/conversion.png",
     color: "text-gold",
@@ -124,10 +124,10 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="relative bg-card rounded-4xl"
+      className="relative bg-card rounded-[2rem] border border-white/10 overflow-hidden"
     >
       {/* Background dot pattern with edge fade + primary glow */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-4xl">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.18]"
           style={{
@@ -151,13 +151,22 @@ export default function Services() {
           <div ref={leftSideRef} className="lg:w-1/2 w-full lg:pr-20">
             <div className="lg:py-28 py-16">
               <div className="mb-12">
-                <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.8] uppercase text-white">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-8">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
+                  </span>
+                  <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+                    Capabilities
+                  </p>
+                </div>
+                <h2 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9] uppercase text-foreground">
                   Services <br />
-                  <span className="text-gradient italic">Architected</span>
+                  <span className="text-gradient italic font-display">Architected</span>
                 </h2>
-                <p className="text-white text-xl max-w-xl font-medium">
-                  We don&apos;t just provide services; we build high-performance
-                  growth systems designed for market dominance.
+                <p className="text-white/70 text-lg md:text-xl max-w-xl leading-relaxed">
+                  We don&apos;t deliver services — we engineer compounding growth
+                  systems built for market dominance.
                 </p>
               </div>
 
@@ -165,25 +174,25 @@ export default function Services() {
                 <div
                   key={index}
                   className={cn(
-                    `service-text-${index} flex flex-col justify-center border-b border-white/10 last:border-0 py-10`,
+                    `service-text-${index} group flex flex-col justify-center border-b border-white/10 last:border-0 py-10 transition-all duration-300 hover:-translate-y-1`,
                     index === 0 ? "lg:min-h-[55vh]" : "lg:min-h-[60vh]",
                   )}
                 >
                   <div
-                    className={`p-4 rounded-2xl bg-white/5 border border-white/10 w-fit mb-8 ${service.color}`}
+                    className={`p-4 rounded-2xl bg-electric/10 border border-electric/20 w-fit mb-8 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.5)]`}
                   >
                     <service.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-gradient uppercase">
+                  <h3 className="font-display text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-gradient uppercase">
                     {service.title}
                   </h3>
-                  <p className="text-white text-xl leading-relaxed max-w-lg mb-0">
+                  <p className="text-white/70 text-lg lg:text-xl leading-relaxed max-w-lg mb-0">
                     {service.description}
                   </p>
 
-                  {/* Mobile Mobile Image Fallback */}
+                  {/* Mobile Image Fallback */}
                   <div className="mt-12 lg:hidden">
-                    <div className="relative aspect-square rounded-[3rem] overflow-hidden bg-card border border-white/10 p-8">
+                    <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-card border border-white/10 p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -204,7 +213,9 @@ export default function Services() {
             className="hidden lg:block lg:w-1/2 h-screen overflow-hidden"
           >
             <div className="relative w-full h-full flex items-center justify-center p-20">
-              <div className="relative w-full aspect-square max-w-2xl bg-card rounded-4xl border border-electric/30 overflow-hidden shadow-2xl shadow-electric/5">
+              {/* Gradient border wrapper for premium framing */}
+              <div className="relative w-full aspect-square max-w-2xl rounded-[2.5rem] p-px bg-gradient-to-br from-electric/40 via-violet/30 to-cyan/40">
+              <div className="relative w-full h-full bg-card rounded-[2.5rem] border border-white/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(59,130,246,0.35)]">
                 {services.map((service, index) => (
                   <div
                     key={index}
@@ -230,6 +241,7 @@ export default function Services() {
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
             </div>
           </div>

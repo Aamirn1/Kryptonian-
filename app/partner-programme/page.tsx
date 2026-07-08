@@ -41,7 +41,7 @@ export default function PartnerProgrammePage() {
                     <div className="container mx-auto max-w-7xl">
                         {/* Header */}
                         <div className="partner-header text-center mb-24 max-w-4xl mx-auto">
-                            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-none">
+                            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 uppercase leading-[0.9]">
                                 PARTNER <br />
                                 <span className="text-gradient italic">PROGRAMME</span>
                             </h1>
@@ -51,10 +51,11 @@ export default function PartnerProgrammePage() {
                             </p>
                             <Link
                                 href="#apply"
-                                className="group relative overflow-hidden inline-flex items-center gap-2 px-8 py-4 btn-gradient text-white font-bold rounded-full transition-all active:scale-95"
+                                className="group relative overflow-hidden inline-flex items-center gap-3 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
                             >
                                 <span className="shimmer-sweep" />
-                                APPLY FOR PARTNER ACCESS <ArrowRight className="w-5 h-5" />
+                                <span className="uppercase tracking-[0.12em] text-sm">Apply for Partner Access</span>
+                                <ArrowRight className="w-5 h-5" />
                             </Link>
                         </div>
 
@@ -77,8 +78,8 @@ export default function PartnerProgrammePage() {
                                     icon: Users,
                                 },
                             ].map((item, i) => (
-                                <div key={i} className="partner-content p-10 bg-card border border-white/10 rounded-[3rem] hover:border-electric/50 transition-colors group">
-                                    <div className="w-14 h-14 bg-electric/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
+                                <div key={i} className="partner-content group p-10 bg-card border border-white/10 rounded-3xl hover:border-electric/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                                    <div className="w-14 h-14 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                                         <item.icon className="w-7 h-7 text-electric" />
                                     </div>
                                     <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
@@ -88,25 +89,26 @@ export default function PartnerProgrammePage() {
                         </div>
 
                         {/* Datasheet Download */}
-                        <div className="partner-content mb-32 p-12 bg-electric/5 border border-electric/20 rounded-[4rem] flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                        <div className="partner-content mb-32 p-12 bg-electric/5 border border-electric/20 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-[0_10px_40px_-15px_rgba(59,130,246,0.2)]">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-electric/10 blur-[80px] -mr-32 -mt-32 rounded-full" />
                             <div className="relative z-10">
-                                <h2 className="text-3xl font-bold mb-4">Programme Technical Overview</h2>
+                                <h2 className="text-3xl font-bold mb-4 tracking-tight">Programme Technical Overview</h2>
                                 <p className="text-muted-foreground text-lg max-w-xl">
                                     Download our detailed datasheet covering technical specifications, referral structures, and integration parameters.
                                 </p>
                             </div>
-                            <button className="group relative overflow-hidden z-10 inline-flex items-center gap-3 px-8 py-5 btn-gradient text-white font-bold rounded-full transition-all">
+                            <button className="group relative overflow-hidden z-10 inline-flex items-center gap-3 px-8 py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all">
                                 <span className="shimmer-sweep" />
-                                <FileDown className="w-6 h-6" /> DOWNLOAD DATASHEET (PDF)
+                                <FileDown className="w-6 h-6" />
+                                <span className="uppercase tracking-[0.12em] text-sm">Download Datasheet (PDF)</span>
                             </button>
                         </div>
 
                         {/* Gated Application Form */}
                         <div id="apply" className="partner-content max-w-4xl mx-auto">
-                            <div className="bg-card border border-white/10 rounded-[4rem] p-12 md:p-20">
+                            <div className="bg-card border border-white/10 rounded-3xl p-12 md:p-20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                                 <div className="text-center mb-16">
-                                    <h2 className="text-4xl font-bold mb-6">Partner Application</h2>
+                                    <h2 className="text-4xl font-bold mb-6 tracking-tight leading-[1.05]">Partner Application</h2>
                                     <p className="text-muted-foreground text-lg">
                                         Qualified technical partners only. Please provide your agency or consultancy details for technical vetting.
                                     </p>
@@ -115,27 +117,27 @@ export default function PartnerProgrammePage() {
                                 <form className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Company Name</label>
-                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors" placeholder="e.g. Technical Solutions Ltd" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Company Name</label>
+                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="e.g. Technical Solutions Ltd" />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Website URL</label>
-                                            <input type="url" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors" placeholder="https://" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Website URL</label>
+                                            <input type="url" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="https://" />
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Contact Name</label>
-                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors" placeholder="Full Name" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Contact Name</label>
+                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="Full Name" />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Business Email</label>
-                                            <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors" placeholder="name@company.com" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Business Email</label>
+                                            <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="name@company.com" />
                                         </div>
                                     </div>
                                     <div className="space-y-3">
-                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Technical Specialism</label>
-                                        <select className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors appearance-none">
+                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Technical Specialism</label>
+                                        <select className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors appearance-none text-white">
                                             <option>E-commerce (Shopify/Laravel)</option>
                                             <option>Performance Marketing Agency</option>
                                             <option>Brand & Creative Consultancy</option>
@@ -144,12 +146,13 @@ export default function PartnerProgrammePage() {
                                         </select>
                                     </div>
                                     <div className="space-y-3">
-                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Proposed Partnership Focus</label>
-                                        <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric transition-colors" placeholder="Briefly outline your technical project requirements..."></textarea>
+                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Proposed Partnership Focus</label>
+                                        <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40 resize-y" placeholder="Briefly outline your technical project requirements..."></textarea>
                                     </div>
-                                    <button className="group relative overflow-hidden w-full py-5 btn-gradient text-white font-bold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3">
+                                    <button className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs">
                                         <span className="shimmer-sweep" />
-                                        APPLY FOR PARTNER ACCESS <Send className="w-5 h-5" />
+                                        <span className="relative z-10">Apply for Partner Access</span>
+                                        <Send className="w-5 h-5 relative z-10" />
                                     </button>
                                 </form>
                             </div>

@@ -10,44 +10,44 @@ export default function NotFound() {
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         {/* Error Code */}
         <div className="mb-8">
-          <span className="text-gradient text-[120px] md:text-[180px] font-black tracking-tighter leading-none">
+          <span className="font-display text-gradient text-[120px] md:text-[180px] font-bold tracking-tighter leading-none">
             404
           </span>
         </div>
 
         {/* Error Title */}
-        <h1 className="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase mb-6 leading-[0.95]">
           Page Not Found
         </h1>
 
         {/* Error Message */}
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-md mx-auto leading-relaxed">
-          Oops! The page you&apos;re looking for seems to have vanished into the
-          digital void.
+          The page you&apos;re looking for has drifted off the map — or never
+          existed. Let&apos;s get you back on course.
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 btn-gradient text-white font-bold rounded-full transition-all active:scale-95"
+            className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
           >
             <span className="shimmer-sweep" />
-            <Home className="w-5 h-5" />
-            Back to Home
+            <Home className="w-5 h-5 relative z-10" />
+            <span className="uppercase tracking-[0.12em] text-sm relative z-10">Back to Home</span>
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/10 rounded-full font-bold hover:border-electric hover:text-electric transition-all"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
           >
             <HelpCircle className="w-5 h-5" />
-            Get Help
+            <span className="uppercase tracking-[0.12em] text-sm">Get Help</span>
           </Link>
         </div>
 
         {/* Quick Links */}
         <div className="mt-16 pt-10 border-t border-white/10">
-          <p className="text-sm text-white/50 mb-6 uppercase tracking-widest font-bold">
+          <p className="text-xs text-white/50 mb-6 uppercase tracking-[0.18em] font-semibold">
             Popular Destinations
           </p>
           <div className="flex flex-wrap justify-center gap-4">

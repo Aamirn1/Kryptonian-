@@ -122,12 +122,12 @@ export default function ContactPage() {
               <AuroraBackground />
               <h1
                 ref={titleRef}
-                className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden text-center relative z-10"
+                className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden text-center relative z-10"
               >
-                <span className="inline-block">LET&apos;S CREATE</span>
+                <span className="inline-block">LET&apos;S BUILD YOUR</span>
                 <br />
                 <span className="text-gradient italic inline-block">
-                  SOMETHING EPIC
+                  GROWTH ENGINE
                 </span>
               </h1>
             </section>
@@ -136,12 +136,12 @@ export default function ContactPage() {
               {/* Contact Info */}
               <div ref={infoRef} className="space-y-12">
                 <div>
-                  <h2 className="text-3xl font-bold mb-8">
+                  <h2 className="text-3xl font-bold mb-8 tracking-tight">
                     Contact Information
                   </h2>
                   <p className="text-white/60 text-lg mb-12 max-w-md">
-                    We&apos;re here to help you navigate your digital
-                    transformation. Reach out and start the conversation.
+                    We partner with ambitious teams to engineer their next phase
+                    of growth. Reach out and let&apos;s start the conversation.
                   </p>
                 </div>
 
@@ -154,7 +154,7 @@ export default function ContactPage() {
                       <Mail className="w-6 h-6 text-electric" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50 uppercase tracking-widest font-bold">
+                      <p className="text-xs text-white/50 uppercase tracking-[0.18em] font-semibold">
                         Email Us
                       </p>
                       <p className="text-xl font-medium group-hover:text-electric transition-colors">
@@ -171,7 +171,7 @@ export default function ContactPage() {
                       <Phone className="w-6 h-6 text-electric" />
                     </div>
                     <div>
-                      <p className="text-sm text-white/50 uppercase tracking-widest font-bold">
+                      <p className="text-xs text-white/50 uppercase tracking-[0.18em] font-semibold">
                         Call Us
                       </p>
                       <p className="text-xl font-medium group-hover:text-electric transition-colors">
@@ -185,7 +185,7 @@ export default function ContactPage() {
                 <div className="p-6 bg-electric/10 border border-electric/20 rounded-2xl">
                   <div className="flex items-center gap-3 mb-2">
                     <CheckCircle2 className="w-5 h-5 text-electric" />
-                    <span className="font-bold text-sm uppercase tracking-wider">
+                    <span className="font-semibold text-sm uppercase tracking-[0.18em]">
                       Fast Response Guaranteed
                     </span>
                   </div>
@@ -222,7 +222,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label htmlFor="firstName" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                    <label htmlFor="firstName" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                       First Name
                     </label>
                     <input
@@ -241,7 +241,7 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div className="space-y-3">
-                    <label htmlFor="lastName" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                    <label htmlFor="lastName" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                       Last Name
                     </label>
                     <input
@@ -262,7 +262,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                  <label htmlFor="email" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                     Email Address
                   </label>
                   <input
@@ -280,7 +280,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="category" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                  <label htmlFor="category" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                     Growth Package
                   </label>
                   <select
@@ -305,7 +305,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="service" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                  <label htmlFor="service" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                     Service Interested In
                   </label>
                   <select
@@ -332,7 +332,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-white/70">
+                  <label htmlFor="message" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                     Your Message <span className="text-white/50 normal-case font-medium tracking-normal">(optional)</span>
                   </label>
                   <textarea
@@ -351,7 +351,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-bold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-widest text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
+                  className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
                 >
                   <span className="shimmer-sweep" />
                   {isPending ? (

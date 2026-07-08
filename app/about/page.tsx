@@ -169,14 +169,16 @@ const StatCard = ({
   return (
     <div
       ref={cardRef}
-      className="stat-card text-center p-8 border border-electric/20 rounded-4xl bg-card backdrop-blur-sm group hover:border-electric/40 transition-all"
+      className="stat-card text-center p-8 border border-white/10 rounded-3xl bg-card backdrop-blur-sm group hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
     >
-      <stat.icon className="w-8 h-8 text-electric mx-auto mb-4 group-hover:scale-110 transition-transform" />
-      <div className="text-4xl md:text-5xl font-black text-foreground tracking-tighter mb-2">
-        {count}
-        {stat.suffix}
+      <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-electric/10 border border-electric/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <stat.icon className="w-7 h-7 text-electric" />
       </div>
-      <div className="text-white/60 text-sm font-medium">{stat.label}</div>
+      <div className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tighter mb-2">
+        {count}
+        <span className="text-gradient">{stat.suffix}</span>
+      </div>
+      <div className="text-white/60 text-xs font-semibold tracking-[0.18em] uppercase">{stat.label}</div>
     </div>
   );
 };
@@ -302,33 +304,33 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-bold mb-8 tracking-widest uppercase">
+                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-8 tracking-[0.18em] uppercase">
                     <Zap className="w-3 h-3 fill-electric" />
                     Our Story
                   </div>
 
                   <div className="overflow-hidden mb-2">
-                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase">
-                      We Build
+                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] uppercase">
+                      We Engineer
                     </h1>
                   </div>
                   <div className="overflow-hidden mb-8">
-                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase text-gradient italic">
+                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] uppercase text-gradient italic">
                       Digital Giants
                     </h1>
                   </div>
 
                   <p className="about-hero-subtitle text-xl md:text-2xl text-white/60 max-w-xl leading-relaxed font-medium">
-                    Krypton Digital isn&apos;t just another agency. We&apos;re growth
-                    architects obsessed with turning ambitious businesses into
-                    market leaders.
+                    Krypton Digital is a growth engineering studio —
+                    architects obsessed with compounding ambitious businesses
+                    into market leaders.
                   </p>
                 </div>
 
                 <div className="relative hidden lg:block">
                   <div className="relative aspect-square max-w-lg mx-auto">
-                    <div className="absolute inset-0 bg-electric/10 rounded-4xl rotate-6 blur-2xl" />
-                    <div className="relative bg-card border border-white/10 rounded-4xl p-3 shadow-2xl shadow-black/50">
+                    <div className="absolute inset-0 bg-electric/10 rounded-3xl rotate-6 blur-2xl" />
+                    <div className="relative bg-card border border-white/10 rounded-3xl p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
                       <Image
                         src="/images/hero/hero_team_collaboration_1769511734235.png"
                         alt="Krypton Digital Team"
@@ -344,7 +346,7 @@ export default function AboutPage() {
           </section>
 
           {/* Stats Section */}
-          <section className="py-20 px-6 bg-card">
+          <section className="py-24 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {stats.map((stat, index) => (
@@ -355,24 +357,24 @@ export default function AboutPage() {
           </section>
 
           {/* Mission Section */}
-          <section className="mission-section py-32 px-6">
+          <section className="mission-section py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-5xl">
               <div className="mission-content text-center">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-8 uppercase">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 uppercase leading-[0.95]">
                   Our <span className="text-gradient italic">Mission</span>
                 </h2>
-                <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-3xl mx-auto font-medium">
-                  To democratize enterprise-level digital marketing for
-                  ambitious businesses. We believe every company deserves
-                  access to the strategies, tools, and talent that Fortune 500s
-                  use to dominate their markets.
+                <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto font-medium">
+                  To democratise enterprise-grade digital growth for ambitious
+                  companies. Every business deserves the strategies, tooling,
+                  and talent that Fortune 500s deploy to dominate their
+                  markets — and the engineers who know how to wield them.
                 </p>
                 <div className="mt-12 flex flex-wrap justify-center gap-4">
                   {["Transparency", "Innovation", "Partnership", "Results"].map(
                     (word) => (
                       <span
                         key={word}
-                        className="px-6 py-3 bg-electric/10 border border-electric/20 rounded-full text-electric font-bold text-sm tracking-wider uppercase"
+                        className="px-6 py-3 bg-electric/10 border border-electric/20 rounded-full text-electric font-semibold text-sm tracking-[0.18em] uppercase"
                       >
                         {word}
                       </span>
@@ -384,14 +386,14 @@ export default function AboutPage() {
           </section>
 
           {/* Values Section */}
-          <section ref={valuesRef} className="py-32 px-6 bg-card">
+          <section ref={valuesRef} className="py-24 md:py-32 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 text-electric text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Heart className="w-3 h-3" />
                   What Drives Us
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white leading-[0.95]">
                   Our <span className="text-gradient italic">Values</span>
                 </h2>
               </div>
@@ -400,9 +402,9 @@ export default function AboutPage() {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className="value-card group p-10 bg-card border border-white/10 rounded-[3rem] hover:border-electric/30 hover:bg-white/5 transition-all"
+                    className="value-card group p-10 bg-card border border-white/10 rounded-3xl hover:border-electric/30 hover:bg-white/5 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
                   >
-                    <div className="w-16 h-16 bg-electric/10 border border-white/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
+                    <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                       <value.icon className="w-8 h-8 text-electric" />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
@@ -418,21 +420,21 @@ export default function AboutPage() {
           </section>
 
           {/* Timeline Section */}
-          <section ref={timelineRef} className="py-32 px-6">
+          <section ref={timelineRef} className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-5xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <TrendingUp className="w-3 h-3" />
                   Our Journey
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.95]">
                   The <span className="text-gradient italic">Timeline</span>
                 </h2>
               </div>
 
               <div className="relative">
                 {/* Timeline line */}
-                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electric/40 via-violet/30 to-transparent md:-translate-x-1/2" />
 
                 {milestones.map((milestone, index) => (
                   <div
@@ -442,7 +444,7 @@ export default function AboutPage() {
                     }`}
                   >
                     {/* Dot */}
-                    <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-electric rounded-full border-4 border-background shadow-lg md:-translate-x-1/2 mt-2 z-10" />
+                    <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-background shadow-[0_0_20px_-2px_rgba(59,130,246,0.7)] md:-translate-x-1/2 mt-2 z-10 bg-gradient-to-br from-electric to-violet" />
 
                     {/* Content */}
                     <div
@@ -450,10 +452,10 @@ export default function AboutPage() {
                         index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                       }`}
                     >
-                      <span className="text-electric font-black text-lg tracking-wider">
+                      <span className="font-display text-electric font-bold text-lg tracking-[0.18em]">
                         {milestone.year}
                       </span>
-                      <h3 className="text-2xl font-bold mt-2 mb-3">
+                      <h3 className="text-2xl font-bold mt-2 mb-3 text-foreground">
                         {milestone.title}
                       </h3>
                       <p className="text-white/60 leading-relaxed">
@@ -470,19 +472,19 @@ export default function AboutPage() {
           </section>
 
           {/* Team Section */}
-          <section ref={teamRef} className="py-32 px-6 bg-card">
+          <section ref={teamRef} className="py-24 md:py-32 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 text-electric text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Users className="w-3 h-3" />
                   The Team
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white mb-6">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white mb-6 leading-[0.95]">
                   Meet The <span className="text-gradient italic">Experts</span>
                 </h2>
                 <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                  A passionate team of strategists, creatives, and technologists
-                  dedicated to your success.
+                  A senior team of strategists, creatives, and engineers —
+                  each obsessed with compounding your growth.
                 </p>
               </div>
 
@@ -490,9 +492,9 @@ export default function AboutPage() {
                 {team.map((member, index) => (
                   <div
                     key={index}
-                    className="team-card group text-center"
+                    className="team-card group text-center hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="relative mb-6 overflow-hidden rounded-4xl border border-white/10">
+                    <div className="relative mb-6 overflow-hidden rounded-3xl border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300">
                       <div className="aspect-square bg-muted relative">
                         <Image
                           src={member.image}
@@ -501,12 +503,12 @@ export default function AboutPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-electric/10 to-transparent" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-electric font-medium text-sm mb-3">
+                    <p className="text-electric font-medium text-sm mb-3 tracking-wide">
                       {member.role}
                     </p>
                     <p className="text-white/50 text-sm leading-relaxed">
@@ -519,35 +521,35 @@ export default function AboutPage() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-32 px-6">
+          <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card rounded-[3rem] overflow-hidden text-center border border-white/10">
+              <div className="relative p-12 md:p-20 bg-card rounded-3xl overflow-hidden text-center border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                 {/* Background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
                     Ready To Join{" "}
                     <span className="text-gradient italic">Forces?</span>
                   </h2>
                   <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                    Let&apos;s discuss how we can accelerate your digital growth and
-                    build something extraordinary together.
+                    Let&apos;s architect the next phase of your growth — and
+                    engineer something the market won&apos;t forget.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 btn-gradient hover:btn-gradient-hover text-white font-bold rounded-full transition-all active:scale-95"
+                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
                     >
                       <span className="shimmer-sweep" />
-                      Start A Project
+                      <span className="uppercase tracking-[0.12em] text-sm">Start A Project</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
                     >
-                      View Pricing
+                      <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
                     </Link>
                   </div>
                 </div>

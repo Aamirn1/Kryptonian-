@@ -209,28 +209,28 @@ export default function PrivacyPage() {
               </Link>
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-electric/10 rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center">
                   <Shield className="w-6 h-6 text-electric" />
                 </div>
-                <span className="text-sm font-bold uppercase tracking-widest text-electric">
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-electric">
                   Legal
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase">
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 uppercase leading-[0.95]">
                 Privacy <span className="text-gradient italic">Policy</span>
               </h1>
 
-              <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm">Last Updated: 13 March 2026</span>
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                  <Calendar className="w-3.5 h-3.5 text-electric" />
+                  <span className="text-xs font-semibold tracking-wide">Last Updated: 13 March 2026</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                  <Mail className="w-3.5 h-3.5 text-electric" />
                   <a
                     href="mailto:contact@kryptondigital.co.uk"
-                    className="text-sm hover:text-electric transition-colors"
+                    className="text-xs font-semibold tracking-wide hover:text-electric transition-colors"
                   >
                     contact@kryptondigital.co.uk
                   </a>
@@ -242,9 +242,9 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-8 md:p-12 bg-card border border-white/10 rounded-4xl shadow-lg shadow-black/40">
+              <div className="p-8 md:p-12 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                  At Krypton Digital, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                  At Krypton Digital, your privacy is engineered into everything we build. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   This policy complies with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and the California Consumer Privacy Act (CCPA) where applicable.
@@ -256,13 +256,13 @@ export default function PrivacyPage() {
           {/* Policy Sections */}
           <section className="policy-content px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="policy-section p-8 md:p-12 bg-card border border-white/10 rounded-4xl shadow-sm hover:shadow-lg hover:shadow-black/40 transition-shadow"
+                    className="policy-section p-8 md:p-12 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:border-electric/30 transition-all duration-300"
                   >
-                    <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
+                    <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 tracking-tight text-foreground">
                       {section.title}
                     </h2>
 
@@ -280,7 +280,7 @@ export default function PrivacyPage() {
                             </p>
                           )}
                           {item.list && (
-                            <ul className="space-y-2 mt-4">
+                            <ul className="space-y-3 mt-4">
                               {item.list?.map((listItem: string, li: number) => (
                                 <li
                                   key={li}
@@ -306,27 +306,27 @@ export default function PrivacyPage() {
           {/* Contact Section */}
           <section className="px-6 mt-20">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-10 md:p-16 bg-card border border-white/10 rounded-[3rem] text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <div className="p-10 md:p-16 bg-card border border-white/10 rounded-3xl text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-[1.05]">
                   Questions About Your Privacy?
                 </h2>
-                <p className="text-white/50 mb-8 max-w-xl mx-auto">
+                <p className="text-white/60 mb-8 max-w-xl mx-auto">
                   If you have any questions about this Privacy Policy or want to exercise your data rights, we&apos;re here to help.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="mailto:contact@kryptondigital.co.uk?subject=Privacy%20Policy%20Inquiry"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient text-white font-bold rounded-full transition-all"
+                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all"
                   >
                     <span className="shimmer-sweep" />
-                    <Mail className="w-5 h-5" />
-                    Contact Us
+                    <Mail className="w-5 h-5 relative z-10" />
+                    <span className="uppercase tracking-[0.12em] text-sm relative z-10">Contact Us</span>
                   </a>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
                   >
-                    Contact Form
+                    <span className="uppercase tracking-[0.12em] text-sm">Contact Form</span>
                   </Link>
                 </div>
               </div>
