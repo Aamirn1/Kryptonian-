@@ -134,7 +134,7 @@ export default function ContactPage() {
             </div>
           </section>
 
-          <div className="container mx-auto max-w-6xl px-6">
+          <div className="container mx-auto max-w-6xl px-6 pt-16 md:pt-20">
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               {/* Contact Info */}
