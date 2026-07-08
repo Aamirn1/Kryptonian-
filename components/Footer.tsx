@@ -7,7 +7,7 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
-import Image from "next/image";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -129,8 +129,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-4 border-t border-white/10 gap-4">
-          <div className="text-xl font-bold tracking-tighter">
-            <Image src="/white-logo.png" alt="Logo" width={36} height={36} />
+          <div className="scale-90">
+            <Logo variant="footer" />
           </div>
           <div className="text-muted-foreground text-sm">
             © 2026 Krypton Digital. All rights reserved. Built with passion &

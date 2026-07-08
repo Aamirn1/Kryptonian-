@@ -119,20 +119,45 @@ html.lenis {
 
 /* ============================================================
    Base body — dark ink background, Inter font
+   Professional typography: optical sizing, kerning, ligatures,
+   font smoothing for crisp rendering on dark backgrounds.
    ============================================================ */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
   transition:
     background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
     color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Display font for headings (Space Grotesk — like Opus) */
+/* Display font for headings (Space Grotesk — like Opus)
+   Tighter tracking + heavier weight for strong typographic hierarchy. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  font-feature-settings: "ss01", "ss02";
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Display utility — apply Space Grotesk explicitly to numeric/label spans */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* Refined paragraph leading for readability on dark */
+p {
+  text-wrap: pretty;
 }
 
 /* Elegant transition for themed elements */

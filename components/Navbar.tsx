@@ -2,10 +2,10 @@
 
 import { gsap } from "gsap";
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const NavLink = ({
   href,
@@ -122,12 +122,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6"
       >
         <nav className="flex items-center justify-between gap-4 md:gap-8 px-6 md:px-8 py-3 md:py-4 max-w-3xl w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl shadow-black/40">
-          <Link
-            href="/"
-            className="text-xl font-bold tracking-tighter hover:text-electric transition-colors"
-          >
-            <Image src="/logo.png" alt="Krypton Digital home" width={36} height={36} className="md:w-10 md:h-10" />
-          </Link>
+          <Logo />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -173,13 +168,10 @@ export default function Navbar() {
             <div className="flex flex-col h-full p-6">
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
-                <Link
-                  href="/"
+                <Logo
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold tracking-tighter"
-                >
-                  <Image src="/logo.png" alt="Krypton Digital home" width={40} height={40} />
-                </Link>
+                  textClassName="text-xl"
+                />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors focus-visible:ring-2 focus-visible:ring-electric"
