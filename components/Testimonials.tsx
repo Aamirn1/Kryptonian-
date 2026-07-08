@@ -98,6 +98,35 @@ export default function Testimonials() {
     );
   };
 
+  // Auto-advance the mobile carousel every 3 seconds. Pauses when the user
+  // hovers/focuses the carousel so manual interaction isn't fighting the timer.
+  useEffect(() => {
+    const carousel = document.querySelector("[data-testid='testimonials-carousel']");
+    if (!carousel) return;
+
+    let paused = false;
+    const onPause = () => { paused = true; };
+    const onResume = () => { paused = false; };
+    carousel.addEventListener("mouseenter", onPause);
+    carousel.addEventListener("mouseleave", onResume);
+    carousel.addEventListener("touchstart", onPause, { passive: true });
+    carousel.addEventListener("touchend", onResume, { passive: true });
+
+    const interval = setInterval(() => {
+      if (!paused) {
+        setActiveIndex((prev) => (prev + 1) % testimonials.length);
+      }
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+      carousel.removeEventListener("mouseenter", onPause);
+      carousel.removeEventListener("mouseleave", onResume);
+      carousel.removeEventListener("touchstart", onPause);
+      carousel.removeEventListener("touchend", onResume);
+    };
+  }, []);
+
   return (
     <section
       ref={containerRef}
@@ -172,7 +201,7 @@ export default function Testimonials() {
         </div>
 
         {/* Mobile: Carousel */}
-        <div className="md:hidden">
+        <div className="md:hidden" data-testid="testimonials-carousel">
           <div className="relative">
             <div className="overflow-hidden">
               <div

@@ -114,11 +114,12 @@ export default function Process() {
       ref={containerRef}
       className="bg-background border-y border-white/5 overflow-hidden"
     >
-      <div ref={triggerRef} className="h-screen flex items-center">
-        <div className="container mx-auto px-6 mb-auto pt-32 absolute top-0 left-0 right-0 z-10 pointer-events-none">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+      <div ref={triggerRef} className="h-screen flex flex-col">
+        {/* Heading — sits cleanly above the steps (not overlapping) */}
+        <div className="container mx-auto px-6 pt-28 md:pt-32 pb-8 relative z-10 pointer-events-none">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="max-w-xl pointer-events-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-8 w-fit">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-6 w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
@@ -127,10 +128,10 @@ export default function Process() {
                   Methodology
                 </p>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-foreground leading-[1.05]">
                 HOW WE <span className="text-gradient italic font-display">WORK</span>
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 A systematic methodology that ensures every engagement is
                 delivered to the highest standards of quality, precision, and
                 measurable efficiency.
@@ -142,9 +143,10 @@ export default function Process() {
           </div>
         </div>
 
+        {/* Steps — horizontally scrolling, centered below the heading */}
         <div
           ref={sectionRef}
-          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center mt-32"
+          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center flex-1"
           style={{ width: "max-content" }}
         >
           {steps.map((step, index) => (

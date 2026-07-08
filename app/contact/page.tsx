@@ -148,14 +148,14 @@ export default function ContactPage() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-6 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 bg-card border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/40">
+                    <div className="w-16 h-16 shrink-0 bg-card border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/40">
                       <Mail className="w-6 h-6 text-electric" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-xs text-white/50 uppercase tracking-[0.18em] font-semibold">
                         Email Us
                       </p>
-                      <p className="text-xl font-medium group-hover:text-electric transition-colors">
+                      <p className="text-base md:text-lg font-medium group-hover:text-electric transition-colors break-all leading-snug">
                         contact@kryptondigital.co.uk
                       </p>
                     </div>

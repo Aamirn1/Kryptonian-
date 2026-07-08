@@ -11,7 +11,6 @@ import Footer from "@/components/Footer";
 import { Check, MoveRight, Shield } from "lucide-react";
 import Link from "next/link";
 import { pricingData } from "@/lib/pricing";
-import AuroraBackground from "@/components/AuroraBackground";
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"oneTime" | "monthly">(
@@ -99,7 +98,6 @@ export default function PricingPage() {
           <div className="container mx-auto max-w-7xl">
             {/* Header */}
             <section className="relative mb-16">
-              <AuroraBackground />
               <div className="pricing-header text-center max-w-4xl mx-auto relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
