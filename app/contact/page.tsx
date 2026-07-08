@@ -15,7 +15,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { sendContactEmail, ContactFormData } from "@/actions/contact";
 import { pricingData } from "@/lib/pricing";
-import AuroraBackground from "@/components/AuroraBackground";
 
 type PackageCategory = "" | "oneTime" | "monthly";
 
@@ -116,13 +115,12 @@ export default function ContactPage() {
         </div>
         <Navbar />
 
-        <main id="main-content" ref={containerRef} className="pt-40 pb-32 px-6">
+        <main id="main-content" ref={containerRef} className="pt-32 pb-32 px-6">
           <div className="container mx-auto max-w-6xl">
             <section className="relative mb-20">
-              <AuroraBackground />
               <h1
                 ref={titleRef}
-                className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden text-center relative z-10"
+                className="text-5xl md:text-7xl font-bold tracking-tighter mb-2 uppercase leading-[0.95] text-center relative z-10"
               >
                 <span className="inline-block">LET&apos;S BUILD YOUR</span>
                 <br />

@@ -8,9 +8,12 @@ import {
   Facebook,
 } from "lucide-react";
 import Logo from "./Logo";
+import ScrollToTop from "./ScrollToTop";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function Footer() {
   return (
+    <>
     <footer className="bg-card pt-12 pb-6 border-t border-white/10 rounded-t-[2rem]">
       <div className="h-px bg-gradient-to-r from-transparent via-electric/50 to-transparent" />
       <div className="container mx-auto px-6">
@@ -149,5 +152,9 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    {/* Floating action buttons — site-wide via Footer */}
+    <ScrollToTop />
+    <WhatsAppButton />
+    </>
   );
 }

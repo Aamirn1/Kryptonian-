@@ -178,28 +178,33 @@ export default function Services() {
                     index === 0 ? "lg:min-h-[55vh]" : "lg:min-h-[60vh]",
                   )}
                 >
-                  <div
-                    className={`p-4 rounded-2xl bg-electric/10 border border-electric/20 w-fit mb-8 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.5)]`}
-                  >
-                    <service.icon className="w-8 h-8" />
+                  {/* Icon + Title on a single horizontal line */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electric/10 border border-electric/20 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.5)]`}
+                    >
+                      <service.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="font-display text-3xl lg:text-5xl font-bold tracking-tight text-gradient uppercase">
+                      {service.title}
+                    </h3>
                   </div>
-                  <h3 className="font-display text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-gradient uppercase">
-                    {service.title}
-                  </h3>
                   <p className="text-white/70 text-lg lg:text-xl leading-relaxed max-w-lg mb-0">
                     {service.description}
                   </p>
 
-                  {/* Mobile Image Fallback */}
-                  <div className="mt-12 lg:hidden">
-                    <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-card border border-white/10 p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                  {/* Mobile Image Fallback — fills the outlined box edge-to-edge */}
+                  <div className="mt-10 lg:hidden">
+                    <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-card border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
                       <Image
                         src={service.image}
                         alt={service.title}
-                        width={600}
-                        height={600}
-                        className="object-contain"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 0px"
+                        className="object-cover"
                       />
+                      {/* Subtle gradient veil for text legibility if needed */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                     </div>
                   </div>
                 </div>
@@ -222,23 +227,23 @@ export default function Services() {
                     ref={(el) => {
                       imageRefs.current[index] = el;
                     }}
-                    className="absolute inset-0 flex items-center justify-center bg-card"
+                    className="absolute inset-0 bg-card"
                     style={{
                       zIndex: index,
                       transform: index === 0 ? "none" : "translateY(100%)",
                       opacity: index === 0 ? 1 : 0,
                     }}
                   >
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
-                        priority={index === 0}
-                      />
-                    </div>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                    {/* Gradient veil for depth + consistent tone with the section */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/40 via-transparent to-transparent pointer-events-none" />
                   </div>
                 ))}
               </div>

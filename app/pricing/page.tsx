@@ -95,19 +95,19 @@ export default function PricingPage() {
 
         <Navbar />
 
-        <main ref={containerRef} className="pt-40 pb-32 px-6">
+        <main ref={containerRef} className="pt-32 pb-32 px-6">
           <div className="container mx-auto max-w-7xl">
             {/* Header */}
             <section className="relative mb-16">
               <AuroraBackground />
               <div className="pricing-header text-center max-w-4xl mx-auto relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
                 </div>
                 <h1
                   ref={titleContainerRef}
-                  className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
+                  className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 uppercase leading-[0.95]"
                 >
                   <span ref={titleLine1Ref} className="inline-block">
                     ELEVATE YOUR
@@ -120,7 +120,7 @@ export default function PricingPage() {
                     DIGITAL IMPACT
                   </span>
                 </h1>
-                <p className="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto mb-12 font-medium">
+                <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
                   Fixed-scope foundations or aggressive monthly growth retainers.
                   Architected for market dominance.
                 </p>
