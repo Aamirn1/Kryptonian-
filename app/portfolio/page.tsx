@@ -5,7 +5,6 @@ import {
   TrendingUp,
   Globe,
   Zap,
-  ChevronRight,
   BarChart3,
   Target,
 } from "lucide-react";
@@ -312,13 +311,6 @@ export default function PortfolioPage() {
                             ))}
                           </div>
 
-                          <Link
-                            href={`/portfolio/${featured.id}`}
-                            className="inline-flex items-center gap-2 text-electric font-semibold group/link"
-                          >
-                            View Full Case Study
-                            <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
-                          </Link>
                         </div>
                       </div>
                     </div>
@@ -418,12 +410,6 @@ export default function PortfolioPage() {
                             </span>
                           ))}
                         </div>
-                        <Link
-                          href={`/portfolio/${caseStudy.id}`}
-                          className="w-10 h-10 bg-electric rounded-full flex items-center justify-center text-white hover:bg-violet transition-colors"
-                        >
-                          <ChevronRight className="w-5 h-5" />
-                        </Link>
                       </div>
                     </div>
                   </div>
