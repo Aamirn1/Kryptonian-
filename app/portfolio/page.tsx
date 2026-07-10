@@ -31,6 +31,7 @@ const caseStudies = [
     category: "Web Development",
     image: "/services/web-dev.png",
     logo: "/services/strategy.png",
+    projectUrl: "https://tradelink-sooty.vercel.app/",
     description:
       "Complete website overhaul for a SaaS startup, focusing on conversion optimization and modern design aesthetics.",
     results: [
@@ -48,6 +49,7 @@ const caseStudies = [
     category: "SEO",
     image: "/services/seo.png",
     logo: "/services/brand.png",
+    projectUrl: "https://www.signaturestitchs.com",
     description:
       "Comprehensive SEO strategy for a fashion e-commerce brand targeting competitive keywords in the UK market.",
     results: [
@@ -65,6 +67,7 @@ const caseStudies = [
     category: "Branding",
     image: "/services/brand.png",
     logo: "/services/conversion.png",
+    projectUrl: "https://mydollarstore.vercel.app/",
     description:
       "Full brand identity creation including logo, color palette, typography, and comprehensive brand guidelines.",
     results: [
@@ -82,6 +85,7 @@ const caseStudies = [
     category: "E-commerce",
     image: "/services/conversion.png",
     logo: "/services/market.png",
+    projectUrl: "https://chohan-s-style-dsaa.vercel.app/",
     description:
       "Strategic Google Ads and Meta Ads management with continuous optimization and A/B testing.",
     results: [
@@ -99,6 +103,7 @@ const caseStudies = [
     category: "SEO",
     image: "/services/strategy.png",
     logo: "/services/seo.png",
+    projectUrl: "https://islamabadoptical.vercel.app/",
     description:
       "Local SEO and content strategy for a healthcare appointment booking platform across 20+ cities.",
     results: [
@@ -116,6 +121,7 @@ const caseStudies = [
     category: "Branding",
     image: "/services/market.png",
     logo: "/services/web-dev.png",
+    projectUrl: "https://foodexpresslalkurti.vercel.app/",
     description:
       "Multi-location restaurant brand refresh with new visual identity, menu design, and digital presence.",
     results: [
@@ -311,6 +317,22 @@ export default function PortfolioPage() {
                             ))}
                           </div>
 
+                          {/* View Project Button */}
+                          {featured.projectUrl && (
+                            <a
+                              href={featured.projectUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient rounded-full text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                            >
+                              <span className="relative z-10 uppercase tracking-[0.12em]">
+                                View Project
+                              </span>
+                              <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                              <span className="shimmer-sweep" />
+                            </a>
+                          )}
+
                         </div>
                       </div>
                     </div>
@@ -398,19 +420,33 @@ export default function PortfolioPage() {
                         </div>
                       </div>
 
-                      {/* Tags & Link */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex gap-2">
-                          {caseStudy.tags.slice(0, 2).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 bg-black/5 text-muted-foreground text-xs rounded-lg"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {caseStudy.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-black/5 text-muted-foreground text-xs rounded-lg"
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
+
+                      {/* View Project Button */}
+                      {caseStudy.projectUrl && (
+                        <a
+                          href={caseStudy.projectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 btn-gradient rounded-full text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                        >
+                          <span className="relative z-10 uppercase tracking-[0.1em]">
+                            View Project
+                          </span>
+                          <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          <span className="shimmer-sweep" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}
