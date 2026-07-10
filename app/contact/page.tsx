@@ -34,6 +34,12 @@ function getPlanPrice(planName: string): string | undefined {
   return all.find((p) => p.name === planName)?.price;
 }
 
+// Helper: get the tier (Silver/Gold/Platinum) for a plan name.
+function getPlanTier(planName: string): string | undefined {
+  const all = [...pricingData.oneTime, ...pricingData.monthly];
+  return all.find((p) => p.name === planName)?.tier;
+}
+
 export default function ContactPageWrapper() {
   return (
     <Suspense fallback={null}>
@@ -407,7 +413,16 @@ function ContactPage() {
                                 <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
                               )}
                             </span>
-                            <span className="font-medium text-foreground flex-1">{s}</span>
+                            <span className="flex-1 min-w-0">
+                              {s !== "Need to talk" && getPlanTier(s) && (
+                                <span className="block font-bold text-foreground text-sm leading-tight">
+                                  {getPlanTier(s)}
+                                </span>
+                              )}
+                              <span className={`block ${s !== "Need to talk" ? "text-xs text-zinc-500 leading-tight" : "font-medium text-foreground"}`}>
+                                {s}
+                              </span>
+                            </span>
                             {s !== "Need to talk" && getPlanPrice(s) && (
                               <span className="text-sm font-semibold text-electric shrink-0">
                                 {getPlanPrice(s)}

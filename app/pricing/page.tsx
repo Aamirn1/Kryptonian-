@@ -211,20 +211,21 @@ export default function PricingPage() {
                     </p>
                   </div>
 
-                  <div className="flex items-baseline gap-1 mb-10">
-                    <span className="font-display text-5xl font-bold tracking-tighter text-foreground">
-                      {plan.price}
-                    </span>
-                    <div className="flex flex-col">
+                  <div className="mb-10">
+                    <div className="flex items-baseline gap-1 mb-2">
+                      <span className="font-display text-5xl font-bold tracking-tighter text-foreground">
+                        {plan.price}
+                      </span>
                       <span className="text-zinc-400 text-sm font-semibold tracking-tight">
                         {plan.duration}
                       </span>
-                      {plan.footer && (
-                        <span className="text-[10px] text-electric/70 font-bold uppercase tracking-[0.18em] -mt-1">
-                          {plan.footer}
-                        </span>
-                      )}
                     </div>
+                    {plan.footer && (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-black/10 rounded-full text-xs font-medium text-zinc-600 tracking-tight">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        {plan.footer === "flexible contract" ? "Flexible — cancel anytime" : plan.footer}
+                      </span>
+                    )}
                   </div>
 
                   <div className="space-y-4 mb-12 grow">
