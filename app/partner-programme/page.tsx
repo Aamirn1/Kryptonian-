@@ -33,7 +33,7 @@ export default function PartnerProgrammePage() {
 
     return (
         <SmoothScroll>
-            <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden">
+            <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
                 <AuroraBackground />
                 <Navbar />
 
@@ -78,7 +78,7 @@ export default function PartnerProgrammePage() {
                                     icon: Users,
                                 },
                             ].map((item, i) => (
-                                <div key={i} className="partner-content group p-10 bg-card border border-white/10 rounded-3xl hover:border-electric/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                                <div key={i} className="partner-content group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                                     <div className="w-14 h-14 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                                         <item.icon className="w-7 h-7 text-electric" />
                                     </div>
@@ -106,7 +106,7 @@ export default function PartnerProgrammePage() {
 
                         {/* Gated Application Form */}
                         <div id="apply" className="partner-content max-w-4xl mx-auto">
-                            <div className="bg-card border border-white/10 rounded-3xl p-12 md:p-20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                            <div className="bg-white border border-black/10 rounded-3xl p-12 md:p-20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                                 <div className="text-center mb-16">
                                     <h2 className="text-4xl font-bold mb-6 tracking-tight leading-[1.05]">Partner Application</h2>
                                     <p className="text-muted-foreground text-lg">
@@ -117,27 +117,27 @@ export default function PartnerProgrammePage() {
                                 <form className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Company Name</label>
-                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="e.g. Technical Solutions Ltd" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Company Name</label>
+                                            <input type="text" className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-foreground placeholder:text-zinc-400" placeholder="e.g. Technical Solutions Ltd" />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Website URL</label>
-                                            <input type="url" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="https://" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Website URL</label>
+                                            <input type="url" className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-foreground placeholder:text-zinc-400" placeholder="https://" />
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Contact Name</label>
-                                            <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="Full Name" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Contact Name</label>
+                                            <input type="text" className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-foreground placeholder:text-zinc-400" placeholder="Full Name" />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Business Email</label>
-                                            <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40" placeholder="name@company.com" />
+                                            <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Business Email</label>
+                                            <input type="email" className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-foreground placeholder:text-zinc-400" placeholder="name@company.com" />
                                         </div>
                                     </div>
                                     <div className="space-y-3">
-                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Technical Specialism</label>
-                                        <select className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors appearance-none text-white">
+                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Technical Specialism</label>
+                                        <select className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors appearance-none text-foreground">
                                             <option>E-commerce (Shopify/Laravel)</option>
                                             <option>Performance Marketing Agency</option>
                                             <option>Brand & Creative Consultancy</option>
@@ -146,8 +146,8 @@ export default function PartnerProgrammePage() {
                                         </select>
                                     </div>
                                     <div className="space-y-3">
-                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Proposed Partnership Focus</label>
-                                        <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-white placeholder:text-white/40 resize-y" placeholder="Briefly outline your technical project requirements..."></textarea>
+                                        <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">Proposed Partnership Focus</label>
+                                        <textarea rows={4} className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus:border-electric focus-visible:ring-2 focus-visible:ring-electric transition-colors text-foreground placeholder:text-zinc-400 resize-y" placeholder="Briefly outline your technical project requirements..."></textarea>
                                     </div>
                                     <button className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs">
                                         <span className="shimmer-sweep" />

@@ -35,7 +35,7 @@ export default function ThreeNexus() {
         const nodesCount = 80;
         const positions = new Float32Array(nodesCount * 3);
         const colors = new Float32Array(nodesCount * 3);
-        const primaryColor = new THREE.Color("#3b82f6");
+        const primaryColor = new THREE.Color("#3b82f6"); // electric blue — visible on white
 
         for (let i = 0; i < nodesCount; i++) {
             positions[i * 3] = (Math.random() - 0.5) * 15;
@@ -55,8 +55,8 @@ export default function ThreeNexus() {
             size: 0.1,
             vertexColors: true,
             transparent: true,
-            opacity: 0.8,
-            blending: THREE.AdditiveBlending,
+            opacity: 0.55,
+            blending: THREE.NormalBlending,
         });
 
         const nodes = new THREE.Points(geometry, material);

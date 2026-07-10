@@ -86,7 +86,7 @@ export default function PricingPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-electric/10 rounded-full blur-[120px] animate-pulse" />
@@ -120,20 +120,20 @@ export default function PricingPage() {
                     DIGITAL IMPACT
                   </span>
                 </h1>
-                <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
                   Fixed-scope foundations or aggressive monthly growth retainers.
                   Architected for market dominance.
                 </p>
 
                 {/* Switcher */}
                 <div className="flex justify-center mb-12">
-                  <div className="bg-white/5 p-1.5 rounded-full border border-white/10 shadow-xl shadow-black/40 flex gap-1 relative">
+                  <div className="bg-black/5 p-1.5 rounded-full border border-black/10 shadow-lg shadow-black/15 flex gap-1 relative">
                     <button
                       onClick={() => setBillingCycle("oneTime")}
                       className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
                         billingCycle === "oneTime"
                           ? "text-white"
-                          : "text-white/60 hover:text-white"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       Foundation & Launch
@@ -143,7 +143,7 @@ export default function PricingPage() {
                       className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
                         billingCycle === "monthly"
                           ? "text-white"
-                          : "text-white/60 hover:text-white"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       Ongoing Growth
@@ -170,10 +170,10 @@ export default function PricingPage() {
               {activePlans.map((plan, index) => (
                 <div
                   key={`${billingCycle}-${index}`}
-                  className={`pricing-card group relative p-10 bg-card border ${
+                  className={`pricing-card group relative p-10 bg-white border ${
                     plan.popular
-                      ? "border-electric shadow-[0_20px_60px_-20px_rgba(59,130,246,0.4)]"
-                      : "border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+                      ? "border-electric shadow-[0_20px_60px_-20px_rgba(59,130,246,0.35)]"
+                      : "border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   } rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric/50`}
                 >
                   {plan.popular && (
@@ -203,7 +203,7 @@ export default function PricingPage() {
                     <p className="text-xs font-semibold text-electric tracking-[0.18em] uppercase mb-4 opacity-80">
                       {plan.sub}
                     </p>
-                    <p className="text-white/60 text-sm leading-relaxed font-medium">
+                    <p className="text-muted-foreground text-sm leading-relaxed font-medium">
                       {plan.description}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export default function PricingPage() {
                       {plan.price}
                     </span>
                     <div className="flex flex-col">
-                      <span className="text-white/50 text-sm font-semibold tracking-tight">
+                      <span className="text-zinc-400 text-sm font-semibold tracking-tight">
                         {plan.duration}
                       </span>
                       {plan.footer && (
@@ -230,7 +230,7 @@ export default function PricingPage() {
                         <div className="mt-1 w-5 h-5 rounded-full bg-electric/10 border border-electric/20 flex items-center justify-center shrink-0">
                           <Check className="w-3 h-3 text-electric stroke-[3]" />
                         </div>
-                        <span className="text-white/60 text-sm font-medium leading-snug">
+                        <span className="text-muted-foreground text-sm font-medium leading-snug">
                           {feature}
                         </span>
                       </div>
@@ -250,18 +250,18 @@ export default function PricingPage() {
             </div>
 
             {/* Bottom Section */}
-            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-card border border-white/10 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-white border border-black/10 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
               {/* Animated Background Gradients */}
               <div className="absolute top-0 right-0 w-2/3 h-full bg-electric/20 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
               <div className="absolute bottom-0 left-0 w-1/2 h-full bg-violet/10 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
 
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter uppercase leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8 tracking-tighter uppercase leading-[0.95]">
                   NEED A <span className="text-gradient italic">CUSTOM</span>{" "}
                   <br />
                   STRATEGY?
                 </h2>
-                <p className="text-white/60 text-lg md:text-xl mb-12 leading-relaxed">
+                <p className="text-muted-foreground text-lg md:text-xl mb-12 leading-relaxed">
                   For high-growth scale-ups and established enterprises
                   requiring complex architecture and dedicated engineering
                   teams.

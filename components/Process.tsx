@@ -112,7 +112,7 @@ export default function Process() {
   return (
     <section
       ref={containerRef}
-      className="bg-background border-y border-white/5 overflow-hidden"
+      className="bg-background border-y border-black/5 overflow-hidden"
     >
       <div ref={triggerRef} className="h-screen flex flex-col">
         {/* Heading — sits cleanly above the steps (not overlapping) */}
@@ -154,11 +154,11 @@ export default function Process() {
               key={index}
               className="process-step relative group shrink-0 w-[85vw] md:w-[45vw] lg:w-[25vw]"
             >
-              <div className="step-content relative bg-card border border-white/10 rounded-3xl p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] group-hover:-translate-y-1">
+              <div className="step-content relative bg-card border border-black/10 rounded-3xl p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] transition-all duration-300 group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] group-hover:-translate-y-1">
                 {/* Gradient top accent */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent rounded-t-3xl" />
                 {/* Oversized ghost number */}
-                <div className="font-display text-8xl md:text-[10rem] font-bold text-white/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-electric/10 transition-colors pointer-events-none leading-none">
+                <div className="font-display text-8xl md:text-[10rem] font-bold text-black/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-electric/10 transition-colors pointer-events-none leading-none">
                   {step.number}
                 </div>
                 <div className="relative z-10 pt-10">

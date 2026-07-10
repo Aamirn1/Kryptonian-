@@ -156,7 +156,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card group p-8 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300"
+              className="testimonial-card group p-8 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300"
             >
               {/* Quote Icon */}
               <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6">
@@ -172,20 +172,20 @@ export default function Testimonials() {
                       "w-5 h-5",
                       i < testimonial.rating
                         ? "text-gold fill-gold"
-                        : "text-white/20",
+                        : "text-black/15",
                     )}
                   />
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
+                <div className="w-14 h-14 bg-zinc-100 rounded-full overflow-hidden ring-1 ring-black/10">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${testimonial.image})` }}
@@ -213,7 +213,7 @@ export default function Testimonials() {
                     key={testimonial.id}
                     className="w-full shrink-0 px-1"
                   >
-                    <div className="p-6 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                    <div className="p-6 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                       <div className="w-10 h-10 bg-electric/10 border border-electric/20 rounded-xl flex items-center justify-center mb-4">
                         <Quote className="w-5 h-5 text-electric" />
                       </div>
@@ -226,18 +226,18 @@ export default function Testimonials() {
                               "w-4 h-4",
                               i < testimonial.rating
                                 ? "text-gold fill-gold"
-                                : "text-white/20",
+                                : "text-black/15",
                             )}
                           />
                         ))}
                       </div>
 
-                      <p className="text-white/70 leading-relaxed mb-6 text-sm">
+                      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
                         &ldquo;{testimonial.content}&rdquo;
                       </p>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden ring-1 ring-white/10">
+                        <div className="w-12 h-12 bg-zinc-100 rounded-full overflow-hidden ring-1 ring-black/10">
                           <div
                             className="w-full h-full bg-cover bg-center"
                             style={{
@@ -263,7 +263,7 @@ export default function Testimonials() {
               <button
                 onClick={prevTestimonial}
                 aria-label="Previous testimonial"
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+                className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -278,7 +278,7 @@ export default function Testimonials() {
                       "w-2 h-2 rounded-full transition-all",
                       index === activeIndex
                         ? "bg-electric w-6"
-                        : "bg-white/20 hover:bg-white/40",
+                        : "bg-black/15 hover:bg-black/30",
                     )}
                   />
                 ))}
@@ -287,7 +287,7 @@ export default function Testimonials() {
               <button
                 onClick={nextTestimonial}
                 aria-label="Next testimonial"
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+                className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -296,7 +296,7 @@ export default function Testimonials() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-20 pt-16 border-t border-white/10">
+        <div className="mt-20 pt-16 border-t border-black/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">

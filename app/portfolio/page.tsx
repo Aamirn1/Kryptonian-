@@ -209,7 +209,7 @@ export default function PortfolioPage() {
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden"
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
@@ -237,7 +237,7 @@ export default function PortfolioPage() {
                   <span className="text-gradient italic">Compounds</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
                   A portfolio engineered into market leadership — real
                   campaigns, real architecture, real growth.
                 </p>
@@ -251,7 +251,7 @@ export default function PortfolioPage() {
                   .map((featured) => (
                     <div
                       key={featured.id}
-                      className="group relative bg-card border border-white/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300"
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
@@ -273,7 +273,7 @@ export default function PortfolioPage() {
                             Featured Case Study
                           </div>
 
-                          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-[1.05]">
+                          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight leading-[1.05]">
                             {featured.title}
                           </h2>
 
@@ -281,7 +281,7 @@ export default function PortfolioPage() {
                             {featured.client}
                           </p>
 
-                          <p className="text-white/60 text-lg leading-relaxed mb-8">
+                          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                             {featured.description}
                           </p>
 
@@ -289,10 +289,10 @@ export default function PortfolioPage() {
                           <div className="grid grid-cols-3 gap-4 md:gap-6 mb-10">
                             {featured.results.map((result, idx) => (
                               <div key={idx} className="min-w-0">
-                                <div className="font-display text-2xl md:text-4xl font-bold text-white mb-2">
+                                <div className="font-display text-2xl md:text-4xl font-bold text-foreground mb-2">
                                   {result.metric}
                                 </div>
-                                <div className="text-white/60 text-[0.6rem] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.18em] leading-tight">
+                                <div className="text-muted-foreground text-[0.6rem] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.18em] leading-tight">
                                   {result.label}
                                 </div>
                               </div>
@@ -304,7 +304,7 @@ export default function PortfolioPage() {
                             {featured.tags.map((tag) => (
                               <span
                                 key={tag}
-                                className="px-4 py-2 bg-white/5 border border-white/10 text-white/80 text-sm font-medium rounded-full"
+                                className="px-4 py-2 bg-black/5 border border-black/10 text-foreground/80 text-sm font-medium rounded-full"
                               >
                                 {tag}
                               </span>
@@ -331,7 +331,7 @@ export default function PortfolioPage() {
                     className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all ${
                       activeCategory === category
                         ? "bg-electric text-white shadow-lg shadow-electric/30"
-                        : "bg-white/5 border border-white/10 text-white/60 hover:border-electric hover:text-electric"
+                        : "bg-black/5 border border-black/10 text-muted-foreground hover:border-electric hover:text-electric"
                     }`}
                   >
                     {category}
@@ -344,7 +344,7 @@ export default function PortfolioPage() {
                 {filteredCases.map((caseStudy) => (
                   <div
                     key={caseStudy.id}
-                    className="case-card group bg-card border border-white/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
@@ -365,7 +365,7 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* Client Logo */}
-                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-card border border-white/10 rounded-xl p-2 shadow-lg shadow-black/40">
+                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-white border border-black/10 rounded-xl p-2 shadow-lg shadow-black/10">
                         <Image
                           src={caseStudy.logo}
                           alt={caseStudy.client}
@@ -381,19 +381,19 @@ export default function PortfolioPage() {
                       <h3 className="text-xl font-bold mb-2 group-hover:text-electric transition-colors">
                         {caseStudy.title}
                       </h3>
-                      <p className="text-white/50 text-sm mb-4">
+                      <p className="text-zinc-400 text-sm mb-4">
                         {caseStudy.client}
                       </p>
-                      <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-2">
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
                         {caseStudy.description}
                       </p>
 
                       {/* Results Preview */}
-                      <div className="flex items-center gap-4 mb-6 pb-6 border-b border-white/10">
+                      <div className="flex items-center gap-4 mb-6 pb-6 border-b border-black/10">
                         <div className="font-display text-2xl font-bold text-electric">
                           {caseStudy.results[0].metric}
                         </div>
-                        <div className="text-xs text-white/60 uppercase tracking-[0.18em]">
+                        <div className="text-xs text-muted-foreground uppercase tracking-[0.18em]">
                           {caseStudy.results[0].label}
                         </div>
                       </div>
@@ -404,7 +404,7 @@ export default function PortfolioPage() {
                           {caseStudy.tags.slice(0, 2).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-1 bg-white/5 text-white/60 text-xs rounded-lg"
+                              className="px-2 py-1 bg-black/5 text-muted-foreground text-xs rounded-lg"
                             >
                               {tag}
                             </span>
@@ -426,11 +426,11 @@ export default function PortfolioPage() {
                   <Zap className="w-3 h-3" />
                   Our Process
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                   How We Deliver{" "}
                   <span className="text-gradient italic">Results</span>
                 </h2>
-                <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   A proven methodology engineered to compound growth for every
                   client we partner with.
                 </p>
@@ -440,7 +440,7 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-white/5 border border-white/10 rounded-3xl hover:border-electric/30 hover:bg-white/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300"
                   >
                     <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-electric/20 transition-colors">
                       <step.icon className="w-8 h-8 text-electric" />
@@ -451,7 +451,7 @@ export default function PortfolioPage() {
                     <h3 className="text-xl font-bold text-foreground mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -463,15 +463,15 @@ export default function PortfolioPage() {
           {/* CTA Section */}
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card border border-white/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="relative p-12 md:p-20 bg-white border border-black/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                     Ready to Be Our{" "}
                     <span className="text-gradient italic">Next Success</span>?
                   </h2>
-                  <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s architect the same compounding results for your
                     business.
                   </p>
@@ -486,7 +486,7 @@ export default function PortfolioPage() {
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
                     >
                       <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
                     </Link>

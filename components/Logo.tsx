@@ -16,14 +16,16 @@ export default function Logo({
   iconClassName,
   textClassName,
   showText = true,
-  variant = "default",
   onClick,
 }: {
   className?: string;
   iconClassName?: string;
   textClassName?: string;
   showText?: boolean;
-  /** "default" = white text for dark nav; "footer" = slightly dimmed */
+  /**
+   * Kept for API compatibility — both variants now render `text-foreground`
+   * (the white theme uses a single text color across surfaces).
+   */
   variant?: "default" | "footer";
   onClick?: () => void;
 }) {
@@ -49,10 +51,7 @@ export default function Logo({
       {showText && (
         <span
           className={cn(
-            "font-display text-lg font-bold leading-none tracking-tight md:text-xl",
-            variant === "footer"
-              ? "text-white/90"
-              : "text-foreground",
+            "font-display text-lg font-bold leading-none tracking-tight md:text-xl text-foreground",
             textClassName,
           )}
         >

@@ -137,7 +137,7 @@ export default function Navbar() {
         <nav
           className={`flex items-center justify-between gap-4 md:gap-8 px-5 md:px-8 py-2.5 md:py-4 max-w-3xl w-full rounded-2xl transition-all duration-500 ${
             scrolled
-              ? "bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40"
+              ? "bg-white/70 backdrop-blur-xl border border-black/10 shadow-lg shadow-black/5"
               : "bg-transparent border border-transparent shadow-none"
           }`}
         >
@@ -163,7 +163,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(true)}
             className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-electric ${
-              scrolled ? "hover:bg-white/5" : "hover:bg-white/10"
+              scrolled ? "hover:bg-black/5" : "hover:bg-black/10"
             }`}
             aria-label="Open menu"
             aria-expanded={mobileMenuOpen}
@@ -185,7 +185,7 @@ export default function Navbar() {
           />
 
           {/* Menu Panel */}
-          <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-card border border-white/10 shadow-2xl shadow-black/50 animate-in slide-in-from-right duration-300">
+          <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-card border border-black/10 shadow-2xl shadow-black/20 animate-in slide-in-from-right duration-300">
             <div className="flex flex-col h-full p-6">
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
@@ -195,7 +195,7 @@ export default function Navbar() {
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 transition-colors focus-visible:ring-2 focus-visible:ring-electric"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -212,7 +212,7 @@ export default function Navbar() {
                     className={`py-4 px-4 text-lg font-medium rounded-2xl transition-colors ${
                       isActive(link.href)
                         ? "bg-electric/10 text-electric"
-                        : "hover:bg-white/5"
+                        : "hover:bg-black/5"
                     }`}
                   >
                     {link.label}
@@ -221,7 +221,7 @@ export default function Navbar() {
               </nav>
 
               {/* CTA */}
-              <div className="pt-6 border-t border-white/10">
+              <div className="pt-6 border-t border-black/10">
                 <Link
                   href="/get-started"
                   onClick={() => setMobileMenuOpen(false)}

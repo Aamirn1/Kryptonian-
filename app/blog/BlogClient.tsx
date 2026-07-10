@@ -70,7 +70,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden"
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
@@ -110,7 +110,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
               <div className="container mx-auto max-w-7xl">
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="group block relative bg-card border border-white/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300"
+                  className="group block relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="grid lg:grid-cols-2">
                     {/* Image Side */}
@@ -132,26 +132,26 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                         <span className="px-3 py-1 bg-electric/10 border border-electric/20 text-electric text-xs font-semibold rounded-full uppercase tracking-[0.18em]">
                           {featuredPost.category}
                         </span>
-                        <span className="text-white/50 text-sm">
+                        <span className="text-zinc-400 text-sm">
                           {featuredPost.readingTime}
                         </span>
                       </div>
 
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-[1.05] group-hover:text-electric transition-colors">
+                      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight leading-[1.05] group-hover:text-electric transition-colors">
                         {featuredPost.title}
                       </h2>
 
-                      <p className="text-white/60 text-lg leading-relaxed mb-8">
+                      <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                         {featuredPost.excerpt}
                       </p>
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
-                            <User className="w-5 h-5 text-white/50" />
+                          <div className="w-10 h-10 bg-zinc-50 border border-black/10 rounded-full flex items-center justify-center">
+                            <User className="w-5 h-5 text-zinc-400" />
                           </div>
                           <div>
-                            <p className="text-white font-medium text-sm">
+                            <p className="text-foreground font-medium text-sm">
                               {featuredPost.author}
                             </p>
                             <p className="text-muted-foreground text-xs">
@@ -188,7 +188,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all ${
                     activeCategory === "All"
                       ? "bg-electric text-white shadow-lg shadow-electric/30"
-                      : "bg-white/5 border border-white/10 text-white/70 hover:border-electric hover:text-electric"
+                      : "bg-black/5 border border-black/10 text-foreground/70 hover:border-electric hover:text-electric"
                   }`}
                 >
                   All
@@ -200,7 +200,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                     className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all ${
                       activeCategory === category
                         ? "bg-electric text-white shadow-lg shadow-electric/30"
-                        : "bg-white/5 border border-white/10 text-white/70 hover:border-electric hover:text-electric"
+                        : "bg-black/5 border border-black/10 text-foreground/70 hover:border-electric hover:text-electric"
                     }`}
                   >
                     {category}
@@ -213,7 +213,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                 {recentPosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="blog-card group bg-card border border-white/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+                    className="blog-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       {/* Image */}
@@ -235,7 +235,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
 
                       {/* Content */}
                       <div className="p-8">
-                        <div className="flex items-center gap-4 text-white/50 text-xs mb-4">
+                        <div className="flex items-center gap-4 text-zinc-400 text-xs mb-4">
                           <span className="flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             {new Date(post.date).toLocaleDateString("en-GB", {
@@ -260,7 +260,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
 
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
+                            <div className="w-8 h-8 bg-zinc-50 border border-black/10 rounded-full flex items-center justify-center">
                               <User className="w-4 h-4 text-muted-foreground" />
                             </div>
                             <span className="text-sm font-medium">
@@ -284,15 +284,15 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
           {/* CTA Section */}
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card border border-white/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="relative p-12 md:p-20 bg-white border border-black/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                     Ready to Grow Your{" "}
                     <span className="text-gradient italic">Business</span>?
                   </h2>
-                  <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s translate these strategies into compounding
                     results for your business.
                   </p>
@@ -307,7 +307,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
                     >
                       <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
                     </Link>

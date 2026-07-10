@@ -124,7 +124,7 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="relative bg-card rounded-[2rem] border border-white/10 overflow-hidden"
+      className="relative bg-card rounded-[2rem] border border-black/10 overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)]"
     >
       {/* Background dot pattern with edge fade + primary glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -132,7 +132,7 @@ export default function Services() {
           className="absolute inset-0 opacity-[0.18]"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
+              "radial-gradient(rgba(10,10,15,0.18) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at center, black 40%, transparent 80%)",
@@ -141,7 +141,7 @@ export default function Services() {
           }}
         />
         <div
-          className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full blur-[120px] opacity-25"
+          className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full blur-[120px] opacity-20"
           style={{ background: "#3b82f6" }}
         />
       </div>
@@ -164,7 +164,7 @@ export default function Services() {
                   Services <br />
                   <span className="text-gradient italic font-display">Architected</span>
                 </h2>
-                <p className="text-white/70 text-lg md:text-xl max-w-xl leading-relaxed">
+                <p className="text-muted-foreground text-lg md:text-xl max-w-xl leading-relaxed">
                   We don&apos;t deliver services — we engineer compounding growth
                   systems built for market dominance.
                 </p>
@@ -174,7 +174,7 @@ export default function Services() {
                 <div
                   key={index}
                   className={cn(
-                    `service-text-${index} group flex flex-col justify-center border-b border-white/10 last:border-0 py-10 transition-all duration-300 hover:-translate-y-1`,
+                    `service-text-${index} group flex flex-col justify-center border-b border-black/10 last:border-0 py-10 transition-all duration-300 hover:-translate-y-1`,
                     index === 0 ? "lg:min-h-[55vh]" : "lg:min-h-[60vh]",
                   )}
                 >
@@ -189,13 +189,13 @@ export default function Services() {
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-white/70 text-lg lg:text-xl leading-relaxed max-w-lg mb-0">
+                  <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed max-w-lg mb-0">
                     {service.description}
                   </p>
 
                   {/* Mobile Image Fallback — fills the outlined box edge-to-edge */}
                   <div className="mt-10 lg:hidden">
-                    <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-card border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                    <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-card border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)]">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -220,7 +220,7 @@ export default function Services() {
             <div className="relative w-full h-full flex items-center justify-center p-20">
               {/* Gradient border wrapper for premium framing */}
               <div className="relative w-full aspect-square max-w-2xl rounded-[2.5rem] p-px bg-gradient-to-br from-electric/40 via-violet/30 to-cyan/40">
-              <div className="relative w-full h-full bg-card rounded-[2.5rem] border border-white/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(59,130,246,0.35)]">
+              <div className="relative w-full h-full bg-card rounded-[2.5rem] border border-black/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(59,130,246,0.35)]">
                 {services.map((service, index) => (
                   <div
                     key={index}

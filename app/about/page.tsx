@@ -169,7 +169,7 @@ const StatCard = ({
   return (
     <div
       ref={cardRef}
-      className="stat-card text-center p-8 border border-white/10 rounded-3xl bg-card backdrop-blur-sm group hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+      className="stat-card text-center p-8 border border-black/10 rounded-3xl bg-white backdrop-blur-sm group hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
     >
       <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-electric/10 border border-electric/20 flex items-center justify-center group-hover:scale-110 transition-transform">
         <stat.icon className="w-7 h-7 text-electric" />
@@ -178,7 +178,7 @@ const StatCard = ({
         {count}
         <span className="text-gradient">{stat.suffix}</span>
       </div>
-      <div className="text-white/60 text-xs font-semibold tracking-[0.18em] uppercase">{stat.label}</div>
+      <div className="text-muted-foreground text-xs font-semibold tracking-[0.18em] uppercase">{stat.label}</div>
     </div>
   );
 };
@@ -284,7 +284,7 @@ export default function AboutPage() {
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden"
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
@@ -320,7 +320,7 @@ export default function AboutPage() {
                     </h1>
                   </div>
 
-                  <p className="about-hero-subtitle text-xl md:text-2xl text-white/60 max-w-xl leading-relaxed font-medium">
+                  <p className="about-hero-subtitle text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed font-medium">
                     Krypton Digital is a growth engineering studio —
                     architects obsessed with compounding ambitious businesses
                     into market leaders.
@@ -330,7 +330,7 @@ export default function AboutPage() {
                 <div className="relative hidden lg:block">
                   <div className="relative aspect-square max-w-lg mx-auto">
                     <div className="absolute inset-0 bg-electric/10 rounded-3xl rotate-6 blur-2xl" />
-                    <div className="relative bg-card border border-white/10 rounded-3xl p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+                    <div className="relative bg-white border border-black/10 rounded-3xl p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)]">
                       <Image
                         src="/images/hero/hero_team_collaboration_1769511734235.png"
                         alt="Krypton Digital Team"
@@ -363,7 +363,7 @@ export default function AboutPage() {
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 uppercase leading-[0.95]">
                   Our <span className="text-gradient italic">Mission</span>
                 </h2>
-                <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto font-medium">
+                <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-3xl mx-auto font-medium">
                   To democratise enterprise-grade digital growth for ambitious
                   companies. Every business deserves the strategies, tooling,
                   and talent that Fortune 500s deploy to dominate their
@@ -393,7 +393,7 @@ export default function AboutPage() {
                   <Heart className="w-3 h-3" />
                   What Drives Us
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-foreground leading-[0.95]">
                   Our <span className="text-gradient italic">Values</span>
                 </h2>
               </div>
@@ -402,7 +402,7 @@ export default function AboutPage() {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className="value-card group p-10 bg-card border border-white/10 rounded-3xl hover:border-electric/30 hover:bg-white/5 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]"
+                    className="value-card group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-zinc-50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                       <value.icon className="w-8 h-8 text-electric" />
@@ -410,7 +410,7 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
                       {value.title}
                     </h3>
-                    <p className="text-white/60 leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -458,7 +458,7 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-bold mt-2 mb-3 text-foreground">
                         {milestone.title}
                       </h3>
-                      <p className="text-white/60 leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed">
                         {milestone.description}
                       </p>
                     </div>
@@ -479,10 +479,10 @@ export default function AboutPage() {
                   <Users className="w-3 h-3" />
                   The Team
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white mb-6 leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-foreground mb-6 leading-[0.95]">
                   Meet The <span className="text-gradient italic">Experts</span>
                 </h2>
-                <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   A senior team of strategists, creatives, and engineers —
                   each obsessed with compounding your growth.
                 </p>
@@ -494,7 +494,7 @@ export default function AboutPage() {
                     key={index}
                     className="team-card group text-center hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="relative mb-6 overflow-hidden rounded-3xl border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)] transition-all duration-300">
+                    <div className="relative mb-6 overflow-hidden rounded-3xl border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300">
                       <div className="aspect-square bg-muted relative">
                         <Image
                           src={member.image}
@@ -506,13 +506,13 @@ export default function AboutPage() {
                       </div>
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-electric/10 to-transparent" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-xl font-bold text-foreground mb-1">
                       {member.name}
                     </h3>
                     <p className="text-electric font-medium text-sm mb-3 tracking-wide">
                       {member.role}
                     </p>
-                    <p className="text-white/50 text-sm leading-relaxed">
+                    <p className="text-zinc-400 text-sm leading-relaxed">
                       {member.bio}
                     </p>
                   </div>
@@ -524,16 +524,16 @@ export default function AboutPage() {
           {/* CTA Section */}
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card rounded-3xl overflow-hidden text-center border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="relative p-12 md:p-20 bg-white rounded-3xl overflow-hidden text-center border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 {/* Background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                     Ready To Join{" "}
                     <span className="text-gradient italic">Forces?</span>
                   </h2>
-                  <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s architect the next phase of your growth — and
                     engineer something the market won&apos;t forget.
                   </p>
@@ -548,7 +548,7 @@ export default function AboutPage() {
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
                     >
                       <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
                     </Link>

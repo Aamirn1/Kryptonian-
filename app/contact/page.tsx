@@ -108,7 +108,7 @@ export default function ContactPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-electric/10 rounded-full blur-[120px] animate-pulse" />
@@ -143,7 +143,7 @@ export default function ContactPage() {
                   <h2 className="text-3xl font-bold mb-8 tracking-tight">
                     Contact Information
                   </h2>
-                  <p className="text-white/60 text-lg mb-12 max-w-md">
+                  <p className="text-muted-foreground text-lg mb-12 max-w-md">
                     We partner with ambitious teams to engineer their next phase
                     of growth. Reach out and let&apos;s start the conversation.
                   </p>
@@ -154,11 +154,11 @@ export default function ContactPage() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-6 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 shrink-0 bg-card border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/40">
+                    <div className="w-16 h-16 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
                       <Mail className="w-6 h-6 text-electric" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs text-white/50 uppercase tracking-[0.18em] font-semibold">
+                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
                         Email Us
                       </p>
                       <p className="text-base md:text-lg font-medium group-hover:text-electric transition-colors break-all leading-snug">
@@ -171,11 +171,11 @@ export default function ContactPage() {
                     href="tel:+447424792233"
                     className="flex items-center gap-6 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 bg-card border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/40">
+                    <div className="w-16 h-16 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
                       <Phone className="w-6 h-6 text-electric" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/50 uppercase tracking-[0.18em] font-semibold">
+                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
                         Call Us
                       </p>
                       <p className="text-xl font-medium group-hover:text-electric transition-colors">
@@ -193,7 +193,7 @@ export default function ContactPage() {
                       Fast Response Guaranteed
                     </span>
                   </div>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-muted-foreground text-sm">
                     We typically respond to all inquiries within 24 hours during
                     business days.
                   </p>
@@ -204,7 +204,7 @@ export default function ContactPage() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="p-10 bg-card border border-white/10 rounded-[3rem] space-y-8 shadow-xl shadow-black/40"
+                className="p-10 bg-white border border-black/10 rounded-[3rem] space-y-8 shadow-xl shadow-black/10"
               >
                 {/* Status Message */}
                 {formStatus.type && (
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     className={`p-4 rounded-2xl flex items-start gap-3 ${
                       formStatus.type === "success"
                         ? "bg-electric/10 border border-electric/20 text-electric"
-                        : "bg-red-500/10 border border-red-500/20 text-red-400"
+                        : "bg-red-500/10 border border-red-500/20 text-red-600"
                     }`}
                   >
                     {formStatus.type === "success" ? (
@@ -226,7 +226,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label htmlFor="firstName" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                    <label htmlFor="firstName" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                       First Name
                     </label>
                     <input
@@ -236,7 +236,7 @@ export default function ContactPage() {
                       placeholder="John"
                       required
                       disabled={isPending}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-white placeholder:text-white/40 disabled:opacity-60"
+                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.firstName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -245,7 +245,7 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div className="space-y-3">
-                    <label htmlFor="lastName" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                    <label htmlFor="lastName" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                       Last Name
                     </label>
                     <input
@@ -255,7 +255,7 @@ export default function ContactPage() {
                       placeholder="Doe"
                       required
                       disabled={isPending}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-white placeholder:text-white/40 disabled:opacity-60"
+                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.lastName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -266,7 +266,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="email" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                  <label htmlFor="email" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                     Email Address
                   </label>
                   <input
@@ -276,7 +276,7 @@ export default function ContactPage() {
                     placeholder="john@example.com"
                     required
                     disabled={isPending}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-white placeholder:text-white/40 disabled:opacity-60"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                   />
                   {errors.email && (
                     <p className="text-red-400 text-xs" role="alert">{errors.email[0]}</p>
@@ -284,7 +284,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="category" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                  <label htmlFor="category" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                     Growth Package
                   </label>
                   <select
@@ -297,7 +297,7 @@ export default function ContactPage() {
                       setCategory(e.target.value as PackageCategory);
                       setService("");
                     }}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-white disabled:opacity-60"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-foreground disabled:opacity-60"
                   >
                     <option value="" disabled>Select a package...</option>
                     {categoryOptions.map((opt) => (
@@ -309,7 +309,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="service" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                  <label htmlFor="service" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                     Service Interested In
                   </label>
                   <select
@@ -319,7 +319,7 @@ export default function ContactPage() {
                     disabled={isPending || !category}
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-white disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-foreground disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <option value="" disabled>
                       {category ? "Select a service..." : "Choose a growth package first"}
@@ -336,8 +336,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="message" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
-                    Your Message <span className="text-white/50 normal-case font-medium tracking-normal">(optional)</span>
+                  <label htmlFor="message" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                    Your Message <span className="text-zinc-400 normal-case font-medium tracking-normal">(optional)</span>
                   </label>
                   <textarea
                     id="message"
@@ -345,7 +345,7 @@ export default function ContactPage() {
                     rows={4}
                     placeholder="Tell us about your project..."
                     disabled={isPending}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-white placeholder:text-white/40 resize-y disabled:opacity-60"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 resize-y disabled:opacity-60"
                   ></textarea>
                   {errors.message && (
                     <p className="text-red-400 text-xs" role="alert">{errors.message[0]}</p>

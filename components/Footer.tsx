@@ -14,7 +14,7 @@ import WhatsAppButton from "./WhatsAppButton";
 export default function Footer() {
   return (
     <>
-    <footer className="bg-card pt-12 pb-6 border-t border-white/10 rounded-t-[2rem]">
+    <footer className="bg-zinc-50 pt-12 pb-6 border-t border-black/10 rounded-t-[2rem]">
       <div className="h-px bg-gradient-to-r from-transparent via-electric/50 to-transparent" />
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
@@ -37,7 +37,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-foreground/80">
                 Navigation
               </h4>
               <ul className="space-y-3">
@@ -76,7 +76,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-foreground/80">
                 Legal
               </h4>
               <ul className="space-y-3">
@@ -99,7 +99,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-white/80">
+              <h4 className="font-display font-bold mb-4 uppercase tracking-[0.18em] text-xs text-foreground/80">
                 Socials
               </h4>
               <ul className="space-y-3">
@@ -135,7 +135,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-black/10 gap-4">
           <div className="scale-90">
             <Logo variant="footer" />
           </div>
@@ -145,7 +145,7 @@ export default function Footer() {
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group px-6 py-2 border border-white/10 rounded-full text-xs font-semibold tracking-[0.12em] uppercase hover:cursor-pointer hover:bg-electric hover:text-white hover:border-electric transition-all"
+            className="group px-6 py-2 border border-black/10 rounded-full text-xs font-semibold tracking-[0.12em] uppercase hover:cursor-pointer hover:bg-electric hover:text-white hover:border-electric transition-all"
           >
             Back to Top
           </button>

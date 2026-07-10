@@ -33,10 +33,10 @@ gsap.registerPlugin(ScrollTrigger);
 const MarkdownRenderer = dynamic(() => import("@/components/MarkdownRenderer"), {
   loading: () => (
     <div className="animate-pulse space-y-4 py-8">
-      <div className="h-4 bg-white/10 rounded w-3/4" />
-      <div className="h-4 bg-white/10 rounded w-full" />
-      <div className="h-4 bg-white/10 rounded w-5/6" />
-      <div className="h-4 bg-white/10 rounded w-2/3" />
+      <div className="h-4 bg-black/10 rounded w-3/4" />
+      <div className="h-4 bg-black/10 rounded w-full" />
+      <div className="h-4 bg-black/10 rounded w-5/6" />
+      <div className="h-4 bg-black/10 rounded w-2/3" />
     </div>
   ),
 });
@@ -139,7 +139,7 @@ export default function BlogPostClient({
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased"
       >
         <Navbar />
 
@@ -188,8 +188,8 @@ export default function BlogPostClient({
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pb-8 border-b border-white/10">
-                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
+                <div className="flex items-center gap-4 pb-8 border-b border-black/10">
+                  <div className="w-14 h-14 bg-zinc-50 border border-black/10 rounded-full flex items-center justify-center">
                     <User className="w-7 h-7 text-muted-foreground" />
                   </div>
                   <div>
@@ -204,7 +204,7 @@ export default function BlogPostClient({
           {/* Featured Image */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-5xl">
-              <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="relative aspect-video rounded-3xl overflow-hidden border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -226,11 +226,11 @@ export default function BlogPostClient({
                   <MarkdownRenderer content={post.content} />
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/10">
+                  <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-black/10">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-4 py-2 bg-white/5 border border-white/10 text-white/70 text-sm font-medium rounded-full"
+                        className="px-4 py-2 bg-black/5 border border-black/10 text-foreground/70 text-sm font-medium rounded-full"
                       >
                         <Tag className="w-3 h-3 inline mr-1" />
                         {tag}
@@ -251,7 +251,7 @@ export default function BlogPostClient({
                         )}&url=${encodeURIComponent(shareUrl)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
+                        className="w-10 h-10 bg-black/5 border border-black/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
                       >
                         <Twitter className="w-4 h-4" />
                       </a>
@@ -261,7 +261,7 @@ export default function BlogPostClient({
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
+                        className="w-10 h-10 bg-black/5 border border-black/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
                       >
                         <Linkedin className="w-4 h-4" />
                       </a>
@@ -271,13 +271,13 @@ export default function BlogPostClient({
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
+                        className="w-10 h-10 bg-black/5 border border-black/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
                       >
                         <Facebook className="w-4 h-4" />
                       </a>
                       <button
                         onClick={() => navigator.clipboard.writeText(shareUrl)}
-                        className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
+                        className="w-10 h-10 bg-black/5 border border-black/10 rounded-full flex items-center justify-center hover:bg-electric hover:text-white hover:border-electric transition-colors"
                       >
                         <LinkIcon className="w-4 h-4" />
                       </button>
@@ -289,17 +289,17 @@ export default function BlogPostClient({
                 <aside className="hidden lg:block">
                   <div className="sticky top-32 space-y-8">
                     {/* Newsletter */}
-                    <div className="p-6 bg-card border border-white/10 rounded-3xl">
-                      <h3 className="text-white font-bold text-lg mb-3">
+                    <div className="p-6 bg-white border border-black/10 rounded-3xl">
+                      <h3 className="text-foreground font-bold text-lg mb-3">
                         Subscribe to Updates
                       </h3>
-                      <p className="text-white/60 text-sm mb-4">
+                      <p className="text-muted-foreground text-sm mb-4">
                         Get the latest insights delivered to your inbox.
                       </p>
                       <input
                         type="email"
                         placeholder="Enter your email"
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-muted-foreground text-sm mb-3 focus:outline-none focus:border-electric"
+                        className="w-full px-4 py-3 bg-white border border-black/10 rounded-xl text-foreground placeholder:text-zinc-400 text-sm mb-3 focus:outline-none focus:border-electric"
                       />
                       <button className="w-full py-3 bg-electric text-white font-semibold rounded-full hover:bg-electric/80 transition-colors text-sm">
                         Subscribe
@@ -307,7 +307,7 @@ export default function BlogPostClient({
                     </div>
 
                     {/* Categories */}
-                    <div className="p-6 bg-card border border-white/10 rounded-3xl">
+                    <div className="p-6 bg-white border border-black/10 rounded-3xl">
                       <h3 className="font-bold text-lg mb-4">Categories</h3>
                       <div className="space-y-2">
                         {Array.from(
@@ -316,10 +316,10 @@ export default function BlogPostClient({
                           <Link
                             key={category}
                             href={`/blog?category=${category}`}
-                            className="flex items-center justify-between py-2 text-white/70 hover:text-electric transition-colors"
+                            className="flex items-center justify-between py-2 text-foreground/70 hover:text-electric transition-colors"
                           >
                             <span>{category}</span>
-                            <span className="text-sm text-white/50">
+                            <span className="text-sm text-zinc-400">
                               {
                                 allPosts.filter((p) => p.category === category)
                                   .length
@@ -337,7 +337,7 @@ export default function BlogPostClient({
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <section className="related-section py-20 px-6 bg-card border-y border-white/10">
+            <section className="related-section py-20 px-6 bg-zinc-50 border-y border-black/10">
               <div className="container mx-auto max-w-7xl">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 leading-[1.05]">
                   Related <span className="text-gradient italic">Articles</span>
@@ -350,7 +350,7 @@ export default function BlogPostClient({
                       className="related-card group"
                     >
                       <Link href={`/blog/${relatedPost.slug}`}>
-                        <div className="relative h-48 rounded-3xl overflow-hidden mb-4 border border-white/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+                        <div className="relative h-48 rounded-3xl overflow-hidden mb-4 border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                           <Image
                             src={relatedPost.image}
                             alt={relatedPost.title}
@@ -379,15 +379,15 @@ export default function BlogPostClient({
           {/* CTA */}
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-card border border-white/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="relative p-12 md:p-20 bg-white border border-black/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase leading-[0.95]">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                     Ready to Implement These{" "}
                     <span className="text-gradient italic">Strategies</span>?
                   </h2>
-                  <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s engineer knowledge into compounding results for
                     your business.
                   </p>

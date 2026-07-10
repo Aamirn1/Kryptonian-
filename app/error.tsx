@@ -16,7 +16,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground flex items-center justify-center px-6 py-20 overflow-hidden">
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground flex items-center justify-center px-6 py-20 overflow-hidden">
       <AuroraBackground />
       <div className="relative z-10 max-w-md mx-auto text-center">
         <div className="font-display text-gradient text-6xl font-bold mb-6 leading-none">Oops</div>
@@ -37,7 +37,7 @@ export default function Error({
           </button>
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
           >
             <span className="uppercase tracking-[0.12em] text-sm">Go Home</span>
           </Link>

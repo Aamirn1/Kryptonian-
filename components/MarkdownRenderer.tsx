@@ -60,7 +60,7 @@ export default function MarkdownRenderer({
         p: ({ className, ...props }) => (
           <p
             className={cn(
-              "text-base md:text-lg text-white/70 leading-relaxed mb-6",
+              "text-base md:text-lg text-muted-foreground leading-relaxed mb-6",
               className
             )}
             {...props}
@@ -71,7 +71,7 @@ export default function MarkdownRenderer({
         ul: ({ className, ...props }) => (
           <ul
             className={cn(
-              "list-disc list-inside space-y-2 mb-6 text-white/70 marker:text-electric",
+              "list-disc list-inside space-y-2 mb-6 text-muted-foreground marker:text-electric",
               className
             )}
             {...props}
@@ -80,7 +80,7 @@ export default function MarkdownRenderer({
         ol: ({ className, ...props }) => (
           <ol
             className={cn(
-              "list-decimal list-inside space-y-2 mb-6 text-white/70 marker:text-electric marker:font-display marker:font-bold",
+              "list-decimal list-inside space-y-2 mb-6 text-muted-foreground marker:text-electric marker:font-display marker:font-bold",
               className
             )}
             {...props}
@@ -94,7 +94,7 @@ export default function MarkdownRenderer({
         blockquote: ({ className, ...props }) => (
           <blockquote
             className={cn(
-              "border-l-2 border-electric pl-6 py-3 my-8 bg-electric/5 rounded-r-xl italic text-white/70",
+              "border-l-2 border-electric pl-6 py-3 my-8 bg-electric/5 rounded-r-xl italic text-muted-foreground",
               className
             )}
             {...props}
@@ -107,7 +107,7 @@ export default function MarkdownRenderer({
           return isInline ? (
             <code
               className={cn(
-                "bg-white/10 text-electric px-1.5 py-0.5 rounded text-sm font-mono border border-white/5",
+                "bg-electric/10 text-electric px-1.5 py-0.5 rounded text-sm font-mono border border-electric/20",
                 className
               )}
               {...props}
@@ -117,7 +117,7 @@ export default function MarkdownRenderer({
           ) : (
             <pre
               className={cn(
-                "bg-black/40 border border-white/10 text-white/90 p-6 rounded-xl overflow-x-auto mb-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]",
+                "bg-zinc-900 border border-black/10 text-zinc-100 p-6 rounded-xl overflow-x-auto mb-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.25)]",
                 className
               )}
             >
@@ -148,17 +148,17 @@ export default function MarkdownRenderer({
           />
         ),
         em: ({ className, ...props }) => (
-          <em className={cn("italic text-white/80", className)} {...props} />
+          <em className={cn("italic text-foreground/80", className)} {...props} />
         ),
 
         // Horizontal rule — refined gradient divider
         hr: ({ className, ...props }) => (
-          <hr className={cn("my-12 border-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent", className)} {...props} />
+          <hr className={cn("my-12 border-0 h-px bg-gradient-to-r from-transparent via-black/15 to-transparent", className)} {...props} />
         ),
 
         // Tables
         table: ({ className, ...props }) => (
-          <div className="overflow-x-auto mb-6 rounded-xl border border-white/10">
+          <div className="overflow-x-auto mb-6 rounded-xl border border-black/10">
             <table
               className={cn("w-full border-collapse", className)}
               {...props}
@@ -168,7 +168,7 @@ export default function MarkdownRenderer({
         th: ({ className, ...props }) => (
           <th
             className={cn(
-              "font-display border-b border-white/10 bg-white/5 px-4 py-3 text-left font-bold text-foreground",
+              "font-display border-b border-black/10 bg-zinc-50 px-4 py-3 text-left font-bold text-foreground",
               className
             )}
             {...props}
@@ -177,7 +177,7 @@ export default function MarkdownRenderer({
         td: ({ className, ...props }) => (
           <td
             className={cn(
-              "border-b border-white/10 px-4 py-3 text-white/70",
+              "border-b border-black/10 px-4 py-3 text-muted-foreground",
               className
             )}
             {...props}

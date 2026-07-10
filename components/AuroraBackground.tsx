@@ -24,17 +24,17 @@ export default function AuroraBackground({
       aria-hidden="true"
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
     >
-      {/* Base ink wash */}
-      <div className="absolute inset-0 bg-[#050505]" />
+      {/* Base white wash */}
+      <div className="absolute inset-0 bg-white" />
 
-      {/* Aurora blobs */}
-      <div className="animate-aurora absolute -top-40 -left-20 h-[520px] w-[520px] rounded-full bg-[#3b82f6]/25 blur-[120px]" />
-      <div className="animate-aurora [animation-delay:-6s] absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-[#8b5cf6]/22 blur-[120px]" />
-      <div className="animate-aurora [animation-delay:-12s] absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-[#06b6d4]/18 blur-[120px]" />
+      {/* Aurora blobs — stronger opacity on white so they're visible */}
+      <div className="animate-aurora absolute -top-40 -left-20 h-[520px] w-[520px] rounded-full bg-[#3b82f6]/30 blur-[120px]" />
+      <div className="animate-aurora [animation-delay:-6s] absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-[#8b5cf6]/25 blur-[120px]" />
+      <div className="animate-aurora [animation-delay:-12s] absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-[#06b6d4]/20 blur-[120px]" />
 
-      {/* Subtle white grid with radial fade */}
+      {/* Subtle dark grid with radial fade */}
       {showGrid && (
-        <div className="bg-grid bg-grid-fade absolute inset-0 opacity-60" />
+        <div className="bg-grid bg-grid-fade absolute inset-0 opacity-70" />
       )}
     </div>
   );

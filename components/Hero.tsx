@@ -262,7 +262,7 @@ export default function Hero() {
 
             {/* Typewriter rotating specialization line */}
             <div className="flex items-center gap-2 mb-7 h-7">
-              <span className="text-sm md:text-base font-medium text-white/40 tracking-tight">
+              <span className="text-sm md:text-base font-medium text-zinc-400 tracking-tight">
                 Engineered for
               </span>
               <Typewriter
@@ -282,7 +282,7 @@ export default function Hero() {
 
             <p
               ref={subtitleRef}
-              className="text-base md:text-lg text-white/60 max-w-xl mb-12 leading-relaxed"
+              className="text-base md:text-lg text-muted-foreground max-w-xl mb-12 leading-relaxed"
             >
               We architect high-performance digital ecosystems — blending
               precision SEO, elite web development, and brand strategy into a
@@ -301,7 +301,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/portfolio"
-                className="group px-5 sm:px-8 py-3.5 sm:py-5 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-none"
+                className="group px-5 sm:px-8 py-3.5 sm:py-5 rounded-full border border-black/15 text-foreground/80 hover:text-foreground hover:border-black/30 hover:bg-black/5 font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-none"
               >
                 <span className="uppercase tracking-[0.1em] sm:tracking-[0.12em] text-[0.7rem] sm:text-sm whitespace-nowrap">View Work</span>
               </Link>
@@ -322,7 +322,7 @@ export default function Hero() {
               className="relative w-[88%] aspect-square max-w-[560px]"
             >
               <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-electric/30 via-violet/20 to-cyan/30 blur-2xl opacity-60" />
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_30px_80px_-20px_rgba(59,130,246,0.4)]">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-black/10 shadow-[0_30px_80px_-20px_rgba(59,130,246,0.4)]">
                 <Image
                   src="/hero-images/main-bg.webp"
                   alt="Digital growth analytics dashboard visualization"
@@ -332,7 +332,7 @@ export default function Hero() {
                   className="object-cover"
                 />
                 {/* Subtle top sheen */}
-                <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
               </div>
             </div>
 
@@ -345,17 +345,17 @@ export default function Hero() {
                 }}
                 className={`absolute ${card.className} z-30`}
               >
-                <div className="relative flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/15 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]">
+                <div className="relative flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-black/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]">
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${card.accent} shrink-0`}
                   >
                     <card.icon className="h-4 w-4 text-white" strokeWidth={2.5} />
                   </span>
                   <div className="flex flex-col leading-tight">
-                    <span className="font-display text-lg font-bold text-white">
+                    <span className="font-display text-lg font-bold text-foreground">
                       {card.value}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider text-white/50 font-medium">
+                    <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">
                       {card.label}
                     </span>
                   </div>

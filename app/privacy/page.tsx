@@ -191,7 +191,7 @@ export default function PrivacyPage() {
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased"
       >
         <Navbar />
 
@@ -222,11 +222,11 @@ export default function PrivacyPage() {
               </h1>
 
               <div className="flex flex-wrap items-center gap-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 border border-black/10 text-muted-foreground">
                   <Calendar className="w-3.5 h-3.5 text-electric" />
                   <span className="text-xs font-semibold tracking-wide">Last Updated: 13 March 2026</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 border border-black/10 text-muted-foreground">
                   <Mail className="w-3.5 h-3.5 text-electric" />
                   <a
                     href="mailto:contact@kryptondigital.co.uk"
@@ -242,7 +242,7 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-8 md:p-12 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                   At Krypton Digital, your privacy is engineered into everything we build. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>
@@ -260,7 +260,7 @@ export default function PrivacyPage() {
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="policy-section p-8 md:p-12 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] hover:border-electric/30 transition-all duration-300"
+                    className="policy-section p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 transition-all duration-300"
                   >
                     <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 tracking-tight text-foreground">
                       {section.title}
@@ -306,11 +306,11 @@ export default function PrivacyPage() {
           {/* Contact Section */}
           <section className="px-6 mt-20">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-10 md:p-16 bg-card border border-white/10 rounded-3xl text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-[1.05]">
+              <div className="p-10 md:p-16 bg-white border border-black/10 rounded-3xl text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight leading-[1.05]">
                   Questions About Your Privacy?
                 </h2>
-                <p className="text-white/60 mb-8 max-w-xl mx-auto">
+                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                   If you have any questions about this Privacy Policy or want to exercise your data rights, we&apos;re here to help.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -324,7 +324,7 @@ export default function PrivacyPage() {
                   </a>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
                   >
                     <span className="uppercase tracking-[0.12em] text-sm">Contact Form</span>
                   </Link>

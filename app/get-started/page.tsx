@@ -34,7 +34,7 @@ export default function GetStartedPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/30 selection:text-white antialiased overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-electric/5 rounded-full blur-[120px] animate-pulse" />
@@ -71,7 +71,7 @@ export default function GetStartedPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {/* Option 1: Fast Track */}
-              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-3xl overflow-hidden hover:bg-white/5 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="step-card group relative p-10 bg-white border border-black/10 rounded-3xl overflow-hidden hover:bg-zinc-50 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <div className="w-16 h-16 bg-electric/10 border border-electric/20 text-electric rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8" />
                 </div>
@@ -87,12 +87,12 @@ export default function GetStartedPage() {
                   <span className="uppercase tracking-[0.12em] text-sm">Go Fast</span> <Rocket className="w-5 h-5" />
                 </Link>
                 <div className="absolute top-0 right-0 p-8">
-                  <span className="font-display text-white/10 font-bold text-6xl">01</span>
+                  <span className="font-display text-black/[0.06] font-bold text-6xl">01</span>
                 </div>
               </div>
 
               {/* Option 2: Strategy First */}
-              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-3xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(59,130,246,0.3)]">
+              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-3xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)]">
                 <div className="w-16 h-16 bg-electric text-white rounded-2xl flex items-center justify-center mb-10 group-hover:rotate-12 transition-transform shadow-xl shadow-electric/30">
                   <Target className="w-8 h-8" />
                 </div>
@@ -114,7 +114,7 @@ export default function GetStartedPage() {
               </div>
 
               {/* Option 3: Enterprise */}
-              <div className="step-card group relative p-10 bg-card border border-white/10 rounded-3xl overflow-hidden hover:bg-white/5 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+              <div className="step-card group relative p-10 bg-white border border-black/10 rounded-3xl overflow-hidden hover:bg-zinc-50 hover:border-electric/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 <div className="w-16 h-16 bg-violet/10 border border-violet/20 text-violet rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -130,12 +130,12 @@ export default function GetStartedPage() {
                   <span className="uppercase tracking-[0.12em] text-sm">Learn More</span> <ArrowLeft className="w-5 h-5 rotate-180" />
                 </Link>
                 <div className="absolute top-0 right-0 p-8">
-                  <span className="font-display text-white/10 font-bold text-6xl">03</span>
+                  <span className="font-display text-black/[0.06] font-bold text-6xl">03</span>
                 </div>
               </div>
             </div>
 
-            <div className="intro-content mt-32 text-center p-20 bg-card border border-white/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)]">
+            <div className="intro-content mt-32 text-center p-20 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
               <h2 className="text-4xl font-bold mb-6 tracking-tight leading-[1.05]">
                 STILL UNSURE?
               </h2>
@@ -145,7 +145,7 @@ export default function GetStartedPage() {
               </p>
               <Link
                 href="/contact"
-                className="group relative overflow-hidden inline-flex items-center justify-center px-10 py-4 border border-white/15 rounded-full font-semibold text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all"
+                className="group relative overflow-hidden inline-flex items-center justify-center px-10 py-4 border border-black/15 rounded-full font-semibold text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 transition-all"
               >
                 <span className="shimmer-sweep" />
                 <span className="uppercase tracking-[0.12em] text-sm relative z-10">Book a Call</span>

@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground selection:bg-electric/30 selection:text-white`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground selection:bg-electric/25 selection:text-foreground`}
       >
         {children}
         <CookieConsentLazy />

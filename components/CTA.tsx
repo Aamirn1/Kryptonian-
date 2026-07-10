@@ -68,7 +68,7 @@ export default function CTA() {
             <div className="container mx-auto px-6 relative z-10">
                 <div
                     ref={contentRef}
-                    className="max-w-5xl mx-auto bg-card border border-white/10 rounded-[3rem] p-12 md:p-24 text-center backdrop-blur-sm relative overflow-hidden group hover:border-electric/30 transition-colors duration-500 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]"
+                    className="max-w-5xl mx-auto bg-card border border-black/10 rounded-[3rem] p-12 md:p-24 text-center backdrop-blur-sm relative overflow-hidden group hover:border-electric/30 transition-colors duration-500 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.18)]"
                 >
                     {/* Subtle Grid Pattern */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />

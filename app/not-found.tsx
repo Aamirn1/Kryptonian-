@@ -4,7 +4,7 @@ import AuroraBackground from "@/components/AuroraBackground";
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground flex items-center justify-center px-6 py-20 overflow-hidden">
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground flex items-center justify-center px-6 py-20 overflow-hidden">
       <AuroraBackground />
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
@@ -38,7 +38,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 rounded-full font-semibold transition-all"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
           >
             <HelpCircle className="w-5 h-5" />
             <span className="uppercase tracking-[0.12em] text-sm">Get Help</span>
@@ -46,35 +46,35 @@ export default function NotFound() {
         </div>
 
         {/* Quick Links */}
-        <div className="mt-16 pt-10 border-t border-white/10">
-          <p className="text-xs text-white/50 mb-6 uppercase tracking-[0.18em] font-semibold">
+        <div className="mt-16 pt-10 border-t border-black/10">
+          <p className="text-xs text-zinc-400 mb-6 uppercase tracking-[0.18em] font-semibold">
             Popular Destinations
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/pricing"
-              className="text-white/70 hover:text-electric transition-colors font-medium"
+              className="text-foreground/70 hover:text-electric transition-colors font-medium"
             >
               Pricing
             </Link>
-            <span className="text-white/30">•</span>
+            <span className="text-black/30">•</span>
             <Link
               href="/about"
-              className="text-white/70 hover:text-electric transition-colors font-medium"
+              className="text-foreground/70 hover:text-electric transition-colors font-medium"
             >
               About Us
             </Link>
-            <span className="text-white/30">•</span>
+            <span className="text-black/30">•</span>
             <Link
               href="/contact"
-              className="text-white/70 hover:text-electric transition-colors font-medium"
+              className="text-foreground/70 hover:text-electric transition-colors font-medium"
             >
               Contact
             </Link>
-            <span className="text-white/30">•</span>
+            <span className="text-black/30">•</span>
             <Link
               href="/get-started"
-              className="text-white/70 hover:text-electric transition-colors font-medium"
+              className="text-foreground/70 hover:text-electric transition-colors font-medium"
             >
               Get Started
             </Link>

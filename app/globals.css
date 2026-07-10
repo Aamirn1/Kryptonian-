@@ -1,59 +1,60 @@
 @import "tailwindcss";
 
 /* ============================================================
-   OPUS SOLUTIONS THEME
-   Dark, ink-based palette with electric/violet/cyan gradients,
-   gold accents, aurora blobs, grid background, and shimmer FX.
+   KRYPTON DIGITAL — WHITE THEME
+   Light, white-based palette with electric/violet/cyan gradients,
+   gold accents, soft aurora blobs, grid background, and shimmer FX.
+   Keeps the same brand colors; surfaces flip from dark → white.
    ============================================================ */
 
 :root {
-  /* Core surfaces (Opus dark theme — applied by default) */
-  --background: #050505;          /* ink */
-  --foreground: #f5f5f7;          /* off-white text */
-  --card: #0d0d10;                /* card / popover */
-  --card-foreground: #f5f5f7;
-  --popover: #0d0d10;
-  --popover-foreground: #f5f5f7;
+  /* Core surfaces — white/light theme */
+  --background: #ffffff;              /* white */
+  --foreground: #0a0a0f;              /* near-black text */
+  --card: #ffffff;                    /* cards are white, lifted by shadow */
+  --card-foreground: #0a0a0f;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0f;
 
-  /* Brand primaries (Opus) */
-  --primary: #3b82f6;             /* electric blue */
+  /* Brand primaries (unchanged) */
+  --primary: #3b82f6;                 /* electric blue */
   --primary-foreground: #ffffff;
-  --secondary: #16161a;           /* muted surface */
-  --secondary-foreground: #f5f5f7;
-  --muted: #16161a;
-  --muted-foreground: #a1a1aa;
-  --accent: #1c1c22;
-  --accent-foreground: #f5f5f7;
-  --border: #ffffff14;            /* white ~8% */
+  --secondary: #f4f4f5;               /* light muted surface */
+  --secondary-foreground: #0a0a0f;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;        /* zinc-500 for secondary text */
+  --accent: #f4f4f5;
+  --accent-foreground: #0a0a0f;
+  --border: #00000014;                /* black ~8% */
   --ring: #3b82f6;
 
-  /* Opus named colors */
-  --ink: #050505;
+  /* Named brand colors (unchanged) */
+  --ink: #0a0a0f;                     /* "ink" now = near-black text (was dark bg) */
   --electric: #3b82f6;
   --violet: #8b5cf6;
   --cyan: #06b6d4;
   --gold: #d4af37;
 }
 
-/* Dark class mirrors :root (site is dark-first, like Opus) */
+/* .dark kept for completeness but mirrors :root (site is light-first now) */
 .dark {
-  --background: #050505;
-  --foreground: #f5f5f7;
-  --card: #0d0d10;
-  --card-foreground: #f5f5f7;
-  --popover: #0d0d10;
-  --popover-foreground: #f5f5f7;
+  --background: #ffffff;
+  --foreground: #0a0a0f;
+  --card: #ffffff;
+  --card-foreground: #0a0a0f;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0f;
   --primary: #3b82f6;
   --primary-foreground: #ffffff;
-  --secondary: #16161a;
-  --secondary-foreground: #f5f5f7;
-  --muted: #16161a;
-  --muted-foreground: #a1a1aa;
-  --accent: #1c1c22;
-  --accent-foreground: #f5f5f7;
-  --border: #ffffff14;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0a0a0f;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #0a0a0f;
+  --border: #00000014;
   --ring: #3b82f6;
-  --ink: #050505;
+  --ink: #0a0a0f;
   --electric: #3b82f6;
   --violet: #8b5cf6;
   --cyan: #06b6d4;
@@ -78,7 +79,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-ring: var(--ring);
 
-  /* Opus named colors */
+  /* Named brand colors */
   --color-ink: var(--ink);
   --color-electric: var(--electric);
   --color-violet: var(--violet);
@@ -118,9 +119,9 @@ html.lenis {
 }
 
 /* ============================================================
-   Base body — dark ink background, Inter font
+   Base body — white background, Inter font
    Professional typography: optical sizing, kerning, ligatures,
-   font smoothing for crisp rendering on dark backgrounds.
+   font smoothing for crisp rendering on light backgrounds.
    ============================================================ */
 body {
   background: var(--background);
@@ -140,7 +141,7 @@ body {
     color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Display font for headings (Space Grotesk — like Opus)
+/* Display font for headings (Space Grotesk)
    Tighter tracking + heavier weight for strong typographic hierarchy. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
@@ -155,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "ss01", "ss02";
 }
 
-/* Refined paragraph leading for readability on dark */
+/* Refined paragraph leading for readability */
 p {
   text-wrap: pretty;
 }
@@ -181,29 +182,29 @@ a {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3); /* electric/30 */
-  color: #ffffff;
+  background-color: rgba(59, 130, 246, 0.25); /* electric/25 */
+  color: #0a0a0f;
 }
 
-/* Custom scrollbar — dark themed */
+/* Custom scrollbar — light themed */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #f4f4f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2e;
+  background: #d4d4d8;
   border-radius: 8px;
-  border: 2px solid #0a0a0a;
+  border: 2px solid #f4f4f5;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a40;
+  background: #a1a1aa;
 }
 
 /* ============================================================
-   OPUS KEYFRAMES
+   KEYFRAMES
    ============================================================ */
 @keyframes aurora {
   0%, 100% { opacity: 0.5; transform: translate(0px) scale(1); }
@@ -257,7 +258,7 @@ a {
 }
 
 /* ============================================================
-   OPUS ANIMATION UTILITIES
+   ANIMATION UTILITIES
    ============================================================ */
 @utility animate-aurora {
   animation: aurora 18s ease-in-out infinite;
@@ -290,14 +291,14 @@ a {
 }
 
 /* ============================================================
-   OPUS UTILITY COMPONENTS
+   UTILITY COMPONENTS
    ============================================================ */
 
-/* Subtle white grid lines (Opus signature) */
+/* Subtle dark grid lines on white (was white lines on dark) */
 @utility bg-grid {
   background-image:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(10, 10, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(10, 10, 15, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -325,23 +326,23 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-/* Opus signature gradient button with glow + shimmer sweep on hover.
+/* Signature gradient button with glow + shimmer sweep on hover.
    Use on <Link>/<a>/<button> — adds a relative wrapper + sweep span. */
 @utility btn-gradient {
   background-image: linear-gradient(to right, var(--electric), var(--violet));
   color: #ffffff;
-  box-shadow: 0 0 24px -6px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.5);
   transition: box-shadow 0.4s ease, transform 0.2s ease;
 }
 @utility btn-gradient-hover {
-  box-shadow: 0 0 30px -4px rgba(139, 92, 246, 0.85);
+  box-shadow: 0 12px 32px -6px rgba(139, 92, 246, 0.65);
 }
 
 /* Shimmer sweep overlay — place as a child span inside a .group button */
 .shimmer-sweep {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent);
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: translateX(-100%);
   transition: transform 0.7s ease;
   pointer-events: none;
@@ -352,7 +353,7 @@ a {
 
 /* Glow ring used behind gradient logo boxes / icons */
 .glow-electric {
-  box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.45);
 }
 
 /* ============================================================

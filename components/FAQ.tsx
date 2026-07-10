@@ -82,7 +82,7 @@ export default function FAQ() {
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                className="faq-item border border-white/10 rounded-3xl overflow-hidden bg-white/[0.02] hover:bg-white/[0.04] hover:border-electric/30 transition-all duration-300"
+                                className="faq-item border border-black/10 rounded-3xl overflow-hidden bg-white hover:bg-zinc-50 hover:border-electric/30 transition-all duration-300"
                                 role="listitem"
                             >
                                 <button
@@ -95,7 +95,7 @@ export default function FAQ() {
                                     <span className="font-display text-xl md:text-2xl font-bold tracking-tight text-foreground">
                                         {faq.question}
                                     </span>
-                                    <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-electric border-electric text-white shadow-[0_0_20px_-4px_rgba(59,130,246,0.7)]' : 'border-white/10 text-white/70'}`} aria-hidden="true">
+                                    <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-electric border-electric text-white shadow-[0_0_20px_-4px_rgba(59,130,246,0.7)]' : 'border-black/10 text-muted-foreground'}`} aria-hidden="true">
                                         {activeIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>
@@ -105,7 +105,7 @@ export default function FAQ() {
                                     aria-labelledby={`faq-button-${index}`}
                                     className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
                                 >
-                                    <div className="p-8 md:p-10 pt-0 text-white/60 text-base md:text-lg leading-relaxed max-w-3xl">
+                                    <div className="p-8 md:p-10 pt-0 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
                                         {faq.answer}
                                     </div>
                                 </div>
