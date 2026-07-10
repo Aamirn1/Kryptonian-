@@ -32,18 +32,18 @@ export default function Logo({
       onClick={onClick}
       aria-label="Krypton Digital — home"
       className={cn(
-        "group flex items-center gap-2.5 font-display tracking-tight transition-opacity hover:opacity-90",
+        "group flex items-center gap-2 font-display tracking-tight transition-opacity hover:opacity-90",
         className,
       )}
     >
       <Image
         src="/logo.png"
         alt="Krypton Digital logo"
-        width={40}
-        height={40}
+        width={56}
+        height={56}
         priority
         className={cn(
-          "h-9 w-9 md:h-10 md:w-10 object-contain transition-transform duration-300 group-hover:scale-105",
+          "h-12 w-12 md:h-14 md:w-14 object-contain transition-transform duration-300 group-hover:scale-105",
           iconClassName,
         )}
       />
