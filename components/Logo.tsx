@@ -39,11 +39,11 @@ export default function Logo({
       <Image
         src="/logo.png"
         alt="Krypton Digital logo"
-        width={40}
-        height={40}
+        width={56}
+        height={56}
         priority
         className={cn(
-          "h-9 w-9 md:h-10 md:w-10 object-contain transition-transform duration-300 group-hover:scale-105",
+          "h-12 w-12 md:h-14 md:w-14 object-contain transition-transform duration-300 group-hover:scale-105",
           iconClassName,
         )}
       />

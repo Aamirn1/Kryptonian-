@@ -1,15 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="lg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ca6de5"/>
-      <stop offset="100%" stop-color="#b854e6"/>
-    </linearGradient>
-  </defs>
-  <!-- White rounded background -->
-  <rect x="32" y="32" width="448" height="448" rx="96" fill="#ffffff"/>
-  <rect x="32" y="32" width="448" height="448" rx="96" fill="none" stroke="#ca6de5" stroke-width="3" opacity="0.25"/>
-  <!-- "kr" lowercase wordmark in the logo purple -->
-  <text x="256" y="340" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="260" font-weight="700" fill="url(#lg-bg)" text-anchor="middle" letter-spacing="-8">kr</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- "kr" lowercase wordmark in the logo purple — transparent background -->
+  <text x="250" y="330" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="250" font-weight="700" fill="#ca6de5" text-anchor="middle" letter-spacing="-8">kr</text>
   <!-- accent dot on the r -->
-  <circle cx="356" cy="168" r="20" fill="#ca6de5"/>
+  <circle cx="345" cy="165" r="19" fill="#ca6de5"/>
 </svg>

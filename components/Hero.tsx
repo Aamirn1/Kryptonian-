@@ -15,7 +15,6 @@ const ThreeNexus = dynamic(() => import("./ThreeNexus"), {
   loading: () => null,
 });
 
-import AuroraBackground from "./AuroraBackground";
 import Typewriter from "./Typewriter";
 
 /**
@@ -29,7 +28,7 @@ const FLOATING_CARDS = [
     label: "Organic Traffic",
     value: "+250%",
     className: "top-[6%] right-[4%]",
-    accent: "from-electric to-violet",
+    accent: "from-zinc-800 to-zinc-900",
     delay: 0.2,
   },
   {
@@ -38,7 +37,7 @@ const FLOATING_CARDS = [
     label: "Conversion Rate",
     value: "3.4x",
     className: "bottom-[14%] left-[0%]",
-    accent: "from-violet to-cyan",
+    accent: "from-zinc-800 to-zinc-900",
     delay: 0.4,
   },
   {
@@ -47,7 +46,7 @@ const FLOATING_CARDS = [
     label: "Avg. ROI",
     value: "320%",
     className: "bottom-[2%] right-[8%]",
-    accent: "from-cyan to-electric",
+    accent: "from-zinc-800 to-zinc-900",
     delay: 0.6,
   },
 ];
@@ -211,8 +210,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-20 overflow-hidden bg-background text-foreground"
     >
-      {/* Aurora background (Opus signature) */}
-      <AuroraBackground />
+      {/* Clean white hero — no aurora tint */}
 
       {/* Loading overlay for small devices */}
       {!loaded && (
@@ -233,12 +231,12 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Text Content */}
           <div className="flex flex-col text-left mx-8 lg:mx-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-8 w-fit">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-8 w-fit">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-zinc-800 opacity-75 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-800" />
               </span>
-              <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+              <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
                 Strategic Growth Engine
               </p>
             </div>
@@ -313,16 +311,12 @@ export default function Hero() {
             ref={stageRef}
             className="relative h-125 w-full lg:h-[700px] hidden lg:flex items-center justify-center p-8"
           >
-            {/* Glow behind the composition */}
-            <div className="absolute inset-0 bg-gradient-to-br from-electric/15 via-violet/10 to-cyan/15 rounded-[4rem] blur-3xl -z-10" />
-
             {/* Main hero composition image */}
             <div
               ref={imageRef}
               className="relative w-[88%] aspect-square max-w-[560px]"
             >
-              <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-electric/30 via-violet/20 to-cyan/30 blur-2xl opacity-60" />
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-black/10 shadow-[0_30px_80px_-20px_rgba(202, 109, 229,0.4)]">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-black/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.2)]">
                 <Image
                   src="/hero-images/main-bg.webp"
                   alt="Digital growth analytics dashboard visualization"
@@ -366,15 +360,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Subtle Background Accents */}
-      <div
-        className="absolute top-0 right-0 w-1/3 h-1/2 bg-linear-to-bl from-electric/10 to-transparent blur-[100px]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 left-0 w-1/4 h-1/3 bg-linear-to-tr from-violet/10 to-transparent blur-[120px]"
-        aria-hidden="true"
-      />
     </section>
   );
 }
