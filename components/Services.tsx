@@ -151,12 +151,12 @@ export default function Services() {
           <div ref={leftSideRef} className="lg:w-1/2 w-full lg:pr-20">
             <div className="lg:py-28 py-16">
               <div className="mb-12">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-8">
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-zinc-700 opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-700" />
                   </span>
-                  <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+                  <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
                     Capabilities
                   </p>
                 </div>

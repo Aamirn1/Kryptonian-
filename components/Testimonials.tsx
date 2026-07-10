@@ -135,9 +135,9 @@ export default function Testimonials() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="testimonials-header text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 mb-6 border border-electric/20">
-            <Quote className="w-4 h-4 text-electric" />
-            <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 mb-6 border border-black/10">
+            <Quote className="w-4 h-4 text-zinc-700" />
+            <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
               Client Success Stories
             </p>
           </div>

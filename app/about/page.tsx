@@ -304,8 +304,8 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-8 tracking-[0.18em] uppercase">
-                    <Zap className="w-3 h-3 fill-electric" />
+                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-8 tracking-[0.18em] uppercase">
+                    <Zap className="w-3 h-3 fill-zinc-700" />
                     Our Story
                   </div>
 
@@ -389,7 +389,7 @@ export default function AboutPage() {
           <section ref={valuesRef} className="py-24 md:py-32 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Heart className="w-3 h-3" />
                   What Drives Us
                 </div>
@@ -423,7 +423,7 @@ export default function AboutPage() {
           <section ref={timelineRef} className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-5xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <TrendingUp className="w-3 h-3" />
                   Our Journey
                 </div>
@@ -475,7 +475,7 @@ export default function AboutPage() {
           <section ref={teamRef} className="py-24 md:py-32 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Users className="w-3 h-3" />
                   The Team
                 </div>

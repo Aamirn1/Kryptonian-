@@ -78,7 +78,7 @@ export default function CTA() {
                     <div className="absolute inset-0 bg-gradient-to-br from-electric/5 via-transparent to-violet/5 pointer-events-none" />
 
                     <div className="relative z-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 text-electric font-semibold text-xs tracking-[0.18em] uppercase mb-8 border border-electric/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 text-zinc-700 font-semibold text-xs tracking-[0.18em] uppercase mb-8 border border-black/10">
                             <Zap className="w-4 h-4 fill-electric" /> Ready to Accelerate?
                         </div>
 

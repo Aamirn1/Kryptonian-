@@ -225,9 +225,9 @@ export default function PortfolioPage() {
             <AuroraBackground />
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 mb-8">
-                  <Globe className="w-3 h-3 text-electric" />
-                  <p className="text-electric font-semibold text-xs tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 mb-8">
+                  <Globe className="w-3 h-3 text-zinc-700" />
+                  <p className="text-zinc-700 font-semibold text-xs tracking-[0.18em] uppercase">
                     Our Work
                   </p>
                 </div>
@@ -269,7 +269,7 @@ export default function PortfolioPage() {
 
                         {/* Content Side */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/20 text-electric text-xs font-semibold mb-6 w-fit tracking-[0.18em] uppercase">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-xs font-semibold mb-6 w-fit border border-black/10 tracking-[0.18em] uppercase">
                             Featured Case Study
                           </div>
 
@@ -422,7 +422,7 @@ export default function PortfolioPage() {
           <section className="process-section py-24 md:py-32 px-6 bg-card">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
                   <Zap className="w-3 h-3" />
                   Our Process
                 </div>

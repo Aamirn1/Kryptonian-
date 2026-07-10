@@ -119,12 +119,12 @@ export default function Process() {
         <div className="container mx-auto px-6 pt-28 md:pt-32 pb-8 relative z-10 pointer-events-none">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="max-w-xl pointer-events-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-electric/10 border border-electric/20 mb-6 w-fit">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-6 w-fit">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-electric opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-zinc-700 opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-700" />
                 </span>
-                <p className="text-electric text-xs font-semibold tracking-[0.18em] uppercase">
+                <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
                   Methodology
                 </p>
               </div>

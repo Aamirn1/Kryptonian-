@@ -101,7 +101,7 @@ export default function PricingPage() {
             <AuroraBackground />
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="pricing-header text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
                 </div>
@@ -227,7 +227,7 @@ export default function PricingPage() {
                   <div className="space-y-4 mb-12 grow">
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-electric/10 border border-electric/20 flex items-center justify-center shrink-0">
+                        <div className="mt-1 w-5 h-5 rounded-full bg-zinc-100 border border-black/10 flex items-center justify-center shrink-0">
                           <Check className="w-3 h-3 text-electric stroke-[3]" />
                         </div>
                         <span className="text-muted-foreground text-sm font-medium leading-snug">

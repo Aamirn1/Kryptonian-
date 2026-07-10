@@ -86,7 +86,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
             <AuroraBackground />
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 text-electric text-xs font-semibold mb-8 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 text-zinc-700 text-xs font-semibold mb-8 tracking-[0.18em] uppercase">
                   <BookOpen className="w-3 h-3" />
                   Blog
                 </div>

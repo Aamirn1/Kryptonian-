@@ -65,7 +65,7 @@ export default function FAQ() {
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto">
                     <div className="faq-title mb-20 text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 text-electric font-semibold text-xs tracking-[0.18em] uppercase mb-6 border border-electric/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 text-zinc-700 font-semibold text-xs tracking-[0.18em] uppercase mb-6 border border-black/10">
                             <HelpCircle className="w-4 h-4" /> Technical FAQ
                         </div>
                         <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[1.05]">
