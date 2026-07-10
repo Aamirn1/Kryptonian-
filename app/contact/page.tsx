@@ -10,6 +10,9 @@ import {
   CheckCircle2,
   AlertCircle,
   Loader2,
+  ChevronDown,
+  Check,
+  X,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -36,8 +39,14 @@ export default function ContactPage() {
     message: string;
   }>({ type: null, message: "" });
   const [errors, setErrors] = useState<Record<string, string[]>>({});
+
+  // Package category (single select via expandable menu)
   const [category, setCategory] = useState<PackageCategory>("");
-  const [service, setService] = useState<string>("");
+  const [categoryOpen, setCategoryOpen] = useState(false);
+
+  // Services (multi-select via expandable checkbox menu)
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [serviceOpen, setServiceOpen] = useState(false);
 
   const serviceOptions = category
     ? [...pricingData[category].map((p) => p.name), "Need to talk"]
@@ -53,21 +62,38 @@ export default function ContactPage() {
         { y: 0, opacity: 1, duration: 1.5, delay: 0.5 },
       )
         .fromTo(
-          infoRef.current?.children || [],
-          { x: -50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1, stagger: 0.2 },
+          formRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, },
           "-=1",
         )
         .fromTo(
-          formRef.current,
-          { x: 50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1.2 },
-          "-=1.2",
+          infoRef.current?.children || [],
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.15 },
+          "-=0.8",
         );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
+
+  const toggleService = (svc: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(svc) ? prev.filter((s) => s !== svc) : [...prev, svc],
+    );
+  };
+
+  const removeService = (svc: string) => {
+    setSelectedServices((prev) => prev.filter((s) => s !== svc));
+  };
+
+  const handleCategorySelect = (val: Exclude<PackageCategory, "">) => {
+    setCategory(val);
+    setCategoryOpen(false);
+    setSelectedServices([]);
+    setServiceOpen(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,11 +101,18 @@ export default function ContactPage() {
     setErrors({});
 
     const formData = new FormData(e.currentTarget);
+    const serviceString = selectedServices.join(", ");
+
+    if (selectedServices.length === 0) {
+      setErrors({ service: ["Please select at least one service"] });
+      return;
+    }
+
     const data: ContactFormData = {
       firstName: formData.get("firstName") as string,
       lastName: formData.get("lastName") as string,
       email: formData.get("email") as string,
-      service: formData.get("service") as string,
+      service: serviceString,
       message: formData.get("message") as string,
     };
 
@@ -93,7 +126,7 @@ export default function ContactPage() {
         });
         formRef.current?.reset();
         setCategory("");
-        setService("");
+        setSelectedServices([]);
       } else {
         setFormStatus({
           type: "error",
@@ -117,7 +150,7 @@ export default function ContactPage() {
         <Navbar />
 
         <main id="main-content" ref={containerRef} className="pb-32">
-          {/* Hero Section — tall so the aurora background flows naturally */}
+          {/* Hero Section */}
           <section className="contact-hero relative pt-40 pb-20 px-6">
             <AuroraBackground />
             <div className="container mx-auto max-w-6xl relative z-10">
@@ -136,75 +169,14 @@ export default function ContactPage() {
 
           <div className="container mx-auto max-w-6xl px-6 pt-16 md:pt-20">
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-              {/* Contact Info */}
-              <div ref={infoRef} className="space-y-12">
-                <div>
-                  <h2 className="text-3xl font-bold mb-8 tracking-tight">
-                    Contact Information
-                  </h2>
-                  <p className="text-muted-foreground text-lg mb-12 max-w-md">
-                    We partner with ambitious teams to engineer their next phase
-                    of growth. Reach out and let&apos;s start the conversation.
-                  </p>
-                </div>
-
-                <div className="space-y-8">
-                  <a
-                    href="mailto:contact@kryptondigital.co.uk"
-                    className="flex items-center gap-6 group cursor-pointer"
-                  >
-                    <div className="w-16 h-16 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
-                      <Mail className="w-6 h-6 text-electric" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
-                        Email Us
-                      </p>
-                      <p className="text-base md:text-lg font-medium group-hover:text-electric transition-colors break-all leading-snug">
-                        contact@kryptondigital.co.uk
-                      </p>
-                    </div>
-                  </a>
-
-                  <a
-                    href="tel:+447424792233"
-                    className="flex items-center gap-6 group cursor-pointer"
-                  >
-                    <div className="w-16 h-16 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
-                      <Phone className="w-6 h-6 text-electric" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
-                        Call Us
-                      </p>
-                      <p className="text-xl font-medium group-hover:text-electric transition-colors">
-                        +44 7424 792233
-                      </p>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Response Time Notice */}
-                <div className="p-6 bg-electric/10 border border-electric/20 rounded-2xl">
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle2 className="w-5 h-5 text-electric" />
-                    <span className="font-semibold text-sm uppercase tracking-[0.18em]">
-                      Fast Response Guaranteed
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    We typically respond to all inquiries within 24 hours during
-                    business days.
-                  </p>
-                </div>
-              </div>
+            {/* FORM FIRST, then Contact Information below */}
+            <div className="flex flex-col gap-16 lg:gap-20">
 
               {/* Contact Form */}
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="p-10 bg-white border border-black/10 rounded-[3rem] space-y-8 shadow-xl shadow-black/10"
+                className="p-8 md:p-10 bg-white border border-black/10 rounded-[2rem] md:rounded-[3rem] space-y-8 shadow-xl shadow-black/10"
               >
                 {/* Status Message */}
                 {formStatus.type && (
@@ -283,53 +255,131 @@ export default function ContactPage() {
                   )}
                 </div>
 
+                {/* Growth Package — expandable burger menu (single select) */}
                 <div className="space-y-3">
-                  <label htmlFor="category" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                  <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
                     Growth Package
                   </label>
-                  <select
-                    id="category"
-                    name="category"
-                    required
-                    disabled={isPending}
-                    value={category}
-                    onChange={(e) => {
-                      setCategory(e.target.value as PackageCategory);
-                      setService("");
-                    }}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-foreground disabled:opacity-60"
-                  >
-                    <option value="" disabled>Select a package...</option>
-                    {categoryOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => { setCategoryOpen(!categoryOpen); setServiceOpen(false); }}
+                      disabled={isPending}
+                      className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 ${
+                        categoryOpen || category
+                          ? "border-electric ring-2 ring-electric/20"
+                          : "border-black/10"
+                      }`}
+                    >
+                      <span className={category ? "text-foreground font-medium" : "text-zinc-400"}>
+                        {category
+                          ? categoryOptions.find((o) => o.value === category)?.label
+                          : "Select a package..."}
+                      </span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-zinc-400 transition-transform duration-300 shrink-0 ${categoryOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {categoryOpen && (
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-black/10 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20">
+                        {categoryOptions.map((opt) => (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => handleCategorySelect(opt.value)}
+                            className={`w-full px-5 py-4 flex items-center justify-between text-left hover:bg-zinc-50 transition-colors border-b border-black/5 last:border-0 ${
+                              category === opt.value ? "bg-electric/5" : ""
+                            }`}
+                          >
+                            <span className="font-medium text-foreground">{opt.label}</span>
+                            {category === opt.value && (
+                              <Check className="w-5 h-5 text-electric shrink-0" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
+                {/* Service Interested In — expandable burger menu (multi-select checkboxes) */}
                 <div className="space-y-3">
-                  <label htmlFor="service" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
-                    Service Interested In
+                  <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                    Service Interested In <span className="text-zinc-400 normal-case font-medium tracking-normal">(select multiple)</span>
                   </label>
-                  <select
-                    id="service"
-                    name="service"
-                    required
-                    disabled={isPending || !category}
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors appearance-none text-foreground disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    <option value="" disabled>
-                      {category ? "Select a service..." : "Choose a growth package first"}
-                    </option>
-                    {serviceOptions.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
+
+                  {/* Selected service chips */}
+                  {selectedServices.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {selectedServices.map((svc) => (
+                        <span
+                          key={svc}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-electric/10 border border-electric/20 text-electric text-sm font-medium rounded-full"
+                        >
+                          {svc}
+                          <button
+                            type="button"
+                            onClick={() => removeService(svc)}
+                            className="hover:bg-electric/20 rounded-full p-0.5 transition-colors"
+                            aria-label={`Remove ${svc}`}
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => category && setServiceOpen(!serviceOpen)}
+                      disabled={isPending || !category}
+                      className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
+                        serviceOpen || selectedServices.length > 0
+                          ? "border-electric ring-2 ring-electric/20"
+                          : "border-black/10"
+                      }`}
+                    >
+                      <span className={selectedServices.length > 0 ? "text-foreground font-medium" : "text-zinc-400"}>
+                        {selectedServices.length > 0
+                          ? `${selectedServices.length} service${selectedServices.length > 1 ? "s" : ""} selected`
+                          : category
+                            ? "Tap to choose services..."
+                            : "Choose a growth package first"}
+                      </span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-zinc-400 transition-transform duration-300 shrink-0 ${serviceOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {serviceOpen && category && (
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-black/10 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20 max-h-80 overflow-y-auto">
+                        {serviceOptions.map((s) => (
+                          <button
+                            key={s}
+                            type="button"
+                            onClick={() => toggleService(s)}
+                            className={`w-full px-5 py-4 flex items-center gap-3 text-left hover:bg-zinc-50 transition-colors border-b border-black/5 last:border-0 ${
+                              selectedServices.includes(s) ? "bg-electric/5" : ""
+                            }`}
+                          >
+                            <span
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
+                                selectedServices.includes(s)
+                                  ? "bg-electric border-electric"
+                                  : "border-zinc-300 bg-white"
+                              }`}
+                            >
+                              {selectedServices.includes(s) && (
+                                <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+                              )}
+                            </span>
+                            <span className="font-medium text-foreground">{s}</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                   {errors.service && (
                     <p className="text-red-400 text-xs" role="alert">{errors.service[0]}</p>
                   )}
@@ -371,6 +421,70 @@ export default function ContactPage() {
                   )}
                 </button>
               </form>
+
+              {/* Contact Information — BELOW the form */}
+              <div ref={infoRef} className="space-y-12">
+                <div>
+                  <h2 className="text-3xl font-bold mb-8 tracking-tight">
+                    Contact Information
+                  </h2>
+                  <p className="text-muted-foreground text-lg mb-12 max-w-md">
+                    We partner with ambitious teams to engineer their next phase
+                    of growth. Reach out and let&apos;s start the conversation.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <a
+                    href="mailto:contact@kryptondigital.co.uk"
+                    className="flex items-center gap-5 group cursor-pointer"
+                  >
+                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
+                      <Mail className="w-5 h-5 text-electric" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
+                        Email Us
+                      </p>
+                      <p className="text-base font-medium group-hover:text-electric transition-colors break-all leading-snug">
+                        contact@kryptondigital.co.uk
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="tel:+447424792233"
+                    className="flex items-center gap-5 group cursor-pointer"
+                  >
+                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
+                      <Phone className="w-5 h-5 text-electric" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
+                        Call Us
+                      </p>
+                      <p className="text-lg font-medium group-hover:text-electric transition-colors">
+                        +44 7424 792233
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Response Time Notice */}
+                <div className="p-6 bg-electric/10 border border-electric/20 rounded-2xl">
+                  <div className="flex items-center gap-3 mb-2">
+                    <CheckCircle2 className="w-5 h-5 text-electric" />
+                    <span className="font-semibold text-sm uppercase tracking-[0.18em]">
+                      Fast Response Guaranteed
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    We typically respond to all inquiries within 24 hours during
+                    business days.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </main>
