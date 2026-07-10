@@ -299,6 +299,12 @@ export default function Hero() {
                 </span>
                 <span className="shimmer-sweep" />
               </Link>
+              <Link
+                href="/portfolio"
+                className="group px-5 sm:px-8 py-3.5 sm:py-5 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-none"
+              >
+                <span className="uppercase tracking-[0.1em] sm:tracking-[0.12em] text-[0.7rem] sm:text-sm whitespace-nowrap">View Work</span>
+              </Link>
             </div>
           </div>
 
