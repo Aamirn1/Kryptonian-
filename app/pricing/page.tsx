@@ -89,8 +89,8 @@ export default function PricingPage() {
       <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-electric/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-violet/10 rounded-full blur-[100px]" />
+          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-300/30 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-zinc-400/25 rounded-full blur-[100px]" />
         </div>
 
         <Navbar />
@@ -252,8 +252,8 @@ export default function PricingPage() {
             {/* Bottom Section */}
             <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-white border border-black/10 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
               {/* Animated Background Gradients */}
-              <div className="absolute top-0 right-0 w-2/3 h-full bg-electric/20 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 w-1/2 h-full bg-violet/10 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
+              <div className="absolute top-0 right-0 w-2/3 h-full bg-zinc-400/35 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
+              <div className="absolute bottom-0 left-0 w-1/2 h-full bg-zinc-400/25 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
 
               <div className="relative z-10 max-w-3xl mx-auto">
                 <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8 tracking-tighter uppercase leading-[0.95]">

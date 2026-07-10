@@ -213,8 +213,8 @@ export default function PortfolioPage() {
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] bg-electric/10 rounded-full blur-[150px] animate-pulse" />
-          <div className="absolute bottom-[20%] left-[-5%] w-[40vw] h-[40vw] bg-violet/10 rounded-full blur-[120px]" />
+          <div className="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] bg-zinc-300/30 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-[20%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-400/25 rounded-full blur-[120px]" />
         </div>
 
         <Navbar />
@@ -464,7 +464,7 @@ export default function PortfolioPage() {
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-white border border-black/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-zinc-400/35 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">

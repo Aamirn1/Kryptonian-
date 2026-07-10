@@ -59,10 +59,10 @@ export default function CTA() {
             {/* Background Decorative Elements */}
             <div
                 ref={glowRef}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/20 rounded-full blur-[120px] pointer-events-none opacity-40"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-400/35 rounded-full blur-[120px] pointer-events-none opacity-40"
             />
             {/* Secondary aurora accents for depth */}
-            <div className="absolute top-0 left-1/4 w-72 h-72 bg-violet/10 rounded-full blur-[100px] pointer-events-none animate-aurora" aria-hidden="true" />
+            <div className="absolute top-0 left-1/4 w-72 h-72 bg-zinc-400/25 rounded-full blur-[100px] pointer-events-none animate-aurora" aria-hidden="true" />
             <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan/10 rounded-full blur-[100px] pointer-events-none animate-aurora" aria-hidden="true" />
 
             <div className="container mx-auto px-6 relative z-10">

@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
-  <!-- "kr" lowercase wordmark in the logo purple — transparent background -->
-  <text x="250" y="330" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="250" font-weight="700" fill="#ca6de5" text-anchor="middle" letter-spacing="-8">kr</text>
+  <!-- "kr" lowercase wordmark in the logo purple — transparent background.
+       Scaled large so it's clearly visible even at 16x16. -->
+  <text x="245" y="370" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="340" font-weight="700" fill="#ca6de5" text-anchor="middle" letter-spacing="-12">kr</text>
   <!-- accent dot on the r -->
-  <circle cx="345" cy="165" r="19" fill="#ca6de5"/>
+  <circle cx="380" cy="140" r="26" fill="#ca6de5"/>
 </svg>

@@ -380,7 +380,7 @@ export default function BlogPostClient({
           <section className="py-24 md:py-32 px-6">
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-white border border-black/10 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-zinc-400/35 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">

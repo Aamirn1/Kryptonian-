@@ -90,7 +90,7 @@ export default function PartnerProgrammePage() {
 
                         {/* Datasheet Download */}
                         <div className="partner-content mb-32 p-12 bg-electric/5 border border-electric/20 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-[0_10px_40px_-15px_rgba(202, 109, 229,0.2)]">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-electric/10 blur-[80px] -mr-32 -mt-32 rounded-full" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-300/30 blur-[80px] -mr-32 -mt-32 rounded-full" />
                             <div className="relative z-10">
                                 <h2 className="text-3xl font-bold mb-4 tracking-tight">Programme Technical Overview</h2>
                                 <p className="text-muted-foreground text-lg max-w-xl">

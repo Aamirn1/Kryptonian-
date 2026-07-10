@@ -111,8 +111,8 @@ export default function ContactPage() {
       <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-electric/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-violet/10 rounded-full blur-[100px]" />
+          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-300/30 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-zinc-400/25 rounded-full blur-[100px]" />
         </div>
         <Navbar />
 

@@ -288,8 +288,8 @@ export default function AboutPage() {
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[5%] left-[-10%] w-[50vw] h-[50vw] bg-electric/10 rounded-full blur-[150px] animate-pulse" />
-          <div className="absolute bottom-[20%] right-[-5%] w-[40vw] h-[40vw] bg-violet/10 rounded-full blur-[120px]" />
+          <div className="absolute top-[5%] left-[-10%] w-[50vw] h-[50vw] bg-zinc-300/30 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-[20%] right-[-5%] w-[40vw] h-[40vw] bg-zinc-400/25 rounded-full blur-[120px]" />
         </div>
 
         <Navbar />
@@ -329,7 +329,7 @@ export default function AboutPage() {
 
                 <div className="relative hidden lg:block">
                   <div className="relative aspect-square max-w-lg mx-auto">
-                    <div className="absolute inset-0 bg-electric/10 rounded-3xl rotate-6 blur-2xl" />
+                    <div className="absolute inset-0 bg-zinc-300/30 rounded-3xl rotate-6 blur-2xl" />
                     <div className="relative bg-white border border-black/10 rounded-3xl p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)]">
                       <Image
                         src="/images/hero/hero_team_collaboration_1769511734235.png"
@@ -526,7 +526,7 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-white rounded-3xl overflow-hidden text-center border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                 {/* Background glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-zinc-400/35 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
