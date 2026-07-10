@@ -124,7 +124,7 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="relative bg-zinc-50 rounded-[2rem] border border-black/10 overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+      className="relative bg-[#f7f1ea] rounded-[2rem] border border-black/10 overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
     >
       {/* Background dot pattern with edge fade */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

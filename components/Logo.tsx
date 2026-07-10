@@ -32,7 +32,7 @@ export default function Logo({
       onClick={onClick}
       aria-label="Krypton Digital — home"
       className={cn(
-        "group flex items-center gap-2 font-display tracking-tight transition-opacity hover:opacity-90",
+        "group flex items-center gap-2.5 font-display tracking-tight transition-opacity hover:opacity-90",
         className,
       )}
     >
@@ -50,7 +50,7 @@ export default function Logo({
       {showText && (
         <span
           className={cn(
-            "font-display text-lg font-bold leading-none tracking-tight md:text-xl text-foreground",
+            "font-display text-xl font-bold leading-none tracking-tight md:text-2xl text-foreground",
             textClassName,
           )}
         >
