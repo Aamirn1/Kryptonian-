@@ -142,7 +142,7 @@ export default function Services() {
         />
         <div
           className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full blur-[120px] opacity-20"
-          style={{ background: "#3b82f6" }}
+          style={{ background: "#ca6de5" }}
         />
       </div>
       <div className="container mx-auto px-6">
@@ -181,7 +181,7 @@ export default function Services() {
                   {/* Icon + Title on a single horizontal line */}
                   <div className="flex items-center gap-4 mb-6">
                     <div
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electric/10 border border-electric/20 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.5)]`}
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electric/10 border border-electric/20 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(202, 109, 229,0.5)]`}
                     >
                       <service.icon className="w-7 h-7" />
                     </div>
@@ -220,7 +220,7 @@ export default function Services() {
             <div className="relative w-full h-full flex items-center justify-center p-20">
               {/* Gradient border wrapper for premium framing */}
               <div className="relative w-full aspect-square max-w-2xl rounded-[2.5rem] p-px bg-gradient-to-br from-electric/40 via-violet/30 to-cyan/40">
-              <div className="relative w-full h-full bg-card rounded-[2.5rem] border border-black/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(59,130,246,0.35)]">
+              <div className="relative w-full h-full bg-card rounded-[2.5rem] border border-black/10 overflow-hidden shadow-[0_30px_80px_-20px_rgba(202, 109, 229,0.35)]">
                 {services.map((service, index) => (
                   <div
                     key={index}

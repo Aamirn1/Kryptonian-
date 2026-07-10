@@ -78,7 +78,7 @@ export default function PartnerProgrammePage() {
                                     icon: Users,
                                 },
                             ].map((item, i) => (
-                                <div key={i} className="partner-content group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
+                                <div key={i} className="partner-content group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
                                     <div className="w-14 h-14 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                                         <item.icon className="w-7 h-7 text-electric" />
                                     </div>
@@ -89,7 +89,7 @@ export default function PartnerProgrammePage() {
                         </div>
 
                         {/* Datasheet Download */}
-                        <div className="partner-content mb-32 p-12 bg-electric/5 border border-electric/20 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-[0_10px_40px_-15px_rgba(59,130,246,0.2)]">
+                        <div className="partner-content mb-32 p-12 bg-electric/5 border border-electric/20 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-[0_10px_40px_-15px_rgba(202, 109, 229,0.2)]">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-electric/10 blur-[80px] -mr-32 -mt-32 rounded-full" />
                             <div className="relative z-10">
                                 <h2 className="text-3xl font-bold mb-4 tracking-tight">Programme Technical Overview</h2>

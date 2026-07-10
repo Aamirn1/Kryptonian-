@@ -251,7 +251,7 @@ export default function PortfolioPage() {
                   .map((featured) => (
                     <div
                       key={featured.id}
-                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300"
+                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300"
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
@@ -344,7 +344,7 @@ export default function PortfolioPage() {
                 {filteredCases.map((caseStudy) => (
                   <div
                     key={caseStudy.id}
-                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
@@ -440,7 +440,7 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300"
+                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300"
                   >
                     <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-electric/20 transition-colors">
                       <step.icon className="w-8 h-8 text-electric" />

@@ -172,7 +172,7 @@ export default function PricingPage() {
                   key={`${billingCycle}-${index}`}
                   className={`pricing-card group relative p-10 bg-white border ${
                     plan.popular
-                      ? "border-electric shadow-[0_20px_60px_-20px_rgba(59,130,246,0.35)]"
+                      ? "border-electric shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.35)]"
                       : "border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   } rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric/50`}
                 >

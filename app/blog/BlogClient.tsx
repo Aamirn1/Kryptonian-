@@ -110,7 +110,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
               <div className="container mx-auto max-w-7xl">
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="group block relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:-translate-y-1 transition-all duration-300"
+                  className="group block relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="grid lg:grid-cols-2">
                     {/* Image Side */}
@@ -213,7 +213,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                 {recentPosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="blog-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="blog-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       {/* Image */}

@@ -322,7 +322,7 @@ export default function Hero() {
               className="relative w-[88%] aspect-square max-w-[560px]"
             >
               <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-electric/30 via-violet/20 to-cyan/30 blur-2xl opacity-60" />
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-black/10 shadow-[0_30px_80px_-20px_rgba(59,130,246,0.4)]">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-black/10 shadow-[0_30px_80px_-20px_rgba(202, 109, 229,0.4)]">
                 <Image
                   src="/hero-images/main-bg.webp"
                   alt="Digital growth analytics dashboard visualization"

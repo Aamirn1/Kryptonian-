@@ -95,7 +95,7 @@ export default function FAQ() {
                                     <span className="font-display text-xl md:text-2xl font-bold tracking-tight text-foreground">
                                         {faq.question}
                                     </span>
-                                    <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-electric border-electric text-white shadow-[0_0_20px_-4px_rgba(59,130,246,0.7)]' : 'border-black/10 text-muted-foreground'}`} aria-hidden="true">
+                                    <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-electric border-electric text-white shadow-[0_0_20px_-4px_rgba(202, 109, 229,0.7)]' : 'border-black/10 text-muted-foreground'}`} aria-hidden="true">
                                         {activeIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>

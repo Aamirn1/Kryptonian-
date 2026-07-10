@@ -16,8 +16,8 @@
   --popover: #ffffff;
   --popover-foreground: #0a0a0f;
 
-  /* Brand primaries (unchanged) */
-  --primary: #3b82f6;                 /* electric blue */
+  /* Brand primary = logo purple (#ca6de5) */
+  --primary: #ca6de5;                 /* logo purple */
   --primary-foreground: #ffffff;
   --secondary: #f4f4f5;               /* light muted surface */
   --secondary-foreground: #0a0a0f;
@@ -26,14 +26,14 @@
   --accent: #f4f4f5;
   --accent-foreground: #0a0a0f;
   --border: #00000014;                /* black ~8% */
-  --ring: #3b82f6;
+  --ring: #ca6de5;                    /* logo purple */
 
-  /* Named brand colors (unchanged) */
-  --ink: #0a0a0f;                     /* "ink" now = near-black text (was dark bg) */
-  --electric: #3b82f6;
-  --violet: #8b5cf6;
-  --cyan: #06b6d4;
-  --gold: #d4af37;
+  /* Named brand colors — logo purple is the brand */
+  --ink: #0a0a0f;                     /* near-black text */
+  --electric: #ca6de5;                /* logo purple (primary brand) */
+  --violet: #b854e6;                  /* deeper purple for gradient depth */
+  --cyan: #06b6d4;                    /* complementary accent (kept) */
+  --gold: #d4af37;                    /* gold accent (kept) */
 }
 
 /* .dark kept for completeness but mirrors :root (site is light-first now) */
@@ -44,7 +44,7 @@
   --card-foreground: #0a0a0f;
   --popover: #ffffff;
   --popover-foreground: #0a0a0f;
-  --primary: #3b82f6;
+  --primary: #ca6de5;
   --primary-foreground: #ffffff;
   --secondary: #f4f4f5;
   --secondary-foreground: #0a0a0f;
@@ -53,10 +53,10 @@
   --accent: #f4f4f5;
   --accent-foreground: #0a0a0f;
   --border: #00000014;
-  --ring: #3b82f6;
+  --ring: #ca6de5;
   --ink: #0a0a0f;
-  --electric: #3b82f6;
-  --violet: #8b5cf6;
+  --electric: #ca6de5;
+  --violet: #b854e6;
   --cyan: #06b6d4;
   --gold: #d4af37;
 }
@@ -182,7 +182,7 @@ a {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.25); /* electric/25 */
+  background-color: rgba(202, 109, 229, 0.25); /* electric/25 */
   color: #0a0a0f;
 }
 
@@ -331,11 +331,11 @@ a {
 @utility btn-gradient {
   background-image: linear-gradient(to right, var(--electric), var(--violet));
   color: #ffffff;
-  box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 24px -8px rgba(202, 109, 229, 0.5);
   transition: box-shadow 0.4s ease, transform 0.2s ease;
 }
 @utility btn-gradient-hover {
-  box-shadow: 0 12px 32px -6px rgba(139, 92, 246, 0.65);
+  box-shadow: 0 12px 32px -6px rgba(184, 84, 230, 0.65);
 }
 
 /* Shimmer sweep overlay — place as a child span inside a .group button */
@@ -353,7 +353,7 @@ a {
 
 /* Glow ring used behind gradient logo boxes / icons */
 .glow-electric {
-  box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 20px -4px rgba(202, 109, 229, 0.45);
 }
 
 /* ============================================================

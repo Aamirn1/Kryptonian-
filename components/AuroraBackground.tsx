@@ -28,8 +28,8 @@ export default function AuroraBackground({
       <div className="absolute inset-0 bg-white" />
 
       {/* Aurora blobs — stronger opacity on white so they're visible */}
-      <div className="animate-aurora absolute -top-40 -left-20 h-[520px] w-[520px] rounded-full bg-[#3b82f6]/30 blur-[120px]" />
-      <div className="animate-aurora [animation-delay:-6s] absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-[#8b5cf6]/25 blur-[120px]" />
+      <div className="animate-aurora absolute -top-40 -left-20 h-[520px] w-[520px] rounded-full bg-[#ca6de5]/30 blur-[120px]" />
+      <div className="animate-aurora [animation-delay:-6s] absolute top-10 right-0 h-[480px] w-[480px] rounded-full bg-[#b854e6]/25 blur-[120px]" />
       <div className="animate-aurora [animation-delay:-12s] absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-[#06b6d4]/20 blur-[120px]" />
 
       {/* Subtle dark grid with radial fade */}

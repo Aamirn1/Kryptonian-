@@ -35,7 +35,7 @@ export default function ThreeNexus() {
         const nodesCount = 80;
         const positions = new Float32Array(nodesCount * 3);
         const colors = new Float32Array(nodesCount * 3);
-        const primaryColor = new THREE.Color("#3b82f6"); // electric blue — visible on white
+        const primaryColor = new THREE.Color("#ca6de5"); // electric blue — visible on white
 
         for (let i = 0; i < nodesCount; i++) {
             positions[i * 3] = (Math.random() - 0.5) * 15;

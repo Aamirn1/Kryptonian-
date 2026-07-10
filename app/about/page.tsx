@@ -169,7 +169,7 @@ const StatCard = ({
   return (
     <div
       ref={cardRef}
-      className="stat-card text-center p-8 border border-black/10 rounded-3xl bg-white backdrop-blur-sm group hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+      className="stat-card text-center p-8 border border-black/10 rounded-3xl bg-white backdrop-blur-sm group hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
     >
       <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-electric/10 border border-electric/20 flex items-center justify-center group-hover:scale-110 transition-transform">
         <stat.icon className="w-7 h-7 text-electric" />
@@ -402,7 +402,7 @@ export default function AboutPage() {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className="value-card group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-zinc-50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="value-card group p-10 bg-white border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-zinc-50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-electric/20 transition-colors">
                       <value.icon className="w-8 h-8 text-electric" />
@@ -444,7 +444,7 @@ export default function AboutPage() {
                     }`}
                   >
                     {/* Dot */}
-                    <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-background shadow-[0_0_20px_-2px_rgba(59,130,246,0.7)] md:-translate-x-1/2 mt-2 z-10 bg-gradient-to-br from-electric to-violet" />
+                    <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-background shadow-[0_0_20px_-2px_rgba(202, 109, 229,0.7)] md:-translate-x-1/2 mt-2 z-10 bg-gradient-to-br from-electric to-violet" />
 
                     {/* Content */}
                     <div
@@ -494,7 +494,7 @@ export default function AboutPage() {
                     key={index}
                     className="team-card group text-center hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="relative mb-6 overflow-hidden rounded-3xl border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] transition-all duration-300">
+                    <div className="relative mb-6 overflow-hidden rounded-3xl border border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300">
                       <div className="aspect-square bg-muted relative">
                         <Image
                           src={member.image}

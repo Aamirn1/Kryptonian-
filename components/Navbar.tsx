@@ -27,7 +27,7 @@ const NavLink = ({
     const ctx = gsap.context(() => {
       const onMouseEnter = () => {
         gsap.to(link, {
-          color: "#3b82f6",
+          color: "#ca6de5",
           duration: 0.3,
           ease: "power2.out",
         });

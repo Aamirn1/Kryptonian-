@@ -154,7 +154,7 @@ export default function Process() {
               key={index}
               className="process-step relative group shrink-0 w-[85vw] md:w-[45vw] lg:w-[25vw]"
             >
-              <div className="step-content relative bg-card border border-black/10 rounded-3xl p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] transition-all duration-300 group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)] group-hover:-translate-y-1">
+              <div className="step-content relative bg-card border border-black/10 rounded-3xl p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] transition-all duration-300 group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] group-hover:-translate-y-1">
                 {/* Gradient top accent */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent rounded-t-3xl" />
                 {/* Oversized ghost number */}

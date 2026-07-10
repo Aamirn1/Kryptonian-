@@ -92,7 +92,7 @@ export default function GetStartedPage() {
               </div>
 
               {/* Option 2: Strategy First */}
-              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-3xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(59,130,246,0.25)]">
+              <div className="step-card group relative p-10 bg-electric/5 border border-electric/20 rounded-3xl overflow-hidden hover:bg-electric/10 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)]">
                 <div className="w-16 h-16 bg-electric text-white rounded-2xl flex items-center justify-center mb-10 group-hover:rotate-12 transition-transform shadow-xl shadow-electric/30">
                   <Target className="w-8 h-8" />
                 </div>
