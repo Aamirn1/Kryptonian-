@@ -19,6 +19,7 @@ export const TargetIcon = ({ className }: { className?: string }) => (
 
 export type PricingPlan = {
   name: string;
+  tier: string; // Silver / Gold / Platinum
   sub: string;
   description: string;
   price: string;
@@ -38,6 +39,7 @@ export const pricingData: {
   oneTime: [
     {
       name: "Visibility Launch Pad",
+      tier: "Silver",
       sub: "Starter Website Bundle",
       description:
         "Service providers or local businesses needing a basic, effective online presence.",
@@ -59,6 +61,7 @@ export const pricingData: {
     },
     {
       name: "Growth-Ready",
+      tier: "Gold",
       sub: "Advanced/Premium Bundle",
       description:
         "New businesses needing a professional face and complete digital foundation.",
@@ -80,6 +83,7 @@ export const pricingData: {
     },
     {
       name: "Scale Premium",
+      tier: "Platinum",
       sub: "Custom Lead-Gen Solution",
       description:
         "Businesses serious about generating leads and scaling aggressively online.",
@@ -103,6 +107,7 @@ export const pricingData: {
   monthly: [
     {
       name: "Essential Growth",
+      tier: "Silver",
       sub: "Maintain Visibility",
       description:
         "Businesses who have a website and need consistent, reliable digital basics.",
@@ -124,6 +129,7 @@ export const pricingData: {
     },
     {
       name: "Accelerate & Convert",
+      tier: "Gold",
       sub: "Aggressive Growth & Leads",
       description:
         "Focused on increasing market share and capturing qualified leads.",
@@ -145,6 +151,7 @@ export const pricingData: {
     },
     {
       name: "Enterprise Impact",
+      tier: "Platinum",
       sub: "Full-Service Partnership",
       description:
         "Established businesses needing a full-scale digital department.",

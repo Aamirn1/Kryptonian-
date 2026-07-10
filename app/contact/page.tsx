@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import SmoothScroll from "@/components/SmoothScroll";
 import {
@@ -27,7 +28,21 @@ const categoryOptions: { value: Exclude<PackageCategory, "">; label: string }[] 
   { value: "monthly", label: "Ongoing Growth" },
 ];
 
-export default function ContactPage() {
+// Helper: get the price for a plan name (across both categories).
+function getPlanPrice(planName: string): string | undefined {
+  const all = [...pricingData.oneTime, ...pricingData.monthly];
+  return all.find((p) => p.name === planName)?.price;
+}
+
+export default function ContactPageWrapper() {
+  return (
+    <Suspense fallback={null}>
+      <ContactPage />
+    </Suspense>
+  );
+}
+
+function ContactPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -47,6 +62,24 @@ export default function ContactPage() {
   // Services (multi-select via expandable checkbox menu)
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [serviceOpen, setServiceOpen] = useState(false);
+
+  // Read URL params (from pricing page CTA) to auto-fill the form.
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const pkg = searchParams.get("pkg"); // "oneTime" or "monthly"
+    const plan = searchParams.get("plan"); // plan name e.g. "Growth-Ready"
+    if (pkg === "oneTime" || pkg === "monthly") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCategory(pkg);
+      if (plan) {
+        // Verify the plan belongs to this category, then auto-select it.
+        const planExists = pricingData[pkg].some((p) => p.name === plan);
+        if (planExists) {
+          setSelectedServices([plan]);
+        }
+      }
+    }
+  }, [searchParams]);
 
   const serviceOptions = category
     ? [...pricingData[category].map((p) => p.name), "Need to talk"]
@@ -374,7 +407,12 @@ export default function ContactPage() {
                                 <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
                               )}
                             </span>
-                            <span className="font-medium text-foreground">{s}</span>
+                            <span className="font-medium text-foreground flex-1">{s}</span>
+                            {s !== "Need to talk" && getPlanPrice(s) && (
+                              <span className="text-sm font-semibold text-electric shrink-0">
+                                {getPlanPrice(s)}
+                              </span>
+                            )}
                           </button>
                         ))}
                       </div>

@@ -198,8 +198,11 @@ export default function PricingPage() {
 
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold tracking-tight mb-1 uppercase">
-                      {plan.name}
+                      {plan.tier}
                     </h3>
+                    <p className="text-sm font-semibold text-foreground/70 tracking-tight mb-1">
+                      {plan.name}
+                    </p>
                     <p className="text-xs font-semibold text-electric tracking-[0.18em] uppercase mb-4 opacity-80">
                       {plan.sub}
                     </p>
@@ -238,7 +241,7 @@ export default function PricingPage() {
                   </div>
 
                   <Link
-                    href="/contact"
+                    href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
                     className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-all btn-gradient hover:btn-gradient-hover text-white"
                   >
                     <span className="shimmer-sweep" />
