@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactStrictMode: true,
+  // Enable gzip/brotli compression on the server.
+  compress: true,
+  // Hide the X-Powered-By header (minor security + saves bytes).
+  poweredByHeader: false,
   // Strip console.* in production (keeps error/warn). Significantly reduces
   // shipped JS from libs that log chatty debug output.
   compiler: {
@@ -33,6 +37,10 @@ const nextConfig: NextConfig = {
     // Tree-shake unused exports from heavy icon/Component libraries so only
     // the icons/components actually used ship to the client.
     optimizePackageImports: ["lucide-react", "gsap"],
+  },
+  // Silence the multiple-lockfile workspace-root warning + speed up builds.
+  turbopack: {
+    root: __dirname,
   },
 };
 

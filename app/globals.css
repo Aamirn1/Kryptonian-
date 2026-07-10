@@ -95,6 +95,15 @@
   perspective: 1000px;
 }
 
+/* Hide scrollbar for native horizontal scroll containers (mobile Process) */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ============================================================
    Lenis smooth scroll
    ============================================================ */
@@ -136,9 +145,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  transition:
-    background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Optimize touch scrolling on iOS — native momentum scroll. */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent iOS text size adjust on rotation. */
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Display font for headings (Space Grotesk)
@@ -156,28 +166,28 @@ h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "ss01", "ss02";
 }
 
+/* Perf: skip rendering/layout for off-screen sections until scrolled into view.
+   Huge win on mobile — the browser no longer paints sections that aren't visible. */
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
 /* Refined paragraph leading for readability */
 p {
   text-wrap: pretty;
 }
 
-/* Elegant transition for themed elements */
-path,
-div,
-section,
-header,
-footer,
-nav,
+/* Targeted transitions on interactive elements only.
+   The previous global * { transition } rule forced 0.7s transitions on
+   every div/span/p which caused severe repaint jank on iOS. */
+a,
 button,
 input,
 select,
-textarea,
-span,
-h1, h2, h3, h4, p,
-a {
-  transition-property:
-    background-color, border-color, color, fill, stroke, box-shadow;
-  transition-duration: 0.7s;
+textarea {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 

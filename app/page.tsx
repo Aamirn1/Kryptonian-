@@ -45,10 +45,10 @@ export default function Home() {
         <Navbar />
         <main id="main-content">
           <Hero />
-          <Services />
-          <Process />
-          <Testimonials />
-          <CTA />
+          <div className="cv-auto"><Services /></div>
+          <div className="cv-auto"><Process /></div>
+          <div className="cv-auto"><Testimonials /></div>
+          <div className="cv-auto"><CTA /></div>
         </main>
         <Footer />
       </div>

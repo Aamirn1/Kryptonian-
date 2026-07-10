@@ -39,6 +39,31 @@ export default function Process() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // The pinned horizontal-scroll ScrollTrigger is extremely heavy on
+    // mobile/iOS (pin + scrub causes severe jank). Desktop-only.
+    const isMobile =
+      window.matchMedia("(max-width: 1024px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isMobile || prefersReducedMotion) {
+      // Mobile: simple staggered fade-in, no pinning/scrubbing.
+      const ctx = gsap.context(() => {
+        gsap.from(".step-content", {
+          y: 30,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top 80%",
+          },
+        });
+      }, containerRef);
+      return () => ctx.revert();
+    }
+
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const trigger = triggerRef.current;
@@ -91,19 +116,6 @@ export default function Process() {
           }
         });
       });
-
-      // Staggered entry for step contents
-      gsap.from(".step-content", {
-        y: 50,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: trigger,
-          start: "center 80%",
-        },
-      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -114,9 +126,9 @@ export default function Process() {
       ref={containerRef}
       className="bg-background border-y border-black/5 overflow-hidden"
     >
-      <div ref={triggerRef} className="h-screen flex flex-col">
+      <div ref={triggerRef} className="lg:h-screen flex flex-col py-20 lg:py-0">
         {/* Heading — sits cleanly above the steps (not overlapping) */}
-        <div className="container mx-auto px-6 pt-28 md:pt-32 pb-8 relative z-10 pointer-events-none">
+        <div className="container mx-auto px-6 pt-12 lg:pt-28 pb-8 relative z-10 pointer-events-none">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="max-w-xl pointer-events-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-6 w-fit">
@@ -143,11 +155,11 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Steps — horizontally scrolling, centered below the heading */}
+        {/* Steps — horizontally scrolling on desktop (GSAP), native overflow-x on mobile */}
         <div
           ref={sectionRef}
-          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center flex-1"
-          style={{ width: "max-content" }}
+          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center flex-1 overflow-x-auto lg:overflow-visible snap-x lg:snap-none scrollbar-none"
+          style={{ width: "max-content", WebkitOverflowScrolling: "touch" }}
         >
           {steps.map((step, index) => (
             <div

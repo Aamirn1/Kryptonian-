@@ -135,10 +135,10 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex justify-center p-3 md:p-6"
       >
         <nav
-          className={`flex items-center justify-between gap-4 md:gap-8 px-5 md:px-8 py-2.5 md:py-4 max-w-3xl w-full rounded-2xl transition-all duration-500 ${
+          className={`flex items-center justify-between gap-4 md:gap-8 px-5 md:px-8 py-2.5 md:py-4 max-w-3xl w-full rounded-2xl transition-colors duration-300 ${
             scrolled
-              ? "bg-white/80 backdrop-blur-xl border border-black/10 shadow-lg shadow-black/10"
-              : "bg-white/40 backdrop-blur-md border border-black/5 shadow-md shadow-black/5"
+              ? "bg-white border border-black/10 shadow-lg shadow-black/10 md:bg-white/80 md:backdrop-blur-xl"
+              : "bg-white border border-black/5 shadow-md shadow-black/5 md:bg-white/40 md:backdrop-blur-md"
           }`}
         >
           <Logo />
