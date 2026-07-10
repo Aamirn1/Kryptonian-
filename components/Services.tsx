@@ -124,25 +124,21 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="relative bg-card rounded-[2rem] border border-black/10 overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)]"
+      className="relative bg-zinc-50 rounded-[2rem] border border-black/10 overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
     >
-      {/* Background dot pattern with edge fade + primary glow */}
+      {/* Background dot pattern with edge fade */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.12]"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(10,10,15,0.18) 1px, transparent 1px)",
+              "radial-gradient(rgba(10,10,15,0.2) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage:
               "radial-gradient(ellipse at center, black 40%, transparent 80%)",
             WebkitMaskImage:
               "radial-gradient(ellipse at center, black 40%, transparent 80%)",
           }}
-        />
-        <div
-          className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[80%] h-[60%] rounded-full blur-[120px] opacity-20"
-          style={{ background: "#ca6de5" }}
         />
       </div>
       <div className="container mx-auto px-6">
