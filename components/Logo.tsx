@@ -39,18 +39,18 @@ export default function Logo({
       <Image
         src="/logo.png"
         alt="Krypton Digital logo"
-        width={80}
-        height={80}
+        width={40}
+        height={40}
         priority
         className={cn(
-          "h-16 w-16 md:h-20 md:w-20 object-contain transition-transform duration-300 group-hover:scale-105",
+          "h-9 w-9 md:h-10 md:w-10 object-contain transition-transform duration-300 group-hover:scale-105",
           iconClassName,
         )}
       />
       {showText && (
         <span
           className={cn(
-            "font-display text-xl font-bold leading-none tracking-tight md:text-2xl text-foreground",
+            "font-display text-lg font-bold leading-none tracking-tight md:text-xl text-foreground",
             textClassName,
           )}
         >
