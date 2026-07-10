@@ -119,6 +119,8 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                         src={featuredPost.image}
                         alt={featuredPost.title}
                         fill
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 66vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0" />
@@ -220,6 +222,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                           src={post.image}
                           alt={post.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0" />

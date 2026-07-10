@@ -261,6 +261,8 @@ export default function PortfolioPage() {
                             src={featured.image}
                             alt={featured.title}
                             fill
+                            priority
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/20" />
@@ -358,6 +360,7 @@ export default function PortfolioPage() {
                         src={caseStudy.image}
                         alt={caseStudy.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0" />

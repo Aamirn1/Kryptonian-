@@ -4,9 +4,17 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { TrendingUp, Target, BarChart3 } from "lucide-react";
 
-import ThreeNexus from "./ThreeNexus";
+// Dynamically import ThreeNexus (Three.js ~600KB) — client-only, loads after
+// the page is interactive. This keeps the heavy WebGL lib out of the initial
+// JS bundle so the hero paints fast.
+const ThreeNexus = dynamic(() => import("./ThreeNexus"), {
+  ssr: false,
+  loading: () => null,
+});
+
 import AuroraBackground from "./AuroraBackground";
 import Typewriter from "./Typewriter";
 

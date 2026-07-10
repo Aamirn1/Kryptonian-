@@ -500,6 +500,7 @@ export default function AboutPage() {
                           src={member.image}
                           alt={member.name}
                           fill
+                          sizes="(max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>

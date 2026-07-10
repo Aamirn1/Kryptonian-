@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -8,7 +9,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuroraBackground from "@/components/AuroraBackground";
 import { BlogPost } from "@/lib/blog-server";
-import MarkdownRenderer from "@/components/MarkdownRenderer";
 import {
   ArrowLeft,
   Calendar,
@@ -26,6 +26,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Lazy-load MarkdownRenderer (react-markdown + remark-gfm ~100KB) so the blog
+// post shell (title, hero image, author) paints first, then the markdown body
+// streams in. Keeps the heavy markdown parser out of the initial bundle.
+const MarkdownRenderer = dynamic(() => import("@/components/MarkdownRenderer"), {
+  loading: () => (
+    <div className="animate-pulse space-y-4 py-8">
+      <div className="h-4 bg-white/10 rounded w-3/4" />
+      <div className="h-4 bg-white/10 rounded w-full" />
+      <div className="h-4 bg-white/10 rounded w-5/6" />
+      <div className="h-4 bg-white/10 rounded w-2/3" />
+    </div>
+  ),
+});
 
 interface BlogPostClientProps {
   post: BlogPost | null;
@@ -195,6 +209,7 @@ export default function BlogPostClient({
                   src={post.image}
                   alt={post.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover"
                   priority
                 />
@@ -340,6 +355,7 @@ export default function BlogPostClient({
                             src={relatedPost.image}
                             alt={relatedPost.title}
                             fill
+                            sizes="(max-width: 768px) 50vw, 33vw"
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>

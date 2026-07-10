@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
-import CookieConsent from "@/components/CookieConsent";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieConsentLazy from "@/components/CookieConsentLazy";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,7 +81,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground selection:bg-electric/30 selection:text-white`}
       >
         {children}
-        <CookieConsent />
+        <CookieConsentLazy />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>

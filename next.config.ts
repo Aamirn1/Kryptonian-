@@ -4,7 +4,20 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  reactStrictMode: true,
+  // Strip console.* in production (keeps error/warn). Significantly reduces
+  // shipped JS from libs that log chatty debug output.
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
+  },
   images: {
+    // Serve AVIF first (smaller than WebP), fall back to WebP then original.
+    formats: ["image/avif", "image/webp"],
+    // Cache optimized images longer at the CDN edge.
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     remotePatterns: [
       {
         protocol: "https",
@@ -15,6 +28,11 @@ const nextConfig: NextConfig = {
         hostname: "*.kryptondigital.co.uk",
       },
     ],
+  },
+  experimental: {
+    // Tree-shake unused exports from heavy icon/Component libraries so only
+    // the icons/components actually used ship to the client.
+    optimizePackageImports: ["lucide-react", "gsap"],
   },
 };
 
