@@ -170,14 +170,14 @@ export default function Services() {
                 <div
                   key={index}
                   className={cn(
-                    `service-text-${index} group flex flex-col justify-center border-b border-black/10 last:border-0 py-10 transition-all duration-300 hover:-translate-y-1`,
+                    `service-text-${index} group flex flex-col justify-center border-b border-black/10 last:border-0 py-10 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 hover:-translate-y-1`,
                     index === 0 ? "lg:min-h-[55vh]" : "lg:min-h-[60vh]",
                   )}
                 >
                   {/* Icon + Title on a single horizontal line */}
                   <div className="flex items-center gap-4 mb-6">
                     <div
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electric/10 border border-electric/20 ${service.color} transition-all duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(202, 109, 229,0.5)]`}
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electric/10 border border-electric/20 ${service.color} transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 group-hover:border-electric/40 group-hover:shadow-[0_10px_30px_-10px_rgba(202, 109, 229,0.5)]`}
                     >
                       <service.icon className="w-7 h-7" />
                     </div>

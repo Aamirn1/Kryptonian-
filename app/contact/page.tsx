@@ -242,7 +242,7 @@ function ContactPage() {
                       {formStatus.mailtoLink && (
                         <a
                           href={formStatus.mailtoLink}
-                          className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-electric text-white text-xs font-semibold uppercase tracking-[0.12em] hover:btn-gradient-hover transition-all"
+                          className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-electric text-white text-xs font-semibold uppercase tracking-[0.12em] hover:btn-gradient-hover transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                         >
                           <Mail className="w-4 h-4" />
                           Send via Email
@@ -475,7 +475,7 @@ function ContactPage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
+                  className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
                 >
                   <span className="shimmer-sweep" />
                   {isPending ? (
@@ -509,7 +509,7 @@ function ContactPage() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
+                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
                       <Mail className="w-5 h-5 text-electric" />
                     </div>
                     <div className="min-w-0">
@@ -526,7 +526,7 @@ function ContactPage() {
                     href="tel:+447424792233"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-all shadow-lg shadow-black/10">
+                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
                       <Phone className="w-5 h-5 text-electric" />
                     </div>
                     <div>

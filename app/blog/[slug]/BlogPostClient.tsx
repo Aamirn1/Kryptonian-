@@ -393,7 +393,7 @@ export default function BlogPostClient({
                   </p>
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
+                    className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
                   >
                     <span className="shimmer-sweep" />
                     <span className="uppercase tracking-[0.12em] text-sm">Start Your Project</span>

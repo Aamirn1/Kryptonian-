@@ -93,7 +93,7 @@ export default function CTA() {
 
                         <Link
                             href="/pricing"
-                            className="group relative inline-flex items-center gap-4 px-10 py-5 btn-gradient text-white font-semibold rounded-full overflow-hidden transition-all hover:btn-gradient-hover active:scale-95 mx-auto"
+                            className="group relative inline-flex items-center gap-4 px-10 py-5 btn-gradient text-white font-semibold rounded-full overflow-hidden transition-[color,background-color,border-color,box-shadow,transform,opacity] hover:btn-gradient-hover active:scale-95 mx-auto"
                         >
                             <span className="relative z-10 uppercase tracking-[0.12em] text-sm transition-colors group-hover:text-white">
                                 Order Now

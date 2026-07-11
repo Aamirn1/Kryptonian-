@@ -257,7 +257,7 @@ export default function PortfolioPage() {
                   .map((featured) => (
                     <div
                       key={featured.id}
-                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300"
+                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
@@ -323,7 +323,7 @@ export default function PortfolioPage() {
                               href={featured.projectUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient rounded-full text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:btn-gradient-hover overflow-hidden"
                             >
                               <span className="relative z-10 uppercase tracking-[0.12em]">
                                 View Project
@@ -350,7 +350,7 @@ export default function PortfolioPage() {
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all ${
+                    className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-[color,background-color,border-color,box-shadow,transform,opacity] ${
                       activeCategory === category
                         ? "bg-electric text-white shadow-lg shadow-electric/30"
                         : "bg-black/5 border border-black/10 text-muted-foreground hover:border-electric hover:text-electric"
@@ -366,7 +366,7 @@ export default function PortfolioPage() {
                 {filteredCases.map((caseStudy) => (
                   <div
                     key={caseStudy.id}
-                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
@@ -438,7 +438,7 @@ export default function PortfolioPage() {
                           href={caseStudy.projectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 btn-gradient rounded-full text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 btn-gradient rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:btn-gradient-hover overflow-hidden"
                         >
                           <span className="relative z-10 uppercase tracking-[0.1em]">
                             View Project
@@ -476,7 +476,7 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300"
+                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
                   >
                     <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-electric/20 transition-colors">
                       <step.icon className="w-8 h-8 text-electric" />
@@ -514,7 +514,7 @@ export default function PortfolioPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
+                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
                     >
                       <span className="shimmer-sweep" />
                       <span className="uppercase tracking-[0.12em] text-sm">Start Your Project</span>
@@ -522,7 +522,7 @@ export default function PortfolioPage() {
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                     >
                       <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
                     </Link>

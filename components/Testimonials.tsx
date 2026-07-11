@@ -156,7 +156,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card group p-8 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-all duration-300"
+              className="testimonial-card group p-8 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
             >
               {/* Quote Icon */}
               <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6">
@@ -275,7 +275,7 @@ export default function Testimonials() {
                     key={index}
                     onClick={() => setActiveIndex(index)}
                     className={cn(
-                      "w-2 h-2 rounded-full transition-all",
+                      "w-2 h-2 rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity]",
                       index === activeIndex
                         ? "bg-electric w-6"
                         : "bg-black/15 hover:bg-black/30",

@@ -237,7 +237,7 @@ export default function CookieConsent() {
                         onChange={(e) => setAnalyticsEnabled(e.target.checked)}
                         aria-labelledby="analytics-label"
                       />
-                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-electric" />
+                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-[color,background-color,border-color,box-shadow,transform,opacity] peer-checked:bg-electric" />
                     </label>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -264,7 +264,7 @@ export default function CookieConsent() {
                         onChange={(e) => setMarketingEnabled(e.target.checked)}
                         aria-labelledby="marketing-label"
                       />
-                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-electric" />
+                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-[color,background-color,border-color,box-shadow,transform,opacity] peer-checked:bg-electric" />
                     </label>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">

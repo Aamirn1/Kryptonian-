@@ -30,7 +30,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all active:scale-95"
+            className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
           >
             <span className="shimmer-sweep" />
             <Home className="w-5 h-5 relative z-10" />
@@ -38,7 +38,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity]"
           >
             <HelpCircle className="w-5 h-5" />
             <span className="uppercase tracking-[0.12em] text-sm">Get Help</span>

@@ -290,7 +290,7 @@ export default function Hero() {
             <div ref={ctaRef} className="flex flex-row gap-2.5 sm:gap-4">
               <Link
                 href="/pricing"
-                className="group relative overflow-hidden px-5 sm:px-10 py-3.5 sm:py-5 btn-gradient text-white font-semibold rounded-full transition-all hover:btn-gradient-hover active:scale-95 flex items-center justify-center flex-1 sm:flex-none"
+                className="group relative overflow-hidden px-5 sm:px-10 py-3.5 sm:py-5 btn-gradient text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] hover:btn-gradient-hover active:scale-95 flex items-center justify-center flex-1 sm:flex-none"
               >
                 <span className="relative z-10 uppercase tracking-[0.1em] sm:tracking-[0.12em] text-[0.7rem] sm:text-sm whitespace-nowrap">
                   Order Now
@@ -299,7 +299,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/portfolio"
-                className="group px-5 sm:px-8 py-3.5 sm:py-5 rounded-full border border-black/15 text-foreground/80 hover:text-foreground hover:border-black/30 hover:bg-black/5 font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-none"
+                className="group px-5 sm:px-8 py-3.5 sm:py-5 rounded-full border border-black/15 text-foreground/80 hover:text-foreground hover:border-black/30 hover:bg-black/5 font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-none"
               >
                 <span className="uppercase tracking-[0.1em] sm:tracking-[0.12em] text-[0.7rem] sm:text-sm whitespace-nowrap">View Work</span>
               </Link>

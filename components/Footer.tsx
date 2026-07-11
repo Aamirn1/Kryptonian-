@@ -145,7 +145,7 @@ export default function Footer() {
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group px-6 py-2 border border-black/10 rounded-full text-xs font-semibold tracking-[0.12em] uppercase hover:cursor-pointer hover:bg-electric hover:text-white hover:border-electric transition-all"
+            className="group px-6 py-2 border border-black/10 rounded-full text-xs font-semibold tracking-[0.12em] uppercase hover:cursor-pointer hover:bg-electric hover:text-white hover:border-electric transition-[color,background-color,border-color,box-shadow,transform,opacity]"
           >
             Back to Top
           </button>

@@ -130,7 +130,7 @@ export default function PricingPage() {
                   <div className="bg-black/5 p-1.5 rounded-full border border-black/10 shadow-lg shadow-black/15 flex gap-1 relative">
                     <button
                       onClick={() => setBillingCycle("oneTime")}
-                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
+                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] relative z-10 ${
                         billingCycle === "oneTime"
                           ? "text-white"
                           : "text-muted-foreground hover:text-foreground"
@@ -140,7 +140,7 @@ export default function PricingPage() {
                     </button>
                     <button
                       onClick={() => setBillingCycle("monthly")}
-                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-all relative z-10 ${
+                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] relative z-10 ${
                         billingCycle === "monthly"
                           ? "text-white"
                           : "text-muted-foreground hover:text-foreground"
@@ -149,7 +149,7 @@ export default function PricingPage() {
                       Ongoing Growth
                     </button>
                     <div
-                      className={`absolute top-1.5 bottom-1.5 transition-all duration-300 ease-expo-out bg-electric rounded-full ${
+                      className={`absolute top-1.5 bottom-1.5 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ease-expo-out bg-electric rounded-full ${
                         billingCycle === "oneTime"
                           ? "left-1.5 right-[50%]"
                           : "left-[50%] right-1.5"
@@ -174,7 +174,7 @@ export default function PricingPage() {
                     plan.popular
                       ? "border-electric shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.35)]"
                       : "border-black/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
-                  } rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ease-out hover:-translate-y-1 hover:border-electric/50`}
+                  } rounded-3xl overflow-hidden flex flex-col transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:border-electric/50`}
                 >
                   {plan.popular && (
                     <div className="absolute top-8 right-6 z-10">
@@ -243,7 +243,7 @@ export default function PricingPage() {
 
                   <Link
                     href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
-                    className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-all btn-gradient hover:btn-gradient-hover text-white"
+                    className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] btn-gradient hover:btn-gradient-hover text-white"
                   >
                     <span className="shimmer-sweep" />
                     <span className="relative z-10">{plan.cta}</span>
@@ -273,14 +273,14 @@ export default function PricingPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden px-12 py-5 btn-gradient hover:btn-gradient-hover text-white rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-all w-full sm:w-auto inline-flex items-center justify-center"
+                    className="group relative overflow-hidden px-12 py-5 btn-gradient hover:btn-gradient-hover text-white rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] w-full sm:w-auto inline-flex items-center justify-center"
                   >
                     <span className="shimmer-sweep" />
                     <span className="relative z-10">Speak with an Expert</span>
                   </Link>
                   {/* <Link
                     href="/partner-programme"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
+                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                   >
                     Partnerships
                   </Link> */}

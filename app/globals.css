@@ -166,11 +166,30 @@ h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "ss01", "ss02";
 }
 
-/* Perf: skip rendering/layout for off-screen sections until scrolled into view.
-   Huge win on mobile — the browser no longer paints sections that aren't visible. */
+/* Perf: skip rendering/layout for off-screen sections until scrolled into view. */
 @utility cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
+}
+
+/* GPU acceleration hints for animated elements — promotes to compositor layer
+   so transform/opacity animations don't trigger layout/paint on the main thread. */
+.animate-aurora,
+.animate-float-y,
+.animate-float-y-slow,
+.animate-spin-slow,
+.animate-orb-breathe {
+  will-change: transform, opacity;
+}
+
+/* Contain layout/paint for cards to prevent repaint cascades. */
+.step-content,
+.testimonial-card,
+.pricing-card,
+.case-card,
+.blog-card,
+.faq-item {
+  contain: layout style;
 }
 
 /* Refined paragraph leading for readability */

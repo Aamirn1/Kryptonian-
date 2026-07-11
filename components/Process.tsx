@@ -147,7 +147,7 @@ export default function Process() {
                   {step.number}
                 </div>
                 <div className="relative z-10 pt-10">
-                  <div className="w-12 h-1 bg-gradient-to-r from-electric to-violet mb-8 transition-all group-hover:w-full" />
+                  <div className="w-12 h-1 bg-gradient-to-r from-electric to-violet mb-8 transition-[color,background-color,border-color,box-shadow,transform,opacity] group-hover:w-full" />
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                     {step.title}
                   </h3>

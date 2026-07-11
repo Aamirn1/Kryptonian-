@@ -300,7 +300,7 @@ export default function TermsPage() {
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="terms-section p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 transition-all duration-300"
+                    className="terms-section p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
                   >
                     <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 tracking-tight text-foreground">
                       {section.title}
@@ -356,7 +356,7 @@ export default function TermsPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="mailto:contact@kryptondigital.co.uk?subject=Terms%20of%20Service%20Inquiry"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-all"
+                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                   >
                     <span className="shimmer-sweep" />
                     <Mail className="w-5 h-5 relative z-10" />
@@ -364,7 +364,7 @@ export default function TermsPage() {
                   </a>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                   >
                     <span className="uppercase tracking-[0.12em] text-sm">Contact Form</span>
                   </Link>

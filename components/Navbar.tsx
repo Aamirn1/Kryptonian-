@@ -152,7 +152,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/get-started"
-              className="group relative overflow-hidden px-6 py-2 btn-gradient rounded-xl text-white text-sm font-semibold transition-all active:scale-95 hover:btn-gradient-hover"
+              className="group relative overflow-hidden px-6 py-2 btn-gradient rounded-xl text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:btn-gradient-hover"
             >
               <span className="relative z-10">Order Now</span>
               <span className="shimmer-sweep" />
@@ -225,7 +225,7 @@ export default function Navbar() {
                 <Link
                   href="/get-started"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group relative overflow-hidden block w-full py-4 btn-gradient rounded-full text-white text-center font-bold transition-all hover:btn-gradient-hover"
+                  className="group relative overflow-hidden block w-full py-4 btn-gradient rounded-full text-white text-center font-bold transition-[color,background-color,border-color,box-shadow,transform,opacity] hover:btn-gradient-hover"
                 >
                   <span className="relative z-10">Order Now</span>
                   <span className="shimmer-sweep" />
