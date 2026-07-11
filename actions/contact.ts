@@ -3,9 +3,6 @@
 import { Resend } from "resend";
 import { z } from "zod";
 
-// Initialize Resend (API key will be from env)
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Escape HTML to prevent injection
 function escapeHtml(str: string): string {
   return str
@@ -35,7 +32,12 @@ export type ContactResponse = {
   success: boolean;
   message: string;
   errors?: Record<string, string[]>;
+  mailtoLink?: string;
 };
+
+// The email address that receives contact form submissions.
+const CONTACT_TO_EMAIL =
+  process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.co.uk";
 
 export async function sendContactEmail(
   formData: ContactFormData,
@@ -55,6 +57,26 @@ export async function sendContactEmail(
 
     const { firstName, lastName, email, service, message } = validated.data;
 
+    // Build a mailto fallback link (used if Resend is not configured or fails).
+    const subject = `New Contact Form Submission - ${service}`;
+    const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message || "(none)"}`;
+    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Check if Resend API key is configured.
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set in environment variables.");
+      return {
+        success: false,
+        message:
+          "Email service is not configured yet. Please click below to send via your email client, or contact us directly at contact@kryptondigital.co.uk.",
+        mailtoLink,
+      };
+    }
+
+    // Initialize Resend with the API key.
+    const resend = new Resend(apiKey);
+
     // Escape all user input before inserting into HTML
     const safeName = `${escapeHtml(firstName)} ${escapeHtml(lastName)}`;
     const safeEmail = escapeHtml(email);
@@ -63,12 +85,16 @@ export async function sendContactEmail(
       ? escapeHtml(message).replace(/\n/g, "<br>")
       : "<em style=\"color:#999\">No message provided</em>";
 
+    const fromEmail =
+      process.env.RESEND_FROM_EMAIL ||
+      "Krypton Digital <onboarding@resend.dev>";
+
     // Send email using Resend
     const { error } = await resend.emails.send({
-      from: `Krypton Digital <${process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev"}>`,
-      to: process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.co.uk",
+      from: fromEmail,
+      to: CONTACT_TO_EMAIL,
       replyTo: email,
-      subject: `New Contact Form Submission - ${escapeHtml(service)}`,
+      subject: `New Contact Form Submission - ${service}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -76,9 +102,9 @@ export async function sendContactEmail(
             <meta charset="utf-8">
             <title>New Contact Form Submission</title>
             <style>
-              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+              body { font-family: -apple-system, BlinkMacNextFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
               .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
-              .header { background: #cb6be6; padding: 30px; border-radius: 16px 16px 0 0; text-align: center; }
+              .header { background: #ca6de5; padding: 30px; border-radius: 16px 16px 0 0; text-align: center; }
               .header h1 { color: white; margin: 0; font-size: 24px; }
               .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 16px 16px; }
               .field { margin-bottom: 20px; }
@@ -143,8 +169,8 @@ ${new Date().toLocaleString("en-GB", { timeZone: "Europe/London" })}
       console.error("Resend error:", error);
       return {
         success: false,
-        message:
-          "Failed to send email. Please try again or contact us directly.",
+        message: `Failed to send email: ${error.message || "Unknown error"}. Please try again or contact us directly at contact@kryptondigital.co.uk.`,
+        mailtoLink,
       };
     }
 
@@ -155,9 +181,13 @@ ${new Date().toLocaleString("en-GB", { timeZone: "Europe/London" })}
     };
   } catch (error) {
     console.error("Contact form error:", error);
+    const subject = `New Contact Form Submission - ${formData.service}`;
+    const body = `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage:\n${formData.message || "(none)"}`;
+    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     return {
       success: false,
-      message: "An unexpected error occurred. Please try again.",
+      message: "An unexpected error occurred. Please try again or send via your email client.",
+      mailtoLink,
     };
   }
 }

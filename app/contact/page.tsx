@@ -58,6 +58,7 @@ function ContactPage() {
   const [formStatus, setFormStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
+    mailtoLink?: string;
   }>({ type: null, message: "" });
   const [errors, setErrors] = useState<Record<string, string[]>>({});
 
@@ -170,6 +171,7 @@ function ContactPage() {
         setFormStatus({
           type: "error",
           message: result.message,
+          mailtoLink: result.mailtoLink,
         });
         if (result.errors) {
           setErrors(result.errors);
@@ -231,7 +233,18 @@ function ContactPage() {
                     ) : (
                       <AlertCircle className="w-5 h-5 mt-0.5 shrink-0" />
                     )}
-                    <p className="text-sm font-medium">{formStatus.message}</p>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium">{formStatus.message}</p>
+                      {formStatus.mailtoLink && (
+                        <a
+                          href={formStatus.mailtoLink}
+                          className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-electric text-white text-xs font-semibold uppercase tracking-[0.12em] hover:btn-gradient-hover transition-all"
+                        >
+                          <Mail className="w-4 h-4" />
+                          Send via Email
+                        </a>
+                      )}
+                    </div>
                   </div>
                 )}
 
