@@ -39,31 +39,36 @@ export default function Process() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // The pinned horizontal-scroll ScrollTrigger is extremely heavy on
-    // mobile/iOS (pin + scrub causes severe jank). Desktop-only.
     const isMobile =
       window.matchMedia("(max-width: 1024px)").matches ||
       window.matchMedia("(pointer: coarse)").matches;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Mobile + reduced-motion: simple fade-in, NO opacity:0 default state.
+    // Use fromTo so the elements are visible if ScrollTrigger never fires.
     if (isMobile || prefersReducedMotion) {
-      // Mobile: simple staggered fade-in, no pinning/scrubbing.
       const ctx = gsap.context(() => {
-        gsap.from(".step-content", {
-          y: 30,
-          opacity: 0,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top 80%",
+        gsap.fromTo(
+          ".step-content",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: triggerRef.current,
+              start: "top 85%",
+              once: true,
+            },
           },
-        });
+        );
       }, containerRef);
       return () => ctx.revert();
     }
 
+    // Desktop: pinned horizontal scroll
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const trigger = triggerRef.current;
@@ -84,7 +89,7 @@ export default function Process() {
 
       // Main horizontal move
       const horizontalTween = gsap.to(section, {
-        x: - (totalWidth - windowWidth + initialOffset),
+        x: -(totalWidth - windowWidth + initialOffset),
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
@@ -110,10 +115,10 @@ export default function Process() {
           scrollTrigger: {
             trigger: step,
             containerAnimation: horizontalTween,
-            start: "left 80%", // Start tilting back when left of card is at 80% screen width
-            end: "left 20%",   // Finish tilting by the time it reaches 20%
+            start: "left 80%",
+            end: "left 20%",
             scrub: true,
-          }
+          },
         });
       });
     }, containerRef);
@@ -127,7 +132,7 @@ export default function Process() {
       className="bg-background border-y border-black/5 overflow-hidden"
     >
       <div ref={triggerRef} className="lg:h-screen flex flex-col py-20 lg:py-0">
-        {/* Heading — sits cleanly above the steps (not overlapping) */}
+        {/* Heading */}
         <div className="container mx-auto px-6 pt-12 lg:pt-28 pb-8 relative z-10 pointer-events-none">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div className="max-w-xl pointer-events-auto">
