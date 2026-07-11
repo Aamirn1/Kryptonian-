@@ -139,7 +139,7 @@ export default function BlogPostClient({
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased"
+        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-x-hidden"
       >
         <Navbar />
 

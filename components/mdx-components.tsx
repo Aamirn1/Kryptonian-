@@ -106,7 +106,7 @@ export const mdxComponents = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
       className={cn(
-        "bg-zinc-900 border border-black/10 text-zinc-100 p-6 rounded-xl overflow-x-auto mb-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.25)]",
+        "bg-zinc-900 border border-black/10 text-zinc-100 p-6 rounded-xl overflow-x-auto mb-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.25)] max-w-full",
         className
       )}
       {...props}
