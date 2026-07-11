@@ -54,7 +54,7 @@ export default function CTA() {
     return (
         <section
             ref={containerRef}
-            className="py-28 relative overflow-hidden"
+            className="py-28 relative overflow-hidden bg-[#f7f1ea]"
         >
             {/* Background Decorative Elements */}
             <div

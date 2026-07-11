@@ -36,8 +36,11 @@ export type ContactResponse = {
 };
 
 // The email address that receives contact form submissions.
+// Default: the Resend account owner's email (works with onboarding@resend.dev).
+// To use contact@kryptondigital.co.uk, verify the domain on resend.com/domains
+// and set CONTACT_TO_EMAIL env var.
 const CONTACT_TO_EMAIL =
-  process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.co.uk";
+  process.env.CONTACT_TO_EMAIL || "amir03115794492@gmail.com";
 
 export async function sendContactEmail(
   formData: ContactFormData,
@@ -60,7 +63,7 @@ export async function sendContactEmail(
     // Build a mailto fallback link (used if Resend is not configured or fails).
     const subject = `New Contact Form Submission - ${service}`;
     const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message || "(none)"}`;
-    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:contact@kryptondigital.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Check if Resend API key is configured.
     const apiKey = process.env.RESEND_API_KEY;
@@ -183,7 +186,7 @@ ${new Date().toLocaleString("en-GB", { timeZone: "Europe/London" })}
     console.error("Contact form error:", error);
     const subject = `New Contact Form Submission - ${formData.service}`;
     const body = `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage:\n${formData.message || "(none)"}`;
-    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:contact@kryptondigital.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     return {
       success: false,
       message: "An unexpected error occurred. Please try again or send via your email client.",
