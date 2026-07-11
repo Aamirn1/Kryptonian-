@@ -39,36 +39,6 @@ export default function Process() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const isMobile =
-      window.matchMedia("(max-width: 1024px)").matches ||
-      window.matchMedia("(pointer: coarse)").matches;
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Mobile + reduced-motion: simple fade-in, NO opacity:0 default state.
-    // Use fromTo so the elements are visible if ScrollTrigger never fires.
-    if (isMobile || prefersReducedMotion) {
-      const ctx = gsap.context(() => {
-        gsap.fromTo(
-          ".step-content",
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.1,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: triggerRef.current,
-              start: "top 85%",
-              once: true,
-            },
-          },
-        );
-      }, containerRef);
-      return () => ctx.revert();
-    }
-
-    // Desktop: pinned horizontal scroll
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const trigger = triggerRef.current;
@@ -121,6 +91,24 @@ export default function Process() {
           },
         });
       });
+
+      // Staggered entry for step contents — uses fromTo so cards are never
+      // stuck at opacity:0 if the ScrollTrigger doesn't fire immediately.
+      gsap.fromTo(
+        ".step-content",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: trigger,
+            start: "top 85%",
+          },
+        },
+      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -131,10 +119,9 @@ export default function Process() {
       ref={containerRef}
       className="bg-background border-y border-black/5 overflow-hidden"
     >
-      <div ref={triggerRef} className="lg:h-screen flex flex-col py-20 lg:py-0">
-        {/* Heading */}
-        <div className="container mx-auto px-6 pt-12 lg:pt-28 pb-8 relative z-10 pointer-events-none">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+      <div ref={triggerRef} className="h-screen flex items-center">
+        <div className="container mx-auto px-6 mb-auto pt-32 absolute top-0 left-0 right-0 z-10 pointer-events-none">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div className="max-w-xl pointer-events-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-6 w-fit">
                 <span className="relative flex h-2 w-2">
@@ -145,7 +132,7 @@ export default function Process() {
                   Methodology
                 </p>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-foreground leading-[1.05]">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]">
                 HOW WE <span className="text-gradient italic font-display">WORK</span>
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
@@ -160,11 +147,10 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Steps — horizontally scrolling on desktop (GSAP), native overflow-x on mobile */}
         <div
           ref={sectionRef}
-          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center flex-1 overflow-x-auto lg:overflow-visible snap-x lg:snap-none scrollbar-none"
-          style={{ width: "max-content", WebkitOverflowScrolling: "touch" }}
+          className="flex gap-12 lg:gap-24 px-6 md:px-[10vw] items-center mt-32"
+          style={{ width: "max-content" }}
         >
           {steps.map((step, index) => (
             <div
