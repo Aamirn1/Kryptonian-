@@ -176,6 +176,10 @@ function ContactPage() {
         if (result.errors) {
           setErrors(result.errors);
         }
+        // Scroll to the top of the form so the user sees the error message.
+        setTimeout(() => {
+          formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
       }
     });
   };

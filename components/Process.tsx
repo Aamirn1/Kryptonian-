@@ -11,25 +11,25 @@ const steps = [
     number: "01",
     title: "Discovery",
     description:
-      "A deep immersion into your business, market, and objectives — the foundation that informs every decision that follows.",
+      "Deep dive into your business and objectives to build a solid foundation.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "A bespoke blueprint engineered around your specific growth goals, target audiences, and competitive landscape.",
+      "Developing a custom blueprint focused on your specific growth goals.",
   },
   {
     number: "03",
     title: "Execution",
     description:
-      "Strategy translated into delivery — built with precision, creative excellence, and obsessive attention to detail.",
+      "Implementation of the strategy with precision and creative excellence.",
   },
   {
     number: "04",
-    title: "Optimisation",
+    title: "Optimization",
     description:
-      "Continuous monitoring, measurement, and refinement to compound results and maximise long-term ROI.",
+      "Continuous monitoring and refinement to maximize results and ROI.",
   },
 ];
 
@@ -85,30 +85,25 @@ export default function Process() {
           scrollTrigger: {
             trigger: step,
             containerAnimation: horizontalTween,
-            start: "left 80%",
-            end: "left 20%",
+            start: "left 80%", // Start tilting back when left of card is at 80% screen width
+            end: "left 20%",   // Finish tilting by the time it reaches 20%
             scrub: true,
-          },
+          }
         });
       });
 
-      // Staggered entry for step contents — uses fromTo so cards are never
-      // stuck at opacity:0 if the ScrollTrigger doesn't fire immediately.
-      gsap.fromTo(
-        ".step-content",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top 85%",
-          },
+      // Staggered entry for step contents
+      gsap.from(".step-content", {
+        y: 50,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: trigger,
+          start: "center 80%",
         },
-      );
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -123,25 +118,15 @@ export default function Process() {
         <div className="container mx-auto px-6 mb-auto pt-32 absolute top-0 left-0 right-0 z-10 pointer-events-none">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div className="max-w-xl pointer-events-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 border border-black/10 mb-6 w-fit">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-zinc-700 opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-700" />
-                </span>
-                <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
-                  Methodology
-                </p>
-              </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]">
-                HOW WE <span className="text-gradient italic font-display">WORK</span>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground">
+                HOW WE <span className="text-gradient italic">WORK</span>
               </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                A systematic methodology that ensures every engagement is
-                delivered to the highest standards of quality, precision, and
-                measurable efficiency.
+              <p className="text-muted-foreground text-lg">
+                Our systematic approach ensures every project is delivered with
+                the highest standards of quality and efficiency.
               </p>
             </div>
-            <div className="font-display text-electric/70 font-mono text-xl md:text-2xl hidden lg:block pointer-events-auto tracking-wider">
+            <div className="text-electric font-mono text-xl md:text-2xl hidden lg:block pointer-events-auto">
               / PROCESS FLOW
             </div>
           </div>
@@ -157,24 +142,16 @@ export default function Process() {
               key={index}
               className="process-step relative group shrink-0 w-[85vw] md:w-[45vw] lg:w-[25vw]"
             >
-              <div className="step-content relative bg-card border border-black/10 rounded-3xl p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] transition-all duration-300 group-hover:border-electric/30 group-hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] group-hover:-translate-y-1">
-                {/* Gradient top accent */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent rounded-t-3xl" />
-                {/* Oversized ghost number */}
-                <div className="font-display text-8xl md:text-[10rem] font-bold text-black/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-electric/10 transition-colors pointer-events-none leading-none">
+              <div className="step-content">
+                <div className="text-8xl md:text-[10rem] font-bold text-black/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-electric/10 transition-colors pointer-events-none">
                   {step.number}
                 </div>
                 <div className="relative z-10 pt-10">
-                  <div className="w-12 h-1 bg-gradient-to-r from-electric to-violet mb-8 transition-all duration-500 group-hover:w-full" />
-                  <div className="flex items-baseline gap-4 mb-4">
-                    <span className="font-display text-3xl md:text-4xl font-bold text-gradient leading-none">
-                      {step.number}
-                    </span>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm">
+                  <div className="w-12 h-1 bg-gradient-to-r from-electric to-violet mb-8 transition-all group-hover:w-full" />
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed max-w-sm">
                     {step.description}
                   </p>
                 </div>
