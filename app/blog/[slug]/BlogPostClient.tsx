@@ -220,7 +220,7 @@ export default function BlogPostClient({
           {/* Content */}
           <section className="px-6 pb-20">
             <div className="container mx-auto max-w-4xl">
-              <div className="grid lg:grid-cols-[1fr,280px] gap-16">
+              <div className="block lg:grid lg:grid-cols-[1fr,280px] gap-16">
                 {/* Main Content */}
                 <div className="post-content">
                   <MarkdownRenderer content={post.content} />
