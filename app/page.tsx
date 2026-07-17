@@ -41,7 +41,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-x-hidden">
+      <div className="relative min-h-screen selection:bg-primary selection:text-white antialiased overflow-x-hidden">
         <Navbar />
         <main id="main-content">
           <Hero />

@@ -98,56 +98,27 @@ export default function Testimonials() {
     );
   };
 
-  // Auto-advance the mobile carousel every 3 seconds. Pauses when the user
-  // hovers/focuses the carousel so manual interaction isn't fighting the timer.
-  useEffect(() => {
-    const carousel = document.querySelector("[data-testid='testimonials-carousel']");
-    if (!carousel) return;
-
-    let paused = false;
-    const onPause = () => { paused = true; };
-    const onResume = () => { paused = false; };
-    carousel.addEventListener("mouseenter", onPause);
-    carousel.addEventListener("mouseleave", onResume);
-    carousel.addEventListener("touchstart", onPause, { passive: true });
-    carousel.addEventListener("touchend", onResume, { passive: true });
-
-    const interval = setInterval(() => {
-      if (!paused) {
-        setActiveIndex((prev) => (prev + 1) % testimonials.length);
-      }
-    }, 3000);
-
-    return () => {
-      clearInterval(interval);
-      carousel.removeEventListener("mouseenter", onPause);
-      carousel.removeEventListener("mouseleave", onResume);
-      carousel.removeEventListener("touchstart", onPause);
-      carousel.removeEventListener("touchend", onResume);
-    };
-  }, []);
-
   return (
     <section
       ref={containerRef}
-      className="py-32 px-6 bg-background overflow-hidden"
+      className="py-32 px-6 bg-[#fafafa] overflow-hidden"
     >
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="testimonials-header text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 mb-6 border border-black/10">
-            <Quote className="w-4 h-4 text-zinc-700" />
-            <p className="text-zinc-700 text-xs font-semibold tracking-[0.18em] uppercase">
-              Client Success Stories
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6 border border-primary/20">
+            <Quote className="w-4 h-4 text-primary" />
+            <p className="text-primary font-bold text-sm">
+              CLIENT SUCCESS STORIES
             </p>
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase mb-6 leading-[1.05]">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6">
             Trusted By{" "}
-            <span className="text-gradient italic font-display">Industry Leaders</span>
+            <span className="text-primary italic">Industry Leaders</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Results that speak for themselves. Here&apos;s what our clients say
-            about partnering with Krypton Digital.
+          <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto">
+            Don&apos;t just take our word for it. Here&apos;s what our clients
+            have to say about working with us.
           </p>
         </div>
 
@@ -156,11 +127,11 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card group p-8 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+              className="testimonial-card group p-8 bg-white border border-zinc-200 rounded-[2.5rem] shadow-lg shadow-zinc-200/20 hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
             >
               {/* Quote Icon */}
-              <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6">
-                <Quote className="w-6 h-6 text-electric" />
+              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                <Quote className="w-6 h-6 text-primary" />
               </div>
 
               {/* Rating */}
@@ -171,29 +142,29 @@ export default function Testimonials() {
                     className={cn(
                       "w-5 h-5",
                       i < testimonial.rating
-                        ? "text-gold fill-gold"
-                        : "text-black/15",
+                        ? "text-yellow-500 fill-yellow-500"
+                        : "text-zinc-300",
                     )}
                   />
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              <p className="text-zinc-600 text-lg leading-relaxed mb-8">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-zinc-100 rounded-full overflow-hidden ring-1 ring-black/10">
+                <div className="w-14 h-14 bg-zinc-100 rounded-full overflow-hidden">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${testimonial.image})` }}
                   />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-lg text-foreground">{testimonial.name}</h4>
-                  <p className="text-muted-foreground text-sm">{testimonial.role}</p>
+                  <h4 className="font-bold text-lg">{testimonial.name}</h4>
+                  <p className="text-zinc-500 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -201,7 +172,7 @@ export default function Testimonials() {
         </div>
 
         {/* Mobile: Carousel */}
-        <div className="md:hidden" data-testid="testimonials-carousel">
+        <div className="md:hidden">
           <div className="relative">
             <div className="overflow-hidden">
               <div
@@ -213,9 +184,9 @@ export default function Testimonials() {
                     key={testimonial.id}
                     className="w-full shrink-0 px-1"
                   >
-                    <div className="p-6 bg-card border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                      <div className="w-10 h-10 bg-electric/10 border border-electric/20 rounded-xl flex items-center justify-center mb-4">
-                        <Quote className="w-5 h-5 text-electric" />
+                    <div className="p-6 bg-white border border-zinc-200 rounded-4xl shadow-lg shadow-zinc-200/20">
+                      <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <Quote className="w-5 h-5 text-primary" />
                       </div>
 
                       <div className="flex gap-1 mb-3">
@@ -225,19 +196,19 @@ export default function Testimonials() {
                             className={cn(
                               "w-4 h-4",
                               i < testimonial.rating
-                                ? "text-gold fill-gold"
-                                : "text-black/15",
+                                ? "text-yellow-500 fill-yellow-500"
+                                : "text-zinc-300",
                             )}
                           />
                         ))}
                       </div>
 
-                      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+                      <p className="text-zinc-600 leading-relaxed mb-6 text-sm">
                         &ldquo;{testimonial.content}&rdquo;
                       </p>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-zinc-100 rounded-full overflow-hidden ring-1 ring-black/10">
+                        <div className="w-12 h-12 bg-zinc-100 rounded-full overflow-hidden">
                           <div
                             className="w-full h-full bg-cover bg-center"
                             style={{
@@ -246,8 +217,8 @@ export default function Testimonials() {
                           />
                         </div>
                         <div>
-                          <h4 className="font-display font-bold text-foreground">{testimonial.name}</h4>
-                          <p className="text-muted-foreground text-xs">
+                          <h4 className="font-bold">{testimonial.name}</h4>
+                          <p className="text-zinc-500 text-xs">
                             {testimonial.role}
                           </p>
                         </div>
@@ -263,7 +234,7 @@ export default function Testimonials() {
               <button
                 onClick={prevTestimonial}
                 aria-label="Previous testimonial"
-                className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+                className="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -275,10 +246,10 @@ export default function Testimonials() {
                     key={index}
                     onClick={() => setActiveIndex(index)}
                     className={cn(
-                      "w-2 h-2 rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity]",
+                      "w-2 h-2 rounded-full transition-all",
                       index === activeIndex
-                        ? "bg-electric w-6"
-                        : "bg-black/15 hover:bg-black/30",
+                        ? "bg-primary w-6"
+                        : "bg-zinc-300 hover:bg-zinc-400",
                     )}
                   />
                 ))}
@@ -287,7 +258,7 @@ export default function Testimonials() {
               <button
                 onClick={nextTestimonial}
                 aria-label="Next testimonial"
-                className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:border-electric hover:text-electric transition-colors focus-visible:ring-2 focus-visible:ring-electric"
+                className="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -296,37 +267,37 @@ export default function Testimonials() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-20 pt-16 border-t border-black/10">
+        <div className="mt-20 pt-16 border-t border-zinc-200">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
                 4.9/5
               </div>
-              <p className="text-muted-foreground text-sm font-medium">
+              <p className="text-zinc-500 text-sm font-medium">
                 Average Client Rating
               </p>
             </div>
             <div>
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
                 50+
               </div>
-              <p className="text-muted-foreground text-sm font-medium">
+              <p className="text-zinc-500 text-sm font-medium">
                 Projects Delivered
               </p>
             </div>
             <div>
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
                 98%
               </div>
-              <p className="text-muted-foreground text-sm font-medium">
+              <p className="text-zinc-500 text-sm font-medium">
                 Client Retention
               </p>
             </div>
             <div>
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">
+              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
                 3x
               </div>
-              <p className="text-muted-foreground text-sm font-medium">
+              <p className="text-zinc-500 text-sm font-medium">
                 Average ROI Increase
               </p>
             </div>

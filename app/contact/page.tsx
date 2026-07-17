@@ -19,7 +19,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { sendContactEmail, ContactFormData } from "@/actions/contact";
 import { pricingData } from "@/lib/pricing";
-import AuroraBackground from "@/components/AuroraBackground";
 
 type PackageCategory = "" | "oneTime" | "monthly";
 
@@ -186,7 +185,7 @@ function ContactPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/25 selection:text-foreground antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-300/30 rounded-full blur-[120px] animate-pulse" />
@@ -197,7 +196,6 @@ function ContactPage() {
         <main id="main-content" ref={containerRef} className="pb-32">
           {/* Hero Section */}
           <section className="contact-hero relative pt-40 pb-20 px-6">
-            <AuroraBackground />
             <div className="container mx-auto max-w-6xl relative z-10">
               <h1
                 ref={titleRef}
@@ -205,7 +203,7 @@ function ContactPage() {
               >
                 <span className="inline-block">LET&apos;S BUILD YOUR</span>
                 <br />
-                <span className="text-gradient italic inline-block">
+                <span className="text-primary italic inline-block">
                   GROWTH ENGINE
                 </span>
               </h1>
@@ -228,7 +226,7 @@ function ContactPage() {
                   <div
                     className={`p-4 rounded-2xl flex items-start gap-3 ${
                       formStatus.type === "success"
-                        ? "bg-electric/10 border border-electric/20 text-electric"
+                        ? "bg-primary/10 border border-primary/20 text-primary"
                         : "bg-red-500/10 border border-red-500/20 text-red-600"
                     }`}
                   >
@@ -242,7 +240,7 @@ function ContactPage() {
                       {formStatus.mailtoLink && (
                         <a
                           href={formStatus.mailtoLink}
-                          className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-electric text-white text-xs font-semibold uppercase tracking-[0.12em] hover:btn-gradient-hover transition-[color,background-color,border-color,box-shadow,transform,opacity]"
+                          className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-primary/80 transition-[color,background-color,border-color,box-shadow,transform,opacity]"
                         >
                           <Mail className="w-4 h-4" />
                           Send via Email
@@ -264,7 +262,7 @@ function ContactPage() {
                       placeholder="John"
                       required
                       disabled={isPending}
-                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.firstName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -283,7 +281,7 @@ function ContactPage() {
                       placeholder="Doe"
                       required
                       disabled={isPending}
-                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.lastName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -304,7 +302,7 @@ function ContactPage() {
                     placeholder="john@example.com"
                     required
                     disabled={isPending}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                   />
                   {errors.email && (
                     <p className="text-red-400 text-xs" role="alert">{errors.email[0]}</p>
@@ -323,7 +321,7 @@ function ContactPage() {
                       disabled={isPending}
                       className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 ${
                         categoryOpen || category
-                          ? "border-electric ring-2 ring-electric/20"
+                          ? "border-primary ring-2 ring-primary/20"
                           : "border-black/10"
                       }`}
                     >
@@ -344,12 +342,12 @@ function ContactPage() {
                             type="button"
                             onClick={() => handleCategorySelect(opt.value)}
                             className={`w-full px-5 py-4 flex items-center justify-between text-left hover:bg-zinc-50 transition-colors border-b border-black/5 last:border-0 ${
-                              category === opt.value ? "bg-electric/5" : ""
+                              category === opt.value ? "bg-primary/5" : ""
                             }`}
                           >
                             <span className="font-medium text-foreground">{opt.label}</span>
                             {category === opt.value && (
-                              <Check className="w-5 h-5 text-electric shrink-0" />
+                              <Check className="w-5 h-5 text-primary shrink-0" />
                             )}
                           </button>
                         ))}
@@ -370,13 +368,13 @@ function ContactPage() {
                       {selectedServices.map((svc) => (
                         <span
                           key={svc}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-electric/10 border border-electric/20 text-electric text-sm font-medium rounded-full"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 border border-primary/20 text-primary text-sm font-medium rounded-full"
                         >
                           {svc}
                           <button
                             type="button"
                             onClick={() => removeService(svc)}
-                            className="hover:bg-electric/20 rounded-full p-0.5 transition-colors"
+                            className="hover:bg-primary/20 rounded-full p-0.5 transition-colors"
                             aria-label={`Remove ${svc}`}
                           >
                             <X className="w-3.5 h-3.5" />
@@ -393,7 +391,7 @@ function ContactPage() {
                       disabled={isPending || !category}
                       className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
                         serviceOpen || selectedServices.length > 0
-                          ? "border-electric ring-2 ring-electric/20"
+                          ? "border-primary ring-2 ring-primary/20"
                           : "border-black/10"
                       }`}
                     >
@@ -416,13 +414,13 @@ function ContactPage() {
                             type="button"
                             onClick={() => toggleService(s)}
                             className={`w-full px-5 py-4 flex items-center gap-3 text-left hover:bg-zinc-50 transition-colors border-b border-black/5 last:border-0 ${
-                              selectedServices.includes(s) ? "bg-electric/5" : ""
+                              selectedServices.includes(s) ? "bg-primary/5" : ""
                             }`}
                           >
                             <span
                               className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
                                 selectedServices.includes(s)
-                                  ? "bg-electric border-electric"
+                                  ? "bg-primary border-primary"
                                   : "border-zinc-300 bg-white"
                               }`}
                             >
@@ -441,7 +439,7 @@ function ContactPage() {
                               </span>
                             </span>
                             {s !== "Need to talk" && getPlanPrice(s) && (
-                              <span className="text-sm font-semibold text-electric shrink-0">
+                              <span className="text-sm font-semibold text-primary shrink-0">
                                 {getPlanPrice(s)}
                               </span>
                             )}
@@ -465,7 +463,7 @@ function ContactPage() {
                     rows={4}
                     placeholder="Tell us about your project..."
                     disabled={isPending}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric focus:border-electric transition-colors text-foreground placeholder:text-zinc-400 resize-y disabled:opacity-60"
+                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 resize-y disabled:opacity-60"
                   ></textarea>
                   {errors.message && (
                     <p className="text-red-400 text-xs" role="alert">{errors.message[0]}</p>
@@ -475,9 +473,8 @@ function ContactPage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="group relative overflow-hidden w-full py-5 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-electric/10 uppercase tracking-[0.12em] text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
+                  className="group relative overflow-hidden w-full py-5 bg-primary hover:bg-primary/80 text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 flex items-center justify-center gap-3 shadow-xl shadow-primary/10 uppercase tracking-[0.12em] text-xs disabled:opacity-70 disabled:cursor-not-allowed disabled:active:scale-100"
                 >
-                  <span className="shimmer-sweep" />
                   {isPending ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -509,14 +506,14 @@ function ContactPage() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
-                      <Mail className="w-5 h-5 text-electric" />
+                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
+                      <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
                         Email Us
                       </p>
-                      <p className="text-base font-medium group-hover:text-electric transition-colors break-all leading-snug">
+                      <p className="text-base font-medium group-hover:text-primary transition-colors break-all leading-snug">
                         contact@kryptondigital.co.uk
                       </p>
                     </div>
@@ -526,14 +523,14 @@ function ContactPage() {
                     href="tel:+447424792233"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-electric/10 group-hover:border-electric/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
-                      <Phone className="w-5 h-5 text-electric" />
+                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
+                      <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-xs text-zinc-400 uppercase tracking-[0.18em] font-semibold">
                         Call Us
                       </p>
-                      <p className="text-lg font-medium group-hover:text-electric transition-colors">
+                      <p className="text-lg font-medium group-hover:text-primary transition-colors">
                         +44 7424 792233
                       </p>
                     </div>
@@ -541,9 +538,9 @@ function ContactPage() {
                 </div>
 
                 {/* Response Time Notice */}
-                <div className="p-6 bg-electric/10 border border-electric/20 rounded-2xl">
+                <div className="p-6 bg-primary/10 border border-primary/20 rounded-2xl">
                   <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle2 className="w-5 h-5 text-electric" />
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-semibold text-sm uppercase tracking-[0.18em]">
                       Fast Response Guaranteed
                     </span>

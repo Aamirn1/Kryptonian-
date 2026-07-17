@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AuroraBackground from "@/components/AuroraBackground";
 import { FileText, Mail, Calendar, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -231,46 +230,45 @@ export default function TermsPage() {
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased"
+        className="relative min-h-screen bg-[#fafafa] text-foreground selection:bg-primary selection:text-white antialiased"
       >
         <Navbar />
 
         <main className="pt-32 pb-32">
           {/* Hero Section */}
-          <section className="terms-hero relative px-6 mb-20 overflow-hidden">
-            <AuroraBackground />
-            <div className="container mx-auto max-w-4xl relative z-10">
+          <section className="terms-hero px-6 mb-20">
+            <div className="container mx-auto max-w-4xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-electric transition-colors mb-8 group"
+                className="inline-flex items-center gap-2 text-zinc-500 hover:text-primary transition-colors mb-8 group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 Back to Home
               </Link>
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-electric" />
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-electric">
+                <span className="text-sm font-bold uppercase tracking-widest text-primary">
                   Legal
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 uppercase leading-[0.95]">
-                Terms of <span className="text-gradient italic">Service</span>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase">
+                Terms of <span className="text-primary italic">Service</span>
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 border border-black/10 text-muted-foreground">
-                  <Calendar className="w-3.5 h-3.5 text-electric" />
-                  <span className="text-xs font-semibold tracking-wide">Last Updated: 13 March 2026</span>
+              <div className="flex flex-wrap items-center gap-6 text-zinc-500">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span className="text-sm">Last Updated: 13 March 2026</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 border border-black/10 text-muted-foreground">
-                  <Mail className="w-3.5 h-3.5 text-electric" />
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
                   <a
                     href="mailto:contact@kryptondigital.co.uk"
-                    className="text-xs font-semibold tracking-wide hover:text-electric transition-colors"
+                    className="text-sm hover:text-primary transition-colors"
                   >
                     contact@kryptondigital.co.uk
                   </a>
@@ -282,11 +280,11 @@ export default function TermsPage() {
           {/* Introduction */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+              <div className="p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-lg shadow-zinc-200/20">
+                <p className="text-lg text-zinc-600 leading-relaxed mb-4">
                   These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Krypton Digital Ltd (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) governing your access to and use of our website and services.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-zinc-600 leading-relaxed">
                   Please read these Terms carefully before engaging our services. By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms.
                 </p>
               </div>
@@ -296,13 +294,13 @@ export default function TermsPage() {
           {/* Terms Sections */}
           <section className="terms-content px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="space-y-8">
+              <div className="space-y-12">
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="terms-section p-8 md:p-12 bg-white border border-black/10 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                    className="terms-section p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-sm hover:shadow-lg hover:shadow-zinc-200/20 transition-shadow"
                   >
-                    <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 tracking-tight text-foreground">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
                       {section.title}
                     </h2>
 
@@ -315,18 +313,18 @@ export default function TermsPage() {
                             </h3>
                           )}
                           {item.text && (
-                            <p className="text-muted-foreground leading-relaxed">
+                            <p className="text-zinc-600 leading-relaxed">
                               {item.text}
                             </p>
                           )}
                           {item.list && (
-                            <ul className="space-y-3 mt-4">
+                            <ul className="space-y-2 mt-4">
                               {item.list?.map((listItem: string, li: number) => (
                                 <li
                                   key={li}
-                                  className="flex items-start gap-3 text-muted-foreground"
+                                  className="flex items-start gap-3 text-zinc-600"
                                 >
-                                  <span className="w-1.5 h-1.5 bg-electric rounded-full mt-2.5 shrink-0" />
+                                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 shrink-0" />
                                   <span className="leading-relaxed">
                                     {listItem}
                                   </span>
@@ -346,27 +344,26 @@ export default function TermsPage() {
           {/* Contact Section */}
           <section className="px-6 mt-20">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-10 md:p-16 bg-white border border-black/10 rounded-3xl text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight leading-[1.05]">
+              <div className="p-10 md:p-16 bg-foreground rounded-[3rem] text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Questions About Our Terms?
                 </h2>
-                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                <p className="text-zinc-400 mb-8 max-w-xl mx-auto">
                   If you have any questions or concerns about these Terms of Service, please don&apos;t hesitate to reach out.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="mailto:contact@kryptondigital.co.uk?subject=Terms%20of%20Service%20Inquiry"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity]"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all"
                   >
-                    <span className="shimmer-sweep" />
-                    <Mail className="w-5 h-5 relative z-10" />
-                    <span className="uppercase tracking-[0.12em] text-sm relative z-10">Contact Us</span>
+                    <Mail className="w-5 h-5" />
+                    Contact Us
                   </a>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity]"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all"
                   >
-                    <span className="uppercase tracking-[0.12em] text-sm">Contact Form</span>
+                    Contact Form
                   </Link>
                 </div>
               </div>

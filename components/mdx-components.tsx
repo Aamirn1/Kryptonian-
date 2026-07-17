@@ -8,7 +8,7 @@ export const mdxComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "font-display text-4xl md:text-5xl font-bold tracking-tighter mt-14 mb-6 text-foreground leading-[1.05]",
+        "text-4xl md:text-5xl font-black tracking-tighter mt-12 mb-6 text-foreground",
         className
       )}
       {...props}
@@ -17,7 +17,7 @@ export const mdxComponents = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-display text-2xl md:text-3xl font-bold tracking-tight mt-12 mb-4 text-foreground leading-[1.1]",
+        "text-2xl md:text-3xl font-bold tracking-tight mt-10 mb-4 text-foreground",
         className
       )}
       {...props}
@@ -26,7 +26,7 @@ export const mdxComponents = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-display text-xl md:text-2xl font-bold tracking-tight mt-10 mb-3 text-foreground leading-[1.15]",
+        "text-xl md:text-2xl font-bold tracking-tight mt-8 mb-3 text-foreground",
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ export const mdxComponents = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "font-display text-lg font-bold tracking-tight mt-8 mb-2 text-foreground",
+        "text-lg font-bold tracking-tight mt-6 mb-2 text-foreground",
         className
       )}
       {...props}
@@ -46,7 +46,7 @@ export const mdxComponents = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "text-base md:text-lg text-muted-foreground leading-relaxed mb-6",
+        "text-lg text-zinc-600 leading-relaxed mb-6",
         className
       )}
       {...props}
@@ -57,7 +57,7 @@ export const mdxComponents = {
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul
       className={cn(
-        "list-disc list-inside space-y-2 mb-6 text-muted-foreground marker:text-electric",
+        "list-disc list-inside space-y-2 mb-6 text-zinc-600",
         className
       )}
       {...props}
@@ -66,7 +66,7 @@ export const mdxComponents = {
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol
       className={cn(
-        "list-decimal list-inside space-y-2 mb-6 text-muted-foreground marker:text-electric marker:font-display marker:font-bold",
+        "list-decimal list-inside space-y-2 mb-6 text-zinc-600",
         className
       )}
       {...props}
@@ -74,7 +74,7 @@ export const mdxComponents = {
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
     <li
-      className={cn("text-base md:text-lg leading-relaxed pl-1", className)}
+      className={cn("text-lg leading-relaxed", className)}
       {...props}
     />
   ),
@@ -86,18 +86,18 @@ export const mdxComponents = {
   }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "border-l-2 border-electric pl-6 py-3 my-8 bg-electric/5 rounded-r-xl italic text-muted-foreground",
+        "border-l-4 border-primary pl-6 py-2 my-8 bg-primary/5 rounded-r-xl",
         className
       )}
       {...props}
     />
   ),
 
-  // Inline code
+  // Code
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "bg-electric/10 text-electric px-1.5 py-0.5 rounded text-sm font-mono border border-electric/20",
+        "bg-zinc-100 text-foreground px-2 py-1 rounded text-sm font-mono",
         className
       )}
       {...props}
@@ -106,7 +106,7 @@ export const mdxComponents = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
       className={cn(
-        "bg-zinc-900 border border-black/10 text-zinc-100 p-6 rounded-xl overflow-x-auto mb-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.25)] max-w-full",
+        "bg-foreground text-white p-6 rounded-2xl overflow-x-auto mb-6",
         className
       )}
       {...props}
@@ -116,7 +116,7 @@ export const mdxComponents = {
   // Links
   a: ({ className, href = "", ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const isExternal = href.startsWith("http");
-
+    
     if (isExternal) {
       return (
         <a
@@ -124,19 +124,19 @@ export const mdxComponents = {
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "text-electric hover:underline font-medium transition-colors",
+            "text-primary hover:underline font-medium",
             className
           )}
           {...props}
         />
       );
     }
-
+    
     return (
       <Link
         href={href}
         className={cn(
-          "text-electric hover:underline font-medium transition-colors",
+          "text-primary hover:underline font-medium",
           className
         )}
         {...props}
@@ -155,7 +155,7 @@ export const mdxComponents = {
           width={800}
           height={450}
           className={cn(
-            "rounded-2xl border border-black/10 w-full object-cover shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)]",
+            "rounded-2xl w-full object-cover",
             className
           )}
         />
@@ -163,10 +163,10 @@ export const mdxComponents = {
     );
   },
 
-  // Horizontal rule — refined gradient divider
+  // Horizontal rule
   hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr
-      className={cn("my-12 border-0 h-px bg-gradient-to-r from-transparent via-black/15 to-transparent", className)}
+      className={cn("border-zinc-200 my-12", className)}
       {...props}
     />
   ),
@@ -180,14 +180,14 @@ export const mdxComponents = {
   ),
   em: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <em
-      className={cn("italic text-foreground/80", className)}
+      className={cn("italic", className)}
       {...props}
     />
   ),
 
   // Tables
   table: ({ className, ...props }: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <div className="overflow-x-auto mb-6 rounded-xl border border-black/10">
+    <div className="overflow-x-auto mb-6">
       <table
         className={cn("w-full border-collapse", className)}
         {...props}
@@ -197,7 +197,7 @@ export const mdxComponents = {
   th: ({ className, ...props }: React.ThHTMLAttributes<HTMLTableHeaderCellElement>) => (
     <th
       className={cn(
-        "font-display border-b border-black/10 bg-zinc-50 px-4 py-3 text-left font-bold text-foreground",
+        "border-b-2 border-zinc-200 px-4 py-3 text-left font-bold text-foreground",
         className
       )}
       {...props}
@@ -206,7 +206,7 @@ export const mdxComponents = {
   td: ({ className, ...props }: React.TdHTMLAttributes<HTMLTableDataCellElement>) => (
     <td
       className={cn(
-        "border-b border-black/10 px-4 py-3 text-muted-foreground",
+        "border-b border-zinc-100 px-4 py-3 text-zinc-600",
         className
       )}
       {...props}

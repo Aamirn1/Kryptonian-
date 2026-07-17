@@ -59,7 +59,7 @@ export default function Process() {
 
       // Main horizontal move
       const horizontalTween = gsap.to(section, {
-        x: -(totalWidth - windowWidth + initialOffset),
+        x: - (totalWidth - windowWidth + initialOffset),
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
@@ -112,21 +112,21 @@ export default function Process() {
   return (
     <section
       ref={containerRef}
-      className="bg-background border-y border-black/5 overflow-hidden"
+      className="bg-background border-y border-foreground/5 overflow-hidden"
     >
       <div ref={triggerRef} className="h-screen flex items-center">
         <div className="container mx-auto px-6 mb-auto pt-32 absolute top-0 left-0 right-0 z-10 pointer-events-none">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div className="max-w-xl pointer-events-auto">
               <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground">
-                HOW WE <span className="text-gradient italic">WORK</span>
+                HOW WE <span className="text-primary italic">WORK</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted text-lg">
                 Our systematic approach ensures every project is delivered with
                 the highest standards of quality and efficiency.
               </p>
             </div>
-            <div className="text-electric font-mono text-xl md:text-2xl hidden lg:block pointer-events-auto">
+            <div className="text-primary font-mono text-xl md:text-2xl hidden lg:block pointer-events-auto">
               / PROCESS FLOW
             </div>
           </div>
@@ -143,15 +143,15 @@ export default function Process() {
               className="process-step relative group shrink-0 w-[85vw] md:w-[45vw] lg:w-[25vw]"
             >
               <div className="step-content">
-                <div className="text-8xl md:text-[10rem] font-bold text-black/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-electric/10 transition-colors pointer-events-none">
+                <div className="text-8xl md:text-[10rem] font-black text-foreground/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-primary/10 transition-colors pointer-events-none">
                   {step.number}
                 </div>
                 <div className="relative z-10 pt-10">
-                  <div className="w-12 h-1 bg-gradient-to-r from-electric to-violet mb-8 transition-[color,background-color,border-color,box-shadow,transform,opacity] group-hover:w-full" />
+                  <div className="w-12 h-1 bg-primary mb-8 transition-all group-hover:w-full" />
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed max-w-sm">
+                  <p className="text-muted text-lg leading-relaxed max-w-sm">
                     {step.description}
                   </p>
                 </div>

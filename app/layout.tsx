@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import CookieConsentLazy from "@/components/CookieConsentLazy";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -82,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground selection:bg-electric/25 selection:text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
         <CookieConsentLazy />

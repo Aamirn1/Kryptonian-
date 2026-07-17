@@ -1,64 +1,27 @@
 @import "tailwindcss";
 
-/* ============================================================
-   KRYPTON DIGITAL — WHITE THEME
-   Light, white-based palette with electric/violet/cyan gradients,
-   gold accents, soft aurora blobs, grid background, and shimmer FX.
-   Keeps the same brand colors; surfaces flip from dark → white.
-   ============================================================ */
-
 :root {
-  /* Core surfaces — white/light theme */
-  --background: #ffffff;              /* white */
-  --foreground: #0a0a0f;              /* near-black text */
-  --card: #ffffff;                    /* cards are white, lifted by shadow */
-  --card-foreground: #0a0a0f;
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0f;
-
-  /* Brand primary = logo purple (#ca6de5) */
-  --primary: #ca6de5;                 /* logo purple */
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;               /* light muted surface */
-  --secondary-foreground: #0a0a0f;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;        /* zinc-500 for secondary text */
-  --accent: #f4f4f5;
-  --accent-foreground: #0a0a0f;
-  --border: #00000014;                /* black ~8% */
-  --ring: #ca6de5;                    /* logo purple */
-
-  /* Named brand colors — logo purple is the brand */
-  --ink: #0a0a0f;                     /* near-black text */
-  --electric: #ca6de5;                /* logo purple (primary brand) */
-  --violet: #b854e6;                  /* deeper purple for gradient depth */
-  --cyan: #06b6d4;                    /* complementary accent (kept) */
-  --gold: #d4af37;                    /* gold accent (kept) */
-}
-
-/* .dark kept for completeness but mirrors :root (site is light-first now) */
-.dark {
   --background: #ffffff;
-  --foreground: #0a0a0f;
-  --card: #ffffff;
-  --card-foreground: #0a0a0f;
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0f;
-  --primary: #ca6de5;
+  --foreground: #281000;
+  --primary: #cb6be6;
   --primary-foreground: #ffffff;
   --secondary: #f4f4f5;
-  --secondary-foreground: #0a0a0f;
-  --muted: #f4f4f5;
+  --muted: #71717a;
   --muted-foreground: #71717a;
-  --accent: #f4f4f5;
-  --accent-foreground: #0a0a0f;
-  --border: #00000014;
-  --ring: #ca6de5;
-  --ink: #0a0a0f;
-  --electric: #ca6de5;
-  --violet: #b854e6;
-  --cyan: #06b6d4;
-  --gold: #d4af37;
+  --accent: #cb6be6;
+  --border: #e4e4e7;
+}
+
+.dark {
+  --background: #281000;
+  --foreground: #ffffff;
+  --primary: #cb6be6;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1a;
+  --muted: #888888;
+  --muted-foreground: #a1a1aa;
+  --accent: #cb6be6;
+  --border: #27272a;
 }
 
 @theme inline {
@@ -67,46 +30,18 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-ring: var(--ring);
-
-  /* Named brand colors */
-  --color-ink: var(--ink);
-  --color-electric: var(--electric);
-  --color-violet: var(--violet);
-  --color-cyan: var(--cyan);
-  --color-gold: var(--gold);
-
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
-  --font-display: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @utility perspective-1000 {
   perspective: 1000px;
 }
 
-/* Hide scrollbar for native horizontal scroll containers (mobile Process) */
-@utility scrollbar-none {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-
-/* ============================================================
-   Lenis smooth scroll
-   ============================================================ */
 html.lenis {
   height: auto;
 }
@@ -127,267 +62,45 @@ html.lenis {
   pointer-events: none;
 }
 
-/* ============================================================
-   Base body — white background, Inter font
-   Professional typography: optical sizing, kerning, ligatures,
-   font smoothing for crisp rendering on light backgrounds.
-   ============================================================ */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
-  font-optical-sizing: auto;
-  font-kerning: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  /* Optimize touch scrolling on iOS — native momentum scroll. */
-  -webkit-overflow-scrolling: touch;
-  /* Prevent iOS text size adjust on rotation. */
-  -webkit-text-size-adjust: 100%;
+  transition:
+    background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Display font for headings (Space Grotesk)
-   Tighter tracking + heavier weight for strong typographic hierarchy. */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-feature-settings: "ss01", "ss02";
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-/* Display utility — apply Space Grotesk explicitly to numeric/label spans */
-.font-display {
-  font-family: var(--font-display);
-  font-feature-settings: "ss01", "ss02";
-}
-
-/* Perf: skip rendering/layout for off-screen sections until scrolled into view. */
-@utility cv-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
-}
-
-/* GPU acceleration hints for animated elements — promotes to compositor layer
-   so transform/opacity animations don't trigger layout/paint on the main thread. */
-.animate-aurora,
-.animate-float-y,
-.animate-float-y-slow,
-.animate-spin-slow,
-.animate-orb-breathe {
-  will-change: transform, opacity;
-}
-
-/* Contain layout/paint for cards to prevent repaint cascades. */
-.step-content,
-.testimonial-card,
-.pricing-card,
-.case-card,
-.blog-card,
-.faq-item {
-  contain: layout style;
-}
-
-/* Refined paragraph leading for readability */
-p {
-  text-wrap: pretty;
-}
-
-/* Targeted transitions on interactive elements only.
-   The previous global * { transition } rule forced 0.7s transitions on
-   every div/span/p which caused severe repaint jank on iOS. */
-a,
+/* Elegant transition for all themed elements */
+path,
+div,
+section,
+header,
+footer,
+nav,
 button,
 input,
 select,
-textarea {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 0.25s;
+textarea,
+span,
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  transition-property:
+    background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.7s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ::selection {
-  background-color: rgba(202, 109, 229, 0.25); /* electric/25 */
-  color: #0a0a0f;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
-/* Custom scrollbar — light themed */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #f4f4f5;
-}
-::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 8px;
-  border: 2px solid #f4f4f5;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
-}
-
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
-@keyframes aurora {
-  0%, 100% { opacity: 0.5; transform: translate(0px) scale(1); }
-  33% { opacity: 0.7; transform: translate(40px, -30px) scale(1.1); }
-  66% { opacity: 0.4; transform: translate(-30px, 30px) scale(0.95); }
-}
-
-@keyframes float-y {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
-}
-
-@keyframes float-y-slow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-22px); }
-}
-
-@keyframes pulse-ring {
-  0% { opacity: 0.6; transform: scale(0.8); }
-  100% { opacity: 0; transform: scale(2.2); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0px; }
-  100% { background-position: 200% 0px; }
-}
-
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-}
-
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes marquee {
-  0% { transform: translate(0px); }
-  100% { transform: translate(-50%); }
-}
-
-@keyframes orb-breathe {
-  0%, 100% { filter: blur(0px); transform: scale(1); }
-  50% { filter: blur(2px); transform: scale(1.08); }
-}
-
-@keyframes caret-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-/* ============================================================
-   ANIMATION UTILITIES
-   ============================================================ */
-@utility animate-aurora {
-  animation: aurora 18s ease-in-out infinite;
-}
-@utility animate-float-y {
-  animation: float-y 6s ease-in-out infinite;
-}
-@utility animate-float-y-slow {
-  animation: float-y-slow 8s ease-in-out infinite;
-}
-@utility animate-pulse-ring {
-  animation: pulse-ring 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-@utility animate-shimmer {
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-}
-@utility animate-gradient-x {
-  background-size: 200% auto;
-  animation: gradient-x 6s ease infinite;
-}
-@utility animate-spin-slow {
-  animation: spin-slow 14s linear infinite;
-}
-@utility animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-@utility animate-orb-breathe {
-  animation: orb-breathe 5s ease-in-out infinite;
-}
-
-/* ============================================================
-   UTILITY COMPONENTS
-   ============================================================ */
-
-/* Subtle dark grid lines on white (was white lines on dark) */
-@utility bg-grid {
-  background-image:
-    linear-gradient(90deg, rgba(10, 10, 15, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(10, 10, 15, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Radial fade mask for grid — fades edges into the background */
-@utility bg-grid-fade {
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-}
-
-/* Gradient text: electric → violet → cyan */
-@utility text-gradient {
-  background-image: linear-gradient(to right, var(--electric), var(--violet), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Gold gradient text for premium accents */
-@utility text-gold-gradient {
-  background-image: linear-gradient(135deg, #f5d676, var(--gold), #b8941f);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Signature gradient button with glow + shimmer sweep on hover.
-   Use on <Link>/<a>/<button> — adds a relative wrapper + sweep span. */
-@utility btn-gradient {
-  background-image: linear-gradient(to right, var(--electric), var(--violet));
-  color: #ffffff;
-  box-shadow: 0 8px 24px -8px rgba(202, 109, 229, 0.5);
-  transition: box-shadow 0.4s ease, transform 0.2s ease;
-}
-@utility btn-gradient-hover {
-  box-shadow: 0 12px 32px -6px rgba(184, 84, 230, 0.65);
-}
-
-/* Shimmer sweep overlay — place as a child span inside a .group button */
-.shimmer-sweep {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.7s ease;
-  pointer-events: none;
-}
-.group:hover .shimmer-sweep {
-  transform: translateX(100%);
-}
-
-/* Glow ring used behind gradient logo boxes / icons */
-.glow-electric {
-  box-shadow: 0 0 20px -4px rgba(202, 109, 229, 0.45);
-}
-
-/* ============================================================
-   Reduced motion
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

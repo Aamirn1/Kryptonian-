@@ -17,7 +17,6 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
-import AuroraBackground from "@/components/AuroraBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -215,7 +214,7 @@ export default function PortfolioPage() {
     <SmoothScroll>
       <div
         ref={containerRef}
-        className="relative min-h-screen bg-background text-foreground selection:bg-electric/25 selection:text-foreground antialiased overflow-hidden"
+        className="relative min-h-screen bg-background text-foreground selection:bg-primary/25 selection:text-foreground antialiased overflow-hidden"
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
@@ -228,7 +227,6 @@ export default function PortfolioPage() {
         <main>
           {/* Hero Section */}
           <section className="portfolio-hero relative pt-40 pb-20 px-6">
-            <AuroraBackground />
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="text-center max-w-4xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-black/10 mb-8">
@@ -240,7 +238,7 @@ export default function PortfolioPage() {
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 uppercase leading-[0.9]">
                   Work That{" "}
-                  <span className="text-gradient italic">Compounds</span>
+                  <span className="text-primary italic">Compounds</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
@@ -257,11 +255,11 @@ export default function PortfolioPage() {
                   .map((featured) => (
                     <div
                       key={featured.id}
-                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-electric/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                      className="group relative bg-white border border-black/10 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-primary/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
-                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full bg-linear-to-br from-electric/20 to-violet/20 overflow-hidden">
+                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full bg-linear-to-br from-primary/20 to-primary/10 overflow-hidden">
                           <Image
                             src={featured.image}
                             alt={featured.title}
@@ -283,7 +281,7 @@ export default function PortfolioPage() {
                             {featured.title}
                           </h2>
 
-                          <p className="text-xl text-electric font-medium mb-4">
+                          <p className="text-xl text-primary font-medium mb-4">
                             {featured.client}
                           </p>
 
@@ -295,7 +293,7 @@ export default function PortfolioPage() {
                           <div className="grid grid-cols-3 gap-4 md:gap-6 mb-10">
                             {featured.results.map((result, idx) => (
                               <div key={idx} className="min-w-0">
-                                <div className="font-display text-2xl md:text-4xl font-bold text-foreground mb-2">
+                                <div className="text-2xl md:text-4xl font-bold text-foreground mb-2">
                                   {result.metric}
                                 </div>
                                 <div className="text-muted-foreground text-[0.6rem] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.18em] leading-tight">
@@ -323,13 +321,12 @@ export default function PortfolioPage() {
                               href={featured.projectUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 btn-gradient rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:bg-primary/90 overflow-hidden"
                             >
                               <span className="relative z-10 uppercase tracking-[0.12em]">
                                 View Project
                               </span>
                               <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                              <span className="shimmer-sweep" />
                             </a>
                           )}
 
@@ -352,8 +349,8 @@ export default function PortfolioPage() {
                     onClick={() => setActiveCategory(category)}
                     className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-[color,background-color,border-color,box-shadow,transform,opacity] ${
                       activeCategory === category
-                        ? "bg-electric text-white shadow-lg shadow-electric/30"
-                        : "bg-black/5 border border-black/10 text-muted-foreground hover:border-electric hover:text-electric"
+                        ? "bg-primary text-white shadow-lg shadow-primary/30"
+                        : "bg-black/5 border border-black/10 text-muted-foreground hover:border-primary hover:text-primary"
                     }`}
                   >
                     {category}
@@ -366,7 +363,7 @@ export default function PortfolioPage() {
                 {filteredCases.map((caseStudy) => (
                   <div
                     key={caseStudy.id}
-                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-electric/30 hover:-translate-y-1 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="case-card group bg-white border border-black/10 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-primary/30 hover:-translate-y-1 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
@@ -400,7 +397,7 @@ export default function PortfolioPage() {
 
                     {/* Content */}
                     <div className="p-8">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-electric transition-colors">
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                         {caseStudy.title}
                       </h3>
                       <p className="text-zinc-400 text-sm mb-4">
@@ -412,7 +409,7 @@ export default function PortfolioPage() {
 
                       {/* Results Preview */}
                       <div className="flex items-center gap-4 mb-6 pb-6 border-b border-black/10">
-                        <div className="font-display text-2xl font-bold text-electric">
+                        <div className="text-2xl font-bold text-primary">
                           {caseStudy.results[0].metric}
                         </div>
                         <div className="text-xs text-muted-foreground uppercase tracking-[0.18em]">
@@ -438,13 +435,12 @@ export default function PortfolioPage() {
                           href={caseStudy.projectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 btn-gradient rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:btn-gradient-hover overflow-hidden"
+                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:bg-primary/90 overflow-hidden"
                         >
                           <span className="relative z-10 uppercase tracking-[0.1em]">
                             View Project
                           </span>
                           <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                          <span className="shimmer-sweep" />
                         </a>
                       )}
                     </div>
@@ -464,7 +460,7 @@ export default function PortfolioPage() {
                 </div>
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                   How We Deliver{" "}
-                  <span className="text-gradient italic">Results</span>
+                  <span className="text-primary italic">Results</span>
                 </h2>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   A proven methodology engineered to compound growth for every
@@ -476,12 +472,12 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-electric/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                    className="process-step group p-8 lg:p-6 bg-black/5 border border-black/10 rounded-3xl hover:border-primary/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
                   >
-                    <div className="w-16 h-16 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-electric/20 transition-colors">
-                      <step.icon className="w-8 h-8 text-electric" />
+                    <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                      <step.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="font-display text-4xl font-bold text-foreground mb-2">
+                    <div className="text-4xl font-bold text-foreground mb-2">
                       0{index + 1}
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-3">
@@ -505,7 +501,7 @@ export default function PortfolioPage() {
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
                     Ready to Be Our{" "}
-                    <span className="text-gradient italic">Next Success</span>?
+                    <span className="text-primary italic">Next Success</span>?
                   </h2>
                   <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s architect the same compounding results for your
@@ -514,9 +510,8 @@ export default function PortfolioPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 btn-gradient hover:btn-gradient-hover text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
+                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
                     >
-                      <span className="shimmer-sweep" />
                       <span className="uppercase tracking-[0.12em] text-sm">Start Your Project</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>

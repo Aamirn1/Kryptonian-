@@ -5,22 +5,16 @@ import Lenis from "lenis";
 
 /**
  * SmoothScroll — Lenis smooth scrolling wrapper.
- *
- * IMPORTANT: Lenis is DISABLED on touch devices and reduced-motion users.
- * On iOS Safari, Lenis hijacks the native momentum scroll which causes
- * severe jank/hanging. Native scroll is always smoother on touch — so we
- * only enable Lenis for desktop pointer (mouse wheel) scrolling.
+ * DISABLED on touch devices and reduced-motion users for better mobile performance.
  */
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
-    // Skip on touch devices — native iOS/Android scroll is better there.
     const isTouch =
       typeof window !== "undefined" &&
       (window.matchMedia("(pointer: coarse)").matches ||
         "ontouchstart" in window ||
         navigator.maxTouchPoints > 0);
 
-    // Skip if user prefers reduced motion.
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;

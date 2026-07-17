@@ -65,37 +65,33 @@ export default function FAQ() {
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto">
                     <div className="faq-title mb-20 text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 text-zinc-700 font-semibold text-xs tracking-[0.18em] uppercase mb-6 border border-black/10">
-                            <HelpCircle className="w-4 h-4" /> Technical FAQ
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-6 border border-primary/20">
+                            <HelpCircle className="w-4 h-4" /> TECHNICAL FAQ
                         </div>
-                        <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[1.05]">
+                        <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
                             ANSWERS FOR <br />
-                            <span className="text-gradient italic">TECHNICAL</span> CLIENTS
+                            <span className="text-primary italic">TECHNICAL</span> CLIENTS
                         </h2>
-                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-                            Clear, considered answers to the questions technical
-                            stakeholders ask before partnering with us.
-                        </p>
                     </div>
 
                     <div className="space-y-6" role="list">
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                className="faq-item border border-black/10 rounded-3xl overflow-hidden bg-white hover:bg-zinc-50 hover:border-electric/30 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                                className="faq-item border border-foreground/10 rounded-4xl overflow-hidden bg-foreground/[0.02] hover:bg-foreground/[0.04] transition-colors"
                                 role="listitem"
                             >
                                 <button
                                     onClick={() => toggleFAQ(index)}
-                                    className="w-full p-8 md:p-10 flex items-center justify-between gap-6 text-left focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-inset rounded-3xl"
+                                    className="w-full p-8 md:p-10 flex items-center justify-between gap-6 text-left focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset rounded-4xl"
                                     aria-expanded={activeIndex === index}
                                     aria-controls={`faq-panel-${index}`}
                                     id={`faq-button-${index}`}
                                 >
-                                    <span className="font-display text-xl md:text-2xl font-bold tracking-tight text-foreground">
+                                    <span className="text-xl md:text-2xl font-bold tracking-tight">
                                         {faq.question}
                                     </span>
-                                    <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ${activeIndex === index ? 'bg-electric border-electric text-white shadow-[0_0_20px_-4px_rgba(202, 109, 229,0.7)]' : 'border-black/10 text-muted-foreground'}`} aria-hidden="true">
+                                    <div className={`shrink-0 w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all ${activeIndex === index ? 'bg-primary border-primary text-white' : ''}`} aria-hidden="true">
                                         {activeIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>
@@ -103,9 +99,9 @@ export default function FAQ() {
                                     id={`faq-panel-${index}`}
                                     role="region"
                                     aria-labelledby={`faq-button-${index}`}
-                                    className={`overflow-hidden transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-500 ease-in-out ${activeIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
                                 >
-                                    <div className="p-8 md:p-10 pt-0 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+                                    <div className="p-8 md:p-10 pt-0 text-muted text-lg leading-relaxed max-w-3xl">
                                         {faq.answer}
                                     </div>
                                 </div>

@@ -109,24 +109,24 @@ export default function CookieConsent() {
       {/* Main Cookie Banner */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6" role="dialog" aria-label="Cookie consent">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-card border border-black/10 rounded-3xl shadow-2xl shadow-black/10 p-6 md:p-8">
+          <div className="bg-white border border-zinc-200 rounded-4xl shadow-2xl shadow-black/10 p-6 md:p-8">
             <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
               {/* Icon & Text */}
               <div className="flex items-start gap-4 flex-1">
-                <div className="w-12 h-12 bg-electric/10 border border-electric/20 rounded-2xl flex items-center justify-center shrink-0">
-                  <Cookie className="w-6 h-6 text-electric" />
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
+                  <Cookie className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg mb-1 text-foreground">
+                  <h3 className="font-bold text-lg mb-1">
                     We value your privacy
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
+                  <p className="text-zinc-500 text-sm leading-relaxed max-w-xl">
                     We use cookies to enhance your browsing experience, serve
                     personalised content, and analyse our traffic. By clicking
                     &quot;Accept All&quot;, you consent to our use of cookies.{" "}
                     <Link
                       href="/privacy"
-                      className="text-electric hover:underline font-medium"
+                      className="text-primary hover:underline font-medium"
                     >
                       Learn more
                     </Link>
@@ -138,26 +138,23 @@ export default function CookieConsent() {
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <button
                   onClick={() => setShowSettings(true)}
-                  className="px-6 py-3 border border-black/10 rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:bg-black/5 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 border border-zinc-200 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors flex items-center justify-center gap-2"
                 >
                   <Settings className="w-4 h-4" />
                   Preferences
                 </button>
                 <button
                   onClick={handleDecline}
-                  className="px-6 py-3 border border-black/10 rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:bg-black/5 transition-colors"
+                  className="px-6 py-3 border border-zinc-200 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors"
                 >
                   Decline
                 </button>
                 <button
                   onClick={handleAcceptAll}
-                  className="group relative overflow-hidden px-6 py-3 btn-gradient text-white rounded-xl hover:cursor-pointer text-sm font-semibold tracking-tight hover:btn-gradient-hover transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-foreground text-white rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-primary transition-colors flex items-center justify-center gap-2"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <Check className="w-4 h-4" />
-                    Accept All
-                  </span>
-                  <span className="shimmer-sweep" />
+                  <Check className="w-4 h-4" />
+                  Accept All
                 </button>
               </div>
             </div>
@@ -178,20 +175,20 @@ export default function CookieConsent() {
           {/* Modal Container */}
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <div
-              className="relative bg-card rounded-3xl shadow-2xl shadow-black/20 w-full max-w-lg max-h-[85vh] flex flex-col border border-black/10"
+              className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[85vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="bg-card border-b border-black/10 p-6 flex items-center justify-between shrink-0 rounded-t-3xl">
+              <div className="bg-white border-b border-zinc-100 p-6 flex items-center justify-between shrink-0 rounded-t-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-electric/10 border border-electric/20 rounded-xl flex items-center justify-center">
-                    <Settings className="w-5 h-5 text-electric" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <Settings className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-foreground">Cookie Preferences</h3>
+                  <h3 className="text-xl font-bold">Cookie Preferences</h3>
                 </div>
                 <button
                   onClick={handleClose}
-                  className="w-10 h-10 rounded-full hover:bg-black/10 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full hover:bg-zinc-100 flex items-center justify-center transition-colors"
                   aria-label="Close cookie preferences"
                 >
                   <X className="w-5 h-5" />
@@ -201,19 +198,19 @@ export default function CookieConsent() {
               {/* Content - Scrollable */}
               <div className="p-6 space-y-6 overflow-y-auto overscroll-contain">
                 {/* Essential Cookies */}
-                <div className="p-5 bg-zinc-50 rounded-2xl border border-black/10">
+                <div className="p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-display font-bold text-lg text-foreground">Essential Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-electric/20 text-electric mt-1">
+                      <h4 className="font-bold text-lg">Essential Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 mt-1">
                         Always On
                       </span>
                     </div>
-                    <div className="w-12 h-6 bg-electric rounded-full relative" aria-hidden="true">
+                    <div className="w-12 h-6 bg-primary rounded-full relative" aria-hidden="true">
                       <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full" />
                     </div>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-zinc-500 text-sm leading-relaxed">
                     These cookies are necessary for the website to function and
                     cannot be switched off. They include session cookies and
                     consent preferences.
@@ -221,11 +218,11 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Analytics Cookies */}
-                <div className="p-5 bg-zinc-50 border border-black/10 rounded-2xl">
+                <div className="p-5 bg-white border border-zinc-200 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-display font-bold text-lg text-foreground" id="analytics-label">Analytics Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-black/5 text-muted-foreground mt-1">
+                      <h4 className="font-bold text-lg" id="analytics-label">Analytics Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-zinc-100 text-zinc-600 mt-1">
                         Optional
                       </span>
                     </div>
@@ -237,10 +234,10 @@ export default function CookieConsent() {
                         onChange={(e) => setAnalyticsEnabled(e.target.checked)}
                         aria-labelledby="analytics-label"
                       />
-                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-[color,background-color,border-color,box-shadow,transform,opacity] peer-checked:bg-electric" />
+                      <div className="w-12 h-6 bg-zinc-200 peer-focus-visible:ring-2 peer-focus-visible:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary" />
                     </label>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-zinc-500 text-sm leading-relaxed">
                     These cookies help us understand how visitors interact with
                     our website by collecting and reporting information
                     anonymously. We use Google Analytics.
@@ -248,11 +245,11 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Marketing Cookies */}
-                <div className="p-5 bg-zinc-50 border border-black/10 rounded-2xl">
+                <div className="p-5 bg-white border border-zinc-200 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-display font-bold text-lg text-foreground" id="marketing-label">Marketing Cookies</h4>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-black/5 text-muted-foreground mt-1">
+                      <h4 className="font-bold text-lg" id="marketing-label">Marketing Cookies</h4>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-zinc-100 text-zinc-600 mt-1">
                         Optional
                       </span>
                     </div>
@@ -264,28 +261,28 @@ export default function CookieConsent() {
                         onChange={(e) => setMarketingEnabled(e.target.checked)}
                         aria-labelledby="marketing-label"
                       />
-                      <div className="w-12 h-6 bg-zinc-300 peer-focus-visible:ring-2 peer-focus-visible:ring-electric rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-[color,background-color,border-color,box-shadow,transform,opacity] peer-checked:bg-electric" />
+                      <div className="w-12 h-6 bg-zinc-200 peer-focus-visible:ring-2 peer-focus-visible:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary" />
                     </label>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-zinc-500 text-sm leading-relaxed">
                     These cookies may be set through our site by our advertising
                     partners to build a profile of your interests.
                   </p>
                 </div>
 
                 {/* Extra info */}
-                <div className="p-5 bg-zinc-50 rounded-2xl border border-black/10">
-                  <h4 className="font-display font-bold text-lg text-foreground mb-3">More Information</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                <div className="p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
+                  <h4 className="font-bold text-lg mb-3">More Information</h4>
+                  <p className="text-zinc-500 text-sm leading-relaxed mb-3">
                     You can change your cookie preferences at any time by
                     clicking the Cookie Settings link in the footer of our
                     website.
                   </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-zinc-500 text-sm leading-relaxed">
                     For more details about how we use cookies, please read our{" "}
                     <Link
                       href="/privacy"
-                      className="text-electric hover:underline"
+                      className="text-primary hover:underline"
                     >
                       Privacy Policy
                     </Link>
@@ -295,19 +292,18 @@ export default function CookieConsent() {
               </div>
 
               {/* Footer */}
-              <div className="bg-card border-t border-black/10 p-6 flex flex-col sm:flex-row gap-3 shrink-0 rounded-b-3xl">
+              <div className="bg-white border-t border-zinc-100 p-6 flex flex-col sm:flex-row gap-3 shrink-0 rounded-b-3xl">
                 <button
                   onClick={handleAcceptEssential}
-                  className="px-6 py-3 border border-black/10 rounded-xl text-sm font-semibold tracking-tight hover:bg-black/5 transition-colors"
+                  className="px-6 py-3 border border-zinc-200 rounded-xl text-sm font-bold hover:bg-zinc-50 transition-colors"
                 >
                   Essential Only
                 </button>
                 <button
                   onClick={handleSavePreferences}
-                  className="group relative overflow-hidden flex-1 px-6 py-3 btn-gradient text-white rounded-xl text-sm font-semibold tracking-tight hover:btn-gradient-hover transition-colors"
+                  className="flex-1 px-6 py-3 bg-foreground text-white rounded-xl text-sm font-bold hover:bg-primary transition-colors"
                 >
-                  <span className="relative z-10">Save Preferences</span>
-                  <span className="shimmer-sweep" />
+                  Save Preferences
                 </button>
               </div>
             </div>
