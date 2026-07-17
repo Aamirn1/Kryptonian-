@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import ScrollToTop from "./ScrollToTop";
-import WhatsAppButton from "./WhatsAppButton";
+import AIAssistant from "./AIAssistant";
 
 export default function Footer() {
   return (
@@ -148,7 +148,7 @@ export default function Footer() {
       </div>
     </footer>
     <ScrollToTop />
-    <WhatsAppButton />
+    <AIAssistant />
     </>
   );
 }

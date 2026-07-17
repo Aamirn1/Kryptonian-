@@ -185,7 +185,7 @@ function ContactPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/25 selection:text-foreground antialiased overflow-hidden">
+      <div className="relative min-h-screen bg-[#fafafa] text-foreground selection:bg-primary selection:text-white antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-300/30 rounded-full blur-[120px] animate-pulse" />

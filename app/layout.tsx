@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   applicationName: "Krypton Digital",
   description:
     "High-performance digital marketing agency delivering SEO, web development, brand identity, and digital strategy for exponential growth.",
-  metadataBase: new URL("https://kryptondigital.vercel.app"),
+  metadataBase: new URL("https://kryptondigital.co.uk"),
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://kryptondigital.vercel.app",
+    url: "https://kryptondigital.co.uk",
     siteName: "Krypton Digital",
     title: "Krypton Digital | Future of Digital Growth",
     description:
@@ -60,14 +60,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: ["/favicon.svg"],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
 };
