@@ -169,14 +169,16 @@ export default function Services() {
                     index === 0 ? "lg:min-h-[55vh]" : "lg:min-h-[60vh]",
                   )}
                 >
-                  <div
-                    className={`p-4 rounded-2xl bg-zinc-50 w-fit mb-8 ${service.color}`}
-                  >
-                    <service.icon className="w-8 h-8" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 ${service.color}`}
+                    >
+                      <service.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-3xl lg:text-5xl font-bold tracking-tight text-primary uppercase">
+                      {service.title}
+                    </h3>
                   </div>
-                  <h3 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-primary uppercase">
-                    {service.title}
-                  </h3>
                   <p className="text-white text-xl leading-relaxed max-w-lg mb-0">
                     {service.description}
                   </p>
