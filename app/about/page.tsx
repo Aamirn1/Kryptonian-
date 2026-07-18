@@ -429,22 +429,24 @@ export default function AboutPage() {
               </div>
 
               <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-zinc-200 md:-translate-x-1/2" />
+                {/* Timeline connecting line with shimmer */}
+                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#281000]/20 md:-translate-x-1/2 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary to-transparent" style={{ animation: "shimmerLine 3s ease-in-out infinite" }} />
+                </div>
 
                 {milestones.map((milestone, index) => (
                   <div
                     key={index}
-                    className={`timeline-item relative flex items-start gap-8 mb-16 last:mb-0 ${
+                    className={`timeline-item relative flex items-start gap-8 mb-12 last:mb-0 ${
                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                     }`}
                   >
                     {/* Dot */}
                     <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg md:-translate-x-1/2 mt-2 z-10" />
 
-                    {/* Content */}
+                    {/* Content card */}
                     <div
-                      className={`ml-12 md:ml-0 md:w-[calc(50%-3rem)] ${
+                      className={`ml-12 md:ml-0 md:w-[calc(50%-3rem)] p-6 bg-white border border-[#281000]/20 rounded-3xl shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 transition-all ${
                         index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                       }`}
                     >
