@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
       const errorText = await response.text();
       console.error("ZAI API error:", response.status, errorText);
       return NextResponse.json(
-        { content: "I'm having trouble connecting right now. Please try again or email us at contact@kryptondigital.co.uk" },
+        { content: `API error ${response.status}: ${errorText.substring(0, 200)}` },
         { status: 200 }
       );
     }
@@ -68,8 +68,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ content });
   } catch (error) {
     console.error("Assistant API error:", error);
+    const errorMsg = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { content: "I'm having trouble right now. Please try again or email us at contact@kryptondigital.co.uk" },
+      { content: `Error: ${errorMsg.substring(0, 200)}` },
       { status: 200 }
     );
   }
