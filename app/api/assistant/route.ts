@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import ZAI from "z-ai-web-dev-sdk";
+import path from "path";
+import fs from "fs";
 
 const SYSTEM_PROMPT = `You are "Krypton Digital Support Assistant", an AI assistant for Krypton Digital, a high-performance digital marketing agency.
 
@@ -16,20 +19,24 @@ Your role:
 - Be friendly, professional, and concise (max 3-4 sentences).
 - If you don't know something, suggest contacting the team directly.`;
 
-const ZAI_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjFlYjQ1ZGUtY2Q5Mi00ZGJjLTk5NDEtZmIxZTExZTlkY2MyIiwiY2hhdF9pZCI6ImNoYXQtZjkwMjBmMmMtMGMxYS00ZGNhLWE1MTMtM2Y2MzM5ZWEwYTNiIiwicGxhdGZvcm0iOiJ6YWkifQ.tLdNi2EDdUnT1x_qCH-yXBzm5lFLnZZO4xSDBmEWXEI";
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const userMessages = body.messages || [];
 
-    const response = await fetch("https://internal-api.z.ai/v1/chat/completions", {
+    // Read the config file directly (committed to repo, works on Vercel).
+    const configPath = path.join(process.cwd(), ".z-ai-config");
+    const configStr = fs.readFileSync(configPath, "utf-8");
+    const config = JSON.parse(configStr);
+
+    // Call the ZAI API directly with the config.
+    const response = await fetch(`${config.baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer Z.ai",
+        Authorization: `Bearer ${config.apiKey}`,
         "X-Z-AI-From": "Z",
-        "X-Token": ZAI_TOKEN,
+        "X-Token": config.token,
       },
       body: JSON.stringify({
         model: "glm-4-flash",
@@ -41,7 +48,6 @@ export async function POST(request: NextRequest) {
         max_tokens: 500,
         thinking: { type: "disabled" },
       }),
-      // Vercel Edge/Node fetch needs these for external APIs
       cache: "no-store",
     });
 
@@ -49,7 +55,7 @@ export async function POST(request: NextRequest) {
       const errorText = await response.text();
       console.error("ZAI API error:", response.status, errorText);
       return NextResponse.json(
-        { content: `API error ${response.status}: ${errorText.substring(0, 200)}` },
+        { content: "I'm having trouble connecting right now. Please try again or email us at contact@kryptondigital.co.uk" },
         { status: 200 }
       );
     }
@@ -68,5 +74,4 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Allow longer execution time for the AI API call
 export const maxDuration = 30;
