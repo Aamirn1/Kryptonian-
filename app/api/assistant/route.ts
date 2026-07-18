@@ -16,30 +16,20 @@ Your role:
 - Be friendly, professional, and concise (max 3-4 sentences).
 - If you don't know something, suggest contacting the team directly.`;
 
-// ZAI API config — embedded directly so it works on Vercel (no file needed).
-const ZAI_CONFIG = {
-  baseUrl: "https://internal-api.z.ai/v1",
-  apiKey: "Z.ai",
-  chatId: "chat-f9020f2c-0c1a-4dca-a513-3f6339ea0a3b",
-  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjFlYjQ1ZGUtY2Q5Mi00ZGJjLTk5NDEtZmIxZTExZTlkY2MyIiwiY2hhdF9pZCI6ImNoYXQtZjkwMjBmMmMtMGMxYS00ZGNhLWE1MTMtM2Y2MzM5ZWEwYTNiIiwicGxhdGZvcm0iOiJ6YWkifQ.tLdNi2EDdUnT1x_qCH-yXBzm5lFLnZZO4xSDBmEWXEI",
-  userId: "f1eb45de-cd92-4dbc-9941-fb1e11e9dcc2",
-};
+const ZAI_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjFlYjQ1ZGUtY2Q5Mi00ZGJjLTk5NDEtZmIxZTExZTlkY2MyIiwiY2hhdF9pZCI6ImNoYXQtZjkwMjBmMmMtMGMxYS00ZGNhLWE1MTMtM2Y2MzM5ZWEwYTNiIiwicGxhdGZvcm0iOiJ6YWkifQ.tLdNi2EDdUnT1x_qCH-yXBzm5lFLnZZO4xSDBmEWXEI";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const userMessages = body.messages || [];
 
-    // Call the ZAI API directly via fetch (no SDK file dependency).
-    const response = await fetch(`${ZAI_CONFIG.baseUrl}/chat/completions`, {
+    const response = await fetch("https://internal-api.z.ai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ZAI_CONFIG.apiKey}`,
+        Authorization: "Bearer Z.ai",
         "X-Z-AI-From": "Z",
-        "X-Chat-Id": ZAI_CONFIG.chatId,
-        "X-User-Id": ZAI_CONFIG.userId,
-        "X-Token": ZAI_CONFIG.token,
+        "X-Token": ZAI_TOKEN,
       },
       body: JSON.stringify({
         model: "glm-4-flash",
@@ -51,6 +41,8 @@ export async function POST(request: NextRequest) {
         max_tokens: 500,
         thinking: { type: "disabled" },
       }),
+      // Vercel Edge/Node fetch needs these for external APIs
+      cache: "no-store",
     });
 
     if (!response.ok) {
@@ -75,3 +67,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+// Allow longer execution time for the AI API call
+export const maxDuration = 30;
