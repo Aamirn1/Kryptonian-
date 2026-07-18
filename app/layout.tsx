@@ -42,13 +42,6 @@ export const metadata: Metadata = {
         alt: "Krypton Digital — Future of Digital Growth",
         type: "image/jpeg",
       },
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Krypton Digital — Future of Digital Growth",
-        type: "image/png",
-      },
     ],
   },
   twitter: {
