@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   applicationName: "Krypton Digital",
   description:
     "High-performance digital marketing agency delivering SEO, web development, brand identity, and digital strategy for exponential growth.",
-  metadataBase: new URL("https://kryptondigital.co.uk"),
+  metadataBase: new URL("https://kryptondigital.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://kryptondigital.co.uk",
+    url: "https://kryptondigital.vercel.app",
     siteName: "Krypton Digital",
     title: "Krypton Digital | Future of Digital Growth",
     description:
