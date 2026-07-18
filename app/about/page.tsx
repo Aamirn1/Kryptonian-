@@ -326,7 +326,7 @@ export default function AboutPage() {
                 <div className="relative hidden lg:block">
                   <div className="relative aspect-square max-w-lg mx-auto">
                     <div className="absolute inset-0 bg-primary/10 rounded-4xl rotate-6 blur-2xl" />
-                    <div className="relative bg-white border border-zinc-200 rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
+                    <div className="relative bg-white border border-[#281000] rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
                       <Image
                         src="/images/hero/hero_team_collaboration_1769511734235.png"
                         alt="Krypton Digital Team"

@@ -280,7 +280,7 @@ export default function TermsPage() {
           {/* Introduction */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-lg shadow-zinc-200/20">
+              <div className="p-8 md:p-12 bg-white border border-[#281000] rounded-4xl shadow-lg shadow-zinc-200/20">
                 <p className="text-lg text-zinc-600 leading-relaxed mb-4">
                   These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Krypton Digital Ltd (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) governing your access to and use of our website and services.
                 </p>
@@ -298,7 +298,7 @@ export default function TermsPage() {
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="terms-section p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-sm hover:shadow-lg hover:shadow-zinc-200/20 transition-shadow"
+                    className="terms-section p-8 md:p-12 bg-white border border-[#281000] rounded-4xl shadow-sm hover:shadow-lg hover:shadow-zinc-200/20 transition-shadow"
                   >
                     <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
                       {section.title}

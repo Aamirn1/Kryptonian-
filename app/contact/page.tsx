@@ -219,7 +219,7 @@ function ContactPage() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="p-8 md:p-10 bg-white border border-black/10 rounded-[2rem] md:rounded-[3rem] space-y-8 shadow-xl shadow-black/10"
+                className="p-8 md:p-10 bg-white border border-[#281000]/20 rounded-[2rem] md:rounded-[3rem] space-y-8 shadow-xl shadow-black/10"
               >
                 {/* Status Message */}
                 {formStatus.type && (
@@ -262,7 +262,7 @@ function ContactPage() {
                       placeholder="John"
                       required
                       disabled={isPending}
-                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                      className="w-full bg-white border border-[#281000]/20 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.firstName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -281,7 +281,7 @@ function ContactPage() {
                       placeholder="Doe"
                       required
                       disabled={isPending}
-                      className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                      className="w-full bg-white border border-[#281000]/20 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                     />
                     {errors.lastName && (
                       <p className="text-red-400 text-xs" role="alert">
@@ -302,7 +302,7 @@ function ContactPage() {
                     placeholder="john@example.com"
                     required
                     disabled={isPending}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
+                    className="w-full bg-white border border-[#281000]/20 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 disabled:opacity-60"
                   />
                   {errors.email && (
                     <p className="text-red-400 text-xs" role="alert">{errors.email[0]}</p>
@@ -322,7 +322,7 @@ function ContactPage() {
                       className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 ${
                         categoryOpen || category
                           ? "border-primary ring-2 ring-primary/20"
-                          : "border-black/10"
+                          : "border-[#281000]/20"
                       }`}
                     >
                       <span className={category ? "text-foreground font-medium" : "text-zinc-400"}>
@@ -335,7 +335,7 @@ function ContactPage() {
                       />
                     </button>
                     {categoryOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-black/10 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20">
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#281000]/20 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20">
                         {categoryOptions.map((opt) => (
                           <button
                             key={opt.value}
@@ -392,7 +392,7 @@ function ContactPage() {
                       className={`w-full bg-white border rounded-2xl p-4 flex items-center justify-between text-left transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
                         serviceOpen || selectedServices.length > 0
                           ? "border-primary ring-2 ring-primary/20"
-                          : "border-black/10"
+                          : "border-[#281000]/20"
                       }`}
                     >
                       <span className={selectedServices.length > 0 ? "text-foreground font-medium" : "text-zinc-400"}>
@@ -407,7 +407,7 @@ function ContactPage() {
                       />
                     </button>
                     {serviceOpen && category && (
-                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-black/10 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20 max-h-80 overflow-y-auto">
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#281000]/20 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden z-20 max-h-80 overflow-y-auto">
                         {serviceOptions.map((s) => (
                           <button
                             key={s}
@@ -463,7 +463,7 @@ function ContactPage() {
                     rows={4}
                     placeholder="Tell us about your project..."
                     disabled={isPending}
-                    className="w-full bg-white border border-black/10 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 resize-y disabled:opacity-60"
+                    className="w-full bg-white border border-[#281000]/20 rounded-2xl p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:border-primary transition-colors text-foreground placeholder:text-zinc-400 resize-y disabled:opacity-60"
                   ></textarea>
                   {errors.message && (
                     <p className="text-red-400 text-xs" role="alert">{errors.message[0]}</p>
@@ -506,7 +506,7 @@ function ContactPage() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 shrink-0 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
+                    <div className="w-14 h-14 shrink-0 bg-white border border-[#281000]/20 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
                       <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div className="min-w-0">
@@ -523,7 +523,7 @@ function ContactPage() {
                     href="tel:+447424792233"
                     className="flex items-center gap-5 group cursor-pointer"
                   >
-                    <div className="w-14 h-14 bg-white border border-black/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
+                    <div className="w-14 h-14 bg-white border border-[#281000]/20 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-[color,background-color,border-color,box-shadow,transform,opacity] shadow-lg shadow-black/10">
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>

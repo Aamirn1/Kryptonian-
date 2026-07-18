@@ -249,7 +249,7 @@ export default function Hero() {
                 className="group relative px-8 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex items-center gap-3 flex-1 justify-center"
               >
                 <span className="uppercase tracking-widest text-medium">
-                  Order Now
+                  GET A QUOTE
                 </span>
               </Link>
               <Link

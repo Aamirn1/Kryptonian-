@@ -97,12 +97,12 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/pricing", label: "Pricing" },
-    { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
+    { href: "/blog", label: "Blog" },
   ];
 
   const isActive = (href: string) =>
@@ -141,7 +141,7 @@ export default function Navbar() {
               href="/get-started"
               className="px-6 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary/80 transition-all active:scale-95 shadow-lg shadow-primary/20"
             >
-              Order Now
+              GET A QUOTE
             </Link>
           </div>
 
@@ -208,13 +208,13 @@ export default function Navbar() {
               </nav>
 
               {/* CTA */}
-              <div className="pt-6 border-t border-zinc-200">
+              <div className="pt-6 border-t border-[#281000]/20">
                 <Link
                   href="/get-started"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block w-full py-4 bg-primary text-white text-center font-bold rounded-full hover:bg-primary/80 transition-all"
                 >
-                  Order Now
+                  GET A QUOTE
                 </Link>
               </div>
             </div>

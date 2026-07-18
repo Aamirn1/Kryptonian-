@@ -240,7 +240,7 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <section className="px-6 mb-16">
             <div className="container mx-auto max-w-4xl">
-              <div className="p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-lg shadow-zinc-200/20">
+              <div className="p-8 md:p-12 bg-white border border-[#281000] rounded-4xl shadow-lg shadow-zinc-200/20">
                 <p className="text-lg text-zinc-600 leading-relaxed mb-4">
                   At Krypton Digital, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>
@@ -258,7 +258,7 @@ export default function PrivacyPage() {
                 {sections.map((section, index) => (
                   <div
                     key={index}
-                    className="policy-section p-8 md:p-12 bg-white border border-zinc-200 rounded-4xl shadow-sm hover:shadow-lg hover:shadow-zinc-200/20 transition-shadow"
+                    className="policy-section p-8 md:p-12 bg-white border border-[#281000] rounded-4xl shadow-sm hover:shadow-lg hover:shadow-zinc-200/20 transition-shadow"
                   >
                     <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
                       {section.title}

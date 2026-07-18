@@ -166,7 +166,7 @@ export const mdxComponents = {
   // Horizontal rule
   hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr
-      className={cn("border-zinc-200 my-12", className)}
+      className={cn("border-[#281000]/20 my-12", className)}
       {...props}
     />
   ),
@@ -197,7 +197,7 @@ export const mdxComponents = {
   th: ({ className, ...props }: React.ThHTMLAttributes<HTMLTableHeaderCellElement>) => (
     <th
       className={cn(
-        "border-b-2 border-zinc-200 px-4 py-3 text-left font-bold text-foreground",
+        "border-b-2 border-[#281000]/20 px-4 py-3 text-left font-bold text-foreground",
         className
       )}
       {...props}
@@ -206,7 +206,7 @@ export const mdxComponents = {
   td: ({ className, ...props }: React.TdHTMLAttributes<HTMLTableDataCellElement>) => (
     <td
       className={cn(
-        "border-b border-zinc-100 px-4 py-3 text-zinc-600",
+        "border-b border-[#281000]/20 px-4 py-3 text-zinc-600",
         className
       )}
       {...props}

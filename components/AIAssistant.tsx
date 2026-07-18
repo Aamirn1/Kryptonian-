@@ -86,7 +86,7 @@ export default function AIAssistant() {
 
       {/* Chat panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-[90] w-[calc(100vw-3rem)] max-w-sm flex flex-col bg-white rounded-3xl shadow-2xl border border-zinc-200 overflow-hidden" style={{ maxHeight: "70vh" }}>
+        <div className="fixed bottom-24 right-6 z-[90] w-[calc(100vw-3rem)] max-w-sm flex flex-col bg-white rounded-3xl shadow-2xl border border-[#281000] overflow-hidden" style={{ maxHeight: "70vh" }}>
           {/* Header */}
           <div className="bg-primary px-5 py-4 flex items-center gap-3">
             <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -126,7 +126,7 @@ export default function AIAssistant() {
           </div>
 
           {/* Input */}
-          <div className="p-3 border-t border-zinc-200 flex gap-2">
+          <div className="p-3 border-t border-[#281000]/20 flex gap-2">
             <input
               type="text"
               value={input}
@@ -134,7 +134,7 @@ export default function AIAssistant() {
               onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
               placeholder="Type your message..."
               disabled={loading}
-              className="flex-1 px-4 py-2.5 bg-zinc-50 border border-zinc-200 rounded-full text-sm focus:outline-none focus:border-primary disabled:opacity-50"
+              className="flex-1 px-4 py-2.5 bg-zinc-50 border border-[#281000] rounded-full text-sm focus:outline-none focus:border-primary disabled:opacity-50"
             />
             <button
               onClick={sendMessage}
