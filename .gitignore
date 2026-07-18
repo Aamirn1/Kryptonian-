@@ -47,4 +47,5 @@ yarn-error.log*
 next-env.d.ts
 
 AGENTS.md
-CLAUDE.md.z-ai-config
+CLAUDE.md
+.z-ai-config
