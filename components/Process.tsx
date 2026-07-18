@@ -142,7 +142,7 @@ export default function Process() {
               key={index}
               className="process-step relative group shrink-0 w-[85vw] md:w-[45vw] lg:w-[25vw]"
             >
-              <div className="step-content border border-[#281000]/20 rounded-3xl p-8 bg-card shadow-lg shadow-black/5">
+              <div className="step-content border border-[#cb6ce6]/30 rounded-3xl p-8 bg-card shadow-lg shadow-black/5">
                 <div className="text-8xl md:text-[10rem] font-black text-foreground/5 absolute -top-16 md:-top-24 -left-4 group-hover:text-primary/10 transition-colors pointer-events-none">
                   {step.number}
                 </div>

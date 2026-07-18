@@ -208,7 +208,7 @@ export default function Navbar() {
               </nav>
 
               {/* CTA */}
-              <div className="pt-6 border-t border-[#281000]/20">
+              <div className="pt-6 border-t border-[#cb6ce6]/30">
                 <Link
                   href="/get-started"
                   onClick={() => setMobileMenuOpen(false)}

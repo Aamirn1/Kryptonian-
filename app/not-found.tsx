@@ -40,7 +40,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[#281000] rounded-full font-bold hover:border-primary hover:text-primary transition-all"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[#cb6ce6]/40 rounded-full font-bold hover:border-primary hover:text-primary transition-all"
           >
             <HelpCircle className="w-5 h-5" />
             Get Help
@@ -48,7 +48,7 @@ export default function NotFound() {
         </div>
 
         {/* Quick Links */}
-        <div className="mt-16 pt-10 border-t border-[#281000]/20">
+        <div className="mt-16 pt-10 border-t border-[#cb6ce6]/30">
           <p className="text-sm text-zinc-400 mb-6 uppercase tracking-widest font-bold">
             Popular Destinations
           </p>

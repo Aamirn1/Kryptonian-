@@ -34,7 +34,7 @@ export default function Error({
           </button>
           <Link
             href="/"
-            className="px-8 py-4 border border-[#281000] rounded-full font-bold hover:border-primary hover:text-primary transition-all"
+            className="px-8 py-4 border border-[#cb6ce6]/40 rounded-full font-bold hover:border-primary hover:text-primary transition-all"
           >
             Go Home
           </Link>

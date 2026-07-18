@@ -172,7 +172,7 @@ export default function BlogPostClient({
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pb-8 border-b border-[#281000]/20">
+                <div className="flex items-center gap-4 pb-8 border-b border-[#cb6ce6]/30">
                   <div className="w-14 h-14 bg-zinc-200 rounded-full flex items-center justify-center">
                     <User className="w-7 h-7 text-zinc-500" />
                   </div>
@@ -209,7 +209,7 @@ export default function BlogPostClient({
                   <MarkdownRenderer content={post.content} />
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-[#281000]/20">
+                  <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-[#cb6ce6]/30">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
@@ -290,7 +290,7 @@ export default function BlogPostClient({
                     </div>
 
                     {/* Categories */}
-                    <div className="p-6 bg-white border border-[#281000] rounded-2xl">
+                    <div className="p-6 bg-white border border-[#cb6ce6]/40 rounded-2xl">
                       <h3 className="font-bold text-lg mb-4">Categories</h3>
                       <div className="space-y-2">
                         {Array.from(
@@ -320,7 +320,7 @@ export default function BlogPostClient({
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <section className="related-section py-20 px-6 bg-white border-y border-[#281000]/20">
+            <section className="related-section py-20 px-6 bg-white border-y border-[#cb6ce6]/30">
               <div className="container mx-auto max-w-7xl">
                 <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">
                   Related <span className="text-primary italic">Articles</span>

@@ -185,7 +185,7 @@ export default function Services() {
 
                   {/* Mobile Mobile Image Fallback */}
                   <div className="mt-12 lg:hidden">
-                    <div className="relative aspect-square rounded-[3rem] overflow-hidden bg-zinc-50 border border-[#281000]/20 p-8">
+                    <div className="relative aspect-square rounded-[3rem] overflow-hidden bg-zinc-50 border border-[#cb6ce6]/30 p-8">
                       <Image
                         src={service.image}
                         alt={service.title}

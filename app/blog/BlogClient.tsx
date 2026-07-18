@@ -184,7 +184,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                     activeCategory === "All"
                       ? "bg-foreground text-white"
-                      : "bg-white border border-[#281000] text-zinc-600 hover:border-primary hover:text-primary"
+                      : "bg-white border border-[#cb6ce6]/40 text-zinc-600 hover:border-primary hover:text-primary"
                   }`}
                 >
                   All
@@ -196,7 +196,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                     className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                       activeCategory === category
                         ? "bg-foreground text-white"
-                        : "bg-white border border-[#281000] text-zinc-600 hover:border-primary hover:text-primary"
+                        : "bg-white border border-[#cb6ce6]/40 text-zinc-600 hover:border-primary hover:text-primary"
                     }`}
                   >
                     {category}
@@ -209,7 +209,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                 {recentPosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="blog-card group bg-white border border-[#281000] rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
+                    className="blog-card group bg-white border border-[#cb6ce6]/40 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       {/* Image */}

@@ -131,7 +131,7 @@ export default function ServicesPage() {
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="service-card group bg-white border border-[#281000]/20 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                    className="service-card group bg-white border border-[#cb6ce6]/30 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
                   >
                     {/* Image */}
                     <div className="relative h-52 overflow-hidden">
@@ -186,7 +186,7 @@ export default function ServicesPage() {
           {/* CTA */}
           <section className="px-6 mt-32">
             <div className="container mx-auto max-w-4xl">
-              <div className="bg-white border border-[#281000]/20 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/5">
+              <div className="bg-white border border-[#cb6ce6]/30 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/5">
                 <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
                   Ready to <span className="text-primary italic">Scale?</span>
                 </h2>

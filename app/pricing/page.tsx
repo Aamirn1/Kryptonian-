@@ -99,7 +99,7 @@ export default function PricingPage() {
           <section className="pricing-hero relative pt-40 pb-20 px-6">
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="pricing-header text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-[#281000]/20 text-zinc-700 text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 text-zinc-700 text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
                 </div>
@@ -125,7 +125,7 @@ export default function PricingPage() {
 
                 {/* Switcher */}
                 <div className="flex justify-center mb-12">
-                  <div className="bg-black/5 p-1.5 rounded-full border border-[#281000]/20 shadow-lg shadow-black/15 flex gap-1 relative">
+                  <div className="bg-black/5 p-1.5 rounded-full border border-[#cb6ce6]/30 shadow-lg shadow-black/15 flex gap-1 relative">
                     <button
                       onClick={() => setBillingCycle("oneTime")}
                       className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] relative z-10 ${
@@ -171,7 +171,7 @@ export default function PricingPage() {
                   className={`pricing-card group relative p-10 bg-white border ${
                     plan.popular
                       ? "border-primary shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.35)]"
-                      : "border-[#281000]/20 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                      : "border-[#cb6ce6]/30 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
                   } rounded-3xl overflow-hidden flex flex-col transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:border-primary/50`}
                 >
                   {plan.popular && (
@@ -219,7 +219,7 @@ export default function PricingPage() {
                       </span>
                     </div>
                     {plan.footer && (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-[#281000] rounded-full text-xs font-medium text-zinc-600 tracking-tight">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-[#cb6ce6]/40 rounded-full text-xs font-medium text-zinc-600 tracking-tight">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                         {plan.footer === "flexible contract" ? "Flexible — cancel anytime" : plan.footer}
                       </span>
@@ -229,7 +229,7 @@ export default function PricingPage() {
                   <div className="space-y-4 mb-12 grow">
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-zinc-100 border border-[#281000]/20 flex items-center justify-center shrink-0">
+                        <div className="mt-1 w-5 h-5 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 flex items-center justify-center shrink-0">
                           <Check className="w-3 h-3 text-primary stroke-[3]" />
                         </div>
                         <span className="text-muted-foreground text-sm font-medium leading-snug">
@@ -251,7 +251,7 @@ export default function PricingPage() {
             </div>
 
             {/* Bottom Section */}
-            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-white border border-[#281000]/20 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
+            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-white border border-[#cb6ce6]/30 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
               {/* Animated Background Gradients */}
               <div className="absolute top-0 right-0 w-2/3 h-full bg-zinc-400/35 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
               <div className="absolute bottom-0 left-0 w-1/2 h-full bg-zinc-400/25 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />

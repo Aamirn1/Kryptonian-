@@ -68,7 +68,7 @@ export default function GetStartedPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {/* Option 1: Fast Track */}
-              <div className="step-card group relative p-10 bg-white border border-[#281000] rounded-4xl overflow-hidden hover:bg-zinc-50 hover:border-primary/50 transition-all shadow-xl shadow-zinc-200/20">
+              <div className="step-card group relative p-10 bg-white border border-[#cb6ce6]/40 rounded-4xl overflow-hidden hover:bg-zinc-50 hover:border-primary/50 transition-all shadow-xl shadow-zinc-200/20">
                 <div className="w-16 h-16 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8" />
                 </div>
@@ -89,7 +89,7 @@ export default function GetStartedPage() {
               </div>
 
               {/* Option 2: Strategy First */}
-              <div className="step-card group relative p-10 bg-primary/5 border border-[#281000] rounded-4xl overflow-hidden hover:bg-primary/10 hover:border-primary/40 transition-all shadow-xl shadow-primary/10">
+              <div className="step-card group relative p-10 bg-primary/5 border border-[#cb6ce6]/40 rounded-4xl overflow-hidden hover:bg-primary/10 hover:border-primary/40 transition-all shadow-xl shadow-primary/10">
                 <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-10 group-hover:rotate-12 transition-transform shadow-xl shadow-primary/30">
                   <Target className="w-8 h-8" />
                 </div>
@@ -110,7 +110,7 @@ export default function GetStartedPage() {
               </div>
 
               {/* Option 3: Enterprise */}
-              <div className="step-card group relative p-10 bg-white border border-[#281000] rounded-4xl overflow-hidden hover:bg-zinc-50 hover:border-primary/50 transition-all shadow-xl shadow-zinc-200/20">
+              <div className="step-card group relative p-10 bg-white border border-[#cb6ce6]/40 rounded-4xl overflow-hidden hover:bg-zinc-50 hover:border-primary/50 transition-all shadow-xl shadow-zinc-200/20">
                 <div className="w-16 h-16 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -131,7 +131,7 @@ export default function GetStartedPage() {
               </div>
             </div>
 
-            <div className="intro-content mt-32 text-center p-20 bg-white border border-[#281000] rounded-[4rem] shadow-xl shadow-zinc-200/20">
+            <div className="intro-content mt-32 text-center p-20 bg-white border border-[#cb6ce6]/40 rounded-[4rem] shadow-xl shadow-zinc-200/20">
               <h2 className="text-4xl font-bold mb-6 tracking-tight">
                 STILL UNSURE?
               </h2>
@@ -141,7 +141,7 @@ export default function GetStartedPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-10 py-4 border border-[#281000] rounded-full font-bold hover:bg-foreground hover:text-white hover:border-foreground transition-all"
+                className="inline-block px-10 py-4 border border-[#cb6ce6]/40 rounded-full font-bold hover:bg-foreground hover:text-white hover:border-foreground transition-all"
               >
                 BOOK A CALL
               </Link>

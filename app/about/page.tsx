@@ -326,7 +326,7 @@ export default function AboutPage() {
                 <div className="relative hidden lg:block">
                   <div className="relative aspect-square max-w-lg mx-auto">
                     <div className="absolute inset-0 bg-primary/10 rounded-4xl rotate-6 blur-2xl" />
-                    <div className="relative bg-white border border-[#281000] rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
+                    <div className="relative bg-white border border-[#cb6ce6]/40 rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
                       <Image
                         src="/images/hero/hero_team_collaboration_1769511734235.png"
                         alt="Krypton Digital Team"
@@ -430,7 +430,7 @@ export default function AboutPage() {
 
               <div className="relative">
                 {/* Timeline connecting line with shimmer */}
-                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#281000]/20 md:-translate-x-1/2 overflow-hidden">
+                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#cb6ce6]/30 md:-translate-x-1/2 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary to-transparent" style={{ animation: "shimmerLine 3s ease-in-out infinite" }} />
                 </div>
 
@@ -446,7 +446,7 @@ export default function AboutPage() {
 
                     {/* Content card */}
                     <div
-                      className={`ml-12 md:ml-0 md:w-[calc(50%-3rem)] p-6 bg-white border border-[#281000]/20 rounded-3xl shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 transition-all ${
+                      className={`ml-12 md:ml-0 md:w-[calc(50%-3rem)] p-6 bg-white border border-[#cb6ce6]/30 rounded-3xl shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 transition-all ${
                         index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                       }`}
                     >

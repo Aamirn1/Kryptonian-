@@ -162,7 +162,7 @@ export default function Testimonials() {
             <div
               key={testimonial.id}
               onClick={() => setSelectedTestimonial(testimonial)}
-              className="testimonial-card-horizontal group shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] p-8 bg-white border border-[#281000] rounded-[2.5rem] shadow-lg shadow-zinc-200/20 hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all cursor-pointer"
+              className="testimonial-card-horizontal group shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] p-8 bg-white border border-[#cb6ce6]/40 rounded-[2.5rem] shadow-lg shadow-zinc-200/20 hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all cursor-pointer"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                 <Quote className="w-6 h-6 text-primary" />
@@ -204,7 +204,7 @@ export default function Testimonials() {
       </div>
 
       {/* Trust Indicators */}
-      <div className="mt-20 pt-16 border-t border-[#281000] px-6">
+      <div className="mt-20 pt-16 border-t border-[#cb6ce6]/40 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -289,7 +289,7 @@ export default function Testimonials() {
               &ldquo;{selectedTestimonial.content}&rdquo;
             </p>
 
-            <div className="flex items-center gap-4 pt-6 border-t border-[#281000]/20">
+            <div className="flex items-center gap-4 pt-6 border-t border-[#cb6ce6]/30">
               <div className="w-16 h-16 bg-zinc-100 rounded-full overflow-hidden">
                 <div
                   className="w-full h-full bg-cover bg-center"

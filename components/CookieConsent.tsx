@@ -109,7 +109,7 @@ export default function CookieConsent() {
       {/* Main Cookie Banner */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6" role="dialog" aria-label="Cookie consent">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white border border-[#281000] rounded-4xl shadow-2xl shadow-black/10 p-6 md:p-8">
+          <div className="bg-white border border-[#cb6ce6]/40 rounded-4xl shadow-2xl shadow-black/10 p-6 md:p-8">
             <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
               {/* Icon & Text */}
               <div className="flex items-start gap-4 flex-1">
@@ -138,14 +138,14 @@ export default function CookieConsent() {
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <button
                   onClick={() => setShowSettings(true)}
-                  className="px-6 py-3 border border-[#281000] rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 border border-[#cb6ce6]/40 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors flex items-center justify-center gap-2"
                 >
                   <Settings className="w-4 h-4" />
                   Preferences
                 </button>
                 <button
                   onClick={handleDecline}
-                  className="px-6 py-3 border border-[#281000] rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors"
+                  className="px-6 py-3 border border-[#cb6ce6]/40 rounded-xl hover:cursor-pointer text-sm font-bold hover:bg-zinc-50 transition-colors"
                 >
                   Decline
                 </button>
@@ -179,7 +179,7 @@ export default function CookieConsent() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="bg-white border-b border-[#281000]/20 p-6 flex items-center justify-between shrink-0 rounded-t-3xl">
+              <div className="bg-white border-b border-[#cb6ce6]/30 p-6 flex items-center justify-between shrink-0 rounded-t-3xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
                     <Settings className="w-5 h-5 text-primary" />
@@ -198,7 +198,7 @@ export default function CookieConsent() {
               {/* Content - Scrollable */}
               <div className="p-6 space-y-6 overflow-y-auto overscroll-contain">
                 {/* Essential Cookies */}
-                <div className="p-5 bg-zinc-50 rounded-2xl border border-[#281000]/20">
+                <div className="p-5 bg-zinc-50 rounded-2xl border border-[#cb6ce6]/30">
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <h4 className="font-bold text-lg">Essential Cookies</h4>
@@ -218,7 +218,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Analytics Cookies */}
-                <div className="p-5 bg-white border border-[#281000] rounded-2xl">
+                <div className="p-5 bg-white border border-[#cb6ce6]/40 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <h4 className="font-bold text-lg" id="analytics-label">Analytics Cookies</h4>
@@ -245,7 +245,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Marketing Cookies */}
-                <div className="p-5 bg-white border border-[#281000] rounded-2xl">
+                <div className="p-5 bg-white border border-[#cb6ce6]/40 rounded-2xl">
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <h4 className="font-bold text-lg" id="marketing-label">Marketing Cookies</h4>
@@ -271,7 +271,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Extra info */}
-                <div className="p-5 bg-zinc-50 rounded-2xl border border-[#281000]/20">
+                <div className="p-5 bg-zinc-50 rounded-2xl border border-[#cb6ce6]/30">
                   <h4 className="font-bold text-lg mb-3">More Information</h4>
                   <p className="text-zinc-500 text-sm leading-relaxed mb-3">
                     You can change your cookie preferences at any time by
@@ -292,10 +292,10 @@ export default function CookieConsent() {
               </div>
 
               {/* Footer */}
-              <div className="bg-white border-t border-[#281000]/20 p-6 flex flex-col sm:flex-row gap-3 shrink-0 rounded-b-3xl">
+              <div className="bg-white border-t border-[#cb6ce6]/30 p-6 flex flex-col sm:flex-row gap-3 shrink-0 rounded-b-3xl">
                 <button
                   onClick={handleAcceptEssential}
-                  className="px-6 py-3 border border-[#281000] rounded-xl text-sm font-bold hover:bg-zinc-50 transition-colors"
+                  className="px-6 py-3 border border-[#cb6ce6]/40 rounded-xl text-sm font-bold hover:bg-zinc-50 transition-colors"
                 >
                   Essential Only
                 </button>
