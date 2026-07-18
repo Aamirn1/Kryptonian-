@@ -135,7 +135,7 @@ export default function Testimonials() {
     >
       <div ref={triggerRef} className="h-screen flex flex-col">
         {/* Header */}
-        <div className="testimonials-header text-center mb-8 pt-20">
+        <div className="testimonials-header text-center mb-4 pt-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6 border border-primary/20">
             <Quote className="w-4 h-4 text-primary" />
             <p className="text-primary font-bold text-sm">
@@ -204,8 +204,8 @@ export default function Testimonials() {
       </div>
 
       {/* Trust Indicators */}
-      <div className="mt-20 pt-16 border-t border-[#281000]/20 px-6">
-        <div className="container mx-auto max-w-7xl">
+      <div className="mt-20 pt-16 border-t border-[#281000] px-6">
+        <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-black text-primary mb-2">
