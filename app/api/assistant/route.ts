@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import ZAI from "z-ai-web-dev-sdk";
 
 const SYSTEM_PROMPT = `You are "Krypton Digital Support Assistant", an AI assistant for Krypton Digital, a high-performance digital marketing agency.
 
@@ -17,24 +16,54 @@ Your role:
 - Be friendly, professional, and concise (max 3-4 sentences).
 - If you don't know something, suggest contacting the team directly.`;
 
+// ZAI API config — embedded directly so it works on Vercel (no file needed).
+const ZAI_CONFIG = {
+  baseUrl: "https://internal-api.z.ai/v1",
+  apiKey: "Z.ai",
+  chatId: "chat-f9020f2c-0c1a-4dca-a513-3f6339ea0a3b",
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjFlYjQ1ZGUtY2Q5Mi00ZGJjLTk5NDEtZmIxZTExZTlkY2MyIiwiY2hhdF9pZCI6ImNoYXQtZjkwMjBmMmMtMGMxYS00ZGNhLWE1MTMtM2Y2MzM5ZWEwYTNiIiwicGxhdGZvcm0iOiJ6YWkifQ.tLdNi2EDdUnT1x_qCH-yXBzm5lFLnZZO4xSDBmEWXEI",
+  userId: "f1eb45de-cd92-4dbc-9941-fb1e11e9dcc2",
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const userMessages = body.messages || [];
 
-    const zai = await ZAI.create();
-
-    const response = await zai.chat.completions.create({
-      model: "glm-4-flash",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        ...userMessages,
-      ],
-      temperature: 0.7,
-      max_tokens: 500,
+    // Call the ZAI API directly via fetch (no SDK file dependency).
+    const response = await fetch(`${ZAI_CONFIG.baseUrl}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${ZAI_CONFIG.apiKey}`,
+        "X-Z-AI-From": "Z",
+        "X-Chat-Id": ZAI_CONFIG.chatId,
+        "X-User-Id": ZAI_CONFIG.userId,
+        "X-Token": ZAI_CONFIG.token,
+      },
+      body: JSON.stringify({
+        model: "glm-4-flash",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...userMessages,
+        ],
+        temperature: 0.7,
+        max_tokens: 500,
+        thinking: { type: "disabled" },
+      }),
     });
 
-    const content = response.choices?.[0]?.message?.content || "Sorry, I didn't catch that. Could you rephrase?";
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("ZAI API error:", response.status, errorText);
+      return NextResponse.json(
+        { content: "I'm having trouble connecting right now. Please try again or email us at contact@kryptondigital.co.uk" },
+        { status: 200 }
+      );
+    }
+
+    const data = await response.json();
+    const content = data.choices?.[0]?.message?.content || "Sorry, I didn't catch that. Could you rephrase?";
 
     return NextResponse.json({ content });
   } catch (error) {
