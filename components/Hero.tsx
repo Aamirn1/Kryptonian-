@@ -243,20 +243,20 @@ export default function Hero() {
               engineered for market-leading dominance and ROI.
             </p>
 
-            <div ref={ctaRef} className="flex flex-row gap-4">
+            <div ref={ctaRef} className="flex flex-row gap-2 sm:gap-4">
               <Link
                 href="/pricing"
-                className="group relative px-8 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex items-center gap-3 flex-1 justify-center"
+                className="group relative px-4 sm:px-8 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex items-center gap-2 flex-1 justify-center whitespace-nowrap"
               >
-                <span className="uppercase tracking-widest text-medium">
+                <span className="uppercase tracking-widest text-xs sm:text-medium">
                   GET A QUOTE
                 </span>
               </Link>
               <Link
                 href="/portfolio"
-                className="px-8 py-5 rounded-full border border-foreground/15 text-foreground/80 hover:text-white hover:border-foreground/30 hover:bg-foreground font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1"
+                className="px-4 sm:px-8 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:text-white hover:border-foreground/30 hover:bg-foreground font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
               >
-                <span className="uppercase tracking-widest text-medium">
+                <span className="uppercase tracking-widest text-xs sm:text-medium">
                   View Work
                 </span>
               </Link>
