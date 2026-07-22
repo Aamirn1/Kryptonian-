@@ -104,16 +104,10 @@ const team = [
     image: "/team/furqan.jpg",
   },
   {
-    name: "Arslan Ali",
+    name: "Muhammad Aamir",
     role: "Creative Director",
     bio: "Award-winning designer passionate about brands that challenge industry norms.",
     image: "/team/arslan.jpg",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Client Success",
-    bio: "Dedicated to ensuring every client feels like our only client. Results obsessed.",
-    image: "/team/emily.jpg",
   },
 ];
 
@@ -400,7 +394,7 @@ export default function AboutPage() {
                     key={index}
                     className="value-card group p-10 bg-white border border-primary rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
                   >
-                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 transition-colors">
+                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 cursor-pointer">
                       <value.icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
@@ -480,13 +474,13 @@ export default function AboutPage() {
                 <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white mb-6">
                   Meet The <span className="text-primary italic">Experts</span>
                 </h2>
-                <p className="text-zinc-600 text-lg max-w-2xl mx-auto">
+                <p className="text-white text-lg max-w-2xl mx-auto">
                   A passionate team of strategists, creatives, and technologists
                   dedicated to your success.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
                 {team.map((member, index) => (
                   <div
                     key={index}
@@ -530,7 +524,7 @@ export default function AboutPage() {
                     Ready To Join{" "}
                     <span className="text-primary italic">Forces?</span>
                   </h2>
-                  <p className="text-zinc-600 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                  <p className="text-white text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s discuss how we can accelerate your digital growth and
                     build something extraordinary together.
                   </p>
