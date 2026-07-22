@@ -266,7 +266,7 @@ export default function PricingPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
-                    href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
+                    href="/contact"
                     className="px-12 py-5 bg-white text-foreground rounded-full font-black tracking-widest text-xs uppercase hover:bg-primary hover:text-white transition-all w-full sm:w-auto"
                   >
                     Speak with an Expert
