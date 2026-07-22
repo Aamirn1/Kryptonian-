@@ -154,7 +154,6 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                         </div>
                       </div>
                     </div>
-                  </div>
                 </Link>
               </div>
             </section>

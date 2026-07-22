@@ -311,7 +311,6 @@ export default function PortfolioPage() {
                             </a>
                           )}
                         </div>
-                      </div>
                     </div>
                   ))}
               </div>
