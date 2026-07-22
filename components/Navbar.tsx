@@ -100,7 +100,9 @@ export default function Navbar() {
       if (!containerRect) return MIN_SCALE;
 
       const linkCenter = rect.left + rect.width / 2 - containerRect.left;
-      const distance = Math.abs(linkCenter - mouseRef.current);
+      const mousePos = mouseRef.current;
+      if (mousePos === null) return MIN_SCALE;
+      const distance = Math.abs(linkCenter - mousePos);
 
       if (distance > EFFECT_WIDTH / 2) {
         return MIN_SCALE;
