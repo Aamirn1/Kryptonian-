@@ -218,8 +218,8 @@ export default function PortfolioPage() {
       >
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] bg-zinc-300/30 rounded-full blur-[150px] animate-pulse" />
-          <div className="absolute bottom-[20%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-400/25 rounded-full blur-[120px]" />
+          <div className="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-[20%] left-[-5%] w-[40vw] h-[40vw] bg-blue-500/5 rounded-full blur-[120px]" />
         </div>
 
         <Navbar />
@@ -229,14 +229,14 @@ export default function PortfolioPage() {
           <section className="portfolio-hero relative pt-40 pb-20 px-6">
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8">
                   <Globe className="w-3 h-3 text-zinc-700" />
-                  <p className="text-zinc-700 font-semibold text-xs tracking-[0.18em] uppercase">
+                  <p className="text-primary font-bold text-sm tracking-widest uppercase">
                     Our Work
                   </p>
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 uppercase leading-[0.9]">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 uppercase leading-[0.9]">
                   Work That{" "}
                   <span className="text-primary italic">Compounds</span>
                 </h1>

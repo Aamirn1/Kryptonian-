@@ -88,8 +88,8 @@ export default function PricingPage() {
       <div className="relative min-h-screen bg-[#fafafa] text-foreground selection:bg-primary selection:text-white antialiased overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-zinc-300/30 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-zinc-400/25 rounded-full blur-[100px]" />
+          <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-blue-500/5 rounded-full blur-[100px]" />
         </div>
 
         <Navbar />
@@ -99,13 +99,13 @@ export default function PricingPage() {
           <section className="pricing-hero relative pt-40 pb-20 px-6">
             <div className="container mx-auto max-w-7xl relative z-10">
               <div className="pricing-header text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 text-zinc-700 text-xs font-semibold mb-5 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                   <Shield className="w-3 h-3" />
                   Growth Packages
                 </div>
                 <h1
                   ref={titleContainerRef}
-                  className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 uppercase leading-[0.95]"
+                  className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.95]"
                 >
                   <span ref={titleLine1Ref} className="inline-block">
                     ELEVATE YOUR

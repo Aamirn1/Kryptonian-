@@ -141,7 +141,7 @@ export default function Navbar() {
               href="/get-started"
               className="px-6 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary/80 transition-all active:scale-95 shadow-lg shadow-primary/20"
             >
-              GET A QUOTE
+              Initiate Scoping
             </Link>
           </div>
 
@@ -214,7 +214,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block w-full py-4 bg-primary text-white text-center font-bold rounded-full hover:bg-primary/80 transition-all"
                 >
-                  GET A QUOTE
+                  Initiate Scoping
                 </Link>
               </div>
             </div>

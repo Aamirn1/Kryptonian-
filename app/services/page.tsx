@@ -186,18 +186,18 @@ export default function ServicesPage() {
           {/* CTA */}
           <section className="px-6 mt-32">
             <div className="container mx-auto max-w-4xl">
-              <div className="bg-white border border-[#cb6ce6]/30 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/5">
-                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
+              <div className="bg-foreground border border-[#cb6ce6]/30 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/20 relative overflow-hidden">
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6 text-white">
                   Ready to <span className="text-primary italic">Scale?</span>
                 </h2>
-                <p className="text-zinc-500 text-lg mb-8 max-w-xl mx-auto">
-                  Let&apos;s engineer your next chapter of growth. Get a quote today.
+                <p className="text-white text-lg mb-8 max-w-xl mx-auto">
+                  Let&apos;s engineer your next chapter of growth. Initiate scoping today.
                 </p>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-3 px-10 py-5 bg-foreground text-white font-bold rounded-full hover:bg-primary transition-all active:scale-95"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95"
                 >
-                  <span className="uppercase tracking-widest text-sm">GET A QUOTE</span>
+                  <span className="uppercase tracking-widest text-sm">Initiate Scoping</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>

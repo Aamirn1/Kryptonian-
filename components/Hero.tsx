@@ -249,7 +249,7 @@ export default function Hero() {
                 className="group relative px-4 sm:px-8 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex items-center gap-2 flex-1 justify-center whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
-                  GET A QUOTE
+                  Initiate Scoping
                 </span>
               </Link>
               <Link
