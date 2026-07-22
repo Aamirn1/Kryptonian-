@@ -145,7 +145,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card-item group flex items-start gap-6 p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
+              className="service-card-item group flex items-start gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 transition-all duration-300"
             >
               {/* Icon */}
               <div
@@ -171,7 +171,7 @@ export default function Services() {
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-white/5 border border-white/10 text-white/50 text-xs font-medium rounded-full"
+                      className="px-3 py-1 bg-white/50 border border-[#cb6ce6]/20 text-foreground/50 text-xs font-medium rounded-full"
                     >
                       {feature}
                     </span>

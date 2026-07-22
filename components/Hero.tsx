@@ -253,11 +253,11 @@ export default function Hero() {
                 </span>
               </Link>
               <Link
-                href="/portfolio"
-                className="px-4 sm:px-8 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:text-white hover:border-foreground/30 hover:bg-foreground font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
+                href="/services"
+                className="px-4 sm:px-8 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:text-[#cb6ce6] hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
-                  View Work
+                  Services
                 </span>
               </Link>
             </div>
