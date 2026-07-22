@@ -162,7 +162,7 @@ export default function Services() {
                 <h3 className="text-2xl font-bold tracking-tight text-primary uppercase mb-3">
                   {service.title}
                 </h3>
-                <p className="text-white/60 text-base leading-relaxed mb-4">
+                <p className="text-[#281000] text-base leading-relaxed mb-4">
                   {service.description}
                 </p>
 
@@ -171,7 +171,7 @@ export default function Services() {
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-white/50 border border-[#cb6ce6]/20 text-foreground/50 text-xs font-medium rounded-full"
+                      className="px-3 py-1 bg-white/50 border border-[#cb6ce6]/20 text-[#281000]/60 text-xs font-medium rounded-full"
                     >
                       {feature}
                     </span>

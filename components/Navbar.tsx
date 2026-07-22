@@ -18,46 +18,23 @@ const NavLink = ({
   active?: boolean;
   onClick?: () => void;
 }) => {
-  const linkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const link = linkRef.current;
-    if (!link || active) return;
-
-    const ctx = gsap.context(() => {
-      const onMouseEnter = () => {
-        gsap.to(link, {
-          color: "#cb6be6",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-
-      const onMouseLeave = () => {
-        gsap.to(link, {
-          color: "currentColor",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-
-      link.addEventListener("mouseenter", onMouseEnter);
-      link.addEventListener("mouseleave", onMouseLeave);
-    }, link);
-
-    return () => ctx.revert();
-  }, [active]);
-
   return (
     <Link
-      ref={linkRef}
       href={href}
       onClick={onClick}
-      className={`text-sm font-medium tracking-tight transition-colors ${
+      className={`group relative text-sm font-medium tracking-tight transition-colors hover:text-primary ${
         active ? "text-primary" : ""
       }`}
     >
       {children}
+      <span
+        className={`absolute left-0 -bottom-1 h-0.5 w-full bg-primary rounded-full transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          active
+            ? "scale-x-100"
+            : "scale-x-0 group-hover:scale-x-100"
+        }`}
+        style={{ transformOrigin: "center" }}
+      />
     </Link>
   );
 };

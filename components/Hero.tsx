@@ -254,7 +254,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/services"
-                className="px-4 sm:px-8 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:text-[#cb6ce6] hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
+                className="px-4 sm:px-8 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
                   Services
