@@ -270,7 +270,9 @@ export default function Navbar() {
                 active={isActive(link.href)}
                 scale={scales[index] || MIN_SCALE}
                 onRef={(el) => { linkRefs.current[index] = el; }}
-              />
+              >
+                {link.label}
+              </NavLink>
             ))}
             <Link
               href="/get-started"
