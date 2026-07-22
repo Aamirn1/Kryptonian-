@@ -117,7 +117,7 @@ export default function MarkdownRenderer({
           ) : (
             <pre
               className={cn(
-                "bg-foreground text-white p-6 rounded-2xl overflow-x-auto mb-6 max-w-full",
+                "bg-foreground text-white p-6 rounded-2xl overflow-x-auto mb-6 max-w-full max-w-full",
                 className
               )}
             >
@@ -158,7 +158,7 @@ export default function MarkdownRenderer({
 
         // Tables
         table: ({ className, ...props }) => (
-          <div className="overflow-x-auto mb-6 max-w-full">
+          <div className="overflow-x-auto mb-6 max-w-full max-w-full">
             <table
               className={cn("w-full border-collapse", className)}
               {...props}

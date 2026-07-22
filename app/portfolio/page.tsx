@@ -27,10 +27,10 @@ const caseStudies = [
     id: 1,
     title: "TechStart Website Redesign",
     client: "TechStart Ltd",
+    projectUrl: "https://tradelink-sooty.vercel.app/",
     category: "Web Development",
     image: "/services/web-dev.png",
     logo: "/services/strategy.png",
-    projectUrl: "https://tradelink-sooty.vercel.app/",
     description:
       "Complete website overhaul for a SaaS startup, focusing on conversion optimization and modern design aesthetics.",
     results: [
@@ -45,10 +45,10 @@ const caseStudies = [
     id: 2,
     title: "E-commerce SEO Campaign",
     client: "Bloom Boutique",
+    projectUrl: "https://www.signaturestitchs.com",
     category: "SEO",
     image: "/services/seo.png",
     logo: "/services/brand.png",
-    projectUrl: "https://www.signaturestitchs.com",
     description:
       "Comprehensive SEO strategy for a fashion e-commerce brand targeting competitive keywords in the UK market.",
     results: [
@@ -63,10 +63,10 @@ const caseStudies = [
     id: 3,
     title: "Complete Brand Identity",
     client: "Nexus Solutions",
+    projectUrl: "https://mydollarstore.vercel.app/",
     category: "Branding",
     image: "/services/brand.png",
     logo: "/services/conversion.png",
-    projectUrl: "https://mydollarstore.vercel.app/",
     description:
       "Full brand identity creation including logo, color palette, typography, and comprehensive brand guidelines.",
     results: [
@@ -81,10 +81,10 @@ const caseStudies = [
     id: 4,
     title: "GrowthBox PPC Management",
     client: "GrowthBox",
+    projectUrl: "https://chohan-s-style-dsaa.vercel.app/",
     category: "E-commerce",
     image: "/services/conversion.png",
     logo: "/services/market.png",
-    projectUrl: "https://chohan-s-style-dsaa.vercel.app/",
     description:
       "Strategic Google Ads and Meta Ads management with continuous optimization and A/B testing.",
     results: [
@@ -99,10 +99,10 @@ const caseStudies = [
     id: 5,
     title: "Healthcare Platform SEO",
     client: "MedConnect",
+    projectUrl: "https://islamabadoptical.vercel.app/",
     category: "SEO",
     image: "/services/strategy.png",
     logo: "/services/seo.png",
-    projectUrl: "https://islamabadoptical.vercel.app/",
     description:
       "Local SEO and content strategy for a healthcare appointment booking platform across 20+ cities.",
     results: [
@@ -117,10 +117,10 @@ const caseStudies = [
     id: 6,
     title: "Restaurant Chain Rebrand",
     client: "Taste Collective",
+    projectUrl: "https://foodexpresslalkurti.vercel.app/",
     category: "Branding",
     image: "/services/market.png",
     logo: "/services/web-dev.png",
-    projectUrl: "https://foodexpresslalkurti.vercel.app/",
     description:
       "Multi-location restaurant brand refresh with new visual identity, menu design, and digital presence.",
     results: [
@@ -226,24 +226,24 @@ export default function PortfolioPage() {
 
         <main>
           {/* Hero Section */}
-          <section className="portfolio-hero relative pt-40 pb-20 px-6">
-            <div className="container mx-auto max-w-7xl relative z-10">
+          <section className="portfolio-hero pt-40 pb-20 px-6">
+            <div className="container mx-auto max-w-7xl">
               <div className="text-center max-w-4xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8">
-                  <Globe className="w-3 h-3 text-zinc-700" />
+                  <Globe className="w-3 h-3 text-primary" />
                   <p className="text-primary font-bold text-sm tracking-widest uppercase">
                     Our Work
                   </p>
                 </div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 uppercase leading-[0.9]">
-                  Work That{" "}
-                  <span className="text-primary italic">Compounds</span>
+                  Results That
+                  <span className="text-primary italic ml-2">Speak</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-                  A portfolio engineered into market leadership — real
-                  campaigns, real architecture, real growth.
+                <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl mx-auto leading-relaxed font-medium">
+                  Explore our portfolio of successful projects. Real results for
+                  real businesses.
                 </p>
               </div>
 
@@ -255,29 +255,27 @@ export default function PortfolioPage() {
                   .map((featured) => (
                     <div
                       key={featured.id}
-                      className="group relative bg-white border border-[#cb6ce6]/30 rounded-3xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)] hover:border-primary/30 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                      className="group relative bg-foreground rounded-[3rem] overflow-hidden"
                     >
                       <div className="grid lg:grid-cols-2">
                         {/* Image Side */}
-                        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full bg-linear-to-br from-primary/20 to-primary/10 overflow-hidden">
+                        <div className="relative h-full bg-linear-to-br from-primary/20 to-purple-500/20">
                           <Image
                             src={featured.image}
                             alt={featured.title}
                             fill
-                            priority
-                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/20" />
+                          <div className="absolute inset-0" />
                         </div>
 
                         {/* Content Side */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 text-zinc-700 text-xs font-semibold mb-6 w-fit border border-[#cb6ce6]/30 tracking-[0.18em] uppercase">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
                             Featured Case Study
                           </div>
 
-                          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight leading-[1.05]">
+                          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
                             {featured.title}
                           </h2>
 
@@ -285,18 +283,18 @@ export default function PortfolioPage() {
                             {featured.client}
                           </p>
 
-                          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                          <p className="text-zinc-400 text-lg leading-relaxed mb-8">
                             {featured.description}
                           </p>
 
                           {/* Results */}
-                          <div className="grid grid-cols-3 gap-4 md:gap-6 mb-10">
+                          <div className="grid grid-cols-3 gap-6 mb-10">
                             {featured.results.map((result, idx) => (
-                              <div key={idx} className="min-w-0">
-                                <div className="text-2xl md:text-4xl font-bold text-foreground mb-2">
+                              <div key={idx}>
+                                <div className="text-3xl md:text-4xl font-black text-white mb-1">
                                   {result.metric}
                                 </div>
-                                <div className="text-muted-foreground text-[0.6rem] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.18em] leading-tight">
+                                <div className="text-zinc-500 text-xs uppercase tracking-wider">
                                   {result.label}
                                 </div>
                               </div>
@@ -308,28 +306,24 @@ export default function PortfolioPage() {
                             {featured.tags.map((tag) => (
                               <span
                                 key={tag}
-                                className="px-4 py-2 bg-black/5 border border-[#cb6ce6]/30 text-foreground/80 text-sm font-medium rounded-full"
+                                className="px-4 py-2 bg-white/10 text-white text-sm font-medium rounded-full"
                               >
                                 {tag}
                               </span>
                             ))}
                           </div>
 
-                          {/* View Project Button */}
                           {featured.projectUrl && (
                             <a
                               href={featured.projectUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group/btn relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:bg-primary/90 overflow-hidden"
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full text-sm hover:bg-primary/80 transition-colors"
                             >
-                              <span className="relative z-10 uppercase tracking-[0.12em]">
-                                View Project
-                              </span>
-                              <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                              View Project
+                              <ArrowRight className="w-4 h-4" />
                             </a>
                           )}
-
                         </div>
                       </div>
                     </div>
@@ -347,10 +341,10 @@ export default function PortfolioPage() {
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-[color,background-color,border-color,box-shadow,transform,opacity] ${
+                    className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                       activeCategory === category
-                        ? "bg-primary text-white shadow-lg shadow-primary/30"
-                        : "bg-black/5 border border-[#cb6ce6]/30 text-muted-foreground hover:border-primary hover:text-primary"
+                        ? "bg-foreground text-white"
+                        : "bg-white border border-zinc-200 text-zinc-600 hover:border-primary hover:text-primary"
                     }`}
                   >
                     {category}
@@ -363,7 +357,7 @@ export default function PortfolioPage() {
                 {filteredCases.map((caseStudy) => (
                   <div
                     key={caseStudy.id}
-                    className="case-card group bg-white border border-[#cb6ce6]/30 rounded-3xl overflow-hidden hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] hover:border-primary/30 hover:-translate-y-1 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
+                    className="case-card group bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
@@ -371,20 +365,19 @@ export default function PortfolioPage() {
                         src={caseStudy.image}
                         alt={caseStudy.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0" />
 
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/10 tracking-wide">
+                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold rounded-full">
                           {caseStudy.category}
                         </span>
                       </div>
 
                       {/* Client Logo */}
-                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-white border border-[#cb6ce6]/30 rounded-xl p-2 shadow-lg shadow-black/10">
+                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-xl p-2 shadow-lg">
                         <Image
                           src={caseStudy.logo}
                           alt={caseStudy.client}
@@ -403,46 +396,44 @@ export default function PortfolioPage() {
                       <p className="text-zinc-400 text-sm mb-4">
                         {caseStudy.client}
                       </p>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
+                      <p className="text-zinc-600 text-sm leading-relaxed mb-6 line-clamp-2">
                         {caseStudy.description}
                       </p>
 
                       {/* Results Preview */}
-                      <div className="flex items-center gap-4 mb-6 pb-6 border-b border-[#cb6ce6]/30">
-                        <div className="text-2xl font-bold text-primary">
+                      <div className="flex items-center gap-4 mb-6 pb-6 border-b border-zinc-100">
+                        <div className="text-2xl font-black text-primary">
                           {caseStudy.results[0].metric}
                         </div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-[0.18em]">
+                        <div className="text-xs text-zinc-500 uppercase tracking-wider">
                           {caseStudy.results[0].label}
                         </div>
                       </div>
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {caseStudy.tags.slice(0, 2).map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-1 bg-black/5 text-muted-foreground text-xs rounded-lg"
+                      {/* Tags & Link */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex gap-2">
+                          {caseStudy.tags.slice(0, 2).map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-1 bg-zinc-100 text-zinc-600 text-xs rounded-lg"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        {caseStudy.projectUrl && (
+                          <a
+                            href={caseStudy.projectUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-primary/80 transition-colors"
                           >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* View Project Button */}
-                      {caseStudy.projectUrl && (
-                        <a
-                          href={caseStudy.projectUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/btn relative inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary rounded-full text-white text-sm font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95 hover:bg-primary/90 overflow-hidden"
-                        >
-                          <span className="relative z-10 uppercase tracking-[0.1em]">
                             View Project
-                          </span>
-                          <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                        </a>
-                      )}
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -451,20 +442,20 @@ export default function PortfolioPage() {
           </section>
 
           {/* Process Section */}
-          <section className="process-section py-24 md:py-32 px-6 bg-card">
+          <section className="process-section py-32 px-6 bg-foreground">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 text-zinc-700 text-xs font-semibold mb-6 tracking-[0.18em] uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                   <Zap className="w-3 h-3" />
                   Our Process
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
                   How We Deliver{" "}
                   <span className="text-primary italic">Results</span>
                 </h2>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                  A proven methodology engineered to compound growth for every
-                  client we partner with.
+                <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                  A proven methodology that consistently drives growth for our
+                  clients.
                 </p>
               </div>
 
@@ -472,18 +463,18 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-black/5 border border-[#cb6ce6]/30 rounded-3xl hover:border-primary/30 hover:bg-black/10 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.25)] transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300"
+                    className="process-step group p-8 lg:p-6 bg-white border border-zinc-200 rounded-4xl hover:border-primary/30 hover:bg-zinc-50 transition-all"
                   >
-                    <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                       <step.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <div className="text-4xl font-bold text-foreground mb-2">
+                    <div className="text-4xl font-black text-foreground mb-2">
                       0{index + 1}
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-zinc-500 text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -493,33 +484,33 @@ export default function PortfolioPage() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-24 md:py-32 px-6">
+          <section className="py-32 px-6">
             <div className="container mx-auto max-w-4xl">
-              <div className="relative p-12 md:p-20 bg-white border border-[#cb6ce6]/30 rounded-3xl overflow-hidden text-center shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-zinc-400/35 rounded-full blur-[120px] pointer-events-none" />
+              <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-6 uppercase leading-[0.95]">
+                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
                     Ready to Be Our{" "}
                     <span className="text-primary italic">Next Success</span>?
                   </h2>
-                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                    Let&apos;s architect the same compounding results for your
-                    business.
+                  <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                    Let&apos;s discuss how we can achieve similar results for
+                    your business.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group relative overflow-hidden inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform,opacity] active:scale-95"
+                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95"
                     >
-                      <span className="uppercase tracking-[0.12em] text-sm">Start Your Project</span>
+                      Start Your Project
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-black/15 text-zinc-700 hover:text-foreground hover:border-black/30 hover:bg-black/5 rounded-full font-semibold transition-[color,background-color,border-color,box-shadow,transform,opacity]"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                     >
-                      <span className="uppercase tracking-[0.12em] text-sm">View Pricing</span>
+                      View Pricing
                     </Link>
                   </div>
                 </div>

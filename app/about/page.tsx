@@ -394,8 +394,9 @@ export default function AboutPage() {
                     key={index}
                     className="value-card group p-10 bg-white border border-primary rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
                   >
-                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 cursor-pointer">
-                      <value.icon className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 transition-colors duration-300 cursor-pointer relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
+                      <value.icon className="w-8 h-8 text-primary relative z-10 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
                       {value.title}

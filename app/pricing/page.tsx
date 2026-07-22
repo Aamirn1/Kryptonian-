@@ -85,7 +85,7 @@ export default function PricingPage() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-[#fafafa] text-foreground selection:bg-primary selection:text-white antialiased overflow-hidden">
+      <div className="relative min-h-screen selection:bg-primary selection:text-white antialiased bg-[#fafafa] overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
           <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-primary/5 rounded-full blur-[120px] animate-pulse" />
@@ -94,73 +94,69 @@ export default function PricingPage() {
 
         <Navbar />
 
-        <main ref={containerRef} className="pb-32">
-          {/* Hero Section — tall so the aurora background flows naturally */}
-          <section className="pricing-hero relative pt-40 pb-20 px-6">
-            <div className="container mx-auto max-w-7xl relative z-10">
-              <div className="pricing-header text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
-                  <Shield className="w-3 h-3" />
-                  Growth Packages
-                </div>
-                <h1
-                  ref={titleContainerRef}
-                  className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.95]"
+        <main ref={containerRef} className="pt-40 pb-32 px-6">
+          <div className="container mx-auto max-w-7xl">
+            {/* Header */}
+            <div className="pricing-header text-center mb-16 max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <Shield className="w-3 h-3" />
+                Growth Packages
+              </div>
+              <h1
+                ref={titleContainerRef}
+                className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
+              >
+                <span ref={titleLine1Ref} className="inline-block">
+                  ELEVATE YOUR
+                </span>
+                <br />
+                <span
+                  ref={titleLine2Ref}
+                  className="text-primary italic inline-block"
                 >
-                  <span ref={titleLine1Ref} className="inline-block">
-                    ELEVATE YOUR
-                  </span>
-                  <br />
-                  <span
-                    ref={titleLine2Ref}
-                    className="text-primary italic inline-block"
-                  >
-                    DIGITAL IMPACT
-                  </span>
-                </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-                  Fixed-scope foundations or aggressive monthly growth retainers.
-                  Architected for market dominance.
-                </p>
+                  DIGITAL IMPACT
+                </span>
+              </h1>
+              <p className="text-xl text-zinc-500 leading-relaxed max-w-2xl mx-auto mb-12 font-medium">
+                Fixed-scope foundations or aggressive monthly growth retainers.
+                Architected for market dominance.
+              </p>
 
-                {/* Switcher */}
-                <div className="flex justify-center mb-12">
-                  <div className="bg-black/5 p-1.5 rounded-full border border-[#cb6ce6]/30 shadow-lg shadow-black/15 flex gap-1 relative">
-                    <button
-                      onClick={() => setBillingCycle("oneTime")}
-                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] relative z-10 ${
-                        billingCycle === "oneTime"
-                          ? "text-white"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      Foundation & Launch
-                    </button>
-                    <button
-                      onClick={() => setBillingCycle("monthly")}
-                      className={`px-8 py-3 rounded-full text-sm font-semibold tracking-[0.12em] uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] relative z-10 ${
-                        billingCycle === "monthly"
-                          ? "text-white"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      Ongoing Growth
-                    </button>
-                    <div
-                      className={`absolute top-1.5 bottom-1.5 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ease-expo-out bg-primary rounded-full ${
-                        billingCycle === "oneTime"
-                          ? "left-1.5 right-[50%]"
-                          : "left-[50%] right-1.5"
-                      }`}
-                    />
-                  </div>
+              {/* Switcher */}
+              <div className="flex justify-center mb-12">
+                <div className="bg-white p-1.5 rounded-full border border-zinc-200 shadow-xl shadow-zinc-200/50 flex gap-1 relative">
+                  <button
+                    onClick={() => setBillingCycle("oneTime")}
+                    className={`px-8 py-3 rounded-full text-sm font-bold transition-all relative z-10 ${
+                      billingCycle === "oneTime"
+                        ? "text-white"
+                        : "text-zinc-500 hover:text-zinc-800"
+                    }`}
+                  >
+                    Foundation & Launch
+                  </button>
+                  <button
+                    onClick={() => setBillingCycle("monthly")}
+                    className={`px-8 py-3 rounded-full text-sm font-bold transition-all relative z-10 ${
+                      billingCycle === "monthly"
+                        ? "text-white"
+                        : "text-zinc-500 hover:text-zinc-800"
+                    }`}
+                  >
+                    Ongoing Growth
+                  </button>
+                  <div
+                    className={`absolute top-1.5 bottom-1.5 transition-all duration-300 ease-expo-out bg-foreground rounded-full ${
+                      billingCycle === "oneTime"
+                        ? "left-1.5 right-[50%]"
+                        : "left-[50%] right-1.5"
+                    }`}
+                  />
                 </div>
               </div>
             </div>
-          </section>
 
-          {/* Pricing Grid */}
-          <section className="px-6">
+            {/* Pricing Grid */}
             <div
               ref={gridRef}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32"
@@ -170,69 +166,67 @@ export default function PricingPage() {
                   key={`${billingCycle}-${index}`}
                   className={`pricing-card group relative p-10 bg-white border ${
                     plan.popular
-                      ? "border-primary shadow-[0_20px_60px_-20px_rgba(202, 109, 229,0.35)]"
-                      : "border-[#cb6ce6]/30 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]"
-                  } rounded-3xl overflow-hidden flex flex-col transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:border-primary/50`}
+                      ? "border-primary/30 shadow-2xl shadow-primary/10"
+                      : "border-zinc-200 shadow-xl shadow-zinc-200/20"
+                  } rounded-[3rem] overflow-hidden flex flex-col transition-all duration-300 ease-out hover:scale-105 hover:border-primary/50`}
                 >
                   {plan.popular && (
-                    <div className="absolute top-8 right-6 z-10">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary text-white text-[10px] font-semibold tracking-[0.18em] uppercase shadow-lg shadow-primary/30">
-                        Most Popular
-                      </span>
+                    <div className="absolute top-10 -right-10 rotate-45 bg-primary text-white text-[10px] font-black px-12 py-1 tracking-widest uppercase shadow-lg">
+                      RECOMMENDED
                     </div>
                   )}
 
                   <div
-                    className={`w-14 h-14 rounded-2xl mb-8 flex items-center justify-center border ${
+                    className={`w-14 h-14 rounded-2xl mb-8 flex items-center justify-center ${
                       plan.color === "primary"
-                        ? "bg-primary/10 border-primary/20 text-primary"
+                        ? "bg-primary/10 text-primary"
                         : plan.color === "blue"
-                          ? "bg-primary/10 border-primary/20 text-primary"
-                          : "bg-primary/10 border-primary/20 text-primary"
+                          ? "bg-blue-500/10 text-blue-500"
+                          : "bg-purple-500/10 text-purple-500"
                     }`}
                   >
                     <plan.icon className="w-6 h-6" />
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold tracking-tight mb-1 uppercase">
+                    <h3 className="text-2xl font-black tracking-tight mb-1 uppercase">
                       {plan.tier}
                     </h3>
                     <p className="text-sm font-semibold text-foreground/70 tracking-tight mb-1">
                       {plan.name}
                     </p>
-                    <p className="text-xs font-semibold text-primary tracking-[0.18em] uppercase mb-4 opacity-80">
+                    <p className="text-xs font-bold text-primary tracking-widest uppercase mb-4 opacity-70">
                       {plan.sub}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                    <p className="text-zinc-500 text-sm leading-relaxed font-medium">
                       {plan.description}
                     </p>
                   </div>
 
-                  <div className="mb-10">
-                    <div className="flex items-baseline gap-1 mb-2">
-                      <span className="text-5xl font-bold tracking-tighter text-foreground">
-                        {plan.price}
-                      </span>
-                      <span className="text-zinc-400 text-sm font-semibold tracking-tight">
+                  <div className="flex items-baseline gap-1 mb-10">
+                    <span className="text-5xl font-black tracking-tighter">
+                      {plan.price}
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-zinc-400 text-sm font-bold tracking-tight">
                         {plan.duration}
                       </span>
+                      {plan.footer && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-zinc-200 rounded-full text-xs font-medium text-zinc-600 tracking-tight mt-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          {plan.footer === "flexible contract" ? "Flexible — cancel anytime" : plan.footer}
+                        </span>
+                      )}
                     </div>
-                    {plan.footer && (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-[#cb6ce6]/40 rounded-full text-xs font-medium text-zinc-600 tracking-tight">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        {plan.footer === "flexible contract" ? "Flexible — cancel anytime" : plan.footer}
-                      </span>
-                    )}
                   </div>
 
                   <div className="space-y-4 mb-12 grow">
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex gap-3">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-zinc-100 border border-[#cb6ce6]/30 flex items-center justify-center shrink-0">
-                          <Check className="w-3 h-3 text-primary stroke-[3]" />
+                        <div className="mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 text-primary stroke-4" />
                         </div>
-                        <span className="text-muted-foreground text-sm font-medium leading-snug">
+                        <span className="text-zinc-600 text-sm font-medium leading-snug">
                           {feature}
                         </span>
                       </div>
@@ -241,49 +235,52 @@ export default function PricingPage() {
 
                   <Link
                     href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
-                    className="group relative overflow-hidden inline-flex items-center justify-between px-8 py-5 rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] bg-primary hover:bg-primary/80 text-white"
+                    className={`inline-flex items-center justify-between px-8 py-5 rounded-full font-black tracking-widest text-[10px] uppercase transition-all ${
+                      plan.popular
+                        ? "bg-foreground text-white hover:bg-primary shadow-xl shadow-foreground/10"
+                        : "bg-[#f5f5f7] text-foreground hover:bg-foreground hover:text-white"
+                    }`}
                   >
-                    <span className="relative z-10">{plan.cta}</span>
-                    <MoveRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    {plan.cta} <MoveRight className="w-4 h-4" />
                   </Link>
                 </div>
               ))}
             </div>
 
             {/* Bottom Section */}
-            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-white border border-[#cb6ce6]/30 rounded-3xl relative overflow-hidden group shadow-[0_10px_40px_-15px_rgba(0,0,0,0.12)]">
+            <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-foreground rounded-[4rem] relative overflow-hidden group">
               {/* Animated Background Gradients */}
-              <div className="absolute top-0 right-0 w-2/3 h-full bg-zinc-400/35 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 w-1/2 h-full bg-zinc-400/25 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
+              <div className="absolute top-0 right-0 w-2/3 h-full bg-primary/20 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
+              <div className="absolute bottom-0 left-0 w-1/2 h-full bg-blue-500/10 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
 
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8 tracking-tighter uppercase leading-[0.95]">
+                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase leading-none">
                   NEED A <span className="text-primary italic">CUSTOM</span>{" "}
                   <br />
                   STRATEGY?
                 </h2>
-                <p className="text-muted-foreground text-lg md:text-xl mb-12 leading-relaxed">
+                <p className="text-zinc-400 text-lg md:text-xl mb-12 leading-relaxed">
                   For high-growth scale-ups and established enterprises
                   requiring complex architecture and dedicated engineering
                   teams.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
-                    href="/contact"
-                    className="group relative overflow-hidden px-12 py-5 bg-primary hover:bg-primary/80 text-white rounded-full font-semibold tracking-[0.12em] text-xs uppercase transition-[color,background-color,border-color,box-shadow,transform,opacity] w-full sm:w-auto inline-flex items-center justify-center"
+                    href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
+                    className="px-12 py-5 bg-white text-foreground rounded-full font-black tracking-widest text-xs uppercase hover:bg-primary hover:text-white transition-all w-full sm:w-auto"
                   >
-                    <span className="relative z-10">Speak with an Expert</span>
+                    Speak with an Expert
                   </Link>
                   {/* <Link
                     href="/partner-programme"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-[color,background-color,border-color,box-shadow,transform,opacity]"
+                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
                   >
                     Partnerships
                   </Link> */}
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </main>
 
         <Footer />

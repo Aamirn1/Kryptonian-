@@ -89,7 +89,7 @@ export default function CTA() {
                             className="group relative inline-flex items-center gap-4 px-10 py-5 bg-foreground text-background font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 mx-auto"
                         >
                             <span className="relative z-10 transition-colors group-hover:text-primary">
-                                Order Now
+                                Initialize Project Scoping
                             </span>
                             <MoveRight className="relative z-10 w-6 h-6 transition-transform group-hover:translate-x-2 group-hover:text-primary" />
                             <div className="absolute inset-0 bg-primary/10 translate-y-full transition-transform group-hover:translate-y-0" />
