@@ -11,7 +11,6 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -182,57 +181,8 @@ export default function Services() {
                   <p className="text-white text-xl leading-relaxed max-w-lg mb-0">
                     {service.description}
                   </p>
-
-                  {/* Mobile Mobile Image Fallback */}
-                  <div className="mt-12 lg:hidden">
-                    <div className="relative aspect-square rounded-[3rem] overflow-hidden bg-zinc-50 border border-[#cb6ce6]/30 p-8">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        width={600}
-                        height={600}
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Right Side: Sticky Images (Desktop Only) */}
-          <div
-            ref={rightSideRef}
-            className="hidden lg:block lg:w-1/2 h-screen overflow-hidden"
-          >
-            <div className="relative w-full h-full flex items-center justify-center p-20">
-              <div className="relative w-full aspect-square max-w-2xl bg-zinc-50/50 rounded-4xl border border-primary overflow-hidden shadow-2xl shadow-primary/5">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    ref={(el) => {
-                      imageRefs.current[index] = el;
-                    }}
-                    className="absolute inset-0 flex items-center justify-center bg-primary"
-                    style={{
-                      zIndex: index,
-                      transform: index === 0 ? "none" : "translateY(100%)",
-                      opacity: index === 0 ? 1 : 0,
-                    }}
-                  >
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
-                        priority={index === 0}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

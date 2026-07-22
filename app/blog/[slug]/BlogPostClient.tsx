@@ -21,7 +21,6 @@ import {
   Link as LinkIcon,
   ArrowRight,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -185,20 +184,7 @@ export default function BlogPostClient({
             </div>
           </section>
 
-          {/* Featured Image */}
-          <section className="px-6 mb-16">
-            <div className="container mx-auto max-w-5xl">
-              <div className="relative aspect-video rounded-4xl overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </section>
+          {/* Featured Image removed */}
 
           {/* Content */}
           <section className="px-6 pb-20">
@@ -333,15 +319,7 @@ export default function BlogPostClient({
                       className="related-card group"
                     >
                       <Link href={`/blog/${relatedPost.slug}`}>
-                        <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
-                          <Image
-                            src={relatedPost.image}
-                            alt={relatedPost.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <span className="text-primary text-xs font-bold uppercase tracking-wider">
+                        <span className="text-primary text-xs font-bold uppercase tracking-wider block mb-2">
                           {relatedPost.category}
                         </span>
                         <h3 className="text-lg font-bold mt-2 mb-2 group-hover:text-primary transition-colors line-clamp-2">

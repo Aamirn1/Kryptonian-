@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import Link from "next/link";
-import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
@@ -258,18 +257,7 @@ export default function PortfolioPage() {
                       className="group relative bg-foreground rounded-[3rem] overflow-hidden"
                     >
                       <div className="grid lg:grid-cols-2">
-                        {/* Image Side */}
-                        <div className="relative h-full bg-linear-to-br from-primary/20 to-purple-500/20">
-                          <Image
-                            src={featured.image}
-                            alt={featured.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0" />
-                        </div>
-
-                        {/* Content Side */}
+                        {/* Content Side (full width, no image) */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center">
                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
                             Featured Case Study
@@ -359,33 +347,11 @@ export default function PortfolioPage() {
                     key={caseStudy.id}
                     className="case-card group bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
                   >
-                    {/* Image */}
-                    <div className="relative h-56 overflow-hidden">
-                      <Image
-                        src={caseStudy.image}
-                        alt={caseStudy.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0" />
-
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold rounded-full">
-                          {caseStudy.category}
-                        </span>
-                      </div>
-
-                      {/* Client Logo */}
-                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-xl p-2 shadow-lg">
-                        <Image
-                          src={caseStudy.logo}
-                          alt={caseStudy.client}
-                          width={32}
-                          height={32}
-                          className="object-contain"
-                        />
-                      </div>
+                    {/* Category Badge */}
+                    <div className="pt-6 px-8">
+                      <span className="px-3 py-1 bg-zinc-100 text-foreground text-xs font-bold rounded-full">
+                        {caseStudy.category}
+                      </span>
                     </div>
 
                     {/* Content */}

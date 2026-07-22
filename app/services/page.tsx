@@ -15,7 +15,6 @@ import {
   Zap,
   ArrowRight,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -133,24 +132,13 @@ export default function ServicesPage() {
                     key={index}
                     className="service-card group bg-white border border-[#cb6ce6]/30 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
                   >
-                    {/* Image */}
-                    <div className="relative h-52 overflow-hidden">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-
                     {/* Content */}
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-6">
                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
                           <service.icon className="w-7 h-7 text-primary" />
                         </div>
-                        <h3 className="text-2xl font-bold tracking-tight text-primary uppercase">
+                        <h3 className="text-2xl font-bold tracking-tight text-[#281000] uppercase">
                           {service.title}
                         </h3>
                       </div>

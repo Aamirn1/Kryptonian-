@@ -18,7 +18,6 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -317,20 +316,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="relative hidden lg:block">
-                  <div className="relative aspect-square max-w-lg mx-auto">
-                    <div className="absolute inset-0 bg-primary/10 rounded-4xl rotate-6 blur-2xl" />
-                    <div className="relative bg-white border border-[#cb6ce6]/40 rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
-                      <Image
-                        src="/images/hero/hero_team_collaboration_1769511734235.png"
-                        alt="Krypton Digital Team"
-                        width={600}
-                        height={600}
-                        className="object-contain rounded-3xl"
-                      />
-                    </div>
-                  </div>
-                </div>
+                {/* Hero image removed */}
               </div>
             </div>
           </section>
@@ -487,17 +473,6 @@ export default function AboutPage() {
                     key={index}
                     className="team-card group text-center"
                   >
-                    <div className="relative mb-6 overflow-hidden rounded-4xl">
-                      <div className="aspect-square bg-zinc-800 relative">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
                     <h3 className="text-xl font-bold text-white mb-1">
                       {member.name}
                     </h3>

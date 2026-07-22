@@ -15,7 +15,6 @@ import {
   ChevronRight,
   User,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -111,18 +110,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   className="group block relative bg-foreground rounded-[3rem] overflow-hidden"
                 >
                   <div className="grid lg:grid-cols-2">
-                    {/* Image Side */}
-                    <div className="relative h-75 lg:h-125">
-                      <Image
-                        src={featuredPost.image}
-                        alt={featuredPost.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0" />
-                    </div>
-
-                    {/* Content Side */}
+                    {/* Content Side (full width, no image) */}
                     <div className="p-10 lg:p-16 flex flex-col justify-center">
                       <div className="flex items-center gap-4 mb-6">
                         <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
@@ -212,20 +200,11 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                     className="blog-card group bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
                   >
                     <Link href={`/blog/${post.slug}`}>
-                      {/* Image */}
-                      <div className="relative h-52 overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0" />
-                        <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-foreground text-xs font-bold rounded-full">
-                            {post.category}
-                          </span>
-                        </div>
+                      {/* Category Badge (no image) */}
+                      <div className="pt-6 px-8">
+                        <span className="px-3 py-1 bg-zinc-100 text-foreground text-xs font-bold rounded-full">
+                          {post.category}
+                        </span>
                       </div>
 
                       {/* Content */}

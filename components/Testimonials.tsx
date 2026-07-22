@@ -187,13 +187,8 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-zinc-100 rounded-full overflow-hidden">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${testimonial.image})` }}
-                  />
-                </div>
                 <div>
+
                   <h4 className="font-bold text-lg">{testimonial.name}</h4>
                   <p className="text-zinc-500 text-sm">{testimonial.role}</p>
                 </div>
@@ -290,12 +285,6 @@ export default function Testimonials() {
             </p>
 
             <div className="flex items-center gap-4 pt-6 border-t border-[#cb6ce6]/30">
-              <div className="w-16 h-16 bg-zinc-100 rounded-full overflow-hidden">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${selectedTestimonial.image})` }}
-                />
-              </div>
               <div>
                 <h4 className="font-bold text-xl">{selectedTestimonial.name}</h4>
                 <p className="text-zinc-500">{selectedTestimonial.role}</p>
