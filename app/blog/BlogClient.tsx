@@ -109,9 +109,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   href={`/blog/${featuredPost.slug}`}
                   className="group block relative bg-foreground rounded-[3rem] overflow-hidden"
                 >
-                  <div className="grid lg:grid-cols-2">
-                    {/* Content Side (full width, no image) */}
-                    <div className="p-10 lg:p-16 flex flex-col justify-center">
+                  <div className="p-10 lg:p-16 flex flex-col justify-center">
                       <div className="flex items-center gap-4 mb-6">
                         <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                           {featuredPost.category}

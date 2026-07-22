@@ -131,17 +131,17 @@ export default function GetStartedPage() {
               </div>
             </div>
 
-            <div className="intro-content mt-32 text-center p-20 bg-white border border-zinc-200 rounded-[4rem] shadow-xl shadow-zinc-200/20">
-              <h2 className="text-4xl font-bold mb-6 tracking-tight">
+            <div className="intro-content mt-32 text-center p-12 md:p-20 bg-foreground rounded-[4rem] shadow-xl shadow-black/20 relative overflow-hidden">
+              <h2 className="text-4xl font-black mb-6 tracking-tighter text-white uppercase">
                 STILL UNSURE?
               </h2>
-              <p className="text-zinc-500 text-lg mb-10 max-w-xl mx-auto">
+              <p className="text-white text-lg mb-10 max-w-xl mx-auto">
                 Schedule a free 15-minute discovery call with our experts to
                 find the right path for your business.
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-10 py-4 border border-zinc-200 rounded-full font-bold hover:bg-foreground hover:text-white hover:border-foreground transition-all"
+                className="inline-block px-10 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/80 transition-all"
               >
                 BOOK A CALL
               </Link>

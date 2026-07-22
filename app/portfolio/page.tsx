@@ -256,9 +256,7 @@ export default function PortfolioPage() {
                       key={featured.id}
                       className="group relative bg-foreground rounded-[3rem] overflow-hidden"
                     >
-                      <div className="grid lg:grid-cols-2">
-                        {/* Content Side (full width, no image) */}
-                        <div className="p-10 lg:p-16 flex flex-col justify-center">
+                      <div className="p-10 lg:p-16 flex flex-col justify-center">
                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
                             Featured Case Study
                           </div>

@@ -159,7 +159,7 @@ export default function ServicesPage() {
 
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-[#281000] font-semibold text-sm hover:gap-3 transition-all"
                       >
                         Get Started
                         <ArrowRight className="w-4 h-4" />

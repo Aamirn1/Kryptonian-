@@ -487,6 +487,16 @@ export default function AboutPage() {
                     key={index}
                     className="team-card group text-center"
                   >
+                    <div className="relative mb-6 overflow-hidden rounded-4xl mx-auto max-w-xs">
+                      <div className="aspect-square bg-zinc-800 relative">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
                     <h3 className="text-xl font-bold text-white mb-1">
                       {member.name}
                     </h3>

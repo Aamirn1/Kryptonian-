@@ -65,7 +65,7 @@ export default function CTA() {
             <div className="container mx-auto px-6 relative z-10">
                 <div
                     ref={contentRef}
-                    className="max-w-5xl mx-auto bg-foreground/[0.03] border border-foreground/10 rounded-[3rem] p-12 md:p-24 text-center backdrop-blur-sm relative overflow-hidden group hover:border-primary/30 transition-colors duration-500"
+                    className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group hover:border-primary/30 transition-colors duration-500"
                 >
                     {/* Subtle Grid Pattern */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
@@ -75,12 +75,12 @@ export default function CTA() {
                             <Zap className="w-4 h-4 fill-primary" /> READY TO ACCELERATE?
                         </div>
 
-                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-tight text-foreground">
+                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight text-white">
                             LET&apos;S BUILD THE <br />
                             <span className="text-primary italic">FUTURE</span> TOGETHER
                         </h2>
 
-                        <p className="text-muted text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="text-white/70 text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
                             Transform your digital vision into a market-leading reality with our expert team. Your growth starts here.
                         </p>
 
