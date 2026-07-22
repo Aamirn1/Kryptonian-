@@ -19,6 +19,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -316,7 +317,21 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Hero image removed */}
+                {/* Hero image */}
+                <div className="relative hidden lg:block">
+                  <div className="relative aspect-square max-w-lg mx-auto">
+                    <div className="absolute inset-0 bg-primary/10 rounded-4xl rotate-6 blur-2xl" />
+                    <div className="relative bg-white border border-[#cb6ce6]/40 rounded-4xl p-3 shadow-2xl shadow-zinc-200/50">
+                      <Image
+                        src="/images/hero/hero_team_collaboration_1769511734235.png"
+                        alt="Krypton Digital Team"
+                        width={600}
+                        height={600}
+                        className="object-contain rounded-3xl"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -380,9 +395,8 @@ export default function AboutPage() {
                     key={index}
                     className="value-card group p-10 bg-white border border-primary rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
                   >
-                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 transition-colors duration-300 cursor-pointer relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
-                      <value.icon className="w-8 h-8 text-primary relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 cursor-pointer">
+                      <value.icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
                       {value.title}
