@@ -92,7 +92,7 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="py-32 bg-[#fafafa] overflow-hidden"
+      className="py-32 bg-[#fafafa]"
     >
       {/* Header */}
       <div className="testimonials-header text-center mb-12 px-6">
@@ -112,15 +112,11 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Animated Card Stack */}
-      <div className="px-6">
-        <AnimatedCardStack
-          testimonials={testimonials}
-          onCardClick={(t) => setSelectedTestimonial(t)}
-          autoAdvance
-          autoAdvanceInterval={5000}
-        />
-      </div>
+      {/* Scroll-driven circulatory card carousel */}
+      <AnimatedCardStack
+        testimonials={testimonials}
+        onCardClick={(t) => setSelectedTestimonial(t)}
+      />
 
       {/* Trust Indicators */}
       <div className="mt-20 pt-16 border-t border-[#cb6ce6]/40 px-6">

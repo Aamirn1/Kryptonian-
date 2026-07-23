@@ -1,7 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useState, useLayoutEffect } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 import { Quote, Star, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,27 +22,9 @@ export interface Testimonial {
 interface AnimatedCardStackProps {
   testimonials: Testimonial[];
   onCardClick?: (testimonial: Testimonial) => void;
-  autoAdvance?: boolean;
-  autoAdvanceInterval?: number;
 }
 
-// Card stack positions: index 0 = front (bottom), 1 = middle, 2 = back (top peek)
-const positionStyles = [
-  { scale: 1, y: 12 },
-  { scale: 0.95, y: -16 },
-  { scale: 0.9, y: -44 },
-];
-
-const exitAnimation = {
-  y: 360,
-  scale: 1,
-  zIndex: 10,
-};
-
-const enterAnimation = {
-  y: -16,
-  scale: 0.9,
-};
+const GAP = 32; // px between cards (matches flex gap-8)
 
 function CardContent({ testimonial }: { testimonial: Testimonial }) {
   return (
@@ -86,106 +73,96 @@ function CardContent({ testimonial }: { testimonial: Testimonial }) {
   );
 }
 
-function AnimatedCard({
-  testimonial,
-  index,
-  isAnimating,
-  onClick,
-}: {
-  testimonial: Testimonial;
-  index: number;
-  isAnimating: boolean;
-  onClick?: () => void;
-}) {
-  const { scale, y } = positionStyles[index] ?? positionStyles[2];
-  const zIndex = index === 0 && isAnimating ? 10 : 3 - index;
-
-  const exitAnim = index === 0 ? exitAnimation : undefined;
-  const initialAnim = index === 2 ? enterAnimation : undefined;
-
-  return (
-    <motion.div
-      key={testimonial.id}
-      initial={initialAnim}
-      animate={{ y, scale }}
-      exit={exitAnim}
-      transition={{
-        type: "spring",
-        duration: 1,
-        bounce: 0,
-      }}
-      style={{
-        zIndex,
-        left: "50%",
-        x: "-50%",
-        bottom: 0,
-      }}
-      onClick={onClick}
-      className="absolute flex h-[360px] w-[324px] sm:w-[480px] items-stretch justify-center overflow-hidden rounded-t-[2rem] rounded-b-3xl border border-[#cb6be6]/30 bg-white p-1 shadow-lg shadow-zinc-200/40 will-change-transform cursor-pointer hover:border-primary/50 transition-colors"
-    >
-      <CardContent testimonial={testimonial} />
-    </motion.div>
-  );
-}
-
 export default function AnimatedCardStack({
   testimonials,
   onCardClick,
-  autoAdvance = true,
-  autoAdvanceInterval = 5000,
 }: AnimatedCardStackProps) {
-  const [cards, setCards] = useState<Testimonial[]>(testimonials.slice(0, 3));
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [nextIndex, setNextIndex] = useState(testimonials.length > 3 ? 3 : 0);
-  const [paused, setPaused] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const handleAnimate = useCallback(() => {
-    setIsAnimating(true);
+  const uniqueCount = testimonials.length;
+  // Duplicate the set once so the loop endpoint looks identical to the start.
+  const loopCards = [...testimonials, ...testimonials];
 
-    setCards((prev) => {
-      const nextTestimonial = testimonials[nextIndex % testimonials.length];
-      return [...prev.slice(1), nextTestimonial];
-    });
-    setNextIndex((prev) => (prev + 1) % testimonials.length);
-    setIsAnimating(false);
-  }, [testimonials, nextIndex]);
+  // Measured layout values (re-measured on resize).
+  const [step, setStep] = useState(472); // cardWidth + GAP (default 440+32)
+  const [vpWidth, setVpWidth] = useState(1024);
 
-  // Auto-advance
-  useEffect(() => {
-    if (!autoAdvance || paused || testimonials.length <= 1) return;
-    const timer = setInterval(handleAnimate, autoAdvanceInterval);
-    return () => clearInterval(timer);
-  }, [autoAdvance, paused, autoAdvanceInterval, handleAnimate, testimonials.length]);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Smooth the raw scroll progress for a buttery feel.
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.4,
+  });
+
+  // Measure the actual per-card step (width + gap) and viewport width so the
+  // centering math stays correct across breakpoints.
+  useLayoutEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      const vp = viewportRef.current;
+      if (track && track.children.length >= 2) {
+        const a = track.children[0] as HTMLElement;
+        const b = track.children[1] as HTMLElement;
+        setStep(b.offsetLeft - a.offsetLeft);
+      }
+      if (vp) setVpWidth(vp.offsetWidth);
+    };
+    measure();
+    // Re-measure shortly after mount (fonts/images can shift layout) + on resize.
+    const t = window.setTimeout(measure, 300);
+    window.addEventListener("resize", measure);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
+  // Center card[0] at scroll 0: translate track so card[0]'s left edge sits
+  // at (viewportWidth - cardWidth) / 2. Then move left by one card-step per
+  // unique card. End point centers the first duplicate (== card[0]) for a
+  // seamless circular finish.
+  const cardWidth = step - GAP;
+  const startX = (vpWidth - cardWidth) / 2;
+  const endX = startX - uniqueCount * step;
+  const x = useTransform(smoothProgress, [0, 1], [startX, endX]);
 
   return (
-    <div
-      className="flex w-full flex-col items-center justify-center pt-2"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+    <section
+      ref={sectionRef}
+      className="relative"
+      style={{ height: `${(uniqueCount + 1) * 60}vh` }}
     >
-      <div className="relative h-[420px] w-full overflow-hidden sm:w-[644px]">
-        <AnimatePresence initial={false}>
-          {cards.slice(0, 3).map((testimonial, index) => (
-            <AnimatedCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              index={index}
-              isAnimating={isAnimating}
-              onClick={() => onCardClick?.(testimonial)}
-            />
-          ))}
-        </AnimatePresence>
-      </div>
+      <div
+        ref={viewportRef}
+        className="sticky top-0 h-screen flex items-center overflow-hidden"
+      >
+        {/* Soft side fades so half-hidden cards melt into the background */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 sm:w-40 bg-gradient-to-r from-[#fafafa] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 sm:w-40 bg-gradient-to-l from-[#fafafa] to-transparent" />
 
-      <div className="relative z-10 -mt-px flex w-full items-center justify-center border-t border-border py-4">
-        <button
-          onClick={handleAnimate}
-          className="flex h-10 cursor-pointer select-none items-center justify-center gap-2 overflow-hidden rounded-full border border-[#cb6be6]/30 bg-white px-6 font-semibold text-foreground transition-all hover:bg-primary hover:text-white hover:border-primary active:scale-[0.98]"
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex gap-8 will-change-transform"
         >
-          Next Story
-          <ChevronRight className="w-4 h-4" />
-        </button>
+          {loopCards.map((t, i) => (
+            <div
+              key={`${t.id}-${i}`}
+              onClick={() => onCardClick?.(t)}
+              className="shrink-0 w-[280px] sm:w-[440px] h-[360px] flex items-stretch justify-center overflow-hidden rounded-[2rem] border border-[#cb6ce6]/30 bg-white shadow-lg shadow-zinc-200/40 cursor-pointer hover:border-primary/50 transition-colors"
+            >
+              <CardContent testimonial={t} />
+            </div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
