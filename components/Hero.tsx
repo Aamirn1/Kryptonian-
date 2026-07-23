@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Zap } from "lucide-react";
+import { Zap, Target, BarChart3 } from "lucide-react";
 
 import ThreeNexus from "./ThreeNexus";
 import MobileParticles from "./MobileParticles";
@@ -36,15 +36,24 @@ const HERO_PARTS = [
     src: "/hero-images/Stroke-2.png",
     className: "w-[80%] bottom-[24%] left-[5%] z-5",
   },
+];
+
+// Original icon-based floating stat cards (replaces the Tag-1/Tag-2 text PNGs).
+// Same icons used in the early cloned design (Target + BarChart3).
+const FLOATING_STAT_CARDS = [
   {
-    id: "tag1",
-    src: "/hero-images/Tag-1.png",
-    className: "w-[28%] bottom-[18%] left-[2%] z-30",
+    id: "conv",
+    icon: Target,
+    value: "3.4x",
+    label: "Conversion Rate",
+    className: "bottom-[18%] left-[2%] z-30",
   },
   {
-    id: "tag2",
-    src: "/hero-images/Tag-2.png",
-    className: "w-[28%] top-[12%] right-[2%] z-30",
+    id: "roi",
+    icon: BarChart3,
+    value: "320%",
+    label: "Avg. ROI",
+    className: "top-[12%] right-[2%] z-30",
   },
 ];
 
@@ -292,6 +301,34 @@ export default function Hero() {
                   />
                 </div>
               ))}
+
+              {/* Floating icon stat cards (replaces the old Tag-1/Tag-2 text PNGs) */}
+              {FLOATING_STAT_CARDS.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <div
+                    key={card.id}
+                    ref={(el) => {
+                      partsRef.current[HERO_PARTS.length + index] = el;
+                    }}
+                    className={`absolute ${card.className}`}
+                  >
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-2xl bg-white/80 backdrop-blur-md border border-primary/20 shadow-[0_10px_40px_-10px_rgba(203,107,230,0.3)]">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary shrink-0">
+                        <Icon className="h-4 w-4 text-white" strokeWidth={2.5} />
+                      </span>
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-sm font-bold text-foreground">
+                          {card.value}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-wider text-foreground/50 font-medium">
+                          {card.label}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
