@@ -12,6 +12,19 @@ const MAX_SCALE = 1.35;
 const MIN_SCALE = 1.0;
 const EFFECT_WIDTH = 180;
 
+// Static nav links — kept at module scope so their reference is stable across
+// renders. (Defining this inside the component created a new array every
+// render, which caused a setState-in-effect infinite loop.)
+const NAV_LINKS = [
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+const INITIAL_SCALES = NAV_LINKS.map(() => MIN_SCALE);
+
 const NavLink = ({
   href,
   children,
@@ -59,31 +72,16 @@ export default function Navbar() {
   const linksContainerRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scales, setScales] = useState<number[]>([]);
+  const [scales, setScales] = useState<number[]>(INITIAL_SCALES);
   const mouseRef = useRef<number | null>(null);
   const animFrameRef = useRef<number | undefined>(undefined);
-  const currentScalesRef = useRef<number[]>([]);
+  const currentScalesRef = useRef<number[]>(INITIAL_SCALES);
   const pathname = usePathname();
 
-  const navLinks = [
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/portfolio", label: "Portfolio" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ];
+  const navLinks = NAV_LINKS;
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
-
-  // Initialize scales
-  useEffect(() => {
-    const initial = navLinks.map(() => MIN_SCALE);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setScales(initial);
-    currentScalesRef.current = initial;
-  }, [navLinks]);
 
   // Calculate target scales based on mouse position (cosine magnification)
   const calculateTargetScales = useCallback(() => {

@@ -36,7 +36,8 @@ const nextConfig: NextConfig = {
   experimental: {
     // Tree-shake unused exports from heavy icon/Component libraries so only
     // the icons/components actually used ship to the client.
-    optimizePackageImports: ["lucide-react", "gsap"],
+    // (Disabled optimizePackageImports in dev — it caused re-render/HMR
+    // instability with gsap + lucide-react under React 19.)
   },
   // Silence the multiple-lockfile workspace-root warning + speed up builds.
   turbopack: {
