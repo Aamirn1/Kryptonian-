@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Zap } from "lucide-react";
 
 import ThreeNexus from "./ThreeNexus";
+import MobileParticles from "./MobileParticles";
 
 const HERO_PARTS = [
   { id: "main", src: "/hero-images/main-bg.webp", className: "w-[75%] z-10" },
@@ -201,8 +202,9 @@ export default function Hero() {
         </div>
       )}
 
-      {/* 3D Background */}
+      {/* 3D Background (desktop) + CSS particles (mobile) */}
       <ThreeNexus />
+      <MobileParticles />
 
       {/* Content */}
       <div

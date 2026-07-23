@@ -140,14 +140,14 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid - cards with icon left, content right */}
+        {/* Services Grid - mobile: centered stack; desktop: icon left, content right */}
         <div className="services-grid grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card-item group flex items-start gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 transition-all duration-300"
+              className="service-card-item group flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 transition-all duration-300"
             >
-              {/* Icon */}
+              {/* Icon — centered on mobile, left on desktop */}
               <div
                 className={cn(
                   "flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 transition-transform duration-300 group-hover:scale-110",
@@ -157,8 +157,8 @@ export default function Services() {
                 <service.icon className="w-8 h-8" />
               </div>
 
-              {/* Content */}
-              <div className="flex-1 min-w-0">
+              {/* Content — stacked & centered on mobile */}
+              <div className="flex-1 min-w-0 flex flex-col items-center md:items-start">
                 <h3 className="text-2xl font-bold tracking-tight text-primary uppercase mb-3">
                   {service.title}
                 </h3>
@@ -167,7 +167,7 @@ export default function Services() {
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
