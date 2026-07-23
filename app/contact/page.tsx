@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { Suspense, useEffect, useRef, useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import SmoothScroll from "@/components/SmoothScroll";
 import {
@@ -23,11 +24,13 @@ const categoryOptions: { value: Exclude<PackageCategory, "">; label: string }[] 
   { value: "monthly", label: "Ongoing Growth" },
 ];
 
-export default function ContactPage() {
+function ContactPageInner() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
+
+  const searchParams = useSearchParams();
 
   const [isPending, startTransition] = useTransition();
   const [formStatus, setFormStatus] = useState<{
@@ -41,6 +44,45 @@ export default function ContactPage() {
   const serviceOptions = category
     ? [...pricingData[category].map((p) => p.name), "Need to talk"]
     : [];
+
+  // Auto-fill category + service from URL params (?pkg=oneTime&plan=Growth-Ready)
+  // so users coming from the pricing/get-started flow have the form pre-filled.
+  useEffect(() => {
+    const pkg = searchParams.get("pkg");
+    const plan = searchParams.get("plan");
+
+    if (pkg === "oneTime" || pkg === "monthly") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCategory(pkg);
+      if (plan) {
+        // Defer setting service until category is applied — match against the
+        // available services for that category.
+        const valid = [...pricingData[pkg].map((p) => p.name), "Need to talk"];
+        if (valid.includes(plan)) {
+          setService(plan);
+        }
+      }
+    }
+  }, [searchParams]);
+
+  // On mobile, auto-scroll to the form (not the top) when arriving with
+  // preselected package/service params so users land on the form fields
+  // (name/email) instead of the contact-info section above.
+  useEffect(() => {
+    const pkg = searchParams.get("pkg");
+    const hasPrefill = pkg === "oneTime" || pkg === "monthly";
+    if (!hasPrefill) return;
+    // Only auto-scroll on mobile (the contact-info section is only above the
+    // form on small screens; on desktop they're side-by-side).
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+    if (!isMobile) return;
+    // Wait for the gsap entrance animation to settle, then scroll the form
+    // into view at the top of the viewport.
+    const t = window.setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 900);
+    return () => window.clearTimeout(t);
+  }, [searchParams]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -101,6 +143,8 @@ export default function ContactPage() {
         if (result.errors) {
           setErrors(result.errors);
         }
+        // Scroll the form into view so the error is visible (esp. on mobile).
+        formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   };
@@ -153,7 +197,7 @@ export default function ContactPage() {
                       <p className="text-sm text-zinc-400 uppercase tracking-widest font-bold">
                         Email Us
                       </p>
-                      <p className="text-xl font-medium group-hover:text-primary transition-colors">
+                      <p className="text-base sm:text-xl font-medium group-hover:text-primary transition-colors break-all">
                         contact@kryptondigital.co.uk
                       </p>
                     </div>
@@ -369,5 +413,13 @@ export default function ContactPage() {
         <Footer />
       </div>
     </SmoothScroll>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactPageInner />
+    </Suspense>
   );
 }
