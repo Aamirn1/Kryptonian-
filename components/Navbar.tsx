@@ -3,18 +3,11 @@
 import { gsap } from "gsap";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-// macOS Dock magnification effect for nav links
-const MAX_SCALE = 1.35;
-const MIN_SCALE = 1.0;
-const EFFECT_WIDTH = 180;
-
-// Static nav links — kept at module scope so their reference is stable across
-// renders. (Defining this inside the component created a new array every
-// render, which caused a setState-in-effect infinite loop.)
+// Static nav links at module scope (stable reference across renders).
 const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -23,36 +16,25 @@ const NAV_LINKS = [
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
-const INITIAL_SCALES = NAV_LINKS.map(() => MIN_SCALE);
 
 const NavLink = ({
   href,
   children,
   active,
   onClick,
-  scale,
-  onRef,
 }: {
   href: string;
   children: React.ReactNode;
   active?: boolean;
   onClick?: () => void;
-  scale: number;
-  onRef: (el: HTMLAnchorElement | null) => void;
 }) => {
   return (
     <Link
-      ref={onRef}
       href={href}
       onClick={onClick}
       className={`group relative text-sm font-medium tracking-tight transition-colors hover:text-primary whitespace-nowrap ${
         active ? "text-primary" : ""
       }`}
-      style={{
-        transform: `scale(${scale})`,
-        transformOrigin: "bottom center",
-        transition: "color 0.3s ease",
-      }}
     >
       {children}
       <span
@@ -69,139 +51,13 @@ const NavLink = ({
 
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
-  const linksContainerRef = useRef<HTMLDivElement>(null);
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scales, setScales] = useState<number[]>(INITIAL_SCALES);
-  const mouseRef = useRef<number | null>(null);
-  const animFrameRef = useRef<number | undefined>(undefined);
-  const currentScalesRef = useRef<number[]>(INITIAL_SCALES);
   const pathname = usePathname();
 
   const navLinks = NAV_LINKS;
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
-
-  // Calculate target scales based on mouse position (cosine magnification)
-  const calculateTargetScales = useCallback(() => {
-    if (mouseRef.current === null) {
-      return navLinks.map(() => MIN_SCALE);
-    }
-
-    return navLinks.map((_, index) => {
-      const linkEl = linkRefs.current[index];
-      if (!linkEl) return MIN_SCALE;
-
-      const rect = linkEl.getBoundingClientRect();
-      const containerRect = linksContainerRef.current?.getBoundingClientRect();
-      if (!containerRect) return MIN_SCALE;
-
-      const linkCenter = rect.left + rect.width / 2 - containerRect.left;
-      const mousePos = mouseRef.current;
-      if (mousePos === null) return MIN_SCALE;
-      const distance = Math.abs(linkCenter - mousePos);
-
-      if (distance > EFFECT_WIDTH / 2) {
-        return MIN_SCALE;
-      }
-
-      // Cosine-based magnification curve
-      const theta = (distance / (EFFECT_WIDTH / 2)) * (Math.PI / 2);
-      const scaleFactor = Math.cos(theta);
-      return MIN_SCALE + (scaleFactor * (MAX_SCALE - MIN_SCALE));
-    });
-  }, []);
-
-  // Animation loop with lerp for smooth transitions
-  useEffect(() => {
-    const animate = () => {
-      const targets = calculateTargetScales();
-      const lerpFactor = mouseRef.current !== null ? 0.2 : 0.12;
-
-      const newScales = currentScalesRef.current.map((current, index) => {
-        const diff = targets[index] - current;
-        return current + (diff * lerpFactor);
-      });
-
-      // Check if we need to continue animating
-      const needsUpdate = newScales.some((s, i) => Math.abs(s - targets[i]) > 0.002);
-
-      currentScalesRef.current = newScales;
-      setScales(newScales);
-
-      if (needsUpdate || mouseRef.current !== null) {
-        animFrameRef.current = requestAnimationFrame(animate);
-      }
-    };
-
-    // Start animation on mouse move
-    if (animFrameRef.current) {
-      cancelAnimationFrame(animFrameRef.current);
-    }
-    animFrameRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animFrameRef.current) {
-        cancelAnimationFrame(animFrameRef.current);
-      }
-    };
-  }, [calculateTargetScales]);
-
-  // Mouse move handler
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!linksContainerRef.current) return;
-    const rect = linksContainerRef.current.getBoundingClientRect();
-    mouseRef.current = e.clientX - rect.left;
-
-    // Trigger animation
-    if (animFrameRef.current) {
-      cancelAnimationFrame(animFrameRef.current);
-    }
-    animFrameRef.current = requestAnimationFrame(() => {
-      const targets = calculateTargetScales();
-      const animate = () => {
-        const lerpFactor = mouseRef.current !== null ? 0.2 : 0.12;
-        const newScales = currentScalesRef.current.map((current, index) => {
-          const diff = targets[index] - current;
-          return current + (diff * lerpFactor);
-        });
-
-        const needsUpdate = newScales.some((s, i) => Math.abs(s - targets[i]) > 0.002);
-        currentScalesRef.current = newScales;
-        setScales(newScales);
-
-        if (needsUpdate || mouseRef.current !== null) {
-          animFrameRef.current = requestAnimationFrame(animate);
-        }
-      };
-      animate();
-    });
-  }, [calculateTargetScales]);
-
-  const handleMouseLeave = useCallback(() => {
-    mouseRef.current = null;
-    // Animate back to min scale
-    if (animFrameRef.current) {
-      cancelAnimationFrame(animFrameRef.current);
-    }
-    const animate = () => {
-      const targets = navLinks.map(() => MIN_SCALE);
-      const newScales = currentScalesRef.current.map((current, index) => {
-        const diff = targets[index] - current;
-        return current + (diff * 0.12);
-      });
-
-      const needsUpdate = newScales.some((s, i) => Math.abs(s - targets[i]) > 0.002);
-      currentScalesRef.current = newScales;
-      setScales(newScales);
-
-      if (needsUpdate) {
-        animFrameRef.current = requestAnimationFrame(animate);
-      }
-    };
-    animFrameRef.current = requestAnimationFrame(animate);
-  }, []);
 
   useEffect(() => {
     gsap.fromTo(
@@ -254,20 +110,13 @@ export default function Navbar() {
             <Image src="/logo.png" alt="Krypton Digital home" width={36} height={36} className="md:w-10 md:h-10" />
           </Link>
 
-          {/* Desktop Navigation with macOS Dock magnification */}
-          <div
-            ref={linksContainerRef}
-            className="hidden md:flex items-center gap-6"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
-            {navLinks.map((link, index) => (
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
               <NavLink
                 key={link.href}
                 href={link.href}
                 active={isActive(link.href)}
-                scale={scales[index] || MIN_SCALE}
-                onRef={(el) => { linkRefs.current[index] = el; }}
               >
                 {link.label}
               </NavLink>

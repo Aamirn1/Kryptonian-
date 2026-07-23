@@ -304,10 +304,10 @@ export default function PortfolioPage() {
                               href={featured.projectUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-full text-sm hover:bg-primary/80 transition-colors"
+                              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 text-white font-semibold rounded-full text-xs hover:bg-primary hover:border-primary hover:text-white transition-all"
                             >
                               View Project
-                              <ArrowRight className="w-4 h-4" />
+                              <ArrowRight className="w-3.5 h-3.5" />
                             </a>
                           )}
                         </div>
