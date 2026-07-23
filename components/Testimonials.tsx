@@ -79,7 +79,9 @@ export default function Testimonials() {
       const firstCard = cards[0] as HTMLElement;
       const cardWidth = firstCard.offsetWidth;
       const windowWidth = window.innerWidth;
-      const initialOffset = windowWidth / 2 - cardWidth / 2;
+      // Start the first card on the RIGHT side of the screen (48px padding
+      // from the right edge) so it sweeps right-to-left as the user scrolls.
+      const initialOffset = windowWidth - cardWidth - 48;
 
       gsap.set(section, { x: initialOffset });
 
