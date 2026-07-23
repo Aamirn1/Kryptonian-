@@ -52,47 +52,40 @@ export default function CTA() {
     }, []);
 
     return (
-        <section
-            ref={containerRef}
-            className="py-28 relative overflow-hidden bg-foreground"
-        >
-            {/* Background Decorative Elements */}
-            <div
-                ref={glowRef}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-40"
-            />
-
-            <div className="container mx-auto px-6 relative z-10">
+        <section className="px-6 mt-32 bg-background">
+            <div ref={containerRef} className="container mx-auto max-w-4xl">
                 <div
                     ref={contentRef}
-                    className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group hover:border-primary/30 transition-colors duration-500"
+                    className="bg-foreground border border-primary/30 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/20 relative overflow-hidden"
                 >
-                    {/* Subtle Grid Pattern */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+                    {/* Background Decorative Elements */}
+                    <div
+                        ref={glowRef}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-40"
+                    />
 
                     <div className="relative z-10">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-8 border border-primary/20">
                             <Zap className="w-4 h-4 fill-primary" /> READY TO ACCELERATE?
                         </div>
 
-                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight text-white">
+                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight text-white uppercase">
                             LET&apos;S BUILD THE <br />
                             <span className="text-primary italic">FUTURE</span> TOGETHER
                         </h2>
 
-                        <p className="text-white/70 text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
                             Transform your digital vision into a market-leading reality with our expert team. Your growth starts here.
                         </p>
 
                         <Link
                             href="/pricing"
-                            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-foreground text-background font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 mx-auto"
+                            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95 mx-auto"
                         >
-                            <span className="relative z-10 transition-colors group-hover:text-primary">
+                            <span className="uppercase tracking-widest text-sm">
                                 Initialize Project Scoping
                             </span>
-                            <MoveRight className="relative z-10 w-6 h-6 transition-transform group-hover:translate-x-2 group-hover:text-primary" />
-                            <div className="absolute inset-0 bg-primary/10 translate-y-full transition-transform group-hover:translate-y-0" />
+                            <MoveRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </Link>
                     </div>
                 </div>

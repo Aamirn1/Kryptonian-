@@ -252,11 +252,14 @@ export default function PortfolioPage() {
                   .filter((c) => c.featured)
                   .slice(0, 1)
                   .map((featured) => (
-                    <div
+                    <a
                       key={featured.id}
-                      className="group relative bg-foreground rounded-[3rem] overflow-hidden"
+                      href={featured.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative block bg-foreground rounded-[3rem] overflow-hidden"
                     >
-                      <div className="p-10 lg:p-16 flex flex-col justify-center">
+                      <div className="p-10 lg:p-16 pr-20 lg:pr-24 flex flex-col justify-center">
                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
                             Featured Case Study
                           </div>
@@ -288,7 +291,7 @@ export default function PortfolioPage() {
                           </div>
 
                           {/* Tags */}
-                          <div className="flex flex-wrap gap-2 mb-8">
+                          <div className="flex flex-wrap gap-2">
                             {featured.tags.map((tag) => (
                               <span
                                 key={tag}
@@ -298,20 +301,13 @@ export default function PortfolioPage() {
                               </span>
                             ))}
                           </div>
-
-                          {featured.projectUrl && (
-                            <a
-                              href={featured.projectUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 text-white font-semibold rounded-full text-xs hover:bg-primary hover:border-primary hover:text-white transition-all"
-                            >
-                              View Project
-                              <ArrowRight className="w-3.5 h-3.5" />
-                            </a>
-                          )}
                         </div>
-                    </div>
+
+                        {/* Arrow on the right side of the section */}
+                        <div className="absolute top-1/2 right-8 lg:right-10 -translate-y-1/2 flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-white/15 text-white group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all">
+                          <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 transition-transform group-hover:translate-x-0.5" />
+                        </div>
+                    </a>
                   ))}
               </div>
             </div>
