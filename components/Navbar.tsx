@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Static nav links at module scope (stable reference across renders).
 const NAV_LINKS = [
@@ -66,6 +68,14 @@ export default function Navbar() {
       { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", delay: 0.5 }
     );
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMobileMenuOpen(false);
+    }
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -129,82 +139,88 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Animated Burger Button (mobile only) */}
           <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-foreground/5 transition-colors focus-visible:ring-2 focus-visible:ring-primary"
-            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="md:hidden relative flex h-9 w-9 items-center justify-center rounded-lg hover:bg-foreground/5 transition-colors focus-visible:ring-2 focus-visible:ring-primary text-foreground"
+            aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            <Menu className="w-5 h-5" />
+            <div className="relative h-3.5 w-5">
+              {/* Line 1 (top) → rotates to 45° + moves to center */}
+              <motion.span
+                className="absolute left-0 top-0 h-0.5 w-full rounded-full bg-current"
+                animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+              />
+              {/* Line 2 (middle) → fades + scales to 0 */}
+              <motion.span
+                className="absolute left-0 top-1.5 h-0.5 w-full rounded-full bg-current"
+                animate={mobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              />
+              {/* Line 3 (bottom) → rotates to -45° + moves to center */}
+              <motion.span
+                className="absolute left-0 top-3 h-0.5 w-full rounded-full bg-current"
+                animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+              />
+            </div>
           </button>
         </nav>
-      </header>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div id="mobile-menu" className="fixed inset-0 z-[100] md:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-hidden="true"
-          />
+        {/* Slide-down mobile dropdown panel */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              key="mobile-menu"
+              id="mobile-menu"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="absolute inset-x-4 top-[68px] z-50 md:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
+            >
+              <div className="rounded-2xl border border-black/10 bg-white/98 backdrop-blur-xl p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)]">
+                {/* Nav links */}
+                <nav className="flex flex-col gap-1">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors min-h-[44px]",
+                        isActive(link.href)
+                          ? "bg-primary/10 text-primary"
+                          : "text-foreground hover:bg-foreground/5"
+                      )}
+                    >
+                      {link.label}
+                      <ChevronRight className="w-4 h-4 opacity-40" />
+                    </Link>
+                  ))}
+                </nav>
 
-          {/* Menu Panel */}
-          <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl animate-in slide-in-from-right duration-300">
-            <div className="flex flex-col h-full p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
-                <Link
-                  href="/"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold tracking-tighter"
-                >
-                  <Image src="/logo.png" alt="Krypton Digital home" width={40} height={40} />
-                </Link>
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-foreground/5 transition-colors focus-visible:ring-2 focus-visible:ring-primary"
-                  aria-label="Close menu"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Navigation Links */}
-              <nav className="flex flex-col gap-2 flex-1">
-                {navLinks.map((link) => (
+                {/* Divider + CTA */}
+                <div className="mt-2 border-t border-black/10 pt-3">
                   <Link
-                    key={link.href}
-                    href={link.href}
+                    href="/get-started"
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`py-4 px-4 text-lg font-medium rounded-2xl transition-colors ${
-                      isActive(link.href)
-                        ? "bg-primary/10 text-primary"
-                        : "hover:bg-foreground/5"
-                    }`}
+                    className="block w-full rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition-all active:scale-[0.98] hover:bg-primary/90"
                   >
-                    {link.label}
+                    Initiate Scoping
                   </Link>
-                ))}
-              </nav>
-
-              {/* CTA */}
-              <div className="pt-6 border-t border-foreground/10">
-                <Link
-                  href="/get-started"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full py-4 bg-primary text-white text-center font-bold rounded-full hover:bg-primary/80 transition-all"
-                >
-                  Initiate Scoping
-                </Link>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }
