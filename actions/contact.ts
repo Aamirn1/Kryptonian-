@@ -34,7 +34,7 @@ export type ContactResponse = {
 };
 
 const CONTACT_TO_EMAIL =
-  process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.com";
+  process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.co.uk";
 
 export async function sendContactEmail(
   formData: ContactFormData,
