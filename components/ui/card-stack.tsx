@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion, type PanInfo, type HTMLMotionProps } from "framer-motion";
 import { Quote, Star, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -267,18 +267,15 @@ export function CardStack({
               const rotateX = isActive ? 0 : tiltXDeg;
               const zIndex = 100 - abs;
 
-              const dragProps = isActive
+              const dragProps: Pick<
+                HTMLMotionProps<"div">,
+                "drag" | "dragConstraints" | "dragElastic" | "onDragEnd"
+              > = isActive
                 ? {
                     drag: "x" as const,
                     dragConstraints: { left: 0, right: 0 },
                     dragElastic: 0.18,
-                    onDragEnd: (
-                      _e: React.MouseEvent | React.TouchEvent | PointerEvent,
-                      info: {
-                        offset: { x: number };
-                        velocity: { x: number };
-                      }
-                    ) => {
+                    onDragEnd: (_e, info: PanInfo) => {
                       if (reduceMotion) return;
                       const travel = info.offset.x;
                       const v = info.velocity.x;
