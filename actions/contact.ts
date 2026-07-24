@@ -71,7 +71,7 @@ export async function sendContactEmail(
       ? escapeHtml(message).replace(/\n/g, "<br>")
       : "<em style=\"color:#999\">No message provided</em>";
 
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "Krypton Digital <noreply@kryptondigital.com>";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "Krypton Digital <noreply@kryptondigital.co.uk>";
 
     const { error } = await resend.emails.send({
       from: fromEmail,
