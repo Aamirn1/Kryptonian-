@@ -46,6 +46,33 @@ const testimonials: Testimonial[] = [
     rating: 5,
     image: "/services/web-dev.png",
   },
+  {
+    id: 5,
+    name: "Olivia Bennett",
+    role: "CMO, Vertex Retail Group",
+    content:
+      "Krypton's data-driven market analysis uncovered opportunities we'd been missing for years. Our paid campaigns now hit a 6x ROAS and our customer acquisition cost dropped by 38%. Truly a growth partner.",
+    rating: 5,
+    image: "/services/market.png",
+  },
+  {
+    id: 6,
+    name: "Daniel Foster",
+    role: "Founder, Apex SaaS",
+    content:
+      "From brand identity to landing page CRO, Krypton handled it all. Our trial sign-ups jumped 180% in eight weeks. They think like owners, not vendors — that's rare and it shows in the results.",
+    rating: 5,
+    image: "/services/seo.png",
+  },
+  {
+    id: 7,
+    name: "Priya Nair",
+    role: "Head of Growth, Lumen Labs",
+    content:
+      "The team rebuilt our SEO architecture from the ground up. We went from page 3 to the top 3 positions for every money keyword in our niche. Organic leads are up 4x and still climbing month over month.",
+    rating: 5,
+    image: "/services/strategy.png",
+  },
 ];
 
 export default function Testimonials() {
