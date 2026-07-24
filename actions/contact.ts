@@ -34,7 +34,7 @@ export type ContactResponse = {
 };
 
 const CONTACT_TO_EMAIL =
-  process.env.CONTACT_TO_EMAIL || "amir03115794492@gmail.com";
+  process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.com";
 
 export async function sendContactEmail(
   formData: ContactFormData,
@@ -51,7 +51,7 @@ export async function sendContactEmail(
 
     const subject = `New Contact Form Submission - ${service}`;
     const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message || "(none)"}`;
-    const mailtoLink = `mailto:contact@kryptondigital.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
@@ -71,7 +71,7 @@ export async function sendContactEmail(
       ? escapeHtml(message).replace(/\n/g, "<br>")
       : "<em style=\"color:#999\">No message provided</em>";
 
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "Krypton Digital <onboarding@resend.dev>";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "Krypton Digital <noreply@kryptondigital.com>";
 
     const { error } = await resend.emails.send({
       from: fromEmail,
@@ -92,7 +92,7 @@ export async function sendContactEmail(
     console.error("Contact form error:", error);
     const subject = `New Contact Form Submission - ${formData.service}`;
     const body = `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage:\n${formData.message || "(none)"}`;
-    const mailtoLink = `mailto:contact@kryptondigital.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     return { success: false, message: "An unexpected error occurred. Please try again or send via your email client.", mailtoLink };
   }
 }
