@@ -5,10 +5,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Quote, Star, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CardStack, type Testimonial } from "@/components/ui/card-stack";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Sarah Mitchell",
@@ -49,9 +50,7 @@ const testimonials = [
 
 export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [selectedTestimonial, setSelectedTestimonial] = useState<(typeof testimonials)[0] | null>(null);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,49 +66,8 @@ export default function Testimonials() {
             trigger: containerRef.current,
             start: "top 80%",
           },
-        },
+        }
       );
-
-      // Horizontal scroll animation (same as Process section)
-      const section = sectionRef.current;
-      const trigger = triggerRef.current;
-      const cards = gsap.utils.toArray(".testimonial-card-horizontal");
-      if (!section || !trigger || cards.length === 0) return;
-
-      const windowWidth = window.innerWidth;
-      // Start the first card on the LEFT side of the screen (48px padding
-      // from the left edge). As the user scrolls down the track moves left:
-      // the first card exits left while the next cards come in from the right.
-      const initialOffset = 48;
-
-      gsap.set(section, { x: initialOffset });
-
-      const totalWidth = section.scrollWidth;
-
-      gsap.to(section, {
-        x: -(totalWidth - windowWidth + initialOffset),
-        ease: "none",
-        scrollTrigger: {
-          trigger: trigger,
-          pin: true,
-          scrub: 1,
-          start: "top top",
-          end: () => `+=${totalWidth}`,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      gsap.from(".testimonial-card-horizontal", {
-        y: 50,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: trigger,
-          start: "top 80%",
-        },
-      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -134,69 +92,38 @@ export default function Testimonials() {
       ref={containerRef}
       className="py-32 bg-[#fafafa] overflow-hidden"
     >
-      <div ref={triggerRef} className="h-screen flex flex-col">
-        {/* Header */}
-        <div className="testimonials-header text-center mb-4 pt-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6 border border-primary/20">
-            <Quote className="w-4 h-4 text-primary" />
-            <p className="text-primary font-bold text-sm">
-              CLIENT SUCCESS STORIES
-            </p>
-          </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6">
-            Trusted By{" "}
-            <span className="text-primary italic">Industry Leaders</span>
-          </h2>
-          <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our clients
-            have to say about working with us.
+      {/* Header */}
+      <div className="testimonials-header text-center mb-12 px-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6 border border-primary/20">
+          <Quote className="w-4 h-4 text-primary" />
+          <p className="text-primary font-bold text-sm">
+            CLIENT SUCCESS STORIES
           </p>
         </div>
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6">
+          Trusted By{" "}
+          <span className="text-primary italic">Industry Leaders</span>
+        </h2>
+        <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto">
+          Don&apos;t just take our word for it. Here&apos;s what our clients
+          have to say about working with us.
+        </p>
+      </div>
 
-        {/* Horizontal scrolling testimonials */}
-        <div
-          ref={sectionRef}
-          className="flex gap-8 px-6 items-center flex-1"
-          style={{ width: "max-content" }}
-        >
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              onClick={() => setSelectedTestimonial(testimonial)}
-              className="testimonial-card-horizontal group shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] p-8 bg-white border border-[#cb6ce6]/40 rounded-[2.5rem] shadow-lg shadow-zinc-200/20 hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all cursor-pointer"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Quote className="w-6 h-6 text-primary" />
-              </div>
-
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={cn(
-                      "w-5 h-5",
-                      i < testimonial.rating
-                        ? "text-yellow-500 fill-yellow-500"
-                        : "text-zinc-300",
-                    )}
-                  />
-                ))}
-              </div>
-
-              <p className="text-zinc-600 text-lg leading-relaxed mb-8 line-clamp-3">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-4">
-                <div>
-
-                  <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                  <p className="text-zinc-500 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* 3D Fan Card Stack */}
+      <div className="px-4 sm:px-6">
+        <CardStack
+          items={testimonials}
+          initialIndex={0}
+          maxVisible={5}
+          overlap={0.5}
+          spreadDeg={40}
+          autoAdvance
+          intervalMs={4000}
+          pauseOnHover
+          showDots
+          onCardClick={(t) => setSelectedTestimonial(t)}
+        />
       </div>
 
       {/* Trust Indicators */}
@@ -275,7 +202,7 @@ export default function Testimonials() {
                     "w-6 h-6",
                     i < selectedTestimonial.rating
                       ? "text-yellow-500 fill-yellow-500"
-                      : "text-zinc-300",
+                      : "text-zinc-300"
                   )}
                 />
               ))}
