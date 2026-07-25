@@ -186,7 +186,7 @@ export default function Services() {
 
                 {/* Features */}
                 <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                  {service.features.map((feature, i) => (
+                  {service.features?.map((feature, i) => (
                     <span
                       key={i}
                       className="px-3 py-1 bg-white/50 border border-[#cb6ce6]/20 text-[#281000]/60 text-xs font-medium rounded-full"
