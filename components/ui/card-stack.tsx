@@ -36,6 +36,9 @@ export type CardStackProps = {
   className?: string;
   onChangeIndex?: (index: number, item: Testimonial) => void;
   onCardClick?: (item: Testimonial) => void;
+  /** When provided, the stack is "controlled" — this index is used instead of
+   *  the internal state (for scroll-driven activation). */
+  controlledActive?: number;
 };
 
 function wrapIndex(n: number, len: number) {
@@ -132,12 +135,16 @@ export function CardStack({
   className,
   onChangeIndex,
   onCardClick,
+  controlledActive,
 }: CardStackProps) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
+  const [internalActive, setInternalActive] = React.useState(() => wrapIndex(initialIndex, len));
+  // If controlledActive is provided (scroll-driven), use it; otherwise internal.
+  const active = controlledActive !== undefined ? wrapIndex(controlledActive, len) : internalActive;
+  const setActive = setInternalActive;
   const [hovering, setHovering] = React.useState(false);
   // Responsive card dimensions measured from container width.
   const [cardSize, setCardSize] = React.useState({ width: 440, height: 300 });

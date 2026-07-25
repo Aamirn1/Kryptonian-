@@ -77,10 +77,13 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Header fade-in
       gsap.fromTo(
         ".testimonials-header",
         { y: 50, opacity: 0 },
@@ -95,6 +98,28 @@ export default function Testimonials() {
           },
         }
       );
+
+      // Scroll-pinned card stack: lock the section and cycle the active card
+      // as the user scrolls down (cards move left through the stack).
+      const trigger = triggerRef.current;
+      if (trigger) {
+        const totalCards = testimonials.length;
+        ScrollTrigger.create({
+          trigger: trigger,
+          start: "top top",
+          end: () => `+=${totalCards * 80}%`,
+          pin: true,
+          scrub: 1,
+          onUpdate: (self) => {
+            // Map scroll progress [0..1] → card index [0..totalCards-1]
+            const idx = Math.min(
+              totalCards - 1,
+              Math.floor(self.progress * totalCards)
+            );
+            setActiveIndex(idx);
+          },
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -117,10 +142,10 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="py-32 bg-[#fafafa] overflow-hidden"
+      className="bg-[#fafafa]"
     >
       {/* Header */}
-      <div className="testimonials-header text-center mb-12 px-6">
+      <div className="testimonials-header text-center mb-12 px-6 pt-32">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6 border border-primary/20">
           <Quote className="w-4 h-4 text-primary" />
           <p className="text-primary font-bold text-sm">
@@ -137,16 +162,16 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* 3D Fan Card Stack */}
-      <div className="px-4 sm:px-6">
+      {/* Scroll-pinned card stack — locks here while cards cycle */}
+      <div ref={triggerRef} className="h-screen flex items-center justify-center px-4 sm:px-6">
         <CardStack
           items={testimonials}
           initialIndex={0}
-          maxVisible={5}
-          overlap={0.5}
-          spreadDeg={40}
-          autoAdvance
-          intervalMs={4000}
+          maxVisible={7}
+          overlap={0.55}
+          spreadDeg={48}
+          controlledActive={activeIndex}
+          autoAdvance={false}
           pauseOnHover
           showDots
           onCardClick={(t) => setSelectedTestimonial(t)}
@@ -154,11 +179,11 @@ export default function Testimonials() {
       </div>
 
       {/* Trust Indicators */}
-      <div className="mt-20 pt-16 border-t border-[#cb6ce6]/40 px-6">
+      <div className="mt-20 pt-16 pb-32 border-t border-[#cb6ce6]/40 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-black text-[#281000] mb-2">
                 4.9/5
               </div>
               <p className="text-zinc-500 text-sm font-medium">
@@ -166,7 +191,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-black text-[#281000] mb-2">
                 50+
               </div>
               <p className="text-zinc-500 text-sm font-medium">
@@ -174,7 +199,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-black text-[#281000] mb-2">
                 98%
               </div>
               <p className="text-zinc-500 text-sm font-medium">
@@ -182,7 +207,7 @@ export default function Testimonials() {
               </p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
+              <div className="text-4xl md:text-5xl font-black text-[#281000] mb-2">
                 3x
               </div>
               <p className="text-zinc-500 text-sm font-medium">

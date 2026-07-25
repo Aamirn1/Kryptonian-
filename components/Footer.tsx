@@ -23,7 +23,7 @@ export default function Footer() {
             </h2>
             <Link
               href="mailto:hello@kryptondigital.com"
-              className="text-lg md:text-xl font-medium hover:text-white transition-colors flex items-center gap-3"
+              className="text-lg md:text-xl font-medium text-white hover:text-[#281000] transition-colors flex items-center gap-3"
             >
               <Mail className="w-5 h-5" />
               contact@kryptondigital.co.uk
@@ -39,7 +39,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     About
                   </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/portfolio"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     Portfolio
                   </Link>
@@ -55,7 +55,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/blog"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     Blog
                   </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     Contact
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/privacy"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     Privacy Policy
                   </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/terms"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     Terms of Service
                   </Link>
@@ -101,27 +101,27 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://www.instagram.com/kryptondigital"
-                    className="text-foreground hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-white hover:text-[#281000] transition-colors flex items-center gap-2 group"
                   >
-                    <Instagram className="w-4 h-4 group-hover:text-white" />{" "}
+                    <Instagram className="w-4 h-4 group-hover:text-[#281000]" />{" "}
                     Instagram
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="https://www.linkedin.com/company/kryptondigital"
-                    className="text-foreground hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-white hover:text-[#281000] transition-colors flex items-center gap-2 group"
                   >
-                    <Linkedin className="w-4 h-4 group-hover:text-white" />{" "}
+                    <Linkedin className="w-4 h-4 group-hover:text-[#281000]" />{" "}
                     LinkedIn
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="https://www.facebook.com/kryptondigital"
-                    className="text-foreground hover:text-white transition-colors flex items-center gap-2 group"
+                    className="text-white hover:text-[#281000] transition-colors flex items-center gap-2 group"
                   >
-                    <Facebook className="w-4 h-4 group-hover:text-white" />{" "}
+                    <Facebook className="w-4 h-4 group-hover:text-[#281000]" />{" "}
                     Facebook
                   </Link>
                 </li>
@@ -134,7 +134,7 @@ export default function Footer() {
           <div className="text-xl font-bold tracking-tighter">
             <Image src="/logo.png" alt="Logo" width={36} height={36} />
           </div>
-          <div className="text-foreground text-sm">
+          <div className="text-white text-sm">
             © 2026 Krypton Digital. All rights reserved. Built with passion &
             motion.
           </div>
