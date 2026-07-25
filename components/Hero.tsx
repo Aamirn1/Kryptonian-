@@ -257,7 +257,7 @@ export default function Hero() {
             <div ref={ctaRef} className="flex flex-row gap-2 sm:gap-4">
               <Link
                 href="/pricing"
-                className="group relative px-4 sm:px-6 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex items-center gap-2 flex-1 justify-center whitespace-nowrap"
+                className="group relative px-4 sm:px-5 py-5 bg-foreground text-white font-bold rounded-full transition-all hover:bg-primary active:scale-95 flex flex-1 sm:flex-none items-center gap-2 justify-center whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
                   Initiate Scoping
@@ -265,7 +265,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/services"
-                className="px-4 sm:px-6 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex items-center justify-center gap-2 flex-1 whitespace-nowrap"
+                className="px-4 sm:px-5 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex flex-1 sm:flex-none items-center justify-center gap-2 whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
                   Services

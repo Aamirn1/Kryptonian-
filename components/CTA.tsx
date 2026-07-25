@@ -88,11 +88,10 @@ export default function CTA() {
                             href="/pricing"
                             className="group relative inline-flex items-center gap-4 px-10 py-5 bg-foreground text-white font-bold rounded-full overflow-hidden transition-all hover:bg-[#cb6ce6] active:scale-95 mx-auto"
                         >
-                            <span className="relative z-10 uppercase tracking-widest text-sm transition-colors group-hover:text-primary">
+                            <span className="relative z-10 uppercase tracking-widest text-sm transition-colors group-hover:text-white">
                                 Initiate Project Scoping
                             </span>
-                            <MoveRight className="relative z-10 w-6 h-6 transition-transform group-hover:translate-x-2 group-hover:text-primary" />
-                            <div className="absolute inset-0 bg-primary/10 translate-y-full transition-transform group-hover:translate-y-0" />
+                            <MoveRight className="relative z-10 w-6 h-6 transition-transform group-hover:translate-x-2 group-hover:text-white" />
                         </Link>
                     </div>
                 </div>
