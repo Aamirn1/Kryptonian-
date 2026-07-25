@@ -18,6 +18,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +29,7 @@ const services = [
       "Tailored roadmaps designed to align your brand with modern digital trends and exponential growth vectors.",
     icon: Megaphone,
     image: "/services/strategy.png",
+    color: "text-blue-500",
     features: ["Market Research", "Competitor Analysis", "Growth Roadmap", "KPI Framework"],
   },
   {
@@ -36,6 +38,7 @@ const services = [
       "High-performance websites built with cutting-edge architectures for seamless UX and conversion dominance.",
     icon: Code2,
     image: "/services/web-dev.png",
+    color: "text-purple-500",
     features: ["Next.js Development", "Responsive Design", "Performance Optimization", "API Integration"],
   },
   {
@@ -44,6 +47,7 @@ const services = [
       "Strategic search engine precision to drive organic visibility and market-leading domain authority.",
     icon: BarChart3,
     image: "/services/seo.png",
+    color: "text-green-500",
     features: ["Technical SEO", "On-Page Optimization", "Link Building", "Local SEO"],
   },
   {
@@ -52,6 +56,7 @@ const services = [
       "Crafting unique visual personas that resonate with high-value audiences and establish trust.",
     icon: Sparkles,
     image: "/services/brand.png",
+    color: "text-orange-500",
     features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy"],
   },
   {
@@ -60,6 +65,7 @@ const services = [
       "Data-driven competitive intelligence to stay ahead of market shifts and capitalize on opportunities.",
     icon: Globe,
     image: "/services/market.png",
+    color: "text-cyan-500",
     features: ["Competitor Research", "Market Trends", "Audience Insights", "Performance Metrics"],
   },
   {
@@ -68,6 +74,7 @@ const services = [
       "Optimizing your digital ecosystem to turn every interaction into a measurable business outcome.",
     icon: Zap,
     image: "/services/conversion.png",
+    color: "text-yellow-500",
     features: ["A/B Testing", "CRO Strategy", "Funnel Optimization", "Analytics Setup"],
   },
   {
@@ -76,6 +83,7 @@ const services = [
       "Performance-driven paid social campaigns that put your brand in front of the right audience at scale.",
     icon: Share2,
     image: "/services/market.png",
+    color: "text-pink-500",
     features: ["Facebook Ads", "Instagram Ads", "TikTok Ads"],
   },
   {
@@ -84,6 +92,7 @@ const services = [
       "End-to-end marketplace and store management to scale your sales across every major platform.",
     icon: ShoppingCart,
     image: "/services/web-dev.png",
+    color: "text-emerald-500",
     features: ["Ebay Account Management & Consultancy", "Shopify Store Management", "TikTok Shop Management"],
   },
 ];
@@ -128,7 +137,7 @@ export default function ServicesPage() {
           {/* Hero */}
           <section className="px-6 mb-20">
             <div className="container mx-auto max-w-5xl text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-primary/20 mb-6">
                 <Zap className="w-4 h-4 text-primary" />
                 <p className="text-primary font-bold text-sm">What We Do</p>
               </div>
@@ -153,9 +162,12 @@ export default function ServicesPage() {
                     {/* Content */}
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden">
+                        <div className={cn(
+                          "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden",
+                          service.color,
+                        )}>
                           <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
-                          <service.icon className="w-7 h-7 text-primary relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                          <service.icon className="w-7 h-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
                         </div>
                         <h3 className="text-2xl font-bold tracking-tight text-[#281000] uppercase">
                           {service.title}
@@ -178,10 +190,10 @@ export default function ServicesPage() {
 
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 text-[#281000] font-semibold text-sm hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-[#281000] hover:text-white transition-colors"
                       >
                         Get Started
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
                   </div>

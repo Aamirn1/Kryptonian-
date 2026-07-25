@@ -380,7 +380,7 @@ export default function AboutPage() {
           <section ref={valuesRef} className="py-32 px-6 bg-foreground">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#281000] text-xs font-bold mb-6 tracking-widest uppercase">
                   <Heart className="w-3 h-3" />
                   What Drives Us
                 </div>
@@ -468,7 +468,7 @@ export default function AboutPage() {
           <section ref={teamRef} className="py-32 px-6 bg-foreground">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#281000] text-xs font-bold mb-6 tracking-widest uppercase">
                   <Users className="w-3 h-3" />
                   The Team
                 </div>

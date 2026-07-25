@@ -278,7 +278,7 @@ export default function PortfolioPage() {
                       className="group relative block bg-foreground rounded-[3rem] overflow-hidden"
                     >
                       <div className="p-10 lg:p-16 pr-20 lg:pr-24 flex flex-col justify-center">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-primary text-xs font-bold mb-6 w-fit tracking-wider uppercase">
                             Featured Case Study
                           </div>
 
@@ -322,7 +322,7 @@ export default function PortfolioPage() {
                         </div>
 
                         {/* Arrow on the right side of the section */}
-                        <div className="absolute top-1/2 right-8 lg:right-10 -translate-y-1/2 flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-white/15 text-white group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all">
+                        <div className="absolute top-1/2 right-8 lg:right-10 -translate-y-1/2 flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white border border-white text-foreground group-hover:bg-[#cb6ce6] group-hover:border-[#cb6ce6] group-hover:text-white transition-all">
                           <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 transition-transform group-hover:translate-x-0.5" />
                         </div>
                     </a>
@@ -343,7 +343,7 @@ export default function PortfolioPage() {
                     className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                       activeCategory === category
                         ? "bg-foreground text-white"
-                        : "bg-white border border-zinc-200 text-zinc-600 hover:border-primary hover:text-primary"
+                        : "bg-white border border-zinc-200 text-zinc-600 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6]"
                     }`}
                   >
                     {category}
@@ -404,7 +404,7 @@ export default function PortfolioPage() {
                             href={caseStudy.projectUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-primary/80 transition-colors"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-[#281000] hover:text-white transition-colors"
                           >
                             View Project
                             <ArrowRight className="w-3.5 h-3.5" />
