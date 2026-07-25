@@ -268,7 +268,7 @@ export default function Hero() {
                 className="px-4 sm:px-5 py-5 rounded-full border border-foreground/15 md:border-[#cb6ce6] text-foreground/80 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6] font-bold transition-all active:scale-95 flex flex-1 sm:w-[220px] sm:flex-none items-center justify-center gap-2 whitespace-nowrap"
               >
                 <span className="uppercase tracking-widest text-xs sm:text-medium">
-                  Services
+                  View Services
                 </span>
               </Link>
             </div>
