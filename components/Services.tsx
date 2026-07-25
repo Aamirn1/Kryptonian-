@@ -165,15 +165,15 @@ export default function Services() {
               key={index}
               className="service-card-item group flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 transition-all duration-300"
             >
-              {/* Icon — centered on mobile, left on desktop */}
+              {/* Icon — centered on mobile, left on desktop. Tilts on hover
+                  like the About page "Our Values" cards. */}
               <div
                 className={cn(
-                  "flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden",
+                  "flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-primary/20 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300",
                   service.color,
                 )}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
-                <service.icon className="w-8 h-8 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <service.icon className="w-8 h-8" />
               </div>
 
               {/* Content — stacked & centered on mobile */}
