@@ -18,8 +18,8 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
           <div className="flex flex-col">
-            <h2 className="text-3xl md:text-4xl lg:text-7xl font-black tracking-tighter mb-6 mr-8">
-              LET&apos;S TALK <span className="text-white italic">SHOP</span>.
+            <h2 className="text-3xl md:text-4xl lg:text-7xl font-black tracking-tighter mb-6 mr-8 text-[#281000]">
+              LET&apos;S TALK <span className="text-white italic">SHOP</span><span className="text-[#281000]">.</span>
             </h2>
             <Link
               href="mailto:hello@kryptondigital.com"
@@ -140,7 +140,7 @@ export default function Footer() {
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-6 py-2 border border-foreground/10 rounded-full text-xs font-bold hover:cursor-pointer hover:bg-foreground hover:text-background transition-all"
+            className="px-6 py-2 rounded-full text-xs font-bold bg-[#281000] text-white hover:bg-[#cb6ce6] hover:text-white transition-all"
           >
             BACK TO TOP
           </button>

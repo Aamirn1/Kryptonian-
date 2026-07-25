@@ -10,6 +10,8 @@ import {
   Globe,
   Sparkles,
   Zap,
+  ShoppingCart,
+  Share2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -63,6 +65,22 @@ const services = [
     icon: Zap,
     color: "text-yellow-500",
     features: ["A/B Testing", "CRO Strategy", "Funnel Optimization", "Analytics Setup"],
+  },
+  {
+    title: "Marketing",
+    description:
+      "Performance-driven paid social campaigns that put your brand in front of the right audience at scale.",
+    icon: Share2,
+    image: "/services/market.png",
+    color: "text-pink-500",
+  },
+  {
+    title: "E-commerce",
+    description:
+      "End-to-end marketplace and store management to scale your sales across every major platform.",
+    icon: ShoppingCart,
+    image: "/services/web-dev.png",
+    color: "text-emerald-500",
   },
 ];
 

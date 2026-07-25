@@ -13,6 +13,8 @@ import {
   Globe,
   Sparkles,
   Zap,
+  ShoppingCart,
+  Share2,
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
@@ -67,6 +69,22 @@ const services = [
     icon: Zap,
     image: "/services/conversion.png",
     features: ["A/B Testing", "CRO Strategy", "Funnel Optimization", "Analytics Setup"],
+  },
+  {
+    title: "Marketing",
+    description:
+      "Performance-driven paid social campaigns that put your brand in front of the right audience at scale.",
+    icon: Share2,
+    image: "/services/market.png",
+    features: ["Facebook Ads", "Instagram Ads", "TikTok Ads"],
+  },
+  {
+    title: "E-commerce",
+    description:
+      "End-to-end marketplace and store management to scale your sales across every major platform.",
+    icon: ShoppingCart,
+    image: "/services/web-dev.png",
+    features: ["Ebay Account Management & Consultancy", "Shopify Store Management", "TikTok Shop Management"],
   },
 ];
 
@@ -135,8 +153,9 @@ export default function ServicesPage() {
                     {/* Content */}
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                          <service.icon className="w-7 h-7 text-primary" />
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
+                          <service.icon className="w-7 h-7 text-primary relative z-10 group-hover:scale-110 transition-transform duration-300" />
                         </div>
                         <h3 className="text-2xl font-bold tracking-tight text-[#281000] uppercase">
                           {service.title}
