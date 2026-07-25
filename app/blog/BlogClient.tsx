@@ -111,7 +111,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                 >
                   <div className="p-10 lg:p-16 flex flex-col justify-center">
                       <div className="flex items-center gap-4 mb-6">
-                        <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
+                        <span className="px-3 py-1 bg-white text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                           {featuredPost.category}
                         </span>
                         <span className="text-zinc-400 text-sm">
@@ -169,7 +169,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                     activeCategory === "All"
                       ? "bg-foreground text-white"
-                      : "bg-white border border-zinc-200 text-zinc-600 hover:border-primary hover:text-primary"
+                      : "bg-white border border-zinc-200 text-zinc-600 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6]"
                   }`}
                 >
                   All
@@ -181,7 +181,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                     className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${
                       activeCategory === category
                         ? "bg-foreground text-white"
-                        : "bg-white border border-zinc-200 text-zinc-600 hover:border-primary hover:text-primary"
+                        : "bg-white border border-zinc-200 text-zinc-600 hover:bg-[#cb6ce6] hover:text-white hover:border-[#cb6ce6]"
                     }`}
                   >
                     {category}
@@ -256,8 +256,6 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
           <section className="py-32 px-6">
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
                     Ready to Grow Your{" "}
@@ -270,14 +268,14 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95"
+                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#cb6ce6] text-white font-bold rounded-full hover:bg-[#cb6ce6]/80 transition-all active:scale-95"
                     >
                       Start Your Project
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white text-[#281000] font-bold rounded-full hover:bg-white/80 transition-all"
                     >
                       View Pricing
                     </Link>

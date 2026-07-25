@@ -340,8 +340,6 @@ export default function BlogPostClient({
           <section className="py-32 px-6">
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
                     Ready to Implement These{" "}
@@ -352,7 +350,7 @@ export default function BlogPostClient({
                   </p>
                   <Link
                     href="/contact"
-                    className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95"
+                    className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#cb6ce6] text-white font-bold rounded-full hover:bg-[#cb6ce6]/80 transition-all active:scale-95"
                   >
                     Start Your Project
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

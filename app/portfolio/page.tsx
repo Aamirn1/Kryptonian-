@@ -130,6 +130,24 @@ const caseStudies = [
     tags: ["Visual Identity", "Print Design", "Social Media"],
     featured: false,
   },
+  {
+    id: 7,
+    title: "HR Furnitures — Sofa Store",
+    client: "HR Furnitures",
+    projectUrl: "https://hrfurniture.vercel.app/",
+    category: "E-commerce",
+    image: "/services/web-dev.png",
+    logo: "/services/brand.png",
+    description:
+      "A modern e-commerce storefront for a sofa and furniture business, built to showcase products and drive online sales.",
+    results: [
+      { metric: "3x", label: "Faster Browsing" },
+      { metric: "45%", label: "Mobile Orders Up" },
+      { metric: "98%", label: "Page Speed Score" },
+    ],
+    tags: ["E-commerce", "Web Development", "UI/UX"],
+    featured: false,
+  },
 ];
 
 const processSteps = [
@@ -446,8 +464,6 @@ export default function PortfolioPage() {
           <section className="py-32 px-6">
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-
                 <div className="relative z-10">
                   <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
                     Ready to Be Our{" "}
@@ -460,14 +476,14 @@ export default function PortfolioPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all active:scale-95"
+                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#cb6ce6] text-white font-bold rounded-full hover:bg-[#cb6ce6]/80 transition-all active:scale-95"
                     >
                       Start Your Project
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all"
+                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white text-[#281000] font-bold rounded-full hover:bg-white/80 transition-all"
                     >
                       View Pricing
                     </Link>

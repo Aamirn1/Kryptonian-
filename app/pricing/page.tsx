@@ -249,10 +249,6 @@ export default function PricingPage() {
 
             {/* Bottom Section */}
             <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-foreground rounded-[4rem] relative overflow-hidden group">
-              {/* Animated Background Gradients */}
-              <div className="absolute top-0 right-0 w-2/3 h-full bg-primary/20 blur-[150px] -rotate-12 translate-x-1/2 opacity-50 transition-transform group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 w-1/2 h-full bg-blue-500/10 blur-[120px] rotate-45 -translate-x-1/2 opacity-50" />
-
               <div className="relative z-10 max-w-3xl mx-auto">
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase leading-none">
                   NEED A <span className="text-primary italic">CUSTOM</span>{" "}
@@ -267,7 +263,7 @@ export default function PricingPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
                     href="/contact"
-                    className="px-12 py-5 bg-white text-foreground rounded-full font-black tracking-widest text-xs uppercase hover:bg-primary hover:text-white transition-all w-full sm:w-auto"
+                    className="px-12 py-5 bg-[#cb6ce6] text-white rounded-full font-black tracking-widest text-xs uppercase hover:bg-[#cb6ce6]/80 transition-all w-full sm:w-auto"
                   >
                     Speak with an Expert
                   </Link>
