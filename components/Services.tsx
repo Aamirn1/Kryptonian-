@@ -168,11 +168,12 @@ export default function Services() {
               {/* Icon — centered on mobile, left on desktop */}
               <div
                 className={cn(
-                  "flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 transition-transform duration-300 group-hover:scale-110",
+                  "flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-zinc-50 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden",
                   service.color,
                 )}
               >
-                <service.icon className="w-8 h-8" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
+                <service.icon className="w-8 h-8 relative z-10 group-hover:scale-110 transition-transform duration-300" />
               </div>
 
               {/* Content — stacked & centered on mobile */}

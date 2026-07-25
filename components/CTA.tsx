@@ -86,7 +86,7 @@ export default function CTA() {
 
                         <Link
                             href="/pricing"
-                            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-foreground text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 mx-auto"
+                            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-foreground text-white font-bold rounded-full overflow-hidden transition-all hover:bg-[#cb6ce6] active:scale-95 mx-auto"
                         >
                             <span className="relative z-10 uppercase tracking-widest text-sm transition-colors group-hover:text-primary">
                                 Initiate Project Scoping

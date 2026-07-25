@@ -46,6 +46,22 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/services"
+                    className="text-white hover:text-[#281000] transition-colors"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pricing"
+                    className="text-white hover:text-[#281000] transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/portfolio"
                     className="text-white hover:text-[#281000] transition-colors"
                   >
@@ -140,7 +156,7 @@ export default function Footer() {
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-6 py-2 rounded-full text-xs font-bold bg-[#281000] text-white hover:bg-[#cb6ce6] hover:text-white transition-all"
+            className="px-6 py-2 rounded-full text-xs font-bold bg-[#281000] text-white hover:bg-white hover:text-[#281000] transition-all"
           >
             BACK TO TOP
           </button>
