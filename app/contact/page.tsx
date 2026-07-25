@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useRef, useState, useTransition } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { gsap } from "gsap";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { sendContactEmail, ContactFormData } from "@/actions/contact";
 import { pricingData } from "@/lib/pricing";
 
 type PackageCategory = "" | "oneTime" | "monthly";
@@ -32,7 +31,7 @@ function ContactPageInner() {
 
   const searchParams = useSearchParams();
 
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
   const [formStatus, setFormStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
@@ -40,6 +39,7 @@ function ContactPageInner() {
   const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [category, setCategory] = useState<PackageCategory>("");
   const [service, setService] = useState<string>("");
+  const [mailtoLink, setMailtoLink] = useState<string>("");
 
   const serviceOptions = category
     ? [...pricingData[category].map((p) => p.name), "Need to talk"]
@@ -52,7 +52,6 @@ function ContactPageInner() {
     const plan = searchParams.get("plan");
 
     if (pkg === "oneTime" || pkg === "monthly") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCategory(pkg);
       if (plan) {
         // Defer setting service until category is applied — match against the
@@ -114,9 +113,11 @@ function ContactPageInner() {
     e.preventDefault();
     setFormStatus({ type: null, message: "" });
     setErrors({});
+    setMailtoLink("");
+    setIsPending(true);
 
     const formData = new FormData(e.currentTarget);
-    const data: ContactFormData = {
+    const data = {
       firstName: formData.get("firstName") as string,
       lastName: formData.get("lastName") as string,
       email: formData.get("email") as string,
@@ -124,8 +125,13 @@ function ContactPageInner() {
       message: formData.get("message") as string,
     };
 
-    startTransition(async () => {
-      const result = await sendContactEmail(data);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
 
       if (result.success) {
         setFormStatus({
@@ -143,10 +149,26 @@ function ContactPageInner() {
         if (result.errors) {
           setErrors(result.errors);
         }
-        // Scroll the form into view so the error is visible (esp. on mobile).
+        if (result.mailtoLink) {
+          setMailtoLink(result.mailtoLink);
+        }
         formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    });
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : "Network error";
+      console.error("Contact submit fetch error:", errMsg);
+      const subject = `New Contact Form Submission - ${data.service}`;
+      const body = `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message || "(none)"}`;
+      const mailto = `mailto:contact@kryptondigital.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setFormStatus({
+        type: "error",
+        message: `An unexpected error occurred: ${errMsg}. Please try again or send via your email client.`,
+      });
+      setMailtoLink(mailto);
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -405,6 +427,18 @@ function ContactPageInner() {
                     </>
                   )}
                 </button>
+
+                {/* Mailto fallback — shown when the email service fails so the
+                    lead is never lost. */}
+                {mailtoLink && formStatus.type === "error" && (
+                  <a
+                    href={mailtoLink}
+                    className="w-full py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/80 transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-xs"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Send via Email
+                  </a>
+                )}
               </form>
             </div>
           </div>

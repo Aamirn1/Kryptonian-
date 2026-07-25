@@ -1,5 +1,4 @@
-"use server";
-
+import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -24,54 +23,54 @@ const contactSchema = z.object({
     .or(z.literal("")),
 });
 
-export type ContactFormData = z.infer<typeof contactSchema>;
-
-export type ContactResponse = {
-  success: boolean;
-  message: string;
-  errors?: Record<string, string[]>;
-  mailtoLink?: string;
-};
-
 const CONTACT_TO_EMAIL =
   process.env.CONTACT_TO_EMAIL || "contact@kryptondigital.co.uk";
 
-function buildMailtoLink(data: ContactFormData): string {
+function buildMailtoLink(data: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  service: string;
+  message?: string;
+}): string {
   const subject = `New Contact Form Submission - ${data.service}`;
   const body = `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message || "(none)"}`;
   return `mailto:${CONTACT_TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export async function sendContactEmail(
-  formData: ContactFormData,
-): Promise<ContactResponse> {
-  // Validate first — any schema error returns a clean serializable response.
-  const validated = contactSchema.safeParse(formData);
-  if (!validated.success) {
-    const errors = validated.error.flatten().fieldErrors;
-    return {
-      success: false,
-      message: "Please check the form for errors",
-      errors,
-    };
-  }
-
-  const { firstName, lastName, email, service, message } = validated.data;
-  const mailtoLink = buildMailtoLink(formData);
-
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    return {
-      success: false,
-      message:
-        "Email service is not configured yet. Please click below to send via your email client.",
-      mailtoLink,
-    };
-  }
-
-  // Everything below is wrapped so ANY thrown error becomes a serializable
-  // response (never escapes to the error boundary).
+export async function POST(request: NextRequest) {
   try {
+    const body = await request.json();
+
+    const validated = contactSchema.safeParse(body);
+    if (!validated.success) {
+      const errors = validated.error.flatten().fieldErrors;
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Please check the form for errors",
+          errors,
+        },
+        { status: 400 }
+      );
+    }
+
+    const { firstName, lastName, email, service, message } = validated.data;
+    const mailtoLink = buildMailtoLink({ firstName, lastName, email, service, message });
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email service is not configured yet. Please click below to send via your email client.",
+          mailtoLink,
+        },
+        { status: 503 }
+      );
+    }
+
     const resend = new Resend(apiKey);
 
     const safeName = `${escapeHtml(firstName)} ${escapeHtml(lastName)}`;
@@ -95,37 +94,35 @@ export async function sendContactEmail(
     });
 
     if (error) {
-      // Resend returns a serializable error object — stringify for the message.
       const errMsg =
         typeof error === "object" && error !== null && "message" in error
           ? String((error as { message?: unknown }).message)
           : "Unknown provider error";
       console.error("Resend error:", JSON.stringify(error));
-      return {
-        success: false,
-        message: `Failed to send email: ${errMsg}.`,
-        mailtoLink,
-      };
+      return NextResponse.json(
+        {
+          success: false,
+          message: `Failed to send email: ${errMsg}.`,
+          mailtoLink,
+        },
+        { status: 502 }
+      );
     }
 
-    return {
+    return NextResponse.json({
       success: true,
       message: "Message sent successfully! We'll get back to you within 24 hours.",
-    };
+    });
   } catch (err) {
-    // Catch ALL error types (Error, string, object) and return a serializable
-    // response so the error boundary never triggers.
     const errMsg =
-      err instanceof Error
-        ? err.message
-        : typeof err === "string"
-          ? err
-          : "Unknown error";
-    console.error("Contact form error:", errMsg);
-    return {
-      success: false,
-      message: `An unexpected error occurred: ${errMsg}. Please try again or send via your email client.`,
-      mailtoLink,
-    };
+      err instanceof Error ? err.message : "Unknown error";
+    console.error("Contact API error:", errMsg);
+    return NextResponse.json(
+      {
+        success: false,
+        message: `An unexpected error occurred: ${errMsg}.`,
+      },
+      { status: 500 }
+    );
   }
 }
