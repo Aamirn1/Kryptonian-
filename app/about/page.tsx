@@ -294,7 +294,7 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-8 tracking-widest uppercase">
+                  <div className="about-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-primary/10 text-primary text-xs font-bold mb-8 tracking-widest uppercase">
                     <Zap className="w-3 h-3 fill-primary" />
                     Our Story
                   </div>

@@ -157,7 +157,7 @@ export default function ServicesPage() {
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="service-card group bg-white border border-[#cb6ce6]/30 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                    className="service-card group bg-white border border-[#cb6ce6]/30 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:scale-105 transition-all duration-300 ease-out"
                   >
                     {/* Content */}
                     <div className="p-8">

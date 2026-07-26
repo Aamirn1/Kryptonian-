@@ -83,7 +83,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
           <section className="blog-hero pt-40 pb-20 px-6">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-8 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-primary/10 text-primary text-xs font-bold mb-8 tracking-widest uppercase">
                   <BookOpen className="w-3 h-3" />
                   Blog
                 </div>
@@ -194,7 +194,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                 {recentPosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="blog-card group bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 transition-all"
+                    className="blog-card group bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden hover:shadow-xl hover:shadow-zinc-200/30 hover:border-primary/20 hover:scale-105 transition-all duration-300 ease-out"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       {/* Category Badge (no image) */}

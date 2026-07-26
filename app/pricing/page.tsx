@@ -98,7 +98,7 @@ export default function PricingPage() {
           <div className="container mx-auto max-w-7xl">
             {/* Header */}
             <div className="pricing-header text-center mb-16 max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-transparent border border-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                 <Shield className="w-3 h-3" />
                 Growth Packages
               </div>
