@@ -26,7 +26,7 @@ export type PricingPlan = {
   duration: string;
   icon: LucideIcon | React.FC<{ className?: string }>;
   features: string[];
-  color: "blue" | "primary" | "purple";
+  color: "blue" | "primary" | "purple" | "yellow" | "cyan" | "green" | "orange" | "pink" | "emerald";
   popular: boolean;
   cta: string;
   footer: string;
@@ -76,7 +76,7 @@ export const pricingData: {
         "Domain & SSL (1 Year Included)",
         "Technical Performance Setup",
       ],
-      color: "primary",
+      color: "yellow",
       popular: true,
       cta: "Choose Growth",
       footer: "",
@@ -98,7 +98,7 @@ export const pricingData: {
         "Premium Hosting & Security (1 Year)",
         "1-Hour Strategy Session",
       ],
-      color: "purple",
+      color: "cyan",
       popular: false,
       cta: "Go Premium",
       footer: "",
@@ -145,7 +145,7 @@ export const pricingData: {
         "15 Social Media Posts & 1 AI Vide",
         "Quarterly Strategy Review",
       ],
-      color: "primary",
+      color: "yellow",
       popular: true,
       cta: "Start Accelerating",
     },
@@ -167,7 +167,7 @@ export const pricingData: {
         "Competitor Intelligence Reports",
         "Unlimited Strategic Support",
       ],
-      color: "purple",
+      color: "cyan",
       popular: false,
       cta: "Partner With Us",
     },

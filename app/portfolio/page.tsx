@@ -16,6 +16,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -156,21 +157,25 @@ const processSteps = [
     title: "Discovery & Research",
     description:
       "Deep dive into your business, competitors, and target audience.",
+    color: "text-blue-500",
   },
   {
     icon: Zap,
     title: "Strategy & Planning",
     description: "Custom roadmap tailored to your specific goals and budget.",
+    color: "text-purple-500",
   },
   {
     icon: BarChart3,
     title: "Execution & Optimization",
     description: "Implementation with continuous monitoring and improvements.",
+    color: "text-green-500",
   },
   {
     icon: TrendingUp,
     title: "Results & Growth",
     description: "Data-driven reporting and scaling successful strategies.",
+    color: "text-orange-500",
   },
 ];
 
@@ -440,10 +445,10 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-white border border-zinc-200 rounded-4xl hover:border-primary/30 hover:bg-zinc-50 transition-all"
+                    className="process-step group p-8 lg:p-6 bg-white border border-[#cb6ce6]/30 rounded-4xl hover:border-primary/30 hover:bg-zinc-50 transition-all"
                   >
                     <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <step.icon className="w-8 h-8 text-primary" />
+                      <step.icon className={cn("w-8 h-8", step.color)} />
                     </div>
                     <div className="text-4xl font-black text-foreground mb-2">
                       0{index + 1}

@@ -182,7 +182,11 @@ export default function PricingPage() {
                         ? "bg-primary/10 text-primary"
                         : plan.color === "blue"
                           ? "bg-blue-500/10 text-blue-500"
-                          : "bg-purple-500/10 text-purple-500"
+                          : plan.color === "yellow"
+                            ? "bg-yellow-500/10 text-yellow-500"
+                            : plan.color === "cyan"
+                              ? "bg-cyan-500/10 text-cyan-500"
+                              : "bg-purple-500/10 text-purple-500"
                     }`}
                   >
                     <plan.icon className="w-6 h-6" />
