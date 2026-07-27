@@ -141,7 +141,7 @@ export default function GetStartedPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-10 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/80 transition-all"
+                className="shine-btn inline-block px-10 py-4 bg-primary text-white rounded-full font-bold transition-all"
               >
                 BOOK A CALL
               </Link>

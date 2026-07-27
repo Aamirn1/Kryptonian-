@@ -239,7 +239,7 @@ export default function PricingPage() {
 
                   <Link
                     href={`/contact?pkg=${encodeURIComponent(billingCycle)}&plan=${encodeURIComponent(plan.name)}`}
-                    className="inline-flex items-center justify-between px-8 py-5 rounded-full font-black tracking-widest text-[10px] uppercase transition-all bg-[#281000] text-white hover:bg-[#cb6ce6] shadow-xl shadow-black/10"
+                    className="shine-btn inline-flex items-center justify-between px-8 py-5 rounded-full font-black tracking-widest text-[10px] uppercase transition-all bg-[#281000] text-white shadow-xl shadow-black/10"
                   >
                     {plan.cta} <MoveRight className="w-4 h-4" />
                   </Link>
@@ -263,7 +263,7 @@ export default function PricingPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                   <Link
                     href="/contact"
-                    className="px-12 py-5 bg-[#cb6ce6] text-white rounded-full font-black tracking-widest text-xs uppercase hover:bg-[#cb6ce6]/80 transition-all w-full sm:w-auto"
+                    className="shine-btn px-12 py-5 bg-[#cb6ce6] text-white rounded-full font-black tracking-widest text-xs uppercase transition-all w-full sm:w-auto"
                   >
                     Speak with an Expert
                   </Link>

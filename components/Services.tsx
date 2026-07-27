@@ -73,6 +73,7 @@ const services = [
     icon: Share2,
     image: "/services/market.png",
     color: "text-pink-500",
+    features: ["Facebook Ads", "Instagram Ads", "TikTok Ads", "Campaign Strategy"],
   },
   {
     title: "E-commerce",
@@ -81,6 +82,7 @@ const services = [
     icon: ShoppingCart,
     image: "/services/web-dev.png",
     color: "text-emerald-500",
+    features: ["Ebay Management & Consultancy", "Shopify Store Management", "TikTok Shop Management", "Conversion Optimization"],
   },
 ];
 

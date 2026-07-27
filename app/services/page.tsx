@@ -215,7 +215,7 @@ export default function ServicesPage() {
                 </p>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-3 px-10 py-5 bg-[#cb6ce6] text-white font-bold rounded-full hover:bg-[#cb6ce6]/80 transition-all active:scale-95"
+                  className="shine-btn inline-flex items-center gap-3 px-10 py-5 bg-[#cb6ce6] text-white font-bold rounded-full transition-all active:scale-95"
                 >
                   <span className="uppercase tracking-widest text-sm">Initiate Scoping</span>
                   <ArrowRight className="w-5 h-5" />

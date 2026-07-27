@@ -482,14 +482,14 @@ export default function PortfolioPage() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#cb6ce6] text-white font-bold rounded-full hover:bg-[#cb6ce6]/80 transition-all active:scale-95"
+                      className="shine-btn group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#cb6ce6] text-white font-bold rounded-full transition-all active:scale-95"
                     >
                       Start Your Project
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-white text-[#281000] font-bold rounded-full hover:bg-white/80 transition-all"
+                      className="shine-btn inline-flex items-center justify-center gap-3 px-10 py-4 bg-white text-[#281000] font-bold rounded-full transition-all"
                     >
                       View Pricing
                     </Link>
