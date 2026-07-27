@@ -161,7 +161,7 @@ export default function ServicesPage() {
                     className="service-card group bg-white border border-[#cb6ce6]/30 rounded-[2rem] overflow-hidden hover:shadow-xl hover:shadow-black/10 hover:border-primary/30 hover:scale-105 transition-all duration-300 ease-out"
                   >
                     {/* Content */}
-                    <div className="p-8">
+                    <div className="p-8 min-w-0">
                       <div className="flex items-center gap-4 mb-6">
                         <div className={cn(
                           "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 relative overflow-hidden",
@@ -170,7 +170,7 @@ export default function ServicesPage() {
                           <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 group-hover:rotate-180 transition-transform duration-700 ease-in-out rounded-2xl"></div>
                           <service.icon className="w-7 h-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
                         </div>
-                        <h3 className="text-2xl font-bold tracking-tight text-[#281000] uppercase">
+                        <h3 className="text-lg lg:text-2xl font-bold tracking-tight text-[#281000] uppercase min-w-0">
                           {service.title}
                         </h3>
                       </div>

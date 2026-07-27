@@ -206,7 +206,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                       </div>
 
                       {/* Content */}
-                      <div className="p-8">
+                      <div className="p-8 min-w-0">
                         <div className="flex items-center gap-4 text-black text-xs mb-4">
                           <span className="flex items-center gap-1">
                             <Calendar className="w-3 h-3" />

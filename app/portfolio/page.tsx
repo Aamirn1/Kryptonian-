@@ -372,11 +372,11 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    <div className="p-8 min-w-0">
+                      <h3 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-primary transition-colors truncate">
                         {caseStudy.title}
                       </h3>
-                      <p className="text-black text-sm mb-4">
+                      <p className="text-black text-sm mb-4 truncate">
                         {caseStudy.client}
                       </p>
                       <p className="text-black text-sm leading-relaxed mb-6 line-clamp-2">
@@ -385,21 +385,21 @@ export default function PortfolioPage() {
 
                       {/* Results Preview */}
                       <div className="flex items-center gap-4 mb-6 pb-6 border-b border-zinc-100">
-                        <div className="text-2xl font-black text-primary">
+                        <div className="text-xl lg:text-2xl font-black text-primary shrink-0">
                           {caseStudy.results[0].metric}
                         </div>
-                        <div className="text-xs text-black uppercase tracking-wider">
+                        <div className="text-xs text-black uppercase tracking-wider min-w-0">
                           {caseStudy.results[0].label}
                         </div>
                       </div>
 
                       {/* Tags & Link */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex gap-2">
+                      <div className="flex items-center justify-between gap-2 flex-wrap">
+                        <div className="flex gap-2 flex-wrap min-w-0">
                           {caseStudy.tags.slice(0, 2).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg"
+                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg whitespace-nowrap"
                             >
                               {tag}
                             </span>
