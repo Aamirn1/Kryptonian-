@@ -212,8 +212,8 @@ function ContactPageInner() {
                     href="mailto:contact@kryptondigital.co.uk"
                     className="flex items-center gap-6 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 bg-white border border-zinc-200 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-all shadow-lg shadow-zinc-200/20">
-                      <Mail className="w-6 h-6 text-primary" />
+                    <div className="w-16 h-16 bg-white border border-zinc-200 rounded-2xl flex items-center justify-center transition-all shadow-lg shadow-zinc-200/20">
+                      <Mail className="w-6 h-6 text-blue-500" />
                     </div>
                     <div>
                       <p className="text-sm text-zinc-400 uppercase tracking-widest font-bold">
@@ -229,8 +229,8 @@ function ContactPageInner() {
                     href="tel:+447424792233"
                     className="flex items-center gap-6 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 bg-white border border-zinc-200 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-all shadow-lg shadow-zinc-200/20">
-                      <Phone className="w-6 h-6 text-primary" />
+                    <div className="w-16 h-16 bg-white border border-zinc-200 rounded-2xl flex items-center justify-center transition-all shadow-lg shadow-zinc-200/20">
+                      <Phone className="w-6 h-6 text-green-500" />
                     </div>
                     <div>
                       <p className="text-sm text-zinc-400 uppercase tracking-widest font-bold">
