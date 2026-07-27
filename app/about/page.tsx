@@ -106,13 +106,13 @@ const team = [
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
-    image: "/team/furqan.jpg",
+    image: "/team/furqan-new.png",
   },
   {
     name: "Muhammad Aamir",
     role: "Creative Director",
     bio: "Award-winning designer passionate about brands that challenge industry norms.",
-    image: "/team/arslan.jpg",
+    image: "/team/aamir.png",
   },
 ];
 
