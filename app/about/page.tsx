@@ -167,7 +167,7 @@ const StatCard = ({
   return (
     <div
       ref={cardRef}
-      className="stat-card text-center p-8 border border-[#cb6ce6]/30 rounded-4xl bg-white backdrop-blur-sm group hover:border-primary/30 transition-all"
+      className="stat-card text-center p-8 border border-[#cb6ce6]/30 rounded-4xl bg-white/80 backdrop-blur-sm group hover:bg-white hover:border-primary/30 transition-all duration-300"
     >
       <stat.icon className={cn("w-8 h-8 mx-auto mb-4 group-hover:scale-110 transition-transform", stat.color)} />
       <div className="text-4xl md:text-5xl font-black text-foreground tracking-tighter mb-2">
@@ -398,7 +398,7 @@ export default function AboutPage() {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className="value-card group p-10 bg-white border border-[#cb6ce6]/30 rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
+                    className="value-card group p-10 bg-white/80 border border-[#cb6ce6]/30 rounded-[3rem] hover:bg-white hover:border-primary/30 transition-all duration-300"
                   >
                     <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 cursor-pointer">
                       <value.icon className={cn("w-8 h-8", value.color)} />

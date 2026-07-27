@@ -445,7 +445,7 @@ export default function PortfolioPage() {
                 {processSteps.map((step, index) => (
                   <div
                     key={index}
-                    className="process-step group p-8 lg:p-6 bg-white border border-[#cb6ce6]/30 rounded-4xl hover:border-primary/30 hover:bg-zinc-50 transition-all"
+                    className="process-step group p-8 lg:p-6 bg-white/80 border border-[#cb6ce6]/30 rounded-4xl hover:bg-white hover:border-primary/30 transition-all duration-300"
                   >
                     <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                       <step.icon className={cn("w-8 h-8", step.color)} />
