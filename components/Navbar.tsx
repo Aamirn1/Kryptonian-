@@ -133,7 +133,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/get-started"
-              className="px-6 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary/80 transition-all active:scale-95 shadow-lg shadow-primary/20"
+              className="shine-btn px-6 py-2 bg-primary text-white text-sm font-semibold rounded-full transition-all active:scale-95 shadow-lg shadow-primary/20"
             >
               Initiate Scoping
             </Link>
