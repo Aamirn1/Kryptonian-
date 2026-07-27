@@ -20,14 +20,15 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { number: 50, suffix: "+", label: "Projects Delivered", icon: CheckCircle2 },
-  { number: 98, suffix: "%", label: "Client Satisfaction", icon: Heart },
-  { number: 3, suffix: "x", label: "Average ROI Increase", icon: TrendingUp },
-  { number: 24, suffix: "/7", label: "Support Available", icon: Globe },
+  { number: 50, suffix: "+", label: "Projects Delivered", icon: CheckCircle2, color: "text-blue-500" },
+  { number: 98, suffix: "%", label: "Client Satisfaction", icon: Heart, color: "text-purple-500" },
+  { number: 3, suffix: "x", label: "Average ROI Increase", icon: TrendingUp, color: "text-green-500" },
+  { number: 24, suffix: "/7", label: "Support Available", icon: Globe, color: "text-cyan-500" },
 ];
 
 const values = [
@@ -36,24 +37,28 @@ const values = [
     title: "Results First",
     description:
       "We measure success by your metrics. Every strategy is engineered for measurable business outcomes, not vanity metrics.",
+    color: "text-orange-500",
   },
   {
     icon: Lightbulb,
     title: "Innovation Driven",
     description:
       "We stay ahead of algorithm changes and emerging platforms so you don't have to. Tomorrow's strategies, today.",
+    color: "text-yellow-500",
   },
   {
     icon: Users,
     title: "Partnership Mindset",
     description:
       "We don't do one-off projects. We build long-term relationships that scale with your ambitions.",
+    color: "text-pink-500",
   },
   {
     icon: Award,
     title: "Excellence Obsessed",
     description:
       "Good enough isn't in our vocabulary. Every pixel, every line of code, every campaign gets our full expertise.",
+    color: "text-emerald-500",
   },
 ];
 
@@ -162,9 +167,9 @@ const StatCard = ({
   return (
     <div
       ref={cardRef}
-      className="stat-card text-center p-8 border border-primary rounded-4xl bg-white backdrop-blur-sm group hover:border-primary/30 transition-all"
+      className="stat-card text-center p-8 border border-[#cb6ce6]/30 rounded-4xl bg-white backdrop-blur-sm group hover:border-primary/30 transition-all"
     >
-      <stat.icon className="w-8 h-8 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+      <stat.icon className={cn("w-8 h-8 mx-auto mb-4 group-hover:scale-110 transition-transform", stat.color)} />
       <div className="text-4xl md:text-5xl font-black text-foreground tracking-tighter mb-2">
         {count}
         {stat.suffix}
@@ -393,10 +398,10 @@ export default function AboutPage() {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className="value-card group p-10 bg-white border border-primary rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
+                    className="value-card group p-10 bg-white border border-[#cb6ce6]/30 rounded-[3rem] hover:border-primary/30 hover:bg-white/95 transition-all"
                   >
                     <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 cursor-pointer">
-                      <value.icon className="w-8 h-8 text-primary" />
+                      <value.icon className={cn("w-8 h-8", value.color)} />
                     </div>
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
                       {value.title}
