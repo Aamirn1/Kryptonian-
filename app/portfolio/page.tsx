@@ -375,10 +375,10 @@ export default function PortfolioPage() {
                       <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                         {caseStudy.title}
                       </h3>
-                      <p className="text-zinc-400 text-sm mb-4">
+                      <p className="text-black text-sm mb-4">
                         {caseStudy.client}
                       </p>
-                      <p className="text-zinc-600 text-sm leading-relaxed mb-6 line-clamp-2">
+                      <p className="text-black text-sm leading-relaxed mb-6 line-clamp-2">
                         {caseStudy.description}
                       </p>
 
@@ -387,7 +387,7 @@ export default function PortfolioPage() {
                         <div className="text-2xl font-black text-primary">
                           {caseStudy.results[0].metric}
                         </div>
-                        <div className="text-xs text-zinc-500 uppercase tracking-wider">
+                        <div className="text-xs text-black uppercase tracking-wider">
                           {caseStudy.results[0].label}
                         </div>
                       </div>
@@ -398,7 +398,7 @@ export default function PortfolioPage() {
                           {caseStudy.tags.slice(0, 2).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-1 bg-zinc-100 text-zinc-600 text-xs rounded-lg"
+                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg"
                             >
                               {tag}
                             </span>
@@ -427,7 +427,7 @@ export default function PortfolioPage() {
           <section className="process-section py-32 px-6 bg-foreground">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                   <Zap className="w-3 h-3" />
                   Our Process
                 </div>

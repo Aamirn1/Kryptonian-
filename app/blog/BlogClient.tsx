@@ -136,7 +136,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                             <p className="text-white font-medium text-sm">
                               {featuredPost.author}
                             </p>
-                            <p className="text-zinc-500 text-xs">
+                            <p className="text-black text-xs">
                               {new Date(featuredPost.date).toLocaleDateString(
                                 "en-GB",
                                 {
@@ -206,7 +206,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
 
                       {/* Content */}
                       <div className="p-8">
-                        <div className="flex items-center gap-4 text-zinc-400 text-xs mb-4">
+                        <div className="flex items-center gap-4 text-black text-xs mb-4">
                           <span className="flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             {new Date(post.date).toLocaleDateString("en-GB", {
@@ -225,7 +225,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                           {post.title}
                         </h3>
 
-                        <p className="text-zinc-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                        <p className="text-black text-sm leading-relaxed mb-6 line-clamp-2">
                           {post.excerpt}
                         </p>
 
