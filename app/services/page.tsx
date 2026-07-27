@@ -117,6 +117,7 @@ export default function ServicesPage() {
           duration: 0.8,
           stagger: 0.1,
           ease: "power2.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: ".services-grid",
             start: "top 75%",

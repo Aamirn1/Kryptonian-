@@ -205,6 +205,7 @@ export default function PortfolioPage() {
           duration: 0.6,
           stagger: 0.1,
           ease: "power2.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: ".cases-grid",
             start: "top 80%",

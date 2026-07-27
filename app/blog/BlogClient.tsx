@@ -53,6 +53,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
           duration: 0.6,
           stagger: 0.1,
           ease: "power2.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: ".blog-grid",
             start: "top 80%",
