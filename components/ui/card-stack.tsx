@@ -167,8 +167,8 @@ export function CardStack({
       const cw = el.offsetWidth;
       // Card width: ~85% of a mobile viewport, capped for desktop.
       // On small screens show nearly full-width; on desktop ~440px.
-      const width = Math.min(440, Math.max(260, cw * 0.82));
-      const height = Math.round(width * 0.7); // ~7:10 aspect
+      const width = Math.min(480, Math.max(300, cw * 0.88));
+      const height = Math.round(width * 0.85); // taller cards for content
       setCardSize({ width: Math.round(width), height });
     };
     measure();
@@ -386,25 +386,6 @@ export function CardStack({
         </div>
       ) : null}
 
-      {/* Prev / Next buttons (mobile-friendly) */}
-      <div className="mt-4 flex items-center justify-center gap-3">
-        <button
-          onClick={prev}
-          disabled={!canGoPrev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#cb6ce6]/30 bg-white text-foreground transition-all hover:bg-primary hover:text-white hover:border-primary active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
-          aria-label="Previous testimonial"
-        >
-          <ChevronRight className="w-4 h-4 rotate-180" />
-        </button>
-        <button
-          onClick={next}
-          disabled={!canGoNext}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#cb6ce6]/30 bg-white text-foreground transition-all hover:bg-primary hover:text-white hover:border-primary active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
     </div>
   );
 }

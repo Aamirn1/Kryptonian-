@@ -394,12 +394,12 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* Tags & Link */}
-                      <div className="flex items-center justify-between gap-2 flex-wrap">
-                        <div className="flex gap-2 flex-wrap min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex gap-2 min-w-0 overflow-hidden">
                           {caseStudy.tags.slice(0, 2).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg whitespace-nowrap"
+                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg whitespace-nowrap shrink-0"
                             >
                               {tag}
                             </span>

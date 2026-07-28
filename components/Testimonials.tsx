@@ -77,9 +77,7 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -98,28 +96,6 @@ export default function Testimonials() {
           },
         }
       );
-
-      // Scroll-pinned card stack: lock the section and cycle the active card
-      // as the user scrolls down (cards move left through the stack).
-      const trigger = triggerRef.current;
-      if (trigger) {
-        const totalCards = testimonials.length;
-        ScrollTrigger.create({
-          trigger: trigger,
-          start: "top top",
-          end: () => `+=${totalCards * 80}%`,
-          pin: true,
-          scrub: 1,
-          onUpdate: (self) => {
-            // Map scroll progress [0..1] → card index [0..totalCards-1]
-            const idx = Math.min(
-              totalCards - 1,
-              Math.floor(self.progress * totalCards)
-            );
-            setActiveIndex(idx);
-          },
-        });
-      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -162,16 +138,16 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Scroll-pinned card stack — locks here while cards cycle */}
-      <div ref={triggerRef} className="h-screen flex items-center justify-center px-4 sm:px-6">
+      {/* Auto-advancing card stack */}
+      <div className="flex items-center justify-center px-4 sm:px-6 pb-16">
         <CardStack
           items={testimonials}
           initialIndex={0}
-          maxVisible={7}
-          overlap={0.55}
-          spreadDeg={48}
-          controlledActive={activeIndex}
-          autoAdvance={false}
+          maxVisible={5}
+          overlap={0.5}
+          spreadDeg={40}
+          autoAdvance
+          intervalMs={3000}
           pauseOnHover
           showDots
           onCardClick={(t) => setSelectedTestimonial(t)}
