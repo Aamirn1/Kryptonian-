@@ -274,10 +274,12 @@ export function CardStack({
               const rotateX = isActive ? 0 : tiltXDeg;
               const zIndex = 100 - abs;
 
+              const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
               const dragProps: Pick<
                 HTMLMotionProps<"div">,
                 "drag" | "dragConstraints" | "dragElastic" | "onDragEnd"
-              > = isActive
+              > = isActive && !isMobile
                 ? {
                     drag: "x" as const,
                     dragConstraints: { left: 0, right: 0 },

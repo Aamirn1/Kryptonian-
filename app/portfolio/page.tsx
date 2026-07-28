@@ -393,30 +393,30 @@ export default function PortfolioPage() {
                         </div>
                       </div>
 
-                      {/* Tags & Link */}
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex gap-2 min-w-0 overflow-hidden">
-                          {caseStudy.tags.slice(0, 2).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg whitespace-nowrap shrink-0"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        {caseStudy.projectUrl && (
-                          <a
-                            href={caseStudy.projectUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-[#281000] hover:text-white transition-colors"
+                      {/* Tags */}
+                      <div className="flex gap-2 mb-4">
+                        {caseStudy.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-zinc-100 text-black text-xs rounded-lg whitespace-nowrap shrink-0"
                           >
-                            View Project
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* View Project Button */}
+                      {caseStudy.projectUrl && (
+                        <a
+                          href={caseStudy.projectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-full text-xs hover:bg-[#281000] hover:text-white transition-colors"
+                        >
+                          View Project
                             <ArrowRight className="w-3.5 h-3.5" />
                           </a>
                         )}
-                      </div>
                     </div>
                   </div>
                 ))}
