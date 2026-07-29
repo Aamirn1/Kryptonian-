@@ -72,7 +72,10 @@ body {
     color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Elegant transition for all themed elements */
+/* Elegant transition for all themed elements — NOTE: transform is
+   intentionally EXCLUDED here because it conflicts with GSAP's inline
+   transforms (gsap.set should be instant, not transitioned). Card zoom
+   hover uses its own transition-all class via Tailwind. */
 path,
 div,
 section,
@@ -91,7 +94,7 @@ h4,
 p,
 a {
   transition-property:
-    background-color, border-color, color, fill, stroke, box-shadow, transform, opacity;
+    background-color, border-color, color, fill, stroke, box-shadow, opacity;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

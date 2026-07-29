@@ -115,6 +115,7 @@ export default function Services() {
           duration: 0.8,
           stagger: 0.12,
           ease: "power2.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: ".services-grid",
             start: "top 75%",
@@ -165,7 +166,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card-item group flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 transition-all duration-300"
+              className="service-card-item group flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-6 p-8 bg-white/80 border border-[#cb6ce6]/30 rounded-3xl hover:bg-white hover:border-primary/30 hover:scale-105 transition-all duration-300 ease-out"
             >
               {/* Icon — centered on mobile, left on desktop. Tilts on hover
                   like the About page "Our Values" cards. */}

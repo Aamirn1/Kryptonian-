@@ -222,6 +222,7 @@ export default function PortfolioPage() {
           duration: 0.6,
           stagger: 0.15,
           ease: "power2.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: ".process-section",
             start: "top 75%",
