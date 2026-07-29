@@ -97,11 +97,11 @@ const milestones = [
 
 const team = [
   {
-    name: "Muhammad Aamir",
-    role: "Creative Director",
-    bio: "Award-winning designer passionate about brands that challenge industry norms.",
+    name: "Afrasyab",
+    role: "Founder & CEO",
+    bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
     image: "/team/aamir.png",
-    zoom: "1",
+    zoom: "1.15",
   },
   {
     name: "Muhammad Furqan",
@@ -111,11 +111,11 @@ const team = [
     zoom: "1.15",
   },
   {
-    name: "Afrasyab",
-    role: "Founder & CEO",
-    bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
+    name: "Muhammad Aamir",
+    role: "Creative Director",
+    bio: "Award-winning designer passionate about brands that challenge industry norms.",
     image: "/team/afrasyab.png",
-    zoom: "1.15",
+    zoom: "1",
   },
 ];
 
