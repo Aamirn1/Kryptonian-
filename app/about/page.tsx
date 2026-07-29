@@ -100,7 +100,7 @@ const team = [
     name: "Afrasyab",
     role: "Founder & CEO",
     bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
-    image: "/team/sadeed-uddin.jpg",
+    image: "/team/afrasyab.png",
   },
   {
     name: "Muhammad Furqan",
