@@ -93,17 +93,19 @@ export default function Process() {
       });
 
       // Staggered entry for step contents
-      gsap.from(".step-content", {
-        y: 50,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: trigger,
-          start: "center 80%",
-        },
-      });
+      gsap.fromTo(".step-content",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: trigger,
+            start: "top 60%",
+          },
+        });
     }, containerRef);
 
     return () => ctx.revert();
