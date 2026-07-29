@@ -69,15 +69,6 @@ const services = [
     features: ["Competitor Research", "Market Trends", "Audience Insights", "Performance Metrics"],
   },
   {
-    title: "Conversion Growth",
-    description:
-      "Optimizing your digital ecosystem to turn every interaction into a measurable business outcome.",
-    icon: Zap,
-    image: "/services/conversion.png",
-    color: "text-yellow-500",
-    features: ["A/B Testing", "CRO Strategy", "Funnel Optimization", "Analytics Setup"],
-  },
-  {
     title: "Marketing",
     description:
       "Performance-driven paid social campaigns that put your brand in front of the right audience at scale.",

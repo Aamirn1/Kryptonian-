@@ -77,7 +77,19 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Detect desktop vs mobile
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const check = () => setIsDesktop(mq.matches);
+    check();
+    mq.addEventListener("change", check);
+    return () => mq.removeEventListener("change", check);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -96,10 +108,29 @@ export default function Testimonials() {
           },
         }
       );
+
+      // Desktop only: scroll-pinned card cycling
+      if (isDesktop && triggerRef.current) {
+        const totalCards = testimonials.length;
+        ScrollTrigger.create({
+          trigger: triggerRef.current,
+          start: "top top",
+          end: () => `+=${totalCards * 80}%`,
+          pin: true,
+          scrub: 1,
+          onUpdate: (self) => {
+            const idx = Math.min(
+              totalCards - 1,
+              Math.floor(self.progress * totalCards)
+            );
+            setActiveIndex(idx);
+          },
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isDesktop]);
 
   // Close popup on Escape
   useEffect(() => {
@@ -138,15 +169,19 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Auto-advancing card stack */}
-      <div className="flex items-center justify-center px-4 sm:px-6 pb-16">
+      {/* Card stack — scroll-pinned on desktop, auto-advance on mobile */}
+      <div
+        ref={triggerRef}
+        className={isDesktop ? "h-screen flex items-center justify-center px-4 sm:px-6" : "flex items-center justify-center px-4 sm:px-6 pb-16"}
+      >
         <CardStack
           items={testimonials}
           initialIndex={0}
           maxVisible={5}
           overlap={0.5}
           spreadDeg={40}
-          autoAdvance
+          controlledActive={isDesktop ? activeIndex : undefined}
+          autoAdvance={!isDesktop}
           intervalMs={3000}
           pauseOnHover
           showDots
