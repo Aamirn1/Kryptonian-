@@ -91,8 +91,8 @@ h4,
 p,
 a {
   transition-property:
-    background-color, border-color, color, fill, stroke, box-shadow;
-  transition-duration: 0.7s;
+    background-color, border-color, color, fill, stroke, box-shadow, transform, opacity;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
