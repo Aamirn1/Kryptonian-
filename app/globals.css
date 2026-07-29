@@ -10,6 +10,7 @@
   --muted-foreground: #71717a;
   --accent: #cb6be6;
   --border: #e4e4e7;
+  --card: #ffffff;
 }
 
 .dark {
@@ -34,6 +35,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-border: var(--border);
+  --color-card: var(--card);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
