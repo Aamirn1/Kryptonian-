@@ -78,7 +78,7 @@ const services = [
     features: ["Facebook Ads", "Instagram Ads", "TikTok Ads"],
   },
   {
-    title: "E-commerce",
+    title: "E-commerce Management",
     description:
       "End-to-end marketplace and store management to scale your sales across every major platform.",
     icon: ShoppingCart,
