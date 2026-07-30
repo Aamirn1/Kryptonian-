@@ -94,7 +94,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/affiliates/ico"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     ICO
                   </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/affiliates/b-corporation"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     B-Corporation
                   </Link>
@@ -110,7 +110,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/affiliates/gov-uk"
-                    className="text-foreground hover:text-white transition-colors"
+                    className="text-white hover:text-[#281000] transition-colors"
                   >
                     GOV.UK
                   </Link>

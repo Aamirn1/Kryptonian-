@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
+
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function GovUkAffiliatePage() {
   return (
     <>
-      <Navbar />
-      <main className="pt-40 pb-32 px-6 min-h-screen bg-[#fafafa]">
+      
+      <main className="pt-20 pb-32 px-6 min-h-screen bg-[#fafafa]">
         <div className="container mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
             <p className="text-primary font-bold text-sm tracking-widest uppercase">
