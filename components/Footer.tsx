@@ -30,7 +30,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h4 className="font-bold mb-3 uppercase tracking-widest text-sm">
                 Navigation
@@ -82,6 +82,37 @@ export default function Footer() {
                     className="text-white hover:text-[#281000] transition-colors"
                   >
                     Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 uppercase tracking-widest text-sm">
+                Affiliates
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/affiliates/ico"
+                    className="text-foreground hover:text-white transition-colors"
+                  >
+                    ICO
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/affiliates/b-corporation"
+                    className="text-foreground hover:text-white transition-colors"
+                  >
+                    B-Corporation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/affiliates/gov-uk"
+                    className="text-foreground hover:text-white transition-colors"
+                  >
+                    GOV.UK
                   </Link>
                 </li>
               </ul>
