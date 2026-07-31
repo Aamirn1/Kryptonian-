@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "GOV.UK Affiliate",
-  description: "Krypton Digital — GOV.UK registered affiliate.",
-};
 
 export default function GovUkAffiliatePage() {
   return (

@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "ICO Affiliate",
-  description: "Krypton Digital — ICO (Information Commissioner's Office) affiliate.",
-};
 
 export default function ICOAffiliatePage() {
   return (

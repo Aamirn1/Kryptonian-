@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "B-Corporation Affiliate",
-  description: "Krypton Digital — B-Corporation certified affiliate.",
-};
 
 export default function BCorporationAffiliatePage() {
   return (
