@@ -159,9 +159,9 @@ export default function Testimonials() {
             CLIENT SUCCESS STORIES
           </p>
         </div>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase mb-6">
           Trusted By{" "}
-          <span className="text-primary italic">Industry Leaders</span>
+          <span className="text-primary font-normal italic">Industry Leaders</span>
         </h2>
         <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto">
           Don&apos;t just take our word for it. Here&apos;s what our clients

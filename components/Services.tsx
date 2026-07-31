@@ -143,8 +143,8 @@ export default function Services() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="services-header mb-16 text-center">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[0.9] uppercase text-white">
-            Services <span className="text-primary italic">Architected</span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-[0.9] uppercase text-white">
+            Services <span className="text-primary font-normal italic">Architected</span>
           </h2>
           <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto font-medium">
             We don&apos;t just provide services; we build high-performance growth
