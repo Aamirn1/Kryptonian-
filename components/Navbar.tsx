@@ -51,7 +51,7 @@ const NavLink = ({
   );
 };
 
-export default function Navbar() {
+export default function Navbar({ hideSkipLink = false }: { hideSkipLink?: boolean }) {
   const navRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -101,12 +101,14 @@ export default function Navbar() {
   return (
     <>
       {/* Skip to main content link */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-bold"
-      >
-        Skip to main content
-      </a>
+      {!hideSkipLink && (
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-bold"
+        >
+          Skip to main content
+        </a>
+      )}
 
       <header
         ref={navRef}
