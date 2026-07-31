@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "ICO Affiliate",
@@ -13,7 +11,6 @@ export default function ICOAffiliatePage() {
   return (
     <>
       <Navbar />
-      
       <main className="pt-40 pb-32 px-6 min-h-screen bg-[#fafafa]">
         <div className="container mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
@@ -28,15 +25,12 @@ export default function ICOAffiliatePage() {
             Information Commissioner&apos;s Office — We are registered with the
             ICO for data protection compliance.
           </p>
-          <div className="relative w-full max-w-md mx-auto aspect-square">
-            <Image
-              src="/images/affiliates/ico-logo.png"
-              alt="ICO - Information Commissioner's Office"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/affiliates/ico-logo.png"
+            alt="ICO - Information Commissioner's Office"
+            className="w-full h-auto max-w-md mx-auto rounded-2xl"
+          />
         </div>
       </main>
       <Footer />
