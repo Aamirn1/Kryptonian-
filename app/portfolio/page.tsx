@@ -260,9 +260,9 @@ export default function PortfolioPage() {
                   </p>
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 uppercase leading-[0.9]">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 uppercase leading-[0.9]">
                   Results That
-                  <span className="text-primary italic ml-2">Speak</span>
+                  <span className="text-primary font-normal italic ml-2">Speak</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl mx-auto leading-relaxed font-medium">
@@ -433,9 +433,9 @@ export default function PortfolioPage() {
                   <Zap className="w-3 h-3" />
                   Our Process
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase">
                   How We Deliver{" "}
-                  <span className="text-primary italic">Results</span>
+                  <span className="text-primary font-normal italic">Results</span>
                 </h2>
                 <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
                   A proven methodology that consistently drives growth for our
@@ -472,9 +472,9 @@ export default function PortfolioPage() {
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase">
                     Ready to Be Our{" "}
-                    <span className="text-primary italic">Next Success</span>?
+                    <span className="text-primary font-normal italic">Next Success</span>?
                   </h2>
                   <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s discuss how we can achieve similar results for

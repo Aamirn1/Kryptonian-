@@ -77,7 +77,7 @@ export default function CTA() {
 
                         <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-tight text-foreground">
                             LET&apos;S BUILD THE <br />
-                            <span className="text-primary italic">FUTURE</span> TOGETHER
+                            <span className="text-primary font-normal italic">FUTURE</span> TOGETHER
                         </h2>
 
                         <p className="text-muted-foreground text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">

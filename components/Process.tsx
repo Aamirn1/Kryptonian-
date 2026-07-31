@@ -121,7 +121,7 @@ export default function Process() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div className="max-w-xl pointer-events-auto">
               <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground">
-                HOW WE <span className="text-primary italic">WORK</span>
+                HOW WE <span className="text-primary font-normal italic">WORK</span>
               </h2>
               <p className="text-muted text-lg">
                 Our systematic approach ensures every project is delivered with

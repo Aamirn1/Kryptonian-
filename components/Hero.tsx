@@ -229,7 +229,7 @@ export default function Hero() {
             <div className="overflow-hidden mb-1">
               <span
                 ref={titlePart1Ref}
-                className="block text-5xl md:text-7xl lg:text-8xl font-black text-foreground tracking-tighter leading-[0.9] uppercase"
+                className="block text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tighter leading-[0.9] uppercase"
               >
                 Exponential
               </span>
@@ -237,7 +237,7 @@ export default function Hero() {
             <div className="overflow-hidden mb-8">
               <span
                 ref={titlePart2Ref}
-                className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase text-primary italic"
+                className="block text-5xl md:text-7xl lg:text-8xl font-normal tracking-tighter leading-[0.9] uppercase text-primary italic"
               >
                 Growth
               </span>

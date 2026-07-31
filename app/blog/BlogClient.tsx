@@ -89,9 +89,9 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
                   Blog
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 uppercase leading-[0.9]">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 uppercase leading-[0.9]">
                   Insights &{" "}
-                  <span className="text-primary italic">Strategies</span>
+                  <span className="text-primary font-normal italic">Strategies</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl mx-auto leading-relaxed font-medium">
@@ -258,9 +258,9 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase">
                     Ready to Grow Your{" "}
-                    <span className="text-primary italic">Business</span>?
+                    <span className="text-primary font-normal italic">Business</span>?
                   </h2>
                   <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s turn these strategies into results for your

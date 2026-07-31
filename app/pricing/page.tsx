@@ -104,7 +104,7 @@ export default function PricingPage() {
               </div>
               <h1
                 ref={titleContainerRef}
-                className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
+                className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden"
               >
                 <span ref={titleLine1Ref} className="inline-block">
                   ELEVATE YOUR
@@ -112,7 +112,7 @@ export default function PricingPage() {
                 <br />
                 <span
                   ref={titleLine2Ref}
-                  className="text-primary italic inline-block"
+                  className="text-primary font-normal italic inline-block"
                 >
                   DIGITAL IMPACT
                 </span>
@@ -250,8 +250,8 @@ export default function PricingPage() {
             {/* Bottom Section */}
             <div className="pricing-header mt-32 text-center p-16 md:p-24 bg-foreground rounded-[4rem] relative overflow-hidden group">
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase leading-none">
-                  NEED A <span className="text-primary italic">CUSTOM</span>{" "}
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter uppercase leading-none">
+                  NEED A <span className="text-primary font-normal italic">CUSTOM</span>{" "}
                   <br />
                   STRATEGY?
                 </h2>

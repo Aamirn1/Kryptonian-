@@ -133,8 +133,8 @@ export default function ServicesPage() {
                 <Zap className="w-4 h-4 text-primary" />
                 <p className="text-primary font-bold text-sm">What We Do</p>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6">
-                Our <span className="text-primary italic">Services</span>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6">
+                Our <span className="text-primary font-normal italic">Services</span>
               </h1>
               <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto">
                 We don&apos;t just provide services — we engineer compounding growth systems built for market dominance.
@@ -198,8 +198,8 @@ export default function ServicesPage() {
           <section className="px-6 mt-32">
             <div className="container mx-auto max-w-4xl">
               <div className="bg-foreground border border-[#cb6ce6]/30 rounded-[3rem] p-12 md:p-20 text-center shadow-lg shadow-black/20 relative overflow-hidden">
-                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6 text-white">
-                  Ready to <span className="text-primary italic">Scale?</span>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 text-white">
+                  Ready to <span className="text-primary font-normal italic">Scale?</span>
                 </h2>
                 <p className="text-white text-lg mb-8 max-w-xl mx-auto">
                   Let&apos;s engineer your next chapter of growth. Initiate scoping today.

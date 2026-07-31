@@ -308,12 +308,12 @@ export default function AboutPage() {
                   </div>
 
                   <div className="overflow-hidden mb-2">
-                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase">
+                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] uppercase">
                       We Build
                     </h1>
                   </div>
                   <div className="overflow-hidden mb-8">
-                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase text-primary italic">
+                    <h1 className="about-hero-title text-5xl md:text-7xl lg:text-8xl font-normal tracking-tighter leading-[0.9] uppercase text-primary italic">
                       Digital Giants
                     </h1>
                   </div>
@@ -359,8 +359,8 @@ export default function AboutPage() {
           <section className="mission-section py-32 px-6">
             <div className="container mx-auto max-w-5xl">
               <div className="mission-content text-center">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-8 uppercase">
-                  Our <span className="text-primary italic">Mission</span>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 uppercase">
+                  Our <span className="text-primary font-normal italic">Mission</span>
                 </h2>
                 <p className="text-xl md:text-2xl text-zinc-500 leading-relaxed max-w-3xl mx-auto font-medium">
                   To democratize enterprise-level digital marketing for
@@ -392,8 +392,8 @@ export default function AboutPage() {
                   <Heart className="w-3 h-3" />
                   What Drives Us
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
-                  Our <span className="text-primary italic">Values</span>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white">
+                  Our <span className="text-primary font-normal italic">Values</span>
                 </h2>
               </div>
 
@@ -426,8 +426,8 @@ export default function AboutPage() {
                   <TrendingUp className="w-3 h-3" />
                   Our Journey
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase">
-                  The <span className="text-primary italic">Timeline</span>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase">
+                  The <span className="text-primary font-normal italic">Timeline</span>
                 </h2>
               </div>
 
@@ -480,8 +480,8 @@ export default function AboutPage() {
                   <Users className="w-3 h-3" />
                   The Team
                 </div>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white mb-6">
-                  Meet The <span className="text-primary italic">Experts</span>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-white mb-6">
+                  Meet The <span className="text-primary font-normal italic">Experts</span>
                 </h2>
                 <p className="text-white text-lg max-w-2xl mx-auto">
                   A passionate team of strategists, creatives, and technologists
@@ -526,9 +526,9 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-4xl">
               <div className="relative p-12 md:p-20 bg-foreground rounded-[3rem] overflow-hidden text-center">
                 <div className="relative z-10">
-                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">
+                  <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6 uppercase">
                     Ready To Join{" "}
-                    <span className="text-primary italic">Forces?</span>
+                    <span className="text-primary font-normal italic">Forces?</span>
                   </h2>
                   <p className="text-white text-lg md:text-xl max-w-2xl mx-auto mb-10">
                     Let&apos;s discuss how we can accelerate your digital growth and

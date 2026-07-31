@@ -185,11 +185,11 @@ function ContactPageInner() {
           <div className="container mx-auto max-w-6xl">
             <h1
               ref={titleRef}
-              className="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden text-center mb-20"
+              className="text-6xl md:text-8xl font-bold tracking-tighter mb-2 uppercase leading-[0.9] overflow-hidden text-center mb-20"
             >
               <span className="inline-block">LET&apos;S CREATE</span>
               <br />
-              <span className="text-primary italic inline-block">
+              <span className="text-primary font-normal italic inline-block">
                 SOMETHING EPIC
               </span>
             </h1>

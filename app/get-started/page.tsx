@@ -53,9 +53,9 @@ export default function GetStartedPage() {
             </Link>
 
             <div className="intro-content mb-24 max-w-3xl">
-              <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 uppercase">
                 Ready to <br />
-                <span className="text-primary italic">Engage?</span>
+                <span className="text-primary font-normal italic">Engage?</span>
               </h1>
               <p className="text-xl text-zinc-500 leading-relaxed">
                 You&apos;re one step away from transforming your digital presence.
