@@ -101,21 +101,21 @@ const team = [
     role: "Founder & CEO",
     bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
     image: "/team/afrasyab.png",
-    zoom: "1.1",
+    objPos: "top center",
   },
   {
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
     image: "/team/furqan-new.png",
-    zoom: "1.1",
+    objPos: "top center",
   },
   {
     name: "Muhammad Aamir",
     role: "Creative Director",
     bio: "Award-winning designer passionate about brands that challenge industry norms.",
     image: "/team/aamir.png",
-    zoom: "1.1",
+    objPos: "top center",
   },
 ];
 
@@ -502,7 +502,7 @@ export default function AboutPage() {
                           alt={member.name}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          style={{ objectPosition: "top center" }}
+                          style={{ objectPosition: member.objPos }}
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
                       </div>
