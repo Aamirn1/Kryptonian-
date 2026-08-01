@@ -100,22 +100,22 @@ const team = [
     name: "Afrasyab",
     role: "Founder & CEO",
     bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
-    image: "/team/aamir.png",
-    zoom: "1.15",
+    image: "/team/afrasyab.png",
+    zoom: "1.3",
   },
   {
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
     image: "/team/furqan-new.png",
-    zoom: "1.15",
+    zoom: "1.3",
   },
   {
     name: "Muhammad Aamir",
     role: "Creative Director",
     bio: "Award-winning designer passionate about brands that challenge industry norms.",
-    image: "/team/afrasyab.png",
-    zoom: "1",
+    image: "/team/aamir.png",
+    zoom: "1.3",
   },
 ];
 

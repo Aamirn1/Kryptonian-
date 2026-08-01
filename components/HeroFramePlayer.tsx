@@ -67,12 +67,14 @@ export default function HeroFramePlayer({
   }, [frameCount, fps, basePath, prefix]);
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      ref={imgRef}
-      alt=""
-      className={`w-full h-full object-contain ${className}`}
-      aria-hidden="true"
-    />
+    <div className={`w-full h-full overflow-hidden rounded-[2rem] ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={imgRef}
+        alt=""
+        className="w-full h-full object-cover"
+        aria-hidden="true"
+      />
+    </div>
   );
 }
