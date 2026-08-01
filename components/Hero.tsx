@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import { Zap, Target, BarChart3 } from "lucide-react";
 
 import ThreeNexus from "./ThreeNexus";
+import HeroFramePlayer from "./HeroFramePlayer";
 
 const HERO_PARTS = [
-  { id: "main", src: "/hero-images/main-bg.webp", className: "w-[75%] z-10" },
   {
     id: "star1",
     src: "/hero-images/Star-1.png",
@@ -280,11 +280,23 @@ export default function Hero() {
 
             {/* Parts for assembly - These now form the final permanent visual */}
             <div className="relative w-full h-full flex items-center justify-center">
+              {/* Frame player (replaces main-bg.webp) — plays frames fast like a video */}
+              <div
+                ref={(el) => { partsRef.current[0] = el; }}
+                className="absolute w-[75%] h-full flex items-center justify-center z-10"
+              >
+                <HeroFramePlayer
+                  frameCount={300}
+                  fps={30}
+                  basePath="/hero-frames"
+                  prefix="ezgif-frame-"
+                />
+              </div>
               {HERO_PARTS.map((part, index) => (
                 <div
                   key={part.id}
                   ref={(el) => {
-                    partsRef.current[index] = el;
+                    partsRef.current[index + 1] = el;
                   }}
                   className={`absolute ${part.className} flex items-center justify-center drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]`}
                 >
@@ -306,7 +318,7 @@ export default function Hero() {
                   <div
                     key={card.id}
                     ref={(el) => {
-                      partsRef.current[HERO_PARTS.length + index] = el;
+                      partsRef.current[HERO_PARTS.length + index + 1] = el;
                     }}
                     className={`absolute ${card.className}`}
                   >
