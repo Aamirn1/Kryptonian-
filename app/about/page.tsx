@@ -107,7 +107,7 @@ const team = [
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
-    image: "/team/furqan-new.png",
+    image: "/team/furqan-v6.png",
     objPos: "top center",
   },
   {
@@ -496,7 +496,7 @@ export default function AboutPage() {
                     className="team-card group text-center"
                   >
                     <div className="relative mb-6 overflow-hidden rounded-4xl mx-auto max-w-xs">
-                      <div className="bg-zinc-800 relative" style={{ aspectRatio: "3 / 4" }}>
+                      <div className="bg-zinc-800 relative" style={{ aspectRatio: "4 / 5" }}>
                         <Image
                           src={member.image}
                           alt={member.name}
