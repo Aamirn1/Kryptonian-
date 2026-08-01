@@ -101,21 +101,21 @@ const team = [
     role: "Founder & CEO",
     bio: "Former Google strategist with 10+ years scaling digital operations for enterprise brands.",
     image: "/team/afrasyab.png",
-    zoom: "1.3",
+    zoom: "1.1",
   },
   {
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
     image: "/team/furqan-new.png",
-    zoom: "1.3",
+    zoom: "1.1",
   },
   {
     name: "Muhammad Aamir",
     role: "Creative Director",
     bio: "Award-winning designer passionate about brands that challenge industry norms.",
     image: "/team/aamir.png",
-    zoom: "1.3",
+    zoom: "1.1",
   },
 ];
 
@@ -496,13 +496,14 @@ export default function AboutPage() {
                     className="team-card group text-center"
                   >
                     <div className="relative mb-6 overflow-hidden rounded-4xl mx-auto max-w-xs">
-                      <div className="aspect-square bg-zinc-800 relative">
+                      <div className="bg-zinc-800 relative" style={{ aspectRatio: "3 / 4" }}>
                         <Image
                           src={member.image}
                           alt={member.name}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          style={{ transform: `scale(${member.zoom})` }}
+                          style={{ objectPosition: "top center" }}
+                          sizes="(max-width: 768px) 100vw, 33vw"
                         />
                       </div>
                     </div>
