@@ -34,7 +34,7 @@ export default function BlogClient({ initialPosts, categories }: BlogClientProps
       : initialPosts.filter((post) => post.category === activeCategory);
 
   const featuredPost = initialPosts[0];
-  const recentPosts = filteredPosts.slice(0, 6);
+  const recentPosts = filteredPosts.slice(0, 12);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
