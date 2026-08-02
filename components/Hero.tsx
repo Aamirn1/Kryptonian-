@@ -283,7 +283,8 @@ export default function Hero() {
               {/* Frame player (replaces main-bg.webp) — plays frames fast like a video */}
               <div
                 ref={(el) => { partsRef.current[0] = el; }}
-                className="absolute w-[75%] h-full flex items-center justify-center z-10"
+                className="absolute h-full flex items-center justify-center z-10"
+                style={{ aspectRatio: "9 / 16" }}
               >
                 <HeroFramePlayer
                   frameCount={300}

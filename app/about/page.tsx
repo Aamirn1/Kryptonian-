@@ -107,7 +107,7 @@ const team = [
     name: "Muhammad Furqan",
     role: "Head of SEO",
     bio: "Technical SEO expert who has driven 300%+ organic growth for e-commerce brands.",
-    image: "/team/furqan-v6.png",
+    image: "/team/furqan-v8.png",
     objPos: "top center",
   },
   {

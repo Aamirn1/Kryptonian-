@@ -116,7 +116,7 @@ export default function HeroFramePlayer({
       <img
         ref={imgRef}
         alt=""
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
         aria-hidden="true"
         style={{ opacity: ready ? 1 : 0, transition: "opacity 0.3s" }}
       />
